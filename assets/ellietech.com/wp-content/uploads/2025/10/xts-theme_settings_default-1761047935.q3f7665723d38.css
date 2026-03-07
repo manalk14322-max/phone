@@ -1,0 +1,151 @@
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: "woodmart-font";
+	src: url("//www.ellietech.com/wp-content/themes/woodmart/fonts/woodmart-font-2-400.woff2?v=8.2.2") format("woff2");
+}
+
+@font-face {
+	font-family: "star";
+	font-weight: 400;
+	font-style: normal;
+	src: url("//www.ellietech.com/wp-content/plugins/woocommerce/assets/fonts/star.eot?#iefix") format("embedded-opentype"), url("//www.ellietech.com/wp-content/plugins/woocommerce/assets/fonts/star.woff") format("woff"), url("//www.ellietech.com/wp-content/plugins/woocommerce/assets/fonts/star.ttf") format("truetype"), url("//www.ellietech.com/wp-content/plugins/woocommerce/assets/fonts/star.svg#star") format("svg");
+}
+
+@font-face {
+	font-family: "WooCommerce";
+	font-weight: 400;
+	font-style: normal;
+	src: url("//www.ellietech.com/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.eot?#iefix") format("embedded-opentype"), url("//www.ellietech.com/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.woff") format("woff"), url("//www.ellietech.com/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.ttf") format("truetype"), url("//www.ellietech.com/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.svg#WooCommerce") format("svg");
+}
+
+:root {
+	--wd-text-font: "Open Sans", Arial, Helvetica, sans-serif;
+	--wd-text-font-weight: 400;
+	--wd-text-color: #777777;
+	--wd-text-font-size: 15px;
+	--wd-title-font: "Lexend Deca", Arial, Helvetica, sans-serif;
+	--wd-title-font-weight: 500;
+	--wd-title-color: #242424;
+	--wd-entities-title-font: "Lexend Deca", Arial, Helvetica, sans-serif;
+	--wd-entities-title-font-weight: 500;
+	--wd-entities-title-color: #333333;
+	--wd-entities-title-color-hover: rgb(51 51 51 / 65%);
+	--wd-alternative-font: "Lexend Deca", Arial, Helvetica, sans-serif;
+	--wd-widget-title-font: "Lexend Deca", Arial, Helvetica, sans-serif;
+	--wd-widget-title-font-weight: 500;
+	--wd-widget-title-transform: capitalize;
+	--wd-widget-title-color: #333;
+	--wd-widget-title-font-size: 16px;
+	--wd-header-el-font: "Open Sans", Arial, Helvetica, sans-serif;
+	--wd-header-el-font-weight: 600;
+	--wd-header-el-transform: capitalize;
+	--wd-header-el-font-size: 13px;
+	--wd-brd-radius: 10px;
+	--wd-primary-color: rgb(28,97,231);
+	--wd-alternative-color: rgba(28,97,231,0.2);
+	--wd-link-color: #333333;
+	--wd-link-color-hover: #242424;
+	--btn-default-bgcolor: rgb(225,235,255);
+	--btn-default-bgcolor-hover: rgb(219,227,249);
+	--btn-default-color: rgb(28,97,231);
+	--btn-default-color-hover: rgb(28,97,231);
+	--btn-accented-bgcolor: rgb(28,97,231);
+	--btn-accented-bgcolor-hover: rgb(28,97,231);
+	--btn-transform: capitalize;
+	--wd-form-brd-width: 1px;
+	--notices-success-bg: #459647;
+	--notices-success-color: #fff;
+	--notices-warning-bg: #E0B252;
+	--notices-warning-color: #fff;
+}
+.wd-popup.wd-age-verify {
+	--wd-popup-width: 500px;
+}
+.wd-popup.wd-promo-popup {
+	background-color: rgb(0,0,0);
+	background-image: url(https://www.ellietech.com/wp-content/uploads/2023/07/promo-1000-×-769-像素-1.jpg);
+	background-repeat: no-repeat;
+	background-size: inherit;
+	background-position: center center;
+	--wd-popup-width: 1000px;
+}
+:is(.woodmart-archive-shop .wd-builder-off,.wd-wishlist-content,.related-and-upsells,.cart-collaterals,.wd-shop-product,.wd-fbt) .wd-products-with-bg, :is(.woodmart-archive-shop .wd-builder-off,.wd-wishlist-content,.related-and-upsells,.cart-collaterals,.wd-shop-product,.wd-fbt) .wd-products-with-bg :is(.wd-product,.wd-cat) {
+	--wd-prod-bg:rgb(255,255,255);
+	--wd-bordered-bg:rgb(255,255,255);
+}
+:is(.woodmart-woocommerce-layered-nav, .wd-product-category-filter) .wd-scroll-content {
+	max-height: 223px;
+}
+.wd-page-title {
+	background-color: rgb(28,97,231);
+	background-image: none;
+	background-size: cover;
+	background-position: center center;
+}
+.wd-footer {
+	background-color: #ffffff;
+	background-image: none;
+}
+html .wd-nav-mobile > li > a {
+	text-transform: capitalize;
+}
+html .post.wd-post:not(.blog-design-small) .wd-entities-title {
+	font-size: 18px;
+}
+.page .wd-page-content {
+	background-color: rgb(246,246,246);
+	background-image: none;
+}
+.woodmart-archive-shop:not(.single-product) .wd-page-content {
+	background-color: rgb(246,246,246);
+	background-image: none;
+}
+.woodmart-archive-blog .wd-page-content {
+	background-color: rgb(246,246,246);
+	background-image: none;
+}
+html .wd-buy-now-btn {
+	background: rgb(107,163,49);
+}
+html .wd-buy-now-btn:hover {
+	background: rgb(95,158,44);
+}
+body, [class*=color-scheme-light], [class*=color-scheme-dark], .wd-search-form[class*="wd-header-search-form"] form.searchform, .wd-el-search .searchform {
+	--wd-form-bg: rgb(255,255,255);
+}
+.wd-popup.popup-quick-view {
+	--wd-popup-width: 920px;
+}
+:root{
+--wd-container-w: 1400px;
+--wd-form-brd-radius: 5px;
+--btn-accented-color: #fff;
+--btn-accented-color-hover: #fff;
+--btn-default-brd-radius: 5px;
+--btn-default-box-shadow: none;
+--btn-default-box-shadow-hover: none;
+--btn-accented-brd-radius: 5px;
+--btn-accented-box-shadow: none;
+--btn-accented-box-shadow-hover: none;
+}
+
+@media (min-width: 1400px) {
+[data-vc-full-width]:not([data-vc-stretch-content]),
+:is(.vc_section, .vc_row).wd-section-stretch {
+padding-left: calc((100vw - 1400px - var(--wd-sticky-nav-w) - var(--wd-scroll-w)) / 2);
+padding-right: calc((100vw - 1400px - var(--wd-sticky-nav-w) - var(--wd-scroll-w)) / 2);
+}
+}
+
+
+.wd-close-side {
+    background-color: transparent !important;
+}
+form.checkout_coupon.woocommerce-form-coupon {
+display: block !important;
+}
+
+.woocommerce-form-coupon-toggle {
+display: none;
+}

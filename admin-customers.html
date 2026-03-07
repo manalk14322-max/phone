@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" translate="no" class="notranslate">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google" content="notranslate" />
+  <title>Admin Customers | The World Mobile</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container bar">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="The World Mobile" />
+        <span>The World Mobile</span>
+      </a>
+      <div class="lang-switch" aria-label="Language switch">
+        <button type="button" data-lang="es">ES</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a class="special-back" href="index.html" data-en="Back to Home" data-es="Volver al Inicio">Back to Home</a>
+    </div>
+  </header>
+
+  <main class="container page-main">
+    <section class="page-hero">
+      <p class="page-kicker">Admin Panel</p>
+      <h1>Saved Customer Contacts</h1>
+      <p>Local browser stored contacts from signup/login system.</p>
+    </section>
+
+    <section class="admin-actions">
+      <button id="admin-clear" class="btn">Clear All Contacts</button>
+    </section>
+
+    <section class="admin-table-wrap">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Source</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="admin-customers-body"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom-row">
+      <p>© 2026 The World Mobile. Todos los derechos reservados.</p>
+      <p class="group-credit">Website by <a href="#">KK group of companies</a></p>
+    </div>
+  </footer>
+
+  <script src="site-pages.js"></script>
+  <script src="lang-switch.js"></script>
+</body>
+</html>

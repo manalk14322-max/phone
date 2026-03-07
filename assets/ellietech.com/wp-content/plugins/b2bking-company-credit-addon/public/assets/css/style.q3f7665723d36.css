@@ -1,0 +1,103 @@
+/*
+*
+* TABLE OF CONTENTS:
+* 1. General
+* 2. Company Credit Shortcode (My Account)
+*
+*/
+/* 1. General */
+.b2bkingcredit_icon_tab{
+	display: inline-block;
+    width: 15px;
+}
+/* 2. Company Credit Shortcode (My Account) */
+.b2bking_companycredit_title{
+    font-family: Roboto;
+    font-size: 25px;
+    color: #373737;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+div#b2bking_companycredit_header_container {
+    width: 100%;
+    background: #F9F9F9;
+    min-height: 80px;
+    display: block;
+    border-radius: 6px;
+    padding: 10px;
+    border: 1px solid #f0f0f0;
+    padding-left:25px;
+}
+.b2bking_companycredit_header_element {
+    display: inline-block;
+    margin-right: 80px;
+}
+.b2bking_companycredit_header_element_title {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #898989;
+}
+.b2bking_companycredit_header_element_balance {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 42px;
+    color: #474747;
+}
+div#b2bking_company_credit_history_table_wrapper {
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 14px;
+    background: #fff;
+    border: 1.5px solid #eee;
+    border-radius: 5px;
+}
+#b2bking_company_credit_history_table_filter input {
+    border-radius: 4px;
+    box-shadow: none;
+    height: 33px;
+}
+table#b2bking_company_credit_history_table {
+    padding-top: 19px;
+    padding-bottom: 13px;
+    width: 100%;
+}
+input#b2bking_reimburse_amount_input, input#b2bking_redeem_amount_input {
+    background: #F9F9F9;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #E5E5E5;
+    border-right: 0px;
+    box-sizing: border-box;
+    box-shadow: none;
+    border-radius: 6px 0px 0px 6px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    height: 40px;
+    line-height: 30px;
+    min-width: 260px;
+    color: #A5A5A5;
+}
+input#b2bking_reimburse_amount_input::placeholder, input#b2bking_redeem_amount_input::placeholder{
+    color: #A5A5A5;
+}
+div#b2bking_reimburse_button_container, div#b2bking_redeem_button_container {
+    margin-top: 20px;
+    display: flex;
+}
+button#b2bking_reimburse_amount_button, button#b2bking_redeem_amount_button {
+    background: #64BFE0;
+    border-radius: 0px 6px 6px 0px;
+    color: #ffffff;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    font-size:15px;
+    font-weight: normal;
+}
+

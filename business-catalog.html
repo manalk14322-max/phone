@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" translate="no" class="notranslate">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google" content="notranslate" />
+  <title>Business Catalog | The World Mobile</title>
+  <meta name="description" content="Business catalog for wholesale and retail mobile accessories." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container bar">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="The World Mobile" />
+        <span>The World Mobile</span>
+      </a>
+      <div class="lang-switch" aria-label="Language switch">
+        <button type="button" data-lang="es">ES</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a class="special-back" href="index.html" data-en="Back to Home" data-es="Volver al Inicio">Back to Home</a>
+    </div>
+  </header>
+
+  <main class="container bc-page">
+    <section class="bc-hero">
+      <p class="bc-kicker">B2B / Retail Program</p>
+      <h1>Business Catalog</h1>
+      <p>Catalogo profesional para mayoristas y tiendas en Espana: fundas, cargadores, audio y accesorios top con rotacion alta.</p>
+    </section>
+
+    <section class="bc-filters">
+      <button class="bc-filter active" data-filter="ALL">Todos</button>
+      <button class="bc-filter" data-filter="FUNDA">Fundas</button>
+      <button class="bc-filter" data-filter="CARGADORES">Cargadores</button>
+      <button class="bc-filter" data-filter="AUDIO">Audio</button>
+      <button class="bc-filter" data-filter="PROTECTORES PANTALLA">Protectores</button>
+      <button class="bc-filter" data-filter="CABLE">Cables</button>
+    </section>
+
+    <section class="bc-grid" id="bc-grid"></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom-row">
+      <p>© 2026 The World Mobile. Todos los derechos reservados.</p>
+      <p class="group-credit">Website by <a href="#">KK group of companies</a></p>
+    </div>
+  </footer>
+
+  <script src="business-catalog.js"></script>
+  <script src="lang-switch.js"></script>
+</body>
+</html>
