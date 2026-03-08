@@ -162,11 +162,13 @@
       .map(
         (c) => `
         <button type="button" class="category-card" data-filter-card="${c.key}">
-          <img src="${esc(pickCategoryImage(c.key))}" alt="${esc(c.label)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
-          <span class="overlay">
+          <div class="category-media">
+            <img src="${esc(pickCategoryImage(c.key))}" alt="${esc(c.label)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
+          </div>
+          <div class="category-title-row">
             <h3>${esc(c.label)}</h3>
             <span>Explore</span>
-          </span>
+          </div>
         </button>`
       )
       .join("");
