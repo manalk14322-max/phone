@@ -65,16 +65,16 @@
     const widget = document.createElement("div");
     widget.id = "twm-chat-widget";
     widget.innerHTML = `
-      <button class="twm-chat-fab" id="twm-chat-fab" type="button" aria-label="Open chat">Messages</button>
+      <div class="twm-fab-stack">
+        <a class="twm-wa-fab" href="https://wa.me/923185756022?text=Hello%20The%20World%20Mobile,%20I%20want%20product%20details." target="_blank" rel="noopener" aria-label="Open WhatsApp chat">✆</a>
+        <button class="twm-chat-fab" id="twm-chat-fab" type="button" aria-label="Open chat">Messages</button>
+      </div>
       <aside class="twm-chat-panel" id="twm-chat-panel" aria-hidden="true">
         <header class="twm-chat-head">
           <strong>The World Mobile Chat</strong>
           <button class="twm-chat-close" id="twm-chat-close" type="button" aria-label="Close">x</button>
         </header>
         <div class="twm-chat-body" id="twm-chat-body"></div>
-        <div class="twm-chat-actions">
-          <a class="twm-wa-btn" href="https://wa.me/923185756022?text=Hello%20The%20World%20Mobile,%20I%20want%20product%20details." target="_blank" rel="noopener">WhatsApp 03185756022</a>
-        </div>
         <form class="twm-chat-form" id="twm-chat-form">
           <input id="twm-chat-input" type="text" placeholder="Type your message..." autocomplete="off" />
           <button type="submit">Send</button>
