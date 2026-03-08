@@ -1,8 +1,9 @@
-(() => {
+﻿(() => {
   const urlKey = new URLSearchParams(window.location.search).get("cat");
   const bodyKey = document.body?.dataset?.cat;
   const key = String(urlKey || bodyKey || "ALL").trim().toUpperCase();
   const CART_KEY = "twm_cart_modern_v1";
+  const PRODUCTS_CACHE_KEY = "twm_products_cache_v2";
 
   const els = {
     title: document.getElementById("cat-title"),
@@ -10,6 +11,13 @@
     search: document.getElementById("cat-search"),
     count: document.getElementById("cat-count"),
     grid: document.getElementById("cat-grid"),
+    loadMore: document.getElementById("cat-load-more"),
+  };
+
+  const state = {
+    base: [],
+    filtered: [],
+    visible: 24,
   };
 
   function esc(v) {
@@ -24,6 +32,51 @@
   function priceText(v) {
     const s = String(v || "").trim();
     return s || "Wholesale Price";
+  }
+
+  function getPageSize() {
+    return window.innerWidth <= 680 ? 12 : 24;
+  }
+
+  function debounce(fn, wait = 220) {
+    let timer = null;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => fn(...args), wait);
+    };
+  }
+
+  function readProductsCache() {
+    try {
+      const data = JSON.parse(sessionStorage.getItem(PRODUCTS_CACHE_KEY) || "null");
+      return Array.isArray(data) ? data : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function writeProductsCache(products) {
+    try {
+      sessionStorage.setItem(PRODUCTS_CACHE_KEY, JSON.stringify(products));
+    } catch {
+      // Ignore storage quota issues
+    }
+  }
+
+  function ensureLoadButton() {
+    if (els.loadMore) return els.loadMore;
+    if (!els.grid) return null;
+    const wrap = document.createElement("div");
+    wrap.className = "load-wrap";
+    const btn = document.createElement("button");
+    btn.id = "cat-load-more";
+    btn.type = "button";
+    btn.className = "btn";
+    btn.textContent = "Load More";
+    wrap.appendChild(btn);
+    els.grid.insertAdjacentElement("afterend", wrap);
+    els.loadMore = btn;
+    return btn;
   }
 
   function normalizeCategory(v) {
@@ -56,7 +109,6 @@
           "CABLE",
           "AUDIO",
           "SOPORTE",
-          "INFORMÁTICA",
           "INFORMATICA",
           "GADGETS",
           "TARJETA MEMORIAS",
@@ -99,7 +151,8 @@
   }
 
   function render(items) {
-    els.grid.innerHTML = items
+    const visibleItems = items.slice(0, state.visible);
+    els.grid.innerHTML = visibleItems
       .map((p) => {
         const rating = calcRating(p.id);
         return `
@@ -131,7 +184,12 @@
       </article>`;
       })
       .join("");
-    els.count.textContent = `${items.length} items`;
+    els.count.textContent = `${visibleItems.length} / ${items.length} items`;
+
+    const loadBtn = ensureLoadButton();
+    if (loadBtn) {
+      loadBtn.style.display = state.visible < items.length ? "inline-block" : "none";
+    }
   }
 
   function titleByKey(filterKey) {
@@ -146,20 +204,40 @@
   }
 
   async function init() {
-    const res = await fetch("products.json", { cache: "no-store" });
-    const loaded = await res.json();
-    const all = (Array.isArray(loaded) ? loaded : []).filter((p) => !isBlockedBrand(p));
-    const base = all.filter((p) => isMatchByFilter(p, key));
+    state.visible = getPageSize();
+    const cached = readProductsCache();
+    const allSource = cached
+      ? cached
+      : await (async () => {
+          const res = await fetch("products.json", { cache: "force-cache" });
+          const loaded = await res.json();
+          const normalized = Array.isArray(loaded) ? loaded : [];
+          writeProductsCache(normalized);
+          return normalized;
+        })();
+    const all = allSource.filter((p) => !isBlockedBrand(p));
+    state.base = all.filter((p) => isMatchByFilter(p, key));
+    state.filtered = state.base.slice();
     const title = titleByKey(key);
 
     els.title.textContent = title;
     els.sub.textContent = `Browse products in ${title}.`;
-    render(base);
+    render(state.filtered);
 
-    els.search.addEventListener("input", (e) => {
+    const onSearch = debounce((e) => {
       const q = String(e.target.value || "").trim().toLowerCase();
-      const filtered = !q ? base : base.filter((p) => String(p.name || "").toLowerCase().includes(q));
-      render(filtered);
+      state.visible = getPageSize();
+      state.filtered = !q
+        ? state.base
+        : state.base.filter((p) => String(p.name || "").toLowerCase().includes(q));
+      render(state.filtered);
+    }, 220);
+    els.search.addEventListener("input", onSearch);
+
+    const loadBtn = ensureLoadButton();
+    loadBtn?.addEventListener("click", () => {
+      state.visible += getPageSize();
+      render(state.filtered);
     });
 
     document.addEventListener("click", (e) => {
@@ -185,3 +263,4 @@
     els.grid.innerHTML = "<p>Failed to load category products.</p>";
   });
 })();
+

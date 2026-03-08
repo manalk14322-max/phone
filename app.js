@@ -5,11 +5,13 @@
     activeFilter: "ALL",
     query: "",
     cart: [],
+    visibleCount: 24,
   };
 
   const KEYS = {
     cart: "twm_cart_modern_v1",
     orders: "twm_orders_modern_v1",
+    productsCache: "twm_products_cache_v2",
   };
 
   const els = {
@@ -45,6 +47,10 @@
       .replace(/'/g, "&#39;");
   }
 
+  function getPageSize() {
+    return window.innerWidth <= 680 ? 12 : 24;
+  }
+
   function readJson(key, fallback) {
     try {
       const value = JSON.parse(localStorage.getItem(key) || "null");
@@ -56,6 +62,47 @@
 
   function saveJson(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  function readProductsCache() {
+    try {
+      const data = JSON.parse(sessionStorage.getItem(KEYS.productsCache) || "null");
+      return Array.isArray(data) ? data : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function writeProductsCache(products) {
+    try {
+      sessionStorage.setItem(KEYS.productsCache, JSON.stringify(products));
+    } catch {
+      // Ignore storage quota issues on low-end devices
+    }
+  }
+
+  function debounce(fn, wait = 220) {
+    let timer = null;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => fn(...args), wait);
+    };
+  }
+
+  function ensureProductsLoadButton() {
+    let btn = document.getElementById("products-load-more");
+    if (btn) return btn;
+    if (!els.productGrid) return null;
+    const wrap = document.createElement("div");
+    wrap.className = "load-wrap";
+    btn = document.createElement("button");
+    btn.id = "products-load-more";
+    btn.type = "button";
+    btn.className = "btn";
+    btn.textContent = "Load More";
+    wrap.appendChild(btn);
+    els.productGrid.insertAdjacentElement("afterend", wrap);
+    return btn;
   }
 
   function parsePrice(raw) {
@@ -137,8 +184,14 @@
   }
 
   function renderProducts() {
-    els.productGrid.innerHTML = state.filtered.map(productCard).join("");
-    els.resultChip.textContent = `${state.filtered.length} products`;
+    const visibleItems = state.filtered.slice(0, state.visibleCount);
+    els.productGrid.innerHTML = visibleItems.map(productCard).join("");
+    els.resultChip.textContent = `${visibleItems.length} / ${state.filtered.length} products`;
+
+    const loadBtn = ensureProductsLoadButton();
+    if (loadBtn) {
+      loadBtn.style.display = state.visibleCount < state.filtered.length ? "inline-block" : "none";
+    }
   }
 
   function renderBestSelling() {
@@ -186,7 +239,8 @@
       .join("");
   }
 
-  function applyFilters() {
+  function applyFilters(resetVisible = true) {
+    if (resetVisible) state.visibleCount = getPageSize();
     const q = state.query.trim().toLowerCase();
     state.filtered = state.products.filter((p) => {
       if (!isMatchByFilter(p, state.activeFilter)) return false;
@@ -362,14 +416,14 @@
         const key = nav.dataset.filter || "ALL";
         state.activeFilter = key;
         setActiveNav(key);
-        applyFilters();
+        applyFilters(true);
       }
 
       const card = e.target.closest("[data-filter-card]");
       if (card) {
         state.activeFilter = card.getAttribute("data-filter-card") || "ALL";
         setActiveNav(state.activeFilter);
-        applyFilters();
+        applyFilters(true);
         document.getElementById("products")?.scrollIntoView({ behavior: "smooth", block: "start" });
       }
 
@@ -407,9 +461,16 @@
       if (url) window.location.href = url;
     });
 
-    els.search?.addEventListener("input", (e) => {
+    const onSearchInput = debounce((e) => {
       state.query = String(e.target.value || "");
-      applyFilters();
+      applyFilters(true);
+    }, 220);
+    els.search?.addEventListener("input", onSearchInput);
+
+    const loadBtn = ensureProductsLoadButton();
+    loadBtn?.addEventListener("click", () => {
+      state.visibleCount += getPageSize();
+      renderProducts();
     });
 
     els.cartBtn?.addEventListener("click", openCart);
@@ -449,12 +510,20 @@
   async function init() {
     bindEvents();
     initHeroSlider();
+    state.visibleCount = getPageSize();
     state.cart = readCart();
     renderCart();
 
-    const res = await fetch("products.json", { cache: "no-store" });
-    const data = await res.json();
-    state.products = (Array.isArray(data) ? data : []).filter((p) => !isBlockedBrand(p));
+    const cached = readProductsCache();
+    if (cached) {
+      state.products = cached.filter((p) => !isBlockedBrand(p));
+    } else {
+      const res = await fetch("products.json", { cache: "force-cache" });
+      const data = await res.json();
+      const normalized = Array.isArray(data) ? data : [];
+      writeProductsCache(normalized);
+      state.products = normalized.filter((p) => !isBlockedBrand(p));
+    }
 
     renderCategoryCards();
     applyFilters();

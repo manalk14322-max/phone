@@ -2,6 +2,7 @@
   const pid = new URLSearchParams(window.location.search).get("pid");
   const root = document.getElementById("product-detail");
   const CART_KEY = "twm_cart_modern_v1";
+  const PRODUCTS_CACHE_KEY = "twm_products_cache_v2";
 
   function esc(v) {
     return String(v)
@@ -23,6 +24,23 @@
 
   function saveJson(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  function readProductsCache() {
+    try {
+      const data = JSON.parse(sessionStorage.getItem(PRODUCTS_CACHE_KEY) || "null");
+      return Array.isArray(data) ? data : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function writeProductsCache(products) {
+    try {
+      sessionStorage.setItem(PRODUCTS_CACHE_KEY, JSON.stringify(products));
+    } catch {
+      // Ignore storage quota issues
+    }
   }
 
   function priceText(v) {
@@ -229,9 +247,17 @@
     }
 
     bindActions();
-    const res = await fetch("products.json", { cache: "no-store" });
-    const all = await res.json();
-    const items = (Array.isArray(all) ? all : []).filter((p) => !isBlockedBrand(p));
+    const cached = readProductsCache();
+    const allSource = cached
+      ? cached
+      : await (async () => {
+          const res = await fetch("products.json", { cache: "force-cache" });
+          const loaded = await res.json();
+          const normalized = Array.isArray(loaded) ? loaded : [];
+          writeProductsCache(normalized);
+          return normalized;
+        })();
+    const items = allSource.filter((p) => !isBlockedBrand(p));
     const product = items.find((x) => String(x.id) === String(pid));
     if (!product) {
       renderNotFound();

@@ -29,6 +29,24 @@ function isBlockedBrand(product) {
 }
 
 const CART_KEY = "twm_cart_modern_v1";
+const PRODUCTS_CACHE_KEY = "twm_products_cache_v2";
+
+function readProductsCache() {
+  try {
+    const data = JSON.parse(sessionStorage.getItem(PRODUCTS_CACHE_KEY) || "null");
+    return Array.isArray(data) ? data : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeProductsCache(products) {
+  try {
+    sessionStorage.setItem(PRODUCTS_CACHE_KEY, JSON.stringify(products));
+  } catch {
+    // Ignore storage quota issues
+  }
+}
 
 function addToCart(item) {
   const cart = (() => {
@@ -86,9 +104,14 @@ function renderCard(p, withOffer = false) {
     </article>`;
 }
 async function loadProducts() {
-  const res = await fetch("products.json", { cache: "no-store" });
+  const cached = readProductsCache();
+  if (cached) return cached.filter((p) => !isBlockedBrand(p));
+
+  const res = await fetch("products.json", { cache: "force-cache" });
   const data = await res.json();
-  return (Array.isArray(data) ? data : []).filter((p) => !isBlockedBrand(p));
+  const normalized = Array.isArray(data) ? data : [];
+  writeProductsCache(normalized);
+  return normalized.filter((p) => !isBlockedBrand(p));
 }
 
 async function initStorePage() {
@@ -112,10 +135,14 @@ async function initStorePage() {
   }
 
   if (search) {
+    let timer = null;
     search.addEventListener("input", (e) => {
-      q = (e.target.value || "").trim().toLowerCase();
-      visible = 48;
-      render();
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        q = (e.target.value || "").trim().toLowerCase();
+        visible = 48;
+        render();
+      }, 220);
     });
   }
   if (loadBtn) {
