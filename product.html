@@ -1,39 +1,40 @@
 ﻿<!doctype html>
-<html lang="en" translate="no" class="notranslate">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google" content="notranslate" />
   <title>Product Detail | The World Mobile</title>
-  <link rel="stylesheet" href="styles.css?v=20260308-11" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20260308-16" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container bar">
+  <header class="nav-wrap">
+    <div class="container nav-shell">
       <a class="brand" href="index.html">
         <img src="logo.png" alt="The World Mobile" />
         <span>The World Mobile</span>
       </a>
-      <nav class="top-nav" aria-label="Main navigation">
-        <a href="store.html">Store</a>
-        <a href="contacto.html">Nuestro Contacto</a>
-        <a href="novedades.html">NOVEDADES</a>
-        <a href="oferta.html">OFERTA</a>
+
+      <nav class="nav-links open" aria-label="Primary">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#products">Products</a>
+        <a href="index.html#shop-category">Categories</a>
+        <a href="index.html#best-selling">Best Selling</a>
       </nav>
-      <div class="lang-switch" aria-label="Language switch">
-        <button type="button" data-lang="es">ES</button>
-        <button type="button" data-lang="en">EN</button>
+
+      <div class="nav-actions">
+        <a href="index.html#products" class="product-back-btn">Back to Products</a>
       </div>
-      <a class="profile-btn" href="index.html" aria-label="Home">âŒ‚</a>
     </div>
   </header>
 
-  <main class="container page-main">
+  <main class="container product-page-main">
     <section class="product-detail" id="product-detail"></section>
   </main>
 
-  <script src="product.js?v=20260308-11"></script>
-  <script src="lang-switch.js?v=20260308-11"></script>
+  <script src="product.js?v=20260308-16"></script>
 </body>
 </html>
 

@@ -95,15 +95,20 @@
     return `${full}${empty}`;
   }
 
+  function productDetailUrl(product) {
+    return `product.html?pid=${encodeURIComponent(product.id)}`;
+  }
+
   function productCard(product) {
     const rating = calcRating(product.id);
+    const detailUrl = productDetailUrl(product);
     return `
-      <article class="product-card">
-        <div class="product-media">
+      <article class="product-card" data-product-url="${esc(detailUrl)}" tabindex="0" role="link" aria-label="Open ${esc(product.name)}">
+        <a class="product-media product-media-link" href="${esc(detailUrl)}" aria-label="View details for ${esc(product.name)}">
           <img src="${esc(product.image)}" alt="${esc(product.name)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
-        </div>
+        </a>
         <div class="product-body">
-          <h3 class="product-title">${esc(product.name)}</h3>
+          <h3 class="product-title"><a class="product-title-link" href="${esc(detailUrl)}">${esc(product.name)}</a></h3>
           <div class="rating-row">
             <span class="stars">${starRow(rating)}</span>
             <span class="rating-value">${rating.toFixed(1)}</span>
@@ -120,6 +125,7 @@
               data-image="${esc(product.image)}"
               data-category="${esc(product.category || "ACCESSORY")}">Add to Cart</button>
           </div>
+          <a class="view-details-link" href="${esc(detailUrl)}">View details</a>
         </div>
       </article>`;
   }
@@ -372,11 +378,27 @@
         });
       }
 
+      const productCardEl = e.target.closest(".product-card[data-product-url]");
+      if (productCardEl && !e.target.closest("a,button,input,textarea,select,label")) {
+        const url = productCardEl.getAttribute("data-product-url");
+        if (url) window.location.href = url;
+      }
+
       const q = e.target.closest("[data-qty]");
       if (q) adjustQty(q.getAttribute("data-id"), q.getAttribute("data-qty"));
 
       const rem = e.target.closest("[data-remove]");
       if (rem) removeFromCart(rem.getAttribute("data-remove"));
+    });
+
+    document.addEventListener("keydown", (e) => {
+      const card = e.target.closest?.(".product-card[data-product-url]");
+      if (!card) return;
+      if (e.key !== "Enter" && e.key !== " ") return;
+      if (e.target.closest("a,button,input,textarea,select,label")) return;
+      e.preventDefault();
+      const url = card.getAttribute("data-product-url");
+      if (url) window.location.href = url;
     });
 
     els.search?.addEventListener("input", (e) => {
