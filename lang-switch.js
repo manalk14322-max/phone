@@ -523,15 +523,67 @@
     };
   }
 
+  function initVisualBoost() {
+    document.body.classList.add("twm-premium");
+
+    const header = document.querySelector(".site-header");
+    if (header && !document.querySelector(".twm-topline")) {
+      const strip = document.createElement("div");
+      strip.className = "twm-topline";
+      strip.innerHTML = `
+        <div class="twm-topline-track">
+          <span>Entrega 24h en Espana</span>
+          <span>Atencion mayorista profesional</span>
+          <span>Pagos seguros y soporte rapido</span>
+          <span>Nuevos accesorios cada semana</span>
+          <span>Envio premium para tiendas y retail</span>
+          <span>Entrega 24h en Espana</span>
+          <span>Atencion mayorista profesional</span>
+          <span>Pagos seguros y soporte rapido</span>
+          <span>Nuevos accesorios cada semana</span>
+          <span>Envio premium para tiendas y retail</span>
+        </div>
+      `;
+      header.insertAdjacentElement("afterend", strip);
+    }
+
+    const targets = document.querySelectorAll(
+      "main > section, .contact-card, .pd-wrap, .flash-sale, .daraz-categories, .fan-collabs, .case-studio, .accessory-lab, .fundas-spotlight, .accessory-premium, .store-locator"
+    );
+
+    targets.forEach((el) => el.classList.add("twm-reveal"));
+
+    if (!("IntersectionObserver" in window)) {
+      targets.forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    targets.forEach((el) => io.observe(el));
+  }
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
       initLanguageSwitch();
       initSupportChat();
       initCommerce();
+      initVisualBoost();
     }, { once: true });
   } else {
     initLanguageSwitch();
     initSupportChat();
     initCommerce();
+    initVisualBoost();
   }
 })();
