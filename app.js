@@ -105,6 +105,42 @@
     return btn;
   }
 
+  let revealObserver = null;
+
+  function refreshRevealTargets() {
+    const targets = document.querySelectorAll(
+      ".hero-grid, .section, .category-card, .product-card, .trust-item, .newsletter-box"
+    );
+    targets.forEach((el) => {
+      if (!el.classList.contains("reveal-item")) {
+        el.classList.add("reveal-item");
+      }
+      if (!revealObserver) {
+        el.classList.add("in-view");
+      } else {
+        revealObserver.observe(el);
+      }
+    });
+  }
+
+  function initRevealAnimations() {
+    if (!("IntersectionObserver" in window)) {
+      refreshRevealTargets();
+      return;
+    }
+    revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("in-view");
+          revealObserver.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.12 }
+    );
+    refreshRevealTargets();
+  }
+
   function parsePrice(raw) {
     const match = String(raw || "").replace(/,/g, ".").match(/(\d+(\.\d+)?)/);
     return match ? Number(match[1]) : 0;
@@ -192,6 +228,7 @@
     if (loadBtn) {
       loadBtn.style.display = state.visibleCount < state.filtered.length ? "inline-block" : "none";
     }
+    refreshRevealTargets();
   }
 
   function renderBestSelling() {
@@ -208,6 +245,7 @@
     }
 
     els.bestGrid.innerHTML = unique.map(productCard).join("");
+    refreshRevealTargets();
   }
 
   function pickCategoryImage(filter) {
@@ -237,6 +275,7 @@
         </a>`
       )
       .join("");
+    refreshRevealTargets();
   }
 
   function applyFilters(resetVisible = true) {
@@ -510,6 +549,7 @@
   async function init() {
     bindEvents();
     initHeroSlider();
+    initRevealAnimations();
     state.visibleCount = getPageSize();
     state.cart = readCart();
     renderCart();
