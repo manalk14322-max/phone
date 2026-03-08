@@ -3658,3 +3658,10 @@ body {
     border: 1px solid rgba(255, 255, 255, .42) !important;
   }
 }
+
+/* Product image fit fix (mobile + desktop): no side crop */
+#product-grid .card img {
+  object-fit: contain !important;
+  background: #ffffff;
+  padding: 6px;
+}
