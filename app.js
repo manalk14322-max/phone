@@ -304,16 +304,28 @@ function renderProducts() {
   els.grid.innerHTML = visibleItems
     .map(
       (p) => `
-      <a class="card-link" href="product.html?pid=${encodeURIComponent(p.id)}">
-        <article class="card">
+      <article class="card">
+        <a class="card-link" href="product.html?pid=${encodeURIComponent(p.id)}">
           <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
-          <div class="card-body">
-            <h3>${escapeHtml(p.name)}</h3>
-            <p class="meta">${escapeHtml(p.category)}</p>
-            <div class="price">${escapeHtml(priceText(p.price))}</div>
+        </a>
+        <div class="card-body">
+          <h3><a class="card-title-link" href="product.html?pid=${encodeURIComponent(p.id)}">${escapeHtml(p.name)}</a></h3>
+          <p class="meta">${escapeHtml(p.category)}</p>
+          <div class="price">${escapeHtml(priceText(p.price))}</div>
+          <div class="card-actions">
+            <a class="mini-link" href="product.html?pid=${encodeURIComponent(p.id)}">View</a>
+            <button
+              type="button"
+              class="mini-cart-btn"
+              data-add-cart="1"
+              data-id="${escapeHtml(p.id)}"
+              data-name="${escapeHtml(p.name)}"
+              data-price="${escapeHtml(priceText(p.price))}"
+              data-image="${escapeHtml(p.image)}"
+              data-category="${escapeHtml(p.category)}">Add to Cart</button>
           </div>
-        </article>
-      </a>`
+        </div>
+      </article>`
     )
     .join("");
 

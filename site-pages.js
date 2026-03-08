@@ -1,4 +1,4 @@
-function esc(v) {
+﻿function esc(v) {
   return String(v)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -15,19 +15,32 @@ function renderCard(p, withOffer = false) {
   const raw = Number(String(priceText(p.price)).replace(/[^\d.,]/g, "").replace(",", "."));
   const sale = Number.isFinite(raw) ? Math.max(raw * 0.82, 0.99).toFixed(2) : null;
   const offer = withOffer
-    ? `<p class="offer-line"><s>${esc(priceText(p.price))}</s> <strong>€${sale || priceText(p.price)}</strong></p>`
+    ? `<p class="offer-line"><s>${esc(priceText(p.price))}</s> <strong>EUR ${sale || priceText(p.price)}</strong></p>`
     : `<div class="price">${esc(priceText(p.price))}</div>`;
   return `
     <article class="card">
-      <img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
+      <a class="card-link" href="product.html?pid=${encodeURIComponent(p.id)}">
+        <img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
+      </a>
       <div class="card-body">
-        <h3>${esc(p.name)}</h3>
+        <h3><a class="card-title-link" href="product.html?pid=${encodeURIComponent(p.id)}">${esc(p.name)}</a></h3>
         <p class="meta">${esc(p.category || "PRODUCTO")}</p>
         ${offer}
+        <div class="card-actions">
+          <a class="mini-link" href="product.html?pid=${encodeURIComponent(p.id)}">View</a>
+          <button
+            type="button"
+            class="mini-cart-btn"
+            data-add-cart="1"
+            data-id="${esc(p.id)}"
+            data-name="${esc(p.name)}"
+            data-price="${esc(priceText(p.price))}"
+            data-image="${esc(p.image)}"
+            data-category="${esc(p.category || "PRODUCTO")}">Add to Cart</button>
+        </div>
       </div>
     </article>`;
 }
-
 async function loadProducts() {
   const res = await fetch("products.json", { cache: "no-store" });
   const data = await res.json();
@@ -129,7 +142,49 @@ function initAdminCustomersPage() {
   }
 }
 
+function initAdminOrdersPage() {
+  const body = document.getElementById("admin-orders-body");
+  if (!body) return;
+  const clear = document.getElementById("admin-orders-clear");
+
+  const orders = (() => {
+    try {
+      const o = JSON.parse(localStorage.getItem("twm_orders_v1") || "[]");
+      return Array.isArray(o) ? o : [];
+    } catch {
+      return [];
+    }
+  })();
+
+  body.innerHTML = orders.length
+    ? orders
+        .map((o) => {
+          const c = o.customer || {};
+          const total = Number(o.total || 0).toFixed(2);
+          return `<tr>
+            <td style="padding:8px; border-bottom:1px solid #edf3ff;">${esc(o.orderId || "-")}</td>
+            <td style="padding:8px; border-bottom:1px solid #edf3ff;">${esc(c.name || "-")}</td>
+            <td style="padding:8px; border-bottom:1px solid #edf3ff;">${esc(c.phone || "-")}</td>
+            <td style="padding:8px; border-bottom:1px solid #edf3ff;">${esc(c.city || "-")}</td>
+            <td style="padding:8px; border-bottom:1px solid #edf3ff;">${esc(c.payment || "-")}</td>
+            <td style="padding:8px; border-bottom:1px solid #edf3ff;">EUR ${esc(total)}</td>
+            <td style="padding:8px; border-bottom:1px solid #edf3ff;">${esc(fmtDate(o.createdAt))}</td>
+          </tr>`;
+        })
+        .join("")
+    : '<tr><td colspan="7" style="padding:12px;">No online orders yet.</td></tr>';
+
+  if (clear) {
+    clear.addEventListener("click", () => {
+      localStorage.removeItem("twm_orders_v1");
+      window.location.reload();
+    });
+  }
+}
+
 initStorePage().catch(console.error);
 initNewsPage().catch(console.error);
 initOfferPage().catch(console.error);
 initAdminCustomersPage();
+initAdminOrdersPage();
+

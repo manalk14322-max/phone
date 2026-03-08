@@ -26,16 +26,28 @@
     els.grid.innerHTML = items
       .map(
         (p) => `
-      <a class="card-link" href="product.html?pid=${encodeURIComponent(p.id)}">
-        <article class="card">
+      <article class="card">
+        <a class="card-link" href="product.html?pid=${encodeURIComponent(p.id)}">
           <img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
-          <div class="card-body">
-            <h3>${esc(p.name)}</h3>
-            <p class="meta">${esc(p.category)}</p>
-            <div class="price">${esc(priceText(p.price))}</div>
+        </a>
+        <div class="card-body">
+          <h3><a class="card-title-link" href="product.html?pid=${encodeURIComponent(p.id)}">${esc(p.name)}</a></h3>
+          <p class="meta">${esc(p.category)}</p>
+          <div class="price">${esc(priceText(p.price))}</div>
+          <div class="card-actions">
+            <a class="mini-link" href="product.html?pid=${encodeURIComponent(p.id)}">View</a>
+            <button
+              type="button"
+              class="mini-cart-btn"
+              data-add-cart="1"
+              data-id="${esc(p.id)}"
+              data-name="${esc(p.name)}"
+              data-price="${esc(priceText(p.price))}"
+              data-image="${esc(p.image)}"
+              data-category="${esc(p.category)}">Add to Cart</button>
           </div>
-        </article>
-      </a>`
+        </div>
+      </article>`
       )
       .join("");
     els.count.textContent = `${items.length} items`;
@@ -61,4 +73,3 @@
     els.grid.innerHTML = "<p>Failed to load category products.</p>";
   });
 })();
-

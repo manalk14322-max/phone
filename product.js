@@ -37,6 +37,24 @@
           <div class="pd-price">${esc(priceText(p.price))}</div>
           <p class="pd-desc">Premium quality mobile accessory for retail and wholesale customers in Spain.</p>
           <div class="pd-actions">
+            <button
+              type="button"
+              class="btn-link"
+              data-add-cart="1"
+              data-id="${esc(p.id)}"
+              data-name="${esc(p.name)}"
+              data-price="${esc(priceText(p.price))}"
+              data-image="${esc(p.image)}"
+              data-category="${esc(p.category || "Category")}">Add to Cart</button>
+            <button
+              type="button"
+              class="btn-link"
+              data-buy-now="1"
+              data-id="${esc(p.id)}"
+              data-name="${esc(p.name)}"
+              data-price="${esc(priceText(p.price))}"
+              data-image="${esc(p.image)}"
+              data-category="${esc(p.category || "Category")}">Buy Now</button>
             <a class="btn-link" href="category.html?cat=${encodeURIComponent(p.category || "ALL")}">More in ${esc(p.category || "Category")}</a>
             <a class="btn-link secondary" href="index.html">Back to Home</a>
           </div>
@@ -57,4 +75,3 @@
 
   init().catch(renderNotFound);
 })();
-
