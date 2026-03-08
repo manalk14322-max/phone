@@ -1,0 +1,88 @@
+﻿{
+    "generatedAt":  "2026-03-08T09:32:15",
+    "totalUniqueImages":  1094,
+    "suspiciousImages":  1093,
+    "suspiciousRatio":  99.91,
+    "sampleSuspicious":  [
+                             {
+                                 "image":  "assets/products/123f50aa96dcd99bb5fda697f46c676d.jpg",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/539cfca8fe3d7574cb4783c55b2eca08.jpg",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/06aeab0b5604fe66aef27af3692f5a39.png",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/5371e580dc174115a8054cd3544074d6.jpg",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/b261f63dbf5f6b08019a69aba2bae6a5.jpg",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/02439bcba485392c6a76eadb3c06ad71.avif",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/692c2b9a55bbe43a343e010417a65df1.png",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/dbc31b7123c8e6d12c89c5602807bae5.jpg",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/17ef0c49267261477aa7699546a3f27d.jpg",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/0784ac3d71cdb4b4dab4c884ece53dce.jpg",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/ba2a8541f6cf1f50f80b133b63bc5526.jpg",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/60bc6f382daadee45af15359649c6ea8.jpg",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/9a90fb25ef68c1b6166fd2e4690dbcd1.jpg",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/fb8824d759d6fe32be66f420504dee53.avif",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/59023dc0e245150a0f808b9fc11fbdc2.webp",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/cdb290334491ce26c08464a4ba29ff22.avif",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/b863b0961639d7fe3993e8e1ab2a4ca5.avif",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/6318bf78647f217f67fd4a021a1e1008.jpg",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/6a1b1ce55e23cda7bbfeea596dc54dc5.avif",
+                                 "suspicious":  true
+                             },
+                             {
+                                 "image":  "assets/products/741da40dc3a7ebe006016b3fe6180c8b.avif",
+                                 "suspicious":  true
+                             }
+                         ]
+}
