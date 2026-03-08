@@ -3614,3 +3614,47 @@ body {
   .dc-panel-head { flex-direction: column; align-items: flex-start; }
   .dc-panel-products { grid-template-columns: 1fr; }
 }
+
+/* Final header color correction: Royal Blue + White */
+.site-header {
+  background: linear-gradient(90deg, #0a3d91, #1e63d7) !important;
+  border-bottom: 0 !important;
+  box-shadow: 0 10px 24px rgba(10, 61, 145, .28) !important;
+}
+
+.brand,
+.top-nav a {
+  color: #ffffff !important;
+}
+
+.top-nav a::after {
+  background: rgba(255, 255, 255, .92) !important;
+}
+
+.lang-switch {
+  background: rgba(255, 255, 255, .14) !important;
+  border: 1px solid rgba(255, 255, 255, .42) !important;
+}
+
+.lang-switch button {
+  color: #ffffff !important;
+}
+
+.lang-switch button.active {
+  background: #ffffff !important;
+  color: #0a3d91 !important;
+}
+
+.profile-btn {
+  background: #ffffff !important;
+  color: #0a3d91 !important;
+  border: 0 !important;
+}
+
+@media (max-width: 760px) {
+  .top-nav a {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, .16) !important;
+    border: 1px solid rgba(255, 255, 255, .42) !important;
+  }
+}
