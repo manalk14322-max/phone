@@ -208,7 +208,14 @@
     widget.id = "twm-cart-widget";
     widget.innerHTML = `
       <button class="twm-cart-fab" id="twm-cart-fab" type="button" aria-label="Open cart">
-        Cart <span class="twm-cart-badge" id="twm-cart-badge">0</span>
+        <span class="twm-cart-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="20" r="1"></circle>
+            <circle cx="18" cy="20" r="1"></circle>
+            <path d="M2 3h2l2.2 11.2a2 2 0 0 0 2 1.6h9.9a2 2 0 0 0 2-1.5L22 7H7"></path>
+          </svg>
+        </span>
+        <span class="twm-cart-badge" id="twm-cart-badge">0</span>
       </button>
       <aside class="twm-cart-panel" id="twm-cart-panel" aria-hidden="true">
         <header class="twm-cart-head">
