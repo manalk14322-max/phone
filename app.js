@@ -109,6 +109,7 @@
         </a>
         <div class="product-body">
           <h3 class="product-title"><a class="product-title-link" href="${esc(detailUrl)}">${esc(product.name)}</a></h3>
+          <p class="product-meta-line">${esc(product.category || "CATEGORY")} | SKU ${esc(product.id)}</p>
           <div class="rating-row">
             <span class="stars">${starRow(rating)}</span>
             <span class="rating-value">${rating.toFixed(1)}</span>

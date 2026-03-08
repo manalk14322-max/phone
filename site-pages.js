@@ -11,9 +11,22 @@ function priceText(p) {
   return p && String(p).trim() ? String(p) : "Wholesale Price";
 }
 
+function calcRating(id) {
+  const n = Number(id || 0);
+  return 4 + ((n % 10) / 10);
+}
+
+function starRow(rating) {
+  const rounded = Math.round(rating);
+  const full = "&#9733;".repeat(Math.min(5, Math.max(0, rounded)));
+  const empty = "&#9734;".repeat(Math.max(0, 5 - rounded));
+  return `${full}${empty}`;
+}
+
 function renderCard(p, withOffer = false) {
   const raw = Number(String(priceText(p.price)).replace(/[^\d.,]/g, "").replace(",", "."));
   const sale = Number.isFinite(raw) ? Math.max(raw * 0.82, 0.99).toFixed(2) : null;
+  const rating = calcRating(p.id);
   const offer = withOffer
     ? `<p class="offer-line"><s>${esc(priceText(p.price))}</s> <strong>EUR ${sale || priceText(p.price)}</strong></p>`
     : `<div class="price">${esc(priceText(p.price))}</div>`;
@@ -24,7 +37,11 @@ function renderCard(p, withOffer = false) {
       </a>
       <div class="card-body">
         <h3><a class="card-title-link" href="product.html?pid=${encodeURIComponent(p.id)}">${esc(p.name)}</a></h3>
-        <p class="meta">${esc(p.category || "PRODUCTO")}</p>
+        <p class="meta">${esc(p.category || "PRODUCTO")} | SKU ${esc(p.id)}</p>
+        <div class="rating-row">
+          <span class="stars">${starRow(rating)}</span>
+          <span class="rating-value">${rating.toFixed(1)}</span>
+        </div>
         ${offer}
         <div class="card-actions">
           <a class="mini-link" href="product.html?pid=${encodeURIComponent(p.id)}">View</a>
