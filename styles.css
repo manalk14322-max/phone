@@ -3665,3 +3665,26 @@ body {
   background: #ffffff;
   padding: 6px;
 }
+
+/* Final mobile rescue: prevent squeezed/strip product cards */
+@media (max-width: 760px) {
+  .showcase {
+    grid-template-columns: 1fr !important;
+  }
+  .cat-panel,
+  .product-panel,
+  .grid,
+  .card,
+  .card-link {
+    min-width: 0 !important;
+  }
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+}
