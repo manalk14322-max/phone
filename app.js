@@ -95,6 +95,11 @@
     return `${full}${empty}`;
   }
 
+  function isBlockedBrand(product) {
+    const name = String(product?.name || "");
+    return /(ellie|ellietech)/i.test(name);
+  }
+
   function productDetailUrl(product) {
     return `product.html?pid=${encodeURIComponent(product.id)}`;
   }
@@ -449,7 +454,7 @@
 
     const res = await fetch("products.json", { cache: "no-store" });
     const data = await res.json();
-    state.products = Array.isArray(data) ? data : [];
+    state.products = (Array.isArray(data) ? data : []).filter((p) => !isBlockedBrand(p));
 
     renderCategoryCards();
     applyFilters();

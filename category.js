@@ -22,6 +22,11 @@
     return s || "Wholesale Price";
   }
 
+  function isBlockedBrand(product) {
+    const name = String(product?.name || "");
+    return /(ellie|ellietech)/i.test(name);
+  }
+
   function render(items) {
     els.grid.innerHTML = items
       .map(
@@ -55,7 +60,8 @@
 
   async function init() {
     const res = await fetch("products.json", { cache: "no-store" });
-    const all = await res.json();
+    const loaded = await res.json();
+    const all = (Array.isArray(loaded) ? loaded : []).filter((p) => !isBlockedBrand(p));
     const base = key === "ALL" ? all : all.filter((p) => p.category === key);
 
     els.title.textContent = key === "ALL" ? "All Products" : key;

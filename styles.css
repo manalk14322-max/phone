@@ -390,6 +390,8 @@ a {
 }
 
 .product-card {
+  display: flex;
+  flex-direction: column;
   border-radius: 18px;
   border: 1px solid #d8e5fb;
   background: #fff;
@@ -404,8 +406,10 @@ a {
 }
 
 .product-media {
+  display: block;
+  width: 100%;
   background: #f3f8ff;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
 }
 
@@ -425,6 +429,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  flex: 1;
 }
 
 .product-title {

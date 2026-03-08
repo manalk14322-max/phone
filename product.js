@@ -42,6 +42,11 @@
     return `${full}${empty}`;
   }
 
+  function isBlockedBrand(product) {
+    const name = String(product?.name || "");
+    return /(ellie|ellietech)/i.test(name);
+  }
+
   function detectBrand(name) {
     const source = String(name || "").toLowerCase();
     if (/iphone|apple/.test(source)) return "Apple";
@@ -226,7 +231,7 @@
     bindActions();
     const res = await fetch("products.json", { cache: "no-store" });
     const all = await res.json();
-    const items = Array.isArray(all) ? all : [];
+    const items = (Array.isArray(all) ? all : []).filter((p) => !isBlockedBrand(p));
     const product = items.find((x) => String(x.id) === String(pid));
     if (!product) {
       renderNotFound();

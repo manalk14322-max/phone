@@ -23,6 +23,11 @@ function starRow(rating) {
   return `${full}${empty}`;
 }
 
+function isBlockedBrand(product) {
+  const name = String(product?.name || "");
+  return /(ellie|ellietech)/i.test(name);
+}
+
 function renderCard(p, withOffer = false) {
   const raw = Number(String(priceText(p.price)).replace(/[^\d.,]/g, "").replace(",", "."));
   const sale = Number.isFinite(raw) ? Math.max(raw * 0.82, 0.99).toFixed(2) : null;
@@ -61,7 +66,7 @@ function renderCard(p, withOffer = false) {
 async function loadProducts() {
   const res = await fetch("products.json", { cache: "no-store" });
   const data = await res.json();
-  return Array.isArray(data) ? data : [];
+  return (Array.isArray(data) ? data : []).filter((p) => !isBlockedBrand(p));
 }
 
 async function initStorePage() {
