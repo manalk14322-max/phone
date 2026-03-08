@@ -406,8 +406,21 @@
     });
   }
 
+  function initHeroSlider() {
+    const slides = Array.from(document.querySelectorAll("#hero-slider .hero-slide"));
+    if (slides.length < 2) return;
+
+    let idx = 0;
+    setInterval(() => {
+      slides[idx].classList.remove("active");
+      idx = (idx + 1) % slides.length;
+      slides[idx].classList.add("active");
+    }, 5000);
+  }
+
   async function init() {
     bindEvents();
+    initHeroSlider();
     state.cart = readCart();
     renderCart();
 
