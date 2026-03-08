@@ -546,9 +546,44 @@
     }, 5000);
   }
 
+  function initHeroParallax() {
+    const hero = document.querySelector(".hero-grid");
+    if (!hero) return;
+    if (window.matchMedia("(max-width: 900px)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let frame = null;
+    let tx = 0;
+    let ty = 0;
+
+    const apply = () => {
+      frame = null;
+      hero.style.setProperty("--parallax-x", `${tx}px`);
+      hero.style.setProperty("--parallax-y", `${ty}px`);
+    };
+
+    hero.addEventListener("pointermove", (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const nx = (x / rect.width - 0.5) * 14;
+      const ny = (y / rect.height - 0.5) * 14;
+      tx = Number.isFinite(nx) ? nx : 0;
+      ty = Number.isFinite(ny) ? ny : 0;
+      if (!frame) frame = requestAnimationFrame(apply);
+    });
+
+    hero.addEventListener("pointerleave", () => {
+      tx = 0;
+      ty = 0;
+      if (!frame) frame = requestAnimationFrame(apply);
+    });
+  }
+
   async function init() {
     bindEvents();
     initHeroSlider();
+    initHeroParallax();
     initRevealAnimations();
     state.visibleCount = getPageSize();
     state.cart = readCart();

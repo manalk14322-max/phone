@@ -243,6 +243,8 @@ a {
 }
 
 .hero-grid {
+  --parallax-x: 0px;
+  --parallax-y: 0px;
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: 30px;
@@ -254,6 +256,12 @@ a {
     radial-gradient(circle at 20% 12%, rgba(30, 99, 215, 0.2), transparent 36%),
     linear-gradient(120deg, #062860 0%, #0a3d91 52%, #1f6ee6 100%);
   box-shadow: var(--shadow-soft);
+}
+
+.hero-copy {
+  transform: translate3d(calc(var(--parallax-x) * -0.25), calc(var(--parallax-y) * -0.2), 0);
+  transition: transform 0.28s ease;
+  will-change: transform;
 }
 
 .hero-badges {
@@ -349,6 +357,9 @@ a {
 }
 
 .hero-media {
+  transform: translate3d(calc(var(--parallax-x) * 0.35), calc(var(--parallax-y) * 0.3), 0);
+  transition: transform 0.28s ease;
+  will-change: transform;
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.4);
@@ -1309,9 +1320,11 @@ a {
   right: 0;
   width: min(420px, 94vw);
   height: 100vh;
-  background: #fff;
-  border-left: 1px solid #d7e4fb;
-  box-shadow: -20px 0 36px rgba(9, 44, 109, 0.2);
+  background: linear-gradient(165deg, rgba(9, 39, 92, 0.74), rgba(16, 55, 120, 0.64));
+  border-left: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: -20px 0 40px rgba(2, 14, 43, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   transform: translateX(104%);
   transition: transform 0.24s ease;
   z-index: 120;
@@ -1329,7 +1342,8 @@ a {
   align-items: center;
   justify-content: space-between;
   color: #fff;
-  background: linear-gradient(135deg, var(--blue-800), var(--blue-700));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
 }
 
 .drawer-head h3 {
@@ -1352,13 +1366,16 @@ a {
 }
 
 .cart-item {
-  border: 1px solid #d7e5fb;
+  border: 1px solid rgba(255, 255, 255, 0.34);
   border-radius: 12px;
   padding: 8px;
   display: grid;
   grid-template-columns: 70px 1fr;
   gap: 10px;
   margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .cart-item img {
@@ -1416,14 +1433,17 @@ a {
 }
 
 .drawer-foot {
-  border-top: 1px solid #dfe9fa;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
   padding: 12px;
-  background: #f8fbff;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .drawer-foot p {
   margin: 0 0 10px;
-  color: #123b74;
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .drawer-actions {
@@ -1454,7 +1474,7 @@ a {
 .cart-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(3, 16, 42, 0.42);
+  background: radial-gradient(circle at 80% 20%, rgba(49, 120, 245, 0.24), rgba(3, 16, 42, 0.58));
   z-index: 110;
 }
 
@@ -1594,6 +1614,12 @@ a {
   .hero-grid {
     grid-template-columns: 1fr;
     padding: 24px;
+  }
+
+  .hero-copy,
+  .hero-media {
+    transform: none;
+    transition: none;
   }
 
   .hero-stats {
