@@ -1,4 +1,4 @@
-function esc(v) {
+﻿function esc(v) {
   return String(v)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -40,7 +40,7 @@ async function init() {
   const grid = document.getElementById("pf-grid");
   if (!grid) return;
 
-  const res = await fetch("products.json", { cache: "no-store" });
+  const res = await fetch("products.json?v=20260308-27", { cache: "no-store" });
   const data = await res.json();
   const list = Array.isArray(data) ? data : [];
   const featured = pickFeatured(list, 12);
@@ -70,3 +70,4 @@ init().catch((err) => {
   const grid = document.getElementById("pf-grid");
   if (grid) grid.innerHTML = "<p>Failed to load product features.</p>";
 });
+

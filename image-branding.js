@@ -68,6 +68,14 @@
     if (!img || img.dataset.twmBranded === "1") return;
 
     const src = img.currentSrc || img.getAttribute("src") || "";
+    const srcLower = String(src).toLowerCase();
+    if (srcLower.includes("assets/branded-products/")) {
+      const fileName = srcLower.split("/").pop() || "the-world-mobile-product.jpg";
+      img.alt = fileName;
+      img.setAttribute("data-branded-name", fileName);
+      img.dataset.twmBranded = "1";
+      return;
+    }
     const suspicious = looksSuspicious(src, img.alt);
     const wrap = ensureWrap(img);
     if (!wrap) return;
@@ -120,4 +128,3 @@
     init();
   }
 })();
-

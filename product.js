@@ -2,7 +2,7 @@
   const pid = new URLSearchParams(window.location.search).get("pid");
   const root = document.getElementById("product-detail");
   const CART_KEY = "twm_cart_modern_v1";
-  const PRODUCTS_CACHE_KEY = "twm_products_cache_v2";
+  const PRODUCTS_CACHE_KEY = "twm_products_cache_v3";
 
   function esc(v) {
     return String(v)
@@ -251,7 +251,7 @@
     const allSource = cached
       ? cached
       : await (async () => {
-          const res = await fetch("products.json", { cache: "force-cache" });
+          const res = await fetch("products.json?v=20260308-27", { cache: "force-cache" });
           const loaded = await res.json();
           const normalized = Array.isArray(loaded) ? loaded : [];
           writeProductsCache(normalized);
@@ -268,4 +268,6 @@
 
   init().catch(renderNotFound);
 })();
+
+
 

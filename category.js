@@ -3,7 +3,7 @@
   const bodyKey = document.body?.dataset?.cat;
   const key = String(urlKey || bodyKey || "ALL").trim().toUpperCase();
   const CART_KEY = "twm_cart_modern_v1";
-  const PRODUCTS_CACHE_KEY = "twm_products_cache_v2";
+  const PRODUCTS_CACHE_KEY = "twm_products_cache_v3";
 
   const els = {
     title: document.getElementById("cat-title"),
@@ -209,7 +209,7 @@
     const allSource = cached
       ? cached
       : await (async () => {
-          const res = await fetch("products.json", { cache: "force-cache" });
+          const res = await fetch("products.json?v=20260308-27", { cache: "force-cache" });
           const loaded = await res.json();
           const normalized = Array.isArray(loaded) ? loaded : [];
           writeProductsCache(normalized);
@@ -263,4 +263,6 @@
     els.grid.innerHTML = "<p>Failed to load category products.</p>";
   });
 })();
+
+
 

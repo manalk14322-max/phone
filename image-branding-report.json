@@ -1,0 +1,12 @@
+﻿{
+    "generatedAt":  "2026-03-08T10:41:36",
+    "totalProducts":  7340,
+    "uniqueSourceImages":  1094,
+    "createdFromSource":  1050,
+    "fallbackGenerated":  44,
+    "failedSourceRead":  0,
+    "failureSamples":  [
+
+                       ],
+    "outputDirectory":  "assets/branded-products"
+}
