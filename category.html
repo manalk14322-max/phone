@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" translate="no" class="notranslate">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google" content="notranslate" />
+  <title>Category | The World Mobile</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container bar">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="The World Mobile" />
+        <span>The World Mobile</span>
+      </a>
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="store.html">Store</a>
+        <a href="contacto.html">Nuestro Contacto</a>
+        <a href="novedades.html">NOVEDADES</a>
+        <a href="oferta.html">OFERTA</a>
+      </nav>
+      <div class="lang-switch" aria-label="Language switch">
+        <button type="button" data-lang="es">ES</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a class="profile-btn" href="index.html" aria-label="Home">⌂</a>
+    </div>
+  </header>
+
+  <main class="container page-main">
+    <section class="page-hero">
+      <p class="page-kicker">Category Page</p>
+      <h1 id="cat-title">Category</h1>
+      <p id="cat-sub">Browse products in this category.</p>
+    </section>
+
+    <section class="store-tools">
+      <input id="cat-search" type="search" placeholder="Search product..." />
+      <span id="cat-count" class="count-chip">0 items</span>
+    </section>
+
+    <section class="grid" id="cat-grid"></section>
+  </main>
+
+  <script src="category.js"></script>
+  <script src="lang-switch.js"></script>
+</body>
+</html>
+

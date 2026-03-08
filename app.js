@@ -18,6 +18,21 @@ const state = {
   active: "ALL",
   query: "",
   visible: 48,
+  tileOpen: null,
+};
+
+const megaSubcats = {
+  ALL: ["Top Deals", "New Arrivals", "Best Sellers", "Premium Picks", "Wholesale Packs", "Express Delivery"],
+  MARCA: ["Apple", "Samsung", "Xiaomi", "Huawei", "Oppo", "Vivo"],
+  FUNDA: ["MagSafe Cases", "Transparent Cases", "Shockproof", "Leather Style", "Glitter Cases", "Slim Fit"],
+  "PROTECTORES PANTALLA": ["9H Tempered", "Privacy Glass", "Camera Lens", "Matte Film", "HD Clear", "Full Cover"],
+  CARGADORES: ["20W Fast", "USB-C PD", "Wireless", "Car Charger", "Multi-Port", "Travel Adapter"],
+  CABLE: ["Type-C Cable", "Lightning", "Micro USB", "Braided", "2m Length", "Data Sync"],
+  AUDIO: ["TWS Earbuds", "Headphones", "Neckband", "Gaming Audio", "Bluetooth Speaker", "Microphone"],
+  SOPORTE: ["Car Mount", "Desk Stand", "Ring Holder", "Magnetic Holder", "Tripod", "Bike Mount"],
+  "INFORMÁTICA": ["Keyboard", "Mouse", "USB Hub", "Laptop Sleeve", "Cooling Pad", "Storage"],
+  GADGETS: ["Smart Watch", "Mini Fan", "LED Lights", "Phone Trigger", "Camera Tools", "Utility Tech"],
+  "TARJETA MEMORIAS": ["MicroSD 32GB", "MicroSD 64GB", "MicroSD 128GB", "Card Reader", "High Speed", "Class 10"],
 };
 
 const els = {
@@ -34,6 +49,7 @@ const els = {
   heroNext: document.getElementById("hero-next"),
   heroDots: document.getElementById("hero-dots"),
   specialPreviewGrid: document.getElementById("special-preview-grid"),
+  flashGrid: document.getElementById("flash-grid"),
   studioCases: document.getElementById("studio-cases"),
   fundasGrid: document.getElementById("fundas-grid"),
   fanCardA: document.getElementById("fan-card-a"),
@@ -45,6 +61,9 @@ const els = {
   apPower: document.getElementById("ap-power"),
   apCharge: document.getElementById("ap-charge"),
   apAudio: document.getElementById("ap-audio"),
+  catTiles: document.getElementById("cat-tiles"),
+  catTilesPanel: document.getElementById("cat-tiles-panel"),
+  megaMenu: document.getElementById("mega-menu"),
   profileBtn: document.getElementById("profile-btn"),
   authModal: document.getElementById("auth-modal"),
   authClose: document.getElementById("auth-close"),
@@ -66,6 +85,7 @@ const els = {
 
 let heroIdx = 0;
 let heroTimer;
+let megaTimer = null;
 
 const AUTH_KEYS = {
   users: "twm_users_v1",
@@ -96,27 +116,170 @@ function computeCounts(products) {
   return counts;
 }
 
+function pickMegaProducts(key, limit = 4) {
+  const base = key === "ALL" ? state.all : state.all.filter((p) => p.category === key);
+  const picks = [];
+  const seen = new Set();
+  for (const p of base) {
+    if (!p.image || seen.has(p.image)) continue;
+    picks.push(p);
+    seen.add(p.image);
+    if (picks.length >= limit) break;
+  }
+  return picks;
+}
+
+function renderMegaMenu(key) {
+  if (!els.megaMenu) return;
+  const labels = megaSubcats[key] || megaSubcats.ALL;
+  const items = pickMegaProducts(key, 4);
+  const title = key === "ALL" ? "All Categories" : key;
+
+  els.megaMenu.innerHTML = `
+    <div class="mega-head">${escapeHtml(title)}</div>
+    <div class="mega-grid">
+      <div class="mega-links">
+        ${labels.map((l) => `<a href="store.html">${escapeHtml(l)}</a>`).join("")}
+      </div>
+      <div class="mega-products">
+        ${items
+          .map(
+            (p) => `
+          <article class="mega-product">
+            <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
+            <p>${escapeHtml(shortText(p.name, 48))}</p>
+          </article>`
+          )
+          .join("")}
+      </div>
+    </div>
+  `;
+}
+
+function showMegaMenu(key) {
+  if (!els.megaMenu || window.innerWidth <= 980) return;
+  renderMegaMenu(key);
+  els.megaMenu.classList.add("open");
+}
+
+function hideMegaMenuSoon() {
+  if (!els.megaMenu) return;
+  clearTimeout(megaTimer);
+  megaTimer = setTimeout(() => els.megaMenu.classList.remove("open"), 140);
+}
+
 function renderCategories() {
   const counts = computeCounts(state.all);
   els.catList.innerHTML = categories
     .map(
       (c) => `
       <li class="cat-item ${c.key === state.active ? "active" : ""}" data-key="${c.key}">
-        <span class="cat-icon">${c.icon}</span>
-        <span class="cat-name">${c.label}</span>
-        <span class="cat-count">${counts[c.key] || 0}</span>
+        <a class="cat-link" href="${c.key === "ALL" ? "index.html" : `category.html?cat=${encodeURIComponent(c.key)}`}">
+          <span class="cat-icon">${c.icon}</span>
+          <span class="cat-name">${c.label}</span>
+          <span class="cat-count">${counts[c.key] || 0}</span>
+        </a>
       </li>`
     )
     .join("");
 
   els.catList.querySelectorAll(".cat-item").forEach((li) => {
-    li.addEventListener("click", () => {
-      state.active = li.dataset.key;
-      state.visible = 48;
-      applyFilters();
-      renderCategories();
+    const link = li.querySelector(".cat-link");
+    if (link) {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const key = li.dataset.key;
+        if (!key) return;
+        if (state.active === key && key !== "ALL") {
+          state.active = "ALL";
+        } else {
+          state.active = key;
+        }
+        state.visible = 48;
+        applyFilters();
+        renderCategories();
+      });
+    }
+
+    li.addEventListener("mouseenter", () => {
+      clearTimeout(megaTimer);
+      showMegaMenu(li.dataset.key);
+    });
+    li.addEventListener("mouseleave", hideMegaMenuSoon);
+  });
+
+  if (els.megaMenu) {
+    els.megaMenu.onmouseenter = () => clearTimeout(megaTimer);
+    els.megaMenu.onmouseleave = hideMegaMenuSoon;
+  }
+}
+
+function renderCategoryTiles() {
+  if (!els.catTiles) return;
+  const show = categories.filter((c) => c.key !== "ALL");
+  els.catTiles.innerHTML = show
+    .map((c) => {
+      const item = state.all.find((p) => p.category === c.key && p.image) || state.all.find((p) => p.image);
+      const image = item?.image || "1.png";
+      return `
+      <button class="dc-item ${state.tileOpen === c.key ? "active" : ""}" type="button" data-cat="${escapeHtml(c.key)}">
+        <img src="${escapeHtml(image)}" alt="${escapeHtml(c.label)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
+        <span>${escapeHtml(c.label)}</span>
+      </button>`;
+    })
+    .join("");
+
+  els.catTiles.querySelectorAll(".dc-item").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const key = btn.getAttribute("data-cat") || "";
+      if (!key) return;
+      if (state.tileOpen === key) {
+        state.tileOpen = null;
+        renderCategoryTiles();
+        renderCategoryTilesPanel();
+        return;
+      }
+      state.tileOpen = key;
+      renderCategoryTiles();
+      renderCategoryTilesPanel();
     });
   });
+}
+
+function renderCategoryTilesPanel() {
+  if (!els.catTilesPanel) return;
+  if (!state.tileOpen) {
+    els.catTilesPanel.classList.remove("open");
+    els.catTilesPanel.innerHTML = "";
+    return;
+  }
+
+  const key = state.tileOpen;
+  const labels = megaSubcats[key] || [];
+  const products = pickMegaProducts(key, 4);
+  const count = state.all.filter((p) => p.category === key).length;
+
+  els.catTilesPanel.innerHTML = `
+    <div class="dc-panel-head">
+      <h3>${escapeHtml(key)}</h3>
+      <a href="category.html?cat=${encodeURIComponent(key)}">View ${escapeHtml(String(count))} Products</a>
+    </div>
+    <div class="dc-panel-tags">
+      ${labels.map((l) => `<span>${escapeHtml(l)}</span>`).join("")}
+    </div>
+    <div class="dc-panel-products">
+      ${products
+        .map(
+          (p) => `
+        <a class="dc-mini" href="product.html?pid=${encodeURIComponent(p.id)}">
+          <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
+          <p>${escapeHtml(shortText(p.name, 48))}</p>
+        </a>`
+        )
+        .join("")}
+    </div>`;
+
+  els.catTilesPanel.classList.add("open");
 }
 
 function applyFilters() {
@@ -141,14 +304,16 @@ function renderProducts() {
   els.grid.innerHTML = visibleItems
     .map(
       (p) => `
-      <article class="card">
-        <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
-        <div class="card-body">
-          <h3>${escapeHtml(p.name)}</h3>
-          <p class="meta">${escapeHtml(p.category)}</p>
-          <div class="price">${escapeHtml(priceText(p.price))}</div>
-        </div>
-      </article>`
+      <a class="card-link" href="product.html?pid=${encodeURIComponent(p.id)}">
+        <article class="card">
+          <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
+          <div class="card-body">
+            <h3>${escapeHtml(p.name)}</h3>
+            <p class="meta">${escapeHtml(p.category)}</p>
+            <div class="price">${escapeHtml(priceText(p.price))}</div>
+          </div>
+        </article>
+      </a>`
     )
     .join("");
 
@@ -196,6 +361,72 @@ function renderSpecialPreview() {
         </div>
       </article>`
     )
+    .join("");
+}
+
+function extractNumericPrice(raw) {
+  const s = String(raw || "").replace(/,/g, "").match(/(\d+(\.\d+)?)/);
+  return s ? Number(s[1]) : null;
+}
+
+function formatRs(v) {
+  return `Rs.${Math.round(v).toLocaleString("en-US")}`;
+}
+
+function dealPercentFromId(id) {
+  const txt = String(id || "");
+  let h = 0;
+  for (let i = 0; i < txt.length; i += 1) h = (h * 31 + txt.charCodeAt(i)) % 9973;
+  return 10 + (h % 46); // 10%..55%
+}
+
+function pickFlashProducts(items, limit = 6) {
+  const preferred = ["FUNDA", "AUDIO", "CARGADORES", "CABLE", "GADGETS", "PROTECTORES PANTALLA"];
+  const out = [];
+  const seen = new Set();
+
+  for (const cat of preferred) {
+    for (const p of items) {
+      if (p.category !== cat || seen.has(p.id)) continue;
+      out.push(p);
+      seen.add(p.id);
+      break;
+    }
+    if (out.length >= limit) return out;
+  }
+
+  for (const p of items) {
+    if (seen.has(p.id)) continue;
+    out.push(p);
+    seen.add(p.id);
+    if (out.length >= limit) break;
+  }
+  return out;
+}
+
+function renderFlashSale() {
+  if (!els.flashGrid) return;
+  const flash = pickFlashProducts(state.all, 6);
+
+  els.flashGrid.innerHTML = flash
+    .map((p) => {
+      const current = extractNumericPrice(priceText(p.price));
+      const off = dealPercentFromId(p.id);
+      const old = current ? current * (1 + off / 100) : null;
+      const currentText = current ? formatRs(current) : escapeHtml(priceText(p.price));
+      const oldText = old ? formatRs(old) : "";
+
+      return `
+      <article class="flash-card">
+        <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
+        <h3>${escapeHtml(shortText(p.name, 52))}</h3>
+        <div class="flash-price">${currentText}</div>
+        <div class="flash-meta">
+          ${oldText ? `<s>${oldText}</s>` : `<span></span>`}
+          <b>-${off}%</b>
+        </div>
+      </article>`;
+    })
     .join("");
 }
 
@@ -598,6 +829,8 @@ async function init() {
   renderAccessoryCards();
   renderFanBusinessCards();
   renderSpecialPreview();
+  renderCategoryTiles();
+  renderFlashSale();
 }
 
 init().catch((err) => {
