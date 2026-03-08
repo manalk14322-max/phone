@@ -83,7 +83,17 @@
         </form>
       </aside>
     `;
-    document.body.appendChild(widget);
+    const bar = document.querySelector(".site-header .bar");
+    if (bar) {
+      const profile = bar.querySelector("#profile-btn, .profile-btn");
+      if (profile && profile.parentElement === bar) {
+        bar.insertBefore(widget, profile);
+      } else {
+        bar.appendChild(widget);
+      }
+    } else {
+      document.body.appendChild(widget);
+    }
 
     const fab = document.getElementById("twm-chat-fab");
     const panel = document.getElementById("twm-chat-panel");
