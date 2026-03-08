@@ -1,377 +1,206 @@
 ﻿<!doctype html>
-<html lang="en" translate="no" class="notranslate">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google" content="notranslate" />
-  <title>The World Mobile | Premium Catalog</title>
-  <meta name="description" content="The World Mobile premium product catalog." />
-  <link rel="stylesheet" href="styles.css?v=20260308-11" />
+  <title>The World Mobile | Premium Ecommerce Store</title>
+  <meta name="description" content="Modern ecommerce mobile store for Spain customers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20260308-12" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container bar">
-      <a class="brand" href="#">
+  <header class="nav-wrap">
+    <div class="container nav-shell">
+      <a class="brand" href="#home">
         <img src="logo.png" alt="The World Mobile" />
         <span>The World Mobile</span>
       </a>
-      <nav class="top-nav" aria-label="Main navigation">
-        <a href="store.html" data-en="Store" data-es="Tienda">Store</a>
-        <a href="contacto.html" data-en="Our Contact" data-es="Nuestro Contacto">Nuestro Contacto</a>
-        <a href="novedades.html" data-en="News" data-es="Novedades">NOVEDADES</a>
-        <a href="oferta.html" data-en="Offers" data-es="Oferta">OFERTA</a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">Menu</button>
+
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="#home" data-filter="ALL" class="active">Home</a>
+        <a href="#products" data-filter="IPHONE">iPhone</a>
+        <a href="#products" data-filter="SAMSUNG">Samsung</a>
+        <a href="#products" data-filter="XIAOMI">Xiaomi</a>
+        <a href="#products" data-filter="ACCESSORIES">Accessories</a>
       </nav>
-      <div class="lang-switch" aria-label="Language switch">
-        <button type="button" data-lang="es">ES</button>
-        <button type="button" data-lang="en">EN</button>
+
+      <div class="nav-actions">
+        <div class="search-box">
+          <input id="global-search" type="search" placeholder="Search phones, accessories..." />
+        </div>
+
+        <button class="cart-icon-btn" id="cart-btn" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="20" r="1"></circle>
+            <circle cx="18" cy="20" r="1"></circle>
+            <path d="M2 3h2l2.2 11.2a2 2 0 0 0 2 1.6h9.9a2 2 0 0 0 2-1.5L22 7H7"></path>
+          </svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
       </div>
-      <button class="profile-btn" id="profile-btn" aria-label="Profile">User</button>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero-slider" aria-label="Hero slider">
-      <div class="hero-track" id="hero-track">
-        <article class="hero-slide">
-          <img src="1.png" alt="Latest Mobile Accessories" />
-          <div class="hero-overlay"></div>
-          <div class="hero-caption">Latest Mobile Accessories</div>
-        </article>
-        <article class="hero-slide">
-          <img src="2.png" alt="Premium Collection" />
-          <div class="hero-overlay"></div>
-          <div class="hero-caption">Premium Collection</div>
-        </article>
-      </div>
-      <button class="hero-arrow prev" id="hero-prev" aria-label="Previous">&#8249;</button>
-      <button class="hero-arrow next" id="hero-next" aria-label="Next">&#8250;</button>
-      <div class="hero-dots" id="hero-dots"></div>
-    </section>
-
-    <section class="showcase" aria-label="Categories and products">
-      <aside class="cat-panel">
-        <h2 class="cat-head"><i class="menu-bars"><span></span></i> All Categories</h2>
-        <ul class="cat-list" id="cat-list"></ul>
-      </aside>
-      <aside class="mega-menu" id="mega-menu" aria-label="Category mega menu"></aside>
-
-      <section class="product-panel">
-        <div class="product-toolbar">
-        <h2 id="section-title" data-en="All Products" data-es="Todos los Productos">All Products</h2>
-        <div class="controls">
-            <input id="search" type="search" data-en-ph="Search products..." data-es-ph="Buscar productos..." placeholder="Search products..." />
-            <span id="result-count" class="count-chip">0 items</span>
-          </div>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="hero-kicker">Premium Mobile Store in Spain</p>
+          <h1>Latest Smartphones 2026</h1>
+          <p class="hero-sub">Up to 40% Discount</p>
+          <p class="hero-text">Discover flagship phones and trending accessories with fast delivery, secure checkout, and trusted after-sales support.</p>
+          <a href="#products" class="hero-btn">Shop Now</a>
         </div>
-
-        <div class="grid" id="product-grid"></div>
-        <div class="load-wrap">
-          <button id="load-more" class="btn" data-en="Load More" data-es="Ver Mas">Load More</button>
+        <div class="hero-media">
+          <img src="1.png" alt="Latest smartphones" />
         </div>
-      </section>
+      </div>
     </section>
 
-    <section class="daraz-categories" aria-label="Shop by categories">
-      <div class="dc-head">
-        <h2>Categories</h2>
-      </div>
-      <div class="dc-grid" id="cat-tiles"></div>
-      <div class="dc-panel" id="cat-tiles-panel"></div>
-    </section>
-
-    <section class="flash-sale" aria-label="Flash sale deals">
-      <div class="flash-head">
-        <h2>Flash Sale</h2>
-        <a class="flash-all-btn" href="store.html">Shop All Products</a>
-      </div>
-      <p class="flash-sub">On Sale Now</p>
-      <div class="flash-grid" id="flash-grid"></div>
-    </section>
-
-    <section class="case-studio" aria-label="Custom case collection">
-      <div class="studio-head">
-        <p class="studio-kicker" data-en="Professional Catalog" data-es="Catalogo Profesional">Catalogo Profesional</p>
-        <h2 data-en-html="Top-level <span>Cases and Phones</span> for your business" data-es-html="Venta de <span>Fundas y Moviles</span> al mejor nivel">Venta de <span>Fundas y Moviles</span> al mejor nivel</h2>
-        <p class="studio-sub" data-en="Discover high-quality cases, accessories, and smartphones for your store in Spain, with modern style and competitive pricing." data-es="Descubre fundas, accesorios y smartphones de alta calidad para tu tienda en Espana, con estilo moderno y precio competitivo.">Descubre fundas, accesorios y smartphones de alta calidad para tu tienda en Espana, con estilo moderno y precio competitivo.</p>
-        <a class="studio-btn" href="product-features.html" data-en="View Featured Products" data-es="Ver Productos Destacados">Ver Productos Destacados</a>
-      </div>
-
-      <div class="studio-cases" id="studio-cases"></div>
-
-      <div class="special-preview">
-        <div class="special-preview-head">
-          <h3 data-en="Special Products" data-es="Productos Especiales">Special Products</h3>
-          <a class="special-all-btn" href="special-products.html" data-en="View All Special Products" data-es="Ver Todos los Productos Especiales">View All Special Products</a>
+    <section class="section" id="shop-category">
+      <div class="container">
+        <div class="section-head">
+          <h2>Shop by Category</h2>
         </div>
-        <div class="special-preview-grid" id="special-preview-grid"></div>
+        <div class="category-grid" id="category-grid"></div>
       </div>
     </section>
 
-    <section class="fan-collabs" aria-label="Fan and collabs">
-      <div class="fan-copy">
-        <p class="fan-kicker" data-en="Business Solutions" data-es="Soluciones de Negocio">Business Solutions</p>
-        <h2 data-en="Professional Line for Your Business" data-es="Linea Profesional para tu Negocio">Linea Profesional para tu Negocio</h2>
-        <p data-en="Boost your sales with profitable collections for physical and online stores: top models, wholesale packs, and fast stock." data-es="Impulsa tus ventas con colecciones rentables para tienda fisica y online: modelos top, packs mayoristas y stock rapido.">Impulsa tus ventas con colecciones rentables para tienda fisica y online: modelos top, packs mayoristas y stock rapido.</p>
-        <ul class="fan-points">
-          <li>Margen comercial competitivo</li>
-          <li>Modelos de alta rotacion</li>
-          <li>Atencion para retail y mayoristas</li>
-        </ul>
-        <a class="fan-cta" href="business-catalog.html" data-en="View Business Catalog" data-es="Ver Catalogo Business">Ver Catalogo Business</a>
-      </div>
-
-      <div class="fan-cards">
-        <article class="fan-card fan-card-a" id="fan-card-a">
-          <div class="lens"></div>
-          <span>Venta Mayorista</span>
-        </article>
-        <article class="fan-card fan-card-b" id="fan-card-b">
-          <div class="lens"></div>
-          <span>Packs para Retail</span>
-        </article>
-        <article class="fan-card fan-card-c" id="fan-card-c">
-          <div class="lens"></div>
-          <span>Top Productos</span>
-        </article>
-      </div>
-    </section>
-
-    <section class="accessory-lab" aria-label="Best accessories">
-      <div class="acc-head">
-        <h2 data-en-html="We Have the Best <span>Accessories</span> for your mobile" data-es-html="Tenemos los Mejores <span>Accesorios</span> para tu movil">Tenemos los Mejores <span>Accesorios</span> para tu movil</h2>
-        <p data-en="Take care of your device with premium accessories and professional style." data-es="Cuida tu dispositivo con accesorios premium y estilo profesional.">Cuida tu dispositivo con accesorios premium y estilo profesional.</p>
-      </div>
-
-      <div class="acc-filters">
-        <label class="acc-select">
-          <span>Marca</span>
-          <select>
-            <option>Todas las marcas</option>
-            <option>Apple</option>
-            <option>Samsung</option>
-            <option>Xiaomi</option>
-          </select>
-        </label>
-        <label class="acc-select">
-          <span>Modelo</span>
-          <select>
-            <option>Todos los modelos</option>
-            <option>iPhone 15 Pro</option>
-            <option>iPhone 16</option>
-            <option>Galaxy S24</option>
-          </select>
-        </label>
-      </div>
-
-      <div class="acc-visual">
-        <div class="acc-phone"></div>
-        <div class="acc-case acc-case-dark"></div>
-        <div class="acc-case acc-case-pattern"></div>
-      </div>
-    </section>
-
-    <section class="fundas-spotlight" aria-label="Nuestras Fundas">
-      <div class="fundas-head">
-        <h2 data-en-html="Our <span>Cases</span>" data-es-html="Nuestras <span>Fundas</span>">Nuestras <span>Fundas</span></h2>
-        <p data-en="Put your mobile phone in the center of attention." data-es="Pon tu movil en el centro de todas las miradas.">Pon tu movil en el centro de todas las miradas.</p>
-      </div>
-
-      <div class="fundas-layout">
-        <div class="fundas-grid" id="fundas-grid"></div>
-
-        <aside class="fundas-model" aria-hidden="true">
-          <div class="model-girl"></div>
-          <div class="model-silhouette"></div>
-          <div class="model-phone"></div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="accessory-premium" aria-label="Accesorios destacados">
-      <div class="ap-head">
-        <h2 data-en-html="<span>Accessories</span> that elevate your mobile" data-es-html="<span>Accesorios</span> que elevan tu movil"><span>Accesorios</span> que elevan tu movil</h2>
-        <p data-en="Your smartphone deserves premium quality. Discover essential components with modern design and professional performance." data-es="Tu smartphone merece calidad premium. Descubre piezas esenciales con diseno moderno y rendimiento profesional.">Tu smartphone merece calidad premium. Descubre piezas esenciales con diseno moderno y rendimiento profesional.</p>
-      </div>
-
-      <div class="ap-grid">
-        <article class="ap-card ap-cam" id="ap-cam">
-          <img class="ap-photo" src="assets/products/5371e580dc174115a8054cd3544074d6.jpg" alt="Protectores de Camara" loading="lazy" />
-          <span>Protectores de Camara</span>
-        </article>
-        <article class="ap-card ap-strap" id="ap-strap">
-          <img class="ap-photo" src="assets/products/82ca3158f1b4a814f39340c22444b696.jpg" alt="Colgantes y Pulseras" loading="lazy" />
-          <span>Colgantes y Pulseras</span>
-        </article>
-        <article class="ap-card ap-glass" id="ap-glass">
-          <img class="ap-photo" src="assets/products/0784ac3d71cdb4b4dab4c884ece53dce.jpg" alt="Cristales Templados" loading="lazy" />
-          <span>Cristales Templados</span>
-        </article>
-        <article class="ap-card ap-power" id="ap-power">
-          <img class="ap-photo" src="assets/products/396ef4e1443c3b6f4a1c2cc22653cea5.jpg" alt="Power Bank" loading="lazy" />
-          <span>Power Bank</span>
-        </article>
-        <article class="ap-card ap-charge" id="ap-charge">
-          <img class="ap-photo" src="assets/products/0eef1d408c7ce9dc88c9734d85d23212.jpg" alt="Cargadores" loading="lazy" />
-          <span>Cargadores</span>
-        </article>
-        <article class="ap-card ap-audio" id="ap-audio">
-          <img class="ap-photo" src="assets/products/29c1397780f2c32f3416bbaba6af1e30.jpg" alt="Auriculares" loading="lazy" />
-          <span>Auriculares</span>
-        </article>
-      </div>
-    </section>
-
-    <section class="store-locator" aria-label="Store locator">
-      <div class="sl-head">
-        <h2 data-en-html="Find <span>your nearest store</span>" data-es-html="Localiza <span>tu Tienda Mas Cercana</span>">Localiza <span>tu Tienda Mas Cercana</span></h2>
-        <p data-en="Find your nearest branch and pick up your accessories in minutes." data-es="Encuentra nuestra sucursal mas proxima y recoge tus accesorios en minutos.">Encuentra nuestra sucursal mas proxima y recoge tus accesorios en minutos.</p>
-        <a class="sl-btn" href="stores.html" data-en="Find Our Store" data-es="Nuestras Tiendas">Find Our Store</a>
-      </div>
-
-      <div class="sl-visual" aria-hidden="true">
-        <div class="sl-hand sl-hand-left"></div>
-        <div class="sl-hand sl-hand-right"></div>
-        <div class="sl-phone">
-          <div class="sl-notch"></div>
-          <div class="sl-map"></div>
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section-head section-head-row">
+          <h2>All Products</h2>
+          <span class="result-chip" id="result-chip">0 products</span>
         </div>
+        <div class="product-grid" id="product-grid"></div>
+      </div>
+    </section>
+
+    <section class="section best-selling" id="best-selling">
+      <div class="container">
+        <div class="section-head">
+          <h2>Best Selling Phones</h2>
+        </div>
+        <div class="product-grid" id="best-grid"></div>
+      </div>
+    </section>
+
+    <section class="section trust-strip">
+      <div class="container trust-grid">
+        <article class="trust-item">
+          <span class="trust-icon">🚚</span>
+          <h3>Fast Delivery</h3>
+          <p>24h dispatch for ready stock products.</p>
+        </article>
+        <article class="trust-item">
+          <span class="trust-icon">🔒</span>
+          <h3>Secure Payment</h3>
+          <p>Protected checkout and safe transactions.</p>
+        </article>
+        <article class="trust-item">
+          <span class="trust-icon">↩️</span>
+          <h3>Easy Returns</h3>
+          <p>Simple return process with support team.</p>
+        </article>
+        <article class="trust-item">
+          <span class="trust-icon">💬</span>
+          <h3>24/7 Support</h3>
+          <p>Always available by chat and WhatsApp.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section newsletter">
+      <div class="container newsletter-box">
+        <div>
+          <h2>Subscribe for latest deals</h2>
+          <p>Get weekly offers, hot products and stock updates.</p>
+        </div>
+        <form id="newsletter-form" class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-wrap">
-      <section class="foot-brand">
-        <a class="foot-logo" href="#">
-          <img src="logo.png" alt="The World Mobile" />
-          <span>The World Mobile</span>
-        </a>
-        <p>Tu tienda de accesorios moviles en Espana con estilo premium, envio rapido y soporte profesional.</p>
-        <div class="foot-badges">
-          <span>Envio 24/48h</span>
-          <span>Pago Seguro</span>
-          <span>Atencion Pro</span>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>About</h3>
+        <p>The World Mobile is a premium ecommerce store for smartphones and accessories in Spain.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>Phone: 0000000000</p>
+        <p>Email: abc</p>
+        <p>Address: abc</p>
+      </div>
+      <div>
+        <h3>Policies</h3>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+      </div>
+      <div>
+        <h3>Social</h3>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="TikTok">TT</a>
+          <a href="#" aria-label="YouTube">YT</a>
         </div>
-      </section>
-
-      <section class="foot-col">
-        <h3>Contacto</h3>
-        <ul>
-          <li>Telefono: 0000000000</li>
-          <li>Email: abc</li>
-          <li>Direccion: abc</li>
-        </ul>
-      </section>
-
-      <section class="foot-col">
-        <h3>Enlaces Rapidos</h3>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="store.html">Productos</a></li>
-          <li><a href="store.html">Categorias</a></li>
-          <li><a href="novedades.html">Novedades</a></li>
-        </ul>
-      </section>
-
-      <section class="foot-col">
-        <h3>Servicios</h3>
-        <ul>
-          <li>Mayoristas</li>
-          <li>Personalizacion</li>
-          <li>Soporte Tecnico</li>
-          <li>Garantia</li>
-        </ul>
-      </section>
-
-      <section class="foot-news">
-        <h3>Ofertas Semanales</h3>
-        <p>Recibe promociones exclusivas y nuevos lanzamientos.</p>
-        <form class="news-form" action="#" method="post" onsubmit="event.preventDefault();">
-          <input type="email" placeholder="Tu correo electronico" />
-          <button type="submit">Suscribirme</button>
-        </form>
-        <div class="foot-social">
-          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
-          <a href="https://wa.me/340000000000" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
-          <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok">TikTok</a>
-        </div>
-      </section>
+      </div>
     </div>
-
     <div class="footer-bottom">
-      <div class="container footer-bottom-row">
-        <p>© 2026 The World Mobile. Todos los derechos reservados.</p>
-        <p class="group-credit">
-          Website by
-          <a href="contacto.html" aria-label="Group Company Link">KK group of companies</a>
-        </p>
-        <div class="foot-mini-links">
-          <a href="contacto.html">Privacidad</a>
-          <a href="contacto.html">Terminos</a>
-          <a href="contacto.html">Cookies</a>
-        </div>
+      <div class="container">
+        <p>© 2026 The World Mobile. Website by KK group of companies.</p>
       </div>
     </div>
   </footer>
 
-  <div class="auth-modal" id="auth-modal" aria-hidden="true">
-    <div class="auth-box">
-      <button class="auth-close" id="auth-close" aria-label="Close">×</button>
-      <div class="auth-tabs">
-        <button class="auth-tab active" id="tab-login" type="button">Login</button>
-        <button class="auth-tab" id="tab-signup" type="button">Sign Up</button>
+  <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+    <header class="drawer-head">
+      <h3>Your Cart</h3>
+      <button id="cart-close" type="button" aria-label="Close">×</button>
+    </header>
+    <div class="drawer-items" id="cart-items"></div>
+    <footer class="drawer-foot">
+      <p>Subtotal: <strong id="cart-subtotal">EUR 0.00</strong></p>
+      <div class="drawer-actions">
+        <button id="clear-cart" type="button" class="btn-light">Clear</button>
+        <button id="open-checkout" type="button" class="btn-primary">Checkout</button>
       </div>
+    </footer>
+  </aside>
 
-      <form id="login-form" class="auth-form">
-        <h3>Customer Login</h3>
-        <label>Email
-          <input id="login-email" type="email" required placeholder="name@email.com" />
-        </label>
-        <label>Password
-          <input id="login-password" type="password" required placeholder="••••••••" />
-        </label>
-        <button type="submit" class="auth-submit">Login</button>
+  <div class="overlay" id="overlay" hidden></div>
+
+  <div class="checkout-modal" id="checkout-modal" aria-hidden="true">
+    <div class="checkout-box">
+      <button id="checkout-close" class="checkout-close" type="button" aria-label="Close">×</button>
+      <h3>Online Order Checkout</h3>
+      <form id="checkout-form" class="checkout-form">
+        <input id="co-name" type="text" placeholder="Full Name" required />
+        <input id="co-phone" type="text" placeholder="Phone Number" required />
+        <input id="co-email" type="email" placeholder="Email" required />
+        <input id="co-city" type="text" placeholder="City" required />
+        <input id="co-address" type="text" placeholder="Full Address" required />
+        <select id="co-payment" required>
+          <option value="COD">Cash on Delivery</option>
+          <option value="Bank">Bank Transfer</option>
+        </select>
+        <textarea id="co-notes" rows="3" placeholder="Order notes (optional)"></textarea>
+        <button type="submit" class="btn-primary place-order">Place Order</button>
       </form>
-
-      <form id="signup-form" class="auth-form hidden">
-        <h3>Create Account</h3>
-        <label>Full Name
-          <input id="signup-name" type="text" required placeholder="Your name" />
-        </label>
-        <label>Email
-          <input id="signup-email" type="email" required placeholder="name@email.com" />
-        </label>
-        <label>Phone
-          <input id="signup-phone" type="text" required placeholder="+34..." />
-        </label>
-        <label>Password
-          <input id="signup-password" type="password" required placeholder="Min 6 characters" />
-        </label>
-        <button type="submit" class="auth-submit">Create Account</button>
-      </form>
-
-      <div id="auth-session" class="auth-session hidden">
-        <h3 id="auth-welcome">Welcome</h3>
-        <p>Your customer profile is saved for future contact.</p>
-        <button id="logout-btn" class="auth-submit" type="button">Logout</button>
-      </div>
-
-      <p id="auth-msg" class="auth-msg"></p>
+      <p id="checkout-msg" class="checkout-msg"></p>
     </div>
   </div>
 
-  <script src="app.js?v=20260308-11"></script>
-  <script src="lang-switch.js?v=20260308-11"></script>
+  <script src="app.js?v=20260308-12"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
