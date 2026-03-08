@@ -3688,3 +3688,142 @@ body {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* Floating support chat */
+#twm-chat-widget {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 95;
+}
+
+.twm-chat-fab {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 16px;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(10, 61, 145, .28);
+  background: linear-gradient(135deg, #0a3d91, #1e63d7);
+}
+
+.twm-chat-panel {
+  position: absolute;
+  right: 0;
+  bottom: 56px;
+  width: min(360px, 90vw);
+  border: 1px solid #cbdcf6;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 18px 36px rgba(7, 33, 83, .24);
+  display: none;
+}
+
+.twm-chat-panel.open {
+  display: block;
+}
+
+.twm-chat-head {
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  background: linear-gradient(135deg, #0a3d91, #1e63d7);
+}
+
+.twm-chat-close {
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.twm-chat-body {
+  max-height: 280px;
+  overflow: auto;
+  padding: 10px;
+  background: #f7faff;
+}
+
+.twm-msg {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.twm-msg p {
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 10px;
+  max-width: 88%;
+  font-size: .88rem;
+}
+
+.twm-msg.user {
+  justify-content: flex-end;
+}
+
+.twm-msg.user p {
+  color: #fff;
+  background: linear-gradient(135deg, #1e63d7, #0a3d91);
+}
+
+.twm-msg.agent p {
+  color: #133769;
+  background: #eaf2ff;
+}
+
+.twm-chat-actions {
+  padding: 8px 10px 4px;
+}
+
+.twm-wa-btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 9px 10px;
+  color: #fff;
+  font-weight: 800;
+  background: #25d366;
+}
+
+.twm-chat-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  padding: 8px 10px 10px;
+  border-top: 1px solid #e6edf9;
+}
+
+.twm-chat-form input {
+  min-width: 0;
+  border: 1px solid #c6d8f4;
+  border-radius: 9px;
+  padding: 9px 10px;
+  font: inherit;
+}
+
+.twm-chat-form button {
+  border: 0;
+  border-radius: 9px;
+  padding: 9px 12px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff7a00, #f29a3f);
+}
+
+@media (max-width: 480px) {
+  #twm-chat-widget {
+    right: 10px;
+    bottom: 10px;
+  }
+  .twm-chat-fab {
+    padding: 10px 14px;
+    font-size: .85rem;
+  }
+}
