@@ -164,16 +164,16 @@
 
   function renderCategoryCards() {
     const cards = [
-      { key: "IPHONE", label: "iPhone" },
-      { key: "SAMSUNG", label: "Samsung" },
-      { key: "XIAOMI", label: "Xiaomi" },
-      { key: "ACCESSORIES", label: "Accessories" },
+      { key: "IPHONE", label: "iPhone", href: "iphone.html" },
+      { key: "SAMSUNG", label: "Samsung", href: "samsung.html" },
+      { key: "XIAOMI", label: "Xiaomi", href: "xiaomi.html" },
+      { key: "ACCESSORIES", label: "Accessories", href: "accessories.html" },
     ];
 
     els.categoryGrid.innerHTML = cards
       .map(
         (c) => `
-        <button type="button" class="category-card" data-filter-card="${c.key}">
+        <a class="category-card category-page-link" href="${esc(c.href)}" aria-label="Open ${esc(c.label)} category page">
           <div class="category-media">
             <img src="${esc(pickCategoryImage(c.key))}" alt="${esc(c.label)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
           </div>
@@ -181,7 +181,7 @@
             <h3>${esc(c.label)}</h3>
             <span>Explore</span>
           </div>
-        </button>`
+        </a>`
       )
       .join("");
   }

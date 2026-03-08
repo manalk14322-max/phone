@@ -28,6 +28,28 @@ function isBlockedBrand(product) {
   return /(ellie|ellietech)/i.test(name);
 }
 
+const CART_KEY = "twm_cart_modern_v1";
+
+function addToCart(item) {
+  const cart = (() => {
+    try {
+      const c = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+      return Array.isArray(c) ? c : [];
+    } catch {
+      return [];
+    }
+  })();
+
+  const existing = cart.find((x) => String(x.id) === String(item.id));
+  if (existing) {
+    existing.qty = Number(existing.qty || 0) + 1;
+  } else {
+    cart.push({ ...item, qty: 1 });
+  }
+
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+}
+
 function renderCard(p, withOffer = false) {
   const raw = Number(String(priceText(p.price)).replace(/[^\d.,]/g, "").replace(",", "."));
   const sale = Number.isFinite(raw) ? Math.max(raw * 0.82, 0.99).toFixed(2) : null;
@@ -209,4 +231,22 @@ initNewsPage().catch(console.error);
 initOfferPage().catch(console.error);
 initAdminCustomersPage();
 initAdminOrdersPage();
+
+document.addEventListener("click", (e) => {
+  const add = e.target.closest(".mini-cart-btn[data-add-cart]");
+  if (!add) return;
+  addToCart({
+    id: add.getAttribute("data-id") || "",
+    name: add.getAttribute("data-name") || "Product",
+    price: add.getAttribute("data-price") || "EUR 0",
+    image: add.getAttribute("data-image") || "1.png",
+    category: add.getAttribute("data-category") || "Category",
+  });
+  add.textContent = "Added";
+  add.disabled = true;
+  setTimeout(() => {
+    add.textContent = "Add to Cart";
+    add.disabled = false;
+  }, 900);
+});
 

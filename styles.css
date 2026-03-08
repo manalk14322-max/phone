@@ -326,6 +326,7 @@ a {
 }
 
 .category-card {
+  display: block;
   position: relative;
   border-radius: 18px;
   overflow: hidden;
@@ -336,6 +337,8 @@ a {
   background: #fff;
   padding: 10px;
   text-align: left;
+  text-decoration: none;
+  color: inherit;
   transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 

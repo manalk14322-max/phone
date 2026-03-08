@@ -1,13 +1,13 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en" translate="no" class="notranslate">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google" content="notranslate" />
-  <title>Store | The World Mobile</title>
+  <title>Samsung | The World Mobile</title>
   <link rel="stylesheet" href="styles.css?v=20260308-21" />
 </head>
-<body>
+<body data-cat="SAMSUNG">
   <header class="site-header">
     <div class="container bar">
       <a class="brand" href="index.html">
@@ -15,52 +15,42 @@
         <span>The World Mobile</span>
       </a>
       <nav class="top-nav" aria-label="Main navigation">
-        <a href="store.html" data-en="Store" data-es="Tienda">Store</a>
-        <a href="contacto.html" data-en="Our Contact" data-es="Nuestro Contacto">Nuestro Contacto</a>
-        <a href="novedades.html" data-en="News" data-es="Novedades">NOVEDADES</a>
-        <a href="oferta.html" data-en="Offers" data-es="Oferta">OFERTA</a>
+        <a href="index.html">Home</a>
+        <a href="store.html">Store</a>
+        <a href="contacto.html">Our Contact</a>
+        <a href="oferta.html">Offers</a>
       </nav>
       <div class="lang-switch" aria-label="Language switch">
         <button type="button" data-lang="es">ES</button>
         <button type="button" data-lang="en">EN</button>
       </div>
-      <a class="profile-btn" href="admin-customers.html" aria-label="Admin">ðŸ‘¤</a>
+      <a class="profile-btn" href="index.html" aria-label="Home">H</a>
     </div>
   </header>
 
   <main class="container page-main">
     <section class="page-hero">
-      <p class="page-kicker">The World Mobile</p>
-      <h1>Store</h1>
-      <p>Catalogo completo para retail y mayoristas.</p>
+      <p class="page-kicker">Category</p>
+      <h1 id="cat-title">Samsung</h1>
+      <p id="cat-sub">Browse products in Samsung.</p>
     </section>
 
     <section class="store-tools">
-      <input id="store-search" type="search" placeholder="Buscar producto..." />
-      <span id="store-count" class="count-chip">0 items</span>
+      <input id="cat-search" type="search" placeholder="Search product..." />
+      <span id="cat-count" class="count-chip">0 items</span>
     </section>
 
-    <section class="grid" id="store-grid"></section>
-    <div class="load-wrap"><button id="store-load-more" class="btn">Load More</button></div>
+    <section class="grid" id="cat-grid"></section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-bottom-row">
-      <p>Â© 2026 The World Mobile. Todos los derechos reservados.</p>
+      <p>© 2026 The World Mobile. All rights reserved.</p>
       <p class="group-credit">Website by <a href="#">KK group of companies</a></p>
     </div>
   </footer>
 
-  <script src="site-pages.js?v=20260308-21"></script>
+  <script src="category.js?v=20260308-21"></script>
   <script src="lang-switch.js?v=20260308-21"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
