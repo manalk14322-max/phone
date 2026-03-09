@@ -64,7 +64,7 @@ function setupFilters() {
 
 async function init() {
   setupFilters();
-  const res = await fetch("products.json?v=20260308-27", { cache: "no-store" });
+  const res = await fetch("products.json?v=20260309-01", { cache: "no-store" });
   const data = await res.json();
   state.all = Array.isArray(data) ? data : [];
   render();
@@ -75,4 +75,5 @@ init().catch((err) => {
   const grid = document.getElementById("bc-grid");
   if (grid) grid.innerHTML = "<p>Failed to load business catalog.</p>";
 });
+
 

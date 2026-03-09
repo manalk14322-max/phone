@@ -29,7 +29,7 @@ function isBlockedBrand(product) {
 }
 
 const CART_KEY = "twm_cart_modern_v1";
-const PRODUCTS_CACHE_KEY = "twm_products_cache_v3";
+const PRODUCTS_CACHE_KEY = "twm_products_cache_v4";
 
 function readProductsCache() {
   try {
@@ -107,7 +107,7 @@ async function loadProducts() {
   const cached = readProductsCache();
   if (cached) return cached.filter((p) => !isBlockedBrand(p));
 
-  const res = await fetch("products.json?v=20260308-27", { cache: "force-cache" });
+  const res = await fetch("products.json?v=20260309-01", { cache: "force-cache" });
   const data = await res.json();
   const normalized = Array.isArray(data) ? data : [];
   writeProductsCache(normalized);
@@ -276,6 +276,7 @@ document.addEventListener("click", (e) => {
     add.disabled = false;
   }, 900);
 });
+
 
 
 

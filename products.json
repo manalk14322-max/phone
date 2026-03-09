@@ -1,5 +1,617 @@
 ﻿[
     {
+        "id":  960001,
+        "name":  "Samsung Galaxy S24 Ultra Premium Shockproof Cover",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Samsung",
+                     "Cover",
+                     "Shockproof",
+                     "Galaxy S24 Ultra"
+                 ],
+        "price":  "EUR 12.90",
+        "image":  "images/samsung/covers/samsung-galaxy-s24-ultra-cover.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S24 Ultra",
+        "shortDescription":  "Slim fit anti-drop cover designed for Samsung Galaxy S24 Ultra with camera protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960002,
+        "name":  "Samsung Galaxy S24 Ultra 9H Tempered Glass Screen Protector",
+        "category":  "PROTECTORES PANTALLA",
+        "tags":  [
+                     "Samsung",
+                     "Screen Protector",
+                     "9H Glass",
+                     "Galaxy S24 Ultra"
+                 ],
+        "price":  "EUR 8.90",
+        "image":  "images/samsung/screen-protectors/samsung-galaxy-s24-ultra-screen-protector.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S24 Ultra",
+        "shortDescription":  "High-clarity tempered glass for Samsung Galaxy S24 Ultra with anti-scratch daily protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960003,
+        "name":  "Samsung Galaxy S24 Ultra Compatible 25W USB-C Fast Charger",
+        "category":  "ACCESORIOS",
+        "tags":  [
+                     "Samsung",
+                     "Accessory",
+                     "25W USB-C Fast Charger",
+                     "Galaxy S24 Ultra"
+                 ],
+        "price":  "EUR 15.90",
+        "image":  "images/samsung/accessories/samsung-galaxy-s24-ultra-accessory.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S24 Ultra",
+        "shortDescription":  "Reliable 25W USB-C Fast Charger tuned for Samsung users and daily business/retail sales.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960004,
+        "name":  "Samsung Galaxy S24 Plus Premium Shockproof Cover",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Samsung",
+                     "Cover",
+                     "Shockproof",
+                     "Galaxy S24 Plus"
+                 ],
+        "price":  "EUR 12.90",
+        "image":  "images/samsung/covers/samsung-galaxy-s24-plus-cover.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S24 Plus",
+        "shortDescription":  "Slim fit anti-drop cover designed for Samsung Galaxy S24 Plus with camera protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960005,
+        "name":  "Samsung Galaxy S24 Plus 9H Tempered Glass Screen Protector",
+        "category":  "PROTECTORES PANTALLA",
+        "tags":  [
+                     "Samsung",
+                     "Screen Protector",
+                     "9H Glass",
+                     "Galaxy S24 Plus"
+                 ],
+        "price":  "EUR 8.90",
+        "image":  "images/samsung/screen-protectors/samsung-galaxy-s24-plus-screen-protector.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S24 Plus",
+        "shortDescription":  "High-clarity tempered glass for Samsung Galaxy S24 Plus with anti-scratch daily protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960006,
+        "name":  "Samsung Galaxy S24 Plus Compatible Braided USB-C Data Cable",
+        "category":  "ACCESORIOS",
+        "tags":  [
+                     "Samsung",
+                     "Accessory",
+                     "Braided USB-C Data Cable",
+                     "Galaxy S24 Plus"
+                 ],
+        "price":  "EUR 15.90",
+        "image":  "images/samsung/accessories/samsung-galaxy-s24-plus-accessory.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S24 Plus",
+        "shortDescription":  "Reliable Braided USB-C Data Cable tuned for Samsung users and daily business/retail sales.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960007,
+        "name":  "Samsung Galaxy S24 Premium Shockproof Cover",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Samsung",
+                     "Cover",
+                     "Shockproof",
+                     "Galaxy S24"
+                 ],
+        "price":  "EUR 12.90",
+        "image":  "images/samsung/covers/samsung-galaxy-s24-cover.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S24",
+        "shortDescription":  "Slim fit anti-drop cover designed for Samsung Galaxy S24 with camera protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960008,
+        "name":  "Samsung Galaxy S24 9H Tempered Glass Screen Protector",
+        "category":  "PROTECTORES PANTALLA",
+        "tags":  [
+                     "Samsung",
+                     "Screen Protector",
+                     "9H Glass",
+                     "Galaxy S24"
+                 ],
+        "price":  "EUR 8.90",
+        "image":  "images/samsung/screen-protectors/samsung-galaxy-s24-screen-protector.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S24",
+        "shortDescription":  "High-clarity tempered glass for Samsung Galaxy S24 with anti-scratch daily protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960009,
+        "name":  "Samsung Galaxy S24 Compatible Magnetic Car Mount",
+        "category":  "ACCESORIOS",
+        "tags":  [
+                     "Samsung",
+                     "Accessory",
+                     "Magnetic Car Mount",
+                     "Galaxy S24"
+                 ],
+        "price":  "EUR 15.90",
+        "image":  "images/samsung/accessories/samsung-galaxy-s24-accessory.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S24",
+        "shortDescription":  "Reliable Magnetic Car Mount tuned for Samsung users and daily business/retail sales.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960010,
+        "name":  "Samsung Galaxy S23 Ultra Premium Shockproof Cover",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Samsung",
+                     "Cover",
+                     "Shockproof",
+                     "Galaxy S23 Ultra"
+                 ],
+        "price":  "EUR 12.90",
+        "image":  "images/samsung/covers/samsung-galaxy-s23-ultra-cover.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S23 Ultra",
+        "shortDescription":  "Slim fit anti-drop cover designed for Samsung Galaxy S23 Ultra with camera protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960011,
+        "name":  "Samsung Galaxy S23 Ultra 9H Tempered Glass Screen Protector",
+        "category":  "PROTECTORES PANTALLA",
+        "tags":  [
+                     "Samsung",
+                     "Screen Protector",
+                     "9H Glass",
+                     "Galaxy S23 Ultra"
+                 ],
+        "price":  "EUR 8.90",
+        "image":  "images/samsung/screen-protectors/samsung-galaxy-s23-ultra-screen-protector.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S23 Ultra",
+        "shortDescription":  "High-clarity tempered glass for Samsung Galaxy S23 Ultra with anti-scratch daily protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960012,
+        "name":  "Samsung Galaxy S23 Ultra Compatible Wireless Charging Stand",
+        "category":  "ACCESORIOS",
+        "tags":  [
+                     "Samsung",
+                     "Accessory",
+                     "Wireless Charging Stand",
+                     "Galaxy S23 Ultra"
+                 ],
+        "price":  "EUR 15.90",
+        "image":  "images/samsung/accessories/samsung-galaxy-s23-ultra-accessory.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S23 Ultra",
+        "shortDescription":  "Reliable Wireless Charging Stand tuned for Samsung users and daily business/retail sales.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960013,
+        "name":  "Samsung Galaxy S23 Premium Shockproof Cover",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Samsung",
+                     "Cover",
+                     "Shockproof",
+                     "Galaxy S23"
+                 ],
+        "price":  "EUR 12.90",
+        "image":  "images/samsung/covers/samsung-galaxy-s23-cover.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S23",
+        "shortDescription":  "Slim fit anti-drop cover designed for Samsung Galaxy S23 with camera protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960014,
+        "name":  "Samsung Galaxy S23 9H Tempered Glass Screen Protector",
+        "category":  "PROTECTORES PANTALLA",
+        "tags":  [
+                     "Samsung",
+                     "Screen Protector",
+                     "9H Glass",
+                     "Galaxy S23"
+                 ],
+        "price":  "EUR 8.90",
+        "image":  "images/samsung/screen-protectors/samsung-galaxy-s23-screen-protector.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S23",
+        "shortDescription":  "High-clarity tempered glass for Samsung Galaxy S23 with anti-scratch daily protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960015,
+        "name":  "Samsung Galaxy S23 Compatible Bluetooth Earbuds",
+        "category":  "ACCESORIOS",
+        "tags":  [
+                     "Samsung",
+                     "Accessory",
+                     "Bluetooth Earbuds",
+                     "Galaxy S23"
+                 ],
+        "price":  "EUR 15.90",
+        "image":  "images/samsung/accessories/samsung-galaxy-s23-accessory.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S23",
+        "shortDescription":  "Reliable Bluetooth Earbuds tuned for Samsung users and daily business/retail sales.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960016,
+        "name":  "Samsung Galaxy S22 Premium Shockproof Cover",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Samsung",
+                     "Cover",
+                     "Shockproof",
+                     "Galaxy S22"
+                 ],
+        "price":  "EUR 12.90",
+        "image":  "images/samsung/covers/samsung-galaxy-s22-cover.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S22",
+        "shortDescription":  "Slim fit anti-drop cover designed for Samsung Galaxy S22 with camera protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960017,
+        "name":  "Samsung Galaxy S22 9H Tempered Glass Screen Protector",
+        "category":  "PROTECTORES PANTALLA",
+        "tags":  [
+                     "Samsung",
+                     "Screen Protector",
+                     "9H Glass",
+                     "Galaxy S22"
+                 ],
+        "price":  "EUR 8.90",
+        "image":  "images/samsung/screen-protectors/samsung-galaxy-s22-screen-protector.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S22",
+        "shortDescription":  "High-clarity tempered glass for Samsung Galaxy S22 with anti-scratch daily protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960018,
+        "name":  "Samsung Galaxy S22 Compatible Compact Power Bank",
+        "category":  "ACCESORIOS",
+        "tags":  [
+                     "Samsung",
+                     "Accessory",
+                     "Compact Power Bank",
+                     "Galaxy S22"
+                 ],
+        "price":  "EUR 15.90",
+        "image":  "images/samsung/accessories/samsung-galaxy-s22-accessory.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy S22",
+        "shortDescription":  "Reliable Compact Power Bank tuned for Samsung users and daily business/retail sales.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960019,
+        "name":  "Samsung Galaxy A55 Premium Shockproof Cover",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Samsung",
+                     "Cover",
+                     "Shockproof",
+                     "Galaxy A55"
+                 ],
+        "price":  "EUR 12.90",
+        "image":  "images/samsung/covers/samsung-galaxy-a55-cover.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy A55",
+        "shortDescription":  "Slim fit anti-drop cover designed for Samsung Galaxy A55 with camera protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960020,
+        "name":  "Samsung Galaxy A55 9H Tempered Glass Screen Protector",
+        "category":  "PROTECTORES PANTALLA",
+        "tags":  [
+                     "Samsung",
+                     "Screen Protector",
+                     "9H Glass",
+                     "Galaxy A55"
+                 ],
+        "price":  "EUR 8.90",
+        "image":  "images/samsung/screen-protectors/samsung-galaxy-a55-screen-protector.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy A55",
+        "shortDescription":  "High-clarity tempered glass for Samsung Galaxy A55 with anti-scratch daily protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960021,
+        "name":  "Samsung Galaxy A55 Compatible 25W USB-C Fast Charger",
+        "category":  "ACCESORIOS",
+        "tags":  [
+                     "Samsung",
+                     "Accessory",
+                     "25W USB-C Fast Charger",
+                     "Galaxy A55"
+                 ],
+        "price":  "EUR 15.90",
+        "image":  "images/samsung/accessories/samsung-galaxy-a55-accessory.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy A55",
+        "shortDescription":  "Reliable 25W USB-C Fast Charger tuned for Samsung users and daily business/retail sales.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960022,
+        "name":  "Samsung Galaxy A54 Premium Shockproof Cover",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Samsung",
+                     "Cover",
+                     "Shockproof",
+                     "Galaxy A54"
+                 ],
+        "price":  "EUR 12.90",
+        "image":  "images/samsung/covers/samsung-galaxy-a54-cover.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy A54",
+        "shortDescription":  "Slim fit anti-drop cover designed for Samsung Galaxy A54 with camera protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960023,
+        "name":  "Samsung Galaxy A54 9H Tempered Glass Screen Protector",
+        "category":  "PROTECTORES PANTALLA",
+        "tags":  [
+                     "Samsung",
+                     "Screen Protector",
+                     "9H Glass",
+                     "Galaxy A54"
+                 ],
+        "price":  "EUR 8.90",
+        "image":  "images/samsung/screen-protectors/samsung-galaxy-a54-screen-protector.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy A54",
+        "shortDescription":  "High-clarity tempered glass for Samsung Galaxy A54 with anti-scratch daily protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960024,
+        "name":  "Samsung Galaxy A54 Compatible Braided USB-C Data Cable",
+        "category":  "ACCESORIOS",
+        "tags":  [
+                     "Samsung",
+                     "Accessory",
+                     "Braided USB-C Data Cable",
+                     "Galaxy A54"
+                 ],
+        "price":  "EUR 15.90",
+        "image":  "images/samsung/accessories/samsung-galaxy-a54-accessory.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy A54",
+        "shortDescription":  "Reliable Braided USB-C Data Cable tuned for Samsung users and daily business/retail sales.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960025,
+        "name":  "Samsung Galaxy A35 Premium Shockproof Cover",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Samsung",
+                     "Cover",
+                     "Shockproof",
+                     "Galaxy A35"
+                 ],
+        "price":  "EUR 12.90",
+        "image":  "images/samsung/covers/samsung-galaxy-a35-cover.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy A35",
+        "shortDescription":  "Slim fit anti-drop cover designed for Samsung Galaxy A35 with camera protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960026,
+        "name":  "Samsung Galaxy A35 9H Tempered Glass Screen Protector",
+        "category":  "PROTECTORES PANTALLA",
+        "tags":  [
+                     "Samsung",
+                     "Screen Protector",
+                     "9H Glass",
+                     "Galaxy A35"
+                 ],
+        "price":  "EUR 8.90",
+        "image":  "images/samsung/screen-protectors/samsung-galaxy-a35-screen-protector.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy A35",
+        "shortDescription":  "High-clarity tempered glass for Samsung Galaxy A35 with anti-scratch daily protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960027,
+        "name":  "Samsung Galaxy A35 Compatible Magnetic Car Mount",
+        "category":  "ACCESORIOS",
+        "tags":  [
+                     "Samsung",
+                     "Accessory",
+                     "Magnetic Car Mount",
+                     "Galaxy A35"
+                 ],
+        "price":  "EUR 15.90",
+        "image":  "images/samsung/accessories/samsung-galaxy-a35-accessory.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy A35",
+        "shortDescription":  "Reliable Magnetic Car Mount tuned for Samsung users and daily business/retail sales.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960028,
+        "name":  "Samsung Galaxy A34 Premium Shockproof Cover",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Samsung",
+                     "Cover",
+                     "Shockproof",
+                     "Galaxy A34"
+                 ],
+        "price":  "EUR 12.90",
+        "image":  "images/samsung/covers/samsung-galaxy-a34-cover.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy A34",
+        "shortDescription":  "Slim fit anti-drop cover designed for Samsung Galaxy A34 with camera protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960029,
+        "name":  "Samsung Galaxy A34 9H Tempered Glass Screen Protector",
+        "category":  "PROTECTORES PANTALLA",
+        "tags":  [
+                     "Samsung",
+                     "Screen Protector",
+                     "9H Glass",
+                     "Galaxy A34"
+                 ],
+        "price":  "EUR 8.90",
+        "image":  "images/samsung/screen-protectors/samsung-galaxy-a34-screen-protector.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy A34",
+        "shortDescription":  "High-clarity tempered glass for Samsung Galaxy A34 with anti-scratch daily protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960030,
+        "name":  "Samsung Galaxy A34 Compatible Wireless Charging Stand",
+        "category":  "ACCESORIOS",
+        "tags":  [
+                     "Samsung",
+                     "Accessory",
+                     "Wireless Charging Stand",
+                     "Galaxy A34"
+                 ],
+        "price":  "EUR 15.90",
+        "image":  "images/samsung/accessories/samsung-galaxy-a34-accessory.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy A34",
+        "shortDescription":  "Reliable Wireless Charging Stand tuned for Samsung users and daily business/retail sales.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960031,
+        "name":  "Samsung Galaxy Note20 Ultra Premium Shockproof Cover",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Samsung",
+                     "Cover",
+                     "Shockproof",
+                     "Galaxy Note20 Ultra"
+                 ],
+        "price":  "EUR 12.90",
+        "image":  "images/samsung/covers/samsung-galaxy-note20-ultra-cover.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy Note20 Ultra",
+        "shortDescription":  "Slim fit anti-drop cover designed for Samsung Galaxy Note20 Ultra with camera protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960032,
+        "name":  "Samsung Galaxy Note20 Ultra 9H Tempered Glass Screen Protector",
+        "category":  "PROTECTORES PANTALLA",
+        "tags":  [
+                     "Samsung",
+                     "Screen Protector",
+                     "9H Glass",
+                     "Galaxy Note20 Ultra"
+                 ],
+        "price":  "EUR 8.90",
+        "image":  "images/samsung/screen-protectors/samsung-galaxy-note20-ultra-screen-protector.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy Note20 Ultra",
+        "shortDescription":  "High-clarity tempered glass for Samsung Galaxy Note20 Ultra with anti-scratch daily protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960033,
+        "name":  "Samsung Galaxy Note20 Ultra Compatible Bluetooth Earbuds",
+        "category":  "ACCESORIOS",
+        "tags":  [
+                     "Samsung",
+                     "Accessory",
+                     "Bluetooth Earbuds",
+                     "Galaxy Note20 Ultra"
+                 ],
+        "price":  "EUR 15.90",
+        "image":  "images/samsung/accessories/samsung-galaxy-note20-ultra-accessory.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy Note20 Ultra",
+        "shortDescription":  "Reliable Bluetooth Earbuds tuned for Samsung users and daily business/retail sales.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960034,
+        "name":  "Samsung Galaxy Z Fold5 Premium Shockproof Cover",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Samsung",
+                     "Cover",
+                     "Shockproof",
+                     "Galaxy Z Fold5"
+                 ],
+        "price":  "EUR 12.90",
+        "image":  "images/samsung/covers/samsung-galaxy-z-fold5-cover.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy Z Fold5",
+        "shortDescription":  "Slim fit anti-drop cover designed for Samsung Galaxy Z Fold5 with camera protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960035,
+        "name":  "Samsung Galaxy Z Fold5 9H Tempered Glass Screen Protector",
+        "category":  "PROTECTORES PANTALLA",
+        "tags":  [
+                     "Samsung",
+                     "Screen Protector",
+                     "9H Glass",
+                     "Galaxy Z Fold5"
+                 ],
+        "price":  "EUR 8.90",
+        "image":  "images/samsung/screen-protectors/samsung-galaxy-z-fold5-screen-protector.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy Z Fold5",
+        "shortDescription":  "High-clarity tempered glass for Samsung Galaxy Z Fold5 with anti-scratch daily protection.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
+        "id":  960036,
+        "name":  "Samsung Galaxy Z Fold5 Compatible Compact Power Bank",
+        "category":  "ACCESORIOS",
+        "tags":  [
+                     "Samsung",
+                     "Accessory",
+                     "Compact Power Bank",
+                     "Galaxy Z Fold5"
+                 ],
+        "price":  "EUR 15.90",
+        "image":  "images/samsung/accessories/samsung-galaxy-z-fold5-accessory.jpg",
+        "brand":  "Samsung",
+        "compatibleModel":  "Galaxy Z Fold5",
+        "shortDescription":  "Reliable Compact Power Bank tuned for Samsung users and daily business/retail sales.",
+        "sourceTag":  "samsung-curated-2026"
+    },
+    {
         "id":  47785,
         "name":  "Funda Mate Magnética Colores con Cámara Marco Metálico YADUN para Samsung S26 Ultra",
         "category":  "FUNDA",

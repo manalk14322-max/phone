@@ -2,7 +2,7 @@
   const pid = new URLSearchParams(window.location.search).get("pid");
   const root = document.getElementById("product-detail");
   const CART_KEY = "twm_cart_modern_v1";
-  const PRODUCTS_CACHE_KEY = "twm_products_cache_v3";
+  const PRODUCTS_CACHE_KEY = "twm_products_cache_v4";
 
   function esc(v) {
     return String(v)
@@ -123,8 +123,11 @@
     const rating = calcRating(product.id);
     const tags = Array.isArray(product.tags) ? product.tags.filter(Boolean).slice(0, 6) : [];
     const stockText = Number(product.id || 0) % 4 === 0 ? "Low stock" : "In stock";
-    const brand = detectBrand(product.name);
-    const model = detectModel(product.name);
+    const brand = product.brand || detectBrand(product.name);
+    const model = product.compatibleModel || detectModel(product.name);
+    const description =
+      product.shortDescription ||
+      "High-quality mobile product for Spain wholesale and retail business. Durable build, premium finish, and reliable daily performance.";
     const related = relatedProducts(allProducts, product, 8);
 
     document.title = `${product.name} | The World Mobile`;
@@ -142,7 +145,7 @@
             <span class="rating-value">${rating.toFixed(1)} rating</span>
           </div>
           <div class="pd-price">${esc(priceText(product.price))}</div>
-          <p class="pd-description">High-quality mobile product for Spain wholesale and retail business. Durable build, premium finish, and reliable daily performance.</p>
+          <p class="pd-description">${esc(description)}</p>
 
           <div class="pd-actions">
             <button
@@ -251,7 +254,7 @@
     const allSource = cached
       ? cached
       : await (async () => {
-          const res = await fetch("products.json?v=20260308-27", { cache: "force-cache" });
+          const res = await fetch("products.json?v=20260309-01", { cache: "force-cache" });
           const loaded = await res.json();
           const normalized = Array.isArray(loaded) ? loaded : [];
           writeProductsCache(normalized);
@@ -268,6 +271,7 @@
 
   init().catch(renderNotFound);
 })();
+
 
 
 
