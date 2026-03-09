@@ -47,6 +47,8 @@ function Download-Image {
 }
 
 $coverSources = @(
+  "https://w7.pngwing.com/pngs/850/727/png-transparent-mobile-phone-accessories-samsung-galaxy-telephone-computer-screen-protectors-phone-case-miscellaneous-gadget-electronics.png",
+  "https://w7.pngwing.com/pngs/602/46/png-transparent-samsung-galaxy-mobile-phone-accessories-smartphone-battery-charger-phone-case-hd-miscellaneous-gadget-mobile-phone.png",
   "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80",
   "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
   "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1200&q=80",
@@ -62,6 +64,7 @@ $coverSources = @(
 )
 
 $protectorSources = @(
+  "https://w7.pngwing.com/pngs/866/540/png-transparent-iphone-6-screen-protectors-toughened-glass-samsung-galaxy-phone-case-miscellaneous-glass-gadget.png",
   "https://images.pexels.com/photos/13570129/pexels-photo-13570129.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1200",
   "https://images.pexels.com/photos/1294886/pexels-photo-1294886.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1200",
   "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=1200",
@@ -78,6 +81,8 @@ $protectorSources = @(
 )
 
 $accessorySources = @(
+  "https://w7.pngwing.com/pngs/778/240/png-transparent-battery-charger-mobile-phone-accessories-ampere-hour-electric-battery-samsung-galaxy-mobile-case-electronics-adapter-bluetooth.png",
+  "https://w7.pngwing.com/pngs/602/46/png-transparent-samsung-galaxy-mobile-phone-accessories-smartphone-battery-charger-phone-case-hd-miscellaneous-gadget-mobile-phone.png",
   "https://www.shopify.com/stock-photos/photos/mobile-phone-and-some-accessories/download",
   "https://www.shopify.com/stock-photos/photos/colorful-cel-phone-accessory/download",
   "https://www.shopify.com/stock-photos/photos/cellphone-floats-above-light-blue-background/download",
@@ -120,6 +125,7 @@ function Get-SourceType {
   param([string]$url)
   if ($url -match "unsplash\.com") { return "Unsplash" }
   if ($url -match "shopify\.com/stock-photos") { return "Burst (Shopify)" }
+  if ($url -match "pngwing\.com") { return "PNGWing (Free PNG)" }
   if ($url -match "freepngimg\.com") { return "Free PNG Source" }
   return "Pexels"
 }
