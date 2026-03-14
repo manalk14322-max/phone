@@ -989,6 +989,45 @@ a {
   margin-bottom: 16px;
 }
 
+.subcat-bar {
+  margin: 6px 0 18px;
+  border: 1px solid #d8e5fb;
+  border-radius: 16px;
+  padding: 12px;
+  background: #fff;
+  box-shadow: var(--shadow-card);
+}
+
+.subcat-title {
+  font-weight: 800;
+  color: #10386f;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.subcat-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.subcat-chip {
+  border: 1px solid #c8daf7;
+  border-radius: 999px;
+  padding: 7px 12px;
+  background: #f1f7ff;
+  color: #1f4d8c;
+  font-weight: 700;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.subcat-chip.active {
+  background: linear-gradient(135deg, var(--blue-800), var(--blue-700));
+  color: #fff;
+  border-color: transparent;
+}
+
 .store-tools input {
   width: min(460px, 100%);
   border: 1px solid #c8daf7;

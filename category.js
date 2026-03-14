@@ -12,12 +12,15 @@
     count: document.getElementById("cat-count"),
     grid: document.getElementById("cat-grid"),
     loadMore: document.getElementById("cat-load-more"),
+    subcatBar: document.getElementById("subcat-bar"),
+    subcatChips: document.getElementById("subcat-chips"),
   };
 
   const state = {
     base: [],
     filtered: [],
     visible: 24,
+    activeSub: "ALL",
   };
 
   function esc(v) {
@@ -82,6 +85,62 @@
   function normalizeCategory(v) {
     return String(v || "").trim().toUpperCase();
   }
+
+  const SUBCATS = {
+    FUNDAS: [
+      { key: "ALL", label: "All Fundas", match: () => true },
+      { key: "IPHONE", label: "iPhone", match: (n) => /iphone|apple/.test(n) },
+      { key: "SAMSUNG", label: "Samsung", match: (n) => /samsung/.test(n) },
+      { key: "REDMI", label: "Redmi", match: (n) => /redmi/.test(n) },
+      { key: "XIAOMI", label: "Xiaomi", match: (n) => /xiaomi/.test(n) },
+      { key: "OPPO", label: "Oppo", match: (n) => /oppo/.test(n) },
+      { key: "GOOGLE", label: "Google", match: (n) => /google|pixel/.test(n) },
+    ],
+    SIM: [
+      { key: "ALL", label: "All SIM", match: () => true },
+      { key: "VODAFONE", label: "Vodafone", match: (n) => /vodafone/.test(n) },
+      { key: "E_VODAFONE", label: "E-Sim Vodafone", match: (n) => /e ?sim.*vodafone|vodafone.*e ?sim/.test(n) },
+      { key: "ORANGE", label: "Orange", match: (n) => /orange/.test(n) },
+      { key: "E_ORANGE", label: "E-Sim Orange", match: (n) => /e ?sim.*orange|orange.*e ?sim/.test(n) },
+      { key: "LEBARA", label: "Lebara", match: (n) => /lebara/.test(n) },
+      { key: "E_LEBARA", label: "E-Lebara", match: (n) => /e ?sim.*lebara|lebara.*e ?sim|e ?lebara/.test(n) },
+      { key: "LLAMAYA", label: "LLamaya", match: (n) => /llamaya/.test(n) },
+      { key: "E_LLAMAYA", label: "E-Sim LLamaya", match: (n) => /e ?sim.*llamaya|llamaya.*e ?sim/.test(n) },
+      { key: "MOVISTAR", label: "Movistar", match: (n) => /movistar/.test(n) },
+    ],
+    POWER_BANK: [
+      { key: "ALL", label: "All Power Bank", match: () => true },
+      { key: "MAGNETIC", label: "Magnetic Wireless", match: (n) => /magnetic|wireless/.test(n) },
+    ],
+    AUDIO: [
+      { key: "ALL", label: "All Audio", match: () => true },
+      { key: "WIRELESS", label: "Wireless Earphone", match: (n) => /wireless/.test(n) },
+      { key: "EARPHONE", label: "Earphone", match: (n) => /earphone|earbud|auricular/.test(n) },
+    ],
+    SMART_WATCH: [
+      { key: "ALL", label: "All Smart Watch", match: () => true },
+      { key: "WATCH", label: "Smart Watch", match: (n) => /smart ?watch/.test(n) },
+      { key: "BAND", label: "Watch Band", match: (n) => /watch band|band|pulsera|correa/.test(n) },
+      { key: "XM_BAND", label: "XM Band", match: (n) => /xm ?band|mi band/.test(n) },
+      { key: "PROTECTIVE", label: "Protective Case", match: (n) => /protective|case|casa/.test(n) },
+    ],
+    MOBILE_ACCESSORIES: [
+      { key: "ALL", label: "All Mobile Accessories", match: () => true },
+      { key: "CORDON", label: "Cordon", match: (n) => /cordon|lanyard/.test(n) },
+      { key: "MAGNETIC_CARD", label: "Magnetic Card", match: (n) => /magnetic card/.test(n) },
+      { key: "SOPORTE", label: "Soporte para movil", match: (n) => /soporte|stand|holder/.test(n) },
+      { key: "AIRPODS_CASE", label: "Air Pods Case", match: (n) => /air ?pods|airpods/.test(n) },
+    ],
+    ACCESSORIES: [
+      { key: "ALL", label: "All Accessories", match: () => true },
+      { key: "FAST_CHARGER", label: "Fast Charger", match: (n) => /fast charger|charger|cargador/.test(n) },
+      { key: "CABLE", label: "Cable", match: (n) => /cable/.test(n) },
+      { key: "SPEAKER", label: "Wireless Speakers", match: (n) => /speaker/.test(n) },
+      { key: "ADAPTER", label: "Travel Adapter", match: (n) => /adapter|adaptador|travel/.test(n) },
+      { key: "SD_CARD", label: "SD Card", match: (n) => /sd card|tarjeta/.test(n) },
+      { key: "USB", label: "USB Flash Drive", match: (n) => /usb|flash drive|pendrive/.test(n) },
+    ],
+  };
 
   function isBlockedBrand(product) {
     const name = String(product?.name || "");
@@ -234,12 +293,50 @@
     els.sub.textContent = `Browse products in ${title}.`;
     render(state.filtered);
 
+    const subcats = SUBCATS[key] || null;
+    if (subcats && els.subcatBar && els.subcatChips) {
+      els.subcatBar.hidden = false;
+      els.subcatChips.innerHTML = subcats
+        .map(
+          (s) =>
+            `<button type="button" class="subcat-chip${s.key === "ALL" ? " active" : ""}" data-sub="${esc(s.key)}">${esc(
+              s.label
+            )}</button>`
+        )
+        .join("");
+
+      els.subcatChips.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-sub]");
+        if (!btn) return;
+        const subKey = btn.getAttribute("data-sub") || "ALL";
+        state.activeSub = subKey;
+        els.subcatChips.querySelectorAll(".subcat-chip").forEach((el) => {
+          el.classList.toggle("active", el.getAttribute("data-sub") === subKey);
+        });
+        const sub = subcats.find((s) => s.key === subKey) || subcats[0];
+        const q = String(els.search.value || "").trim().toLowerCase();
+        state.visible = getPageSize();
+        state.filtered = state.base.filter((p) => {
+          const name = String(p.name || "").toLowerCase();
+          const okSub = sub?.match ? sub.match(name) : true;
+          const okQ = !q || name.includes(q);
+          return okSub && okQ;
+        });
+        render(state.filtered);
+      });
+    }
+
     const onSearch = debounce((e) => {
       const q = String(e.target.value || "").trim().toLowerCase();
       state.visible = getPageSize();
-      state.filtered = !q
-        ? state.base
-        : state.base.filter((p) => String(p.name || "").toLowerCase().includes(q));
+      const subcats = SUBCATS[key] || null;
+      const sub = subcats ? subcats.find((s) => s.key === state.activeSub) || subcats[0] : null;
+      state.filtered = state.base.filter((p) => {
+        const name = String(p.name || "").toLowerCase();
+        const okSub = sub?.match ? sub.match(name) : true;
+        const okQ = !q || name.includes(q);
+        return okSub && okQ;
+      });
       render(state.filtered);
     }, 220);
     els.search.addEventListener("input", onSearch);
