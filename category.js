@@ -1,5 +1,7 @@
 ﻿(() => {
-  const urlKey = new URLSearchParams(window.location.search).get("cat");
+  const params = new URLSearchParams(window.location.search);
+  const urlKey = params.get("cat");
+  const urlSub = params.get("sub");
   const bodyKey = document.body?.dataset?.cat;
   const key = String(urlKey || bodyKey || "ALL").trim().toUpperCase();
   const CART_KEY = "twm_cart_modern_v1";
@@ -304,6 +306,21 @@
             )}</button>`
         )
         .join("");
+
+      if (urlSub) {
+        const initial = subcats.find((s) => s.key === String(urlSub || "").toUpperCase());
+        if (initial) {
+          state.activeSub = initial.key;
+          els.subcatChips.querySelectorAll(".subcat-chip").forEach((el) => {
+            el.classList.toggle("active", el.getAttribute("data-sub") === initial.key);
+          });
+          state.filtered = state.base.filter((p) => {
+            const name = String(p.name || "").toLowerCase();
+            return initial.match ? initial.match(name) : true;
+          });
+          render(state.filtered);
+        }
+      }
 
       els.subcatChips.addEventListener("click", (e) => {
         const btn = e.target.closest("[data-sub]");
