@@ -1261,68 +1261,6 @@ a {
   padding-top: 30px;
 }
 
-.showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.showcase-card {
-  border: 1px solid #d8e5fb;
-  border-radius: 18px;
-  background: #fff;
-  box-shadow: var(--shadow-card);
-  padding: 16px;
-  display: grid;
-  gap: 10px;
-  min-height: 0;
-}
-
-.showcase-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.showcase-card h3 {
-  margin: 0;
-  color: #10386f;
-  font-size: 1.02rem;
-}
-
-.showcase-link {
-  text-decoration: none;
-  color: #fff;
-  background: linear-gradient(135deg, var(--blue-800), var(--blue-700));
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
-.showcase-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.showcase-tags a {
-  text-decoration: none;
-  border: 1px solid #c8daf7;
-  border-radius: 999px;
-  padding: 6px 10px;
-  background: #f1f7ff;
-  color: #1f4d8c;
-  font-weight: 700;
-  font-size: 0.75rem;
-}
-
-.showcase-card p {
-  margin: 0;
-  color: #5f759d;
-  font-size: 0.82rem;
-}
 
 .newsletter-box {
   border: 1px solid #d8e4fa;
@@ -1733,9 +1671,6 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .showcase-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 
   .trust-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1871,9 +1806,6 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .showcase-grid {
-    grid-template-columns: 1fr;
-  }
 
   .pd-related-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
