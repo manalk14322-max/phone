@@ -3,7 +3,7 @@
   const bodyKey = document.body?.dataset?.cat;
   const key = String(urlKey || bodyKey || "ALL").trim().toUpperCase();
   const CART_KEY = "twm_cart_modern_v1";
-  const PRODUCTS_CACHE_KEY = "twm_products_cache_v4";
+  const PRODUCTS_CACHE_KEY = "twm_products_cache_v5";
 
   const els = {
     title: document.getElementById("cat-title"),
@@ -219,7 +219,7 @@
     const allSource = cached
       ? cached
       : await (async () => {
-          const res = await fetch("products.json?v=20260309-01", { cache: "force-cache" });
+          const res = await fetch("products.json?v=20260314-01", { cache: "no-store" });
           const loaded = await res.json();
           const normalized = Array.isArray(loaded) ? loaded : [];
           writeProductsCache(normalized);

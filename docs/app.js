@@ -11,7 +11,7 @@
   const KEYS = {
     cart: "twm_cart_modern_v1",
     orders: "twm_orders_modern_v1",
-    productsCache: "twm_products_cache_v4",
+    productsCache: "twm_products_cache_v5",
   };
 
   const els = {
@@ -614,7 +614,7 @@
     if (cached) {
       state.products = cached.filter((p) => !isBlockedBrand(p));
     } else {
-      const res = await fetch("products.json?v=20260309-01", { cache: "force-cache" });
+      const res = await fetch("products.json?v=20260314-01", { cache: "no-store" });
       const data = await res.json();
       const normalized = Array.isArray(data) ? data : [];
       writeProductsCache(normalized);
