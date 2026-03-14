@@ -1,0 +1,244 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The World Mobile | Premium Ecommerce Store</title>
+  <meta name="description" content="Modern ecommerce mobile store for Spain customers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20260308-26" />
+</head>
+<body>
+  <header class="nav-wrap">
+    <div class="container nav-shell">
+      <a class="brand" href="#home">
+        <img src="logo.png" alt="The World Mobile" />
+        <span>The World Mobile</span>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false">Menu</button>
+
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="#home" data-filter="ALL" class="active">Home</a>
+        <a href="#products" data-filter="FUNDAS">Fundas</a>
+        <a href="#products" data-filter="SIM">SIM Card</a>
+        <a href="#products" data-filter="PROTECTORES_PHONE">Protectores Phone</a>
+        <a href="#products" data-filter="PROTECTORES_CAMERA">Protectores Camera</a>
+        <a href="#products" data-filter="POWER_BANK">Power Bank</a>
+        <a href="#products" data-filter="AUDIO">Audio</a>
+        <a href="#products" data-filter="OFERTA">Oferta</a>
+        <a href="#products" data-filter="SMART_WATCH">Smart Watch</a>
+        <a href="#products" data-filter="MOBILE_ACCESSORIES">Mobile Accessories</a>
+        <a href="#products" data-filter="ACCESSORIES">Accessories</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="search-box">
+          <input id="global-search" type="search" placeholder="Search phones, accessories..." aria-label="Search products" />
+        </div>
+
+        <button class="cart-icon-btn" id="cart-btn" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="20" r="1"></circle>
+            <circle cx="18" cy="20" r="1"></circle>
+            <path d="M2 3h2l2.2 11.2a2 2 0 0 0 2 1.6h9.9a2 2 0 0 0 2-1.5L22 7H7"></path>
+          </svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="promo-strip" aria-label="Offers">
+    <div class="container promo-strip-inner">
+      <div class="promo-track">
+        <span>Free shipping over EUR 100</span>
+        <span>24h express dispatch before 17:30</span>
+        <span>Wholesale support for Spain stores</span>
+        <span>Secure checkout and easy returns</span>
+        <span>New arrivals every week</span>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="hero-kicker">Premium Mobile Store in Spain</p>
+          <h1>Latest Smartphones 2026</h1>
+          <p class="hero-sub">Up to 40% Discount</p>
+          <div class="hero-badges">
+            <span>Fast Delivery</span>
+            <span>Trusted Quality</span>
+            <span>Wholesale Ready</span>
+          </div>
+          <p class="hero-text">Discover flagship phones and trending accessories with fast delivery, secure checkout, and trusted after-sales support.</p>
+          <a href="#products" class="hero-btn">Shop Now</a>
+          <div class="hero-stats">
+            <article><strong>6.6k+</strong><span>Products</span></article>
+            <article><strong>24h</strong><span>Dispatch</span></article>
+            <article><strong>4.9/5</strong><span>Store Rating</span></article>
+          </div>
+        </div>
+        <div class="hero-media hero-slider" id="hero-slider">
+          <div class="hero-slides">
+            <img class="hero-slide active" src="assets/products/123f50aa96dcd99bb5fda697f46c676d.jpg" alt="Latest smartphones 1" onerror="this.onerror=null;this.src='1.png';" />
+            <img class="hero-slide" src="assets/products/539cfca8fe3d7574cb4783c55b2eca08.jpg" alt="Latest smartphones 2" onerror="this.onerror=null;this.src='2.png';" />
+            <img class="hero-slide" src="assets/products/06aeab0b5604fe66aef27af3692f5a39.png" alt="Latest smartphones 3" onerror="this.onerror=null;this.src='1.png';" />
+            <img class="hero-slide" src="assets/products/5371e580dc174115a8054cd3544074d6.jpg" alt="Latest smartphones 4" onerror="this.onerror=null;this.src='2.png';" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="shop-category">
+      <div class="container">
+        <div class="section-head">
+          <h2>Shop by Category</h2>
+        </div>
+        <div class="category-grid" id="category-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section-head section-head-row">
+          <h2>All Products</h2>
+          <span class="result-chip" id="result-chip">0 products</span>
+        </div>
+        <div class="product-grid" id="product-grid"></div>
+      </div>
+    </section>
+
+    <section class="section best-selling" id="best-selling">
+      <div class="container">
+        <div class="section-head">
+          <h2>Best Selling Phones</h2>
+        </div>
+        <div class="product-grid" id="best-grid"></div>
+      </div>
+    </section>
+
+    <section class="section trust-strip">
+      <div class="container trust-grid">
+        <article class="trust-item">
+          <span class="trust-icon">🚚</span>
+          <h3>Fast Delivery</h3>
+          <p>24h dispatch for ready stock products.</p>
+        </article>
+        <article class="trust-item">
+          <span class="trust-icon">🔒</span>
+          <h3>Secure Payment</h3>
+          <p>Protected checkout and safe transactions.</p>
+        </article>
+        <article class="trust-item">
+          <span class="trust-icon">↩️</span>
+          <h3>Easy Returns</h3>
+          <p>Simple return process with support team.</p>
+        </article>
+        <article class="trust-item">
+          <span class="trust-icon">💬</span>
+          <h3>24/7 Support</h3>
+          <p>Always available by chat and WhatsApp.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section newsletter">
+      <div class="container newsletter-box">
+        <div>
+          <h2>Subscribe for latest deals</h2>
+          <p>Get weekly offers, hot products and stock updates.</p>
+        </div>
+        <form id="newsletter-form" class="newsletter-form">
+          <input type="email" placeholder="Enter your email" aria-label="Email address" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>About</h3>
+        <p>The World Mobile is your trusted smartphone and accessories store in Spain, offering Samsung, iPhone, Xiaomi products with fast delivery and reliable customer support.</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>Phone: 0000000000</p>
+        <p>Email: abc</p>
+        <p>Address: abc</p>
+      </div>
+      <div>
+        <h3>Policies</h3>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+      </div>
+      <div>
+        <h3>Social</h3>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="TikTok">TT</a>
+          <a href="#" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 The World Mobile. Website by KK group of companies.</p>
+      </div>
+    </div>
+  </footer>
+
+  <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+    <header class="drawer-head">
+      <h3>Your Cart</h3>
+      <button id="cart-close" type="button" aria-label="Close">×</button>
+    </header>
+    <div class="drawer-items" id="cart-items"></div>
+    <footer class="drawer-foot">
+      <p>Subtotal: <strong id="cart-subtotal">EUR 0.00</strong></p>
+      <div class="drawer-actions">
+        <button id="clear-cart" type="button" class="btn-light">Clear</button>
+        <button id="open-checkout" type="button" class="btn-primary">Checkout</button>
+      </div>
+    </footer>
+  </aside>
+
+  <div class="cart-overlay" id="overlay" hidden></div>
+
+  <div class="checkout-modal" id="checkout-modal" aria-hidden="true">
+    <div class="checkout-box">
+      <button id="checkout-close" class="checkout-close" type="button" aria-label="Close">×</button>
+      <h3>Online Order Checkout</h3>
+      <form id="checkout-form" class="checkout-form">
+        <input id="co-name" type="text" placeholder="Full Name" required />
+        <input id="co-phone" type="text" placeholder="Phone Number" required />
+        <input id="co-email" type="email" placeholder="Email" required />
+        <input id="co-city" type="text" placeholder="City" required />
+        <input id="co-address" type="text" placeholder="Full Address" required />
+        <select id="co-payment" required>
+          <option value="COD">Cash on Delivery</option>
+          <option value="Bank">Bank Transfer</option>
+        </select>
+        <textarea id="co-notes" rows="3" placeholder="Order notes (optional)"></textarea>
+        <button type="submit" class="btn-primary place-order">Place Order</button>
+      </form>
+      <p id="checkout-msg" class="checkout-msg"></p>
+    </div>
+  </div>
+
+  <script src="app.js?v=20260309-01"></script>
+  <script src="image-branding.js?v=20260309-01"></script>
+</body>
+</html>
+
+
+
+
