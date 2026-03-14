@@ -611,12 +611,21 @@
     renderCart();
 
     const cached = readProductsCache();
-    if (cached) {
+    if (cached && cached.length) {
       state.products = cached.filter((p) => !isBlockedBrand(p));
     } else {
-      const res = await fetch("products.json?v=20260314-01", { cache: "no-store" });
-      const data = await res.json();
-      const normalized = Array.isArray(data) ? data : [];
+      const tryFetch = async (url) => {
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) return null;
+        const data = await res.json();
+        return Array.isArray(data) ? data : [];
+      };
+
+      let normalized = await tryFetch("products.json?v=20260314-01");
+      if (!normalized || !normalized.length) {
+        normalized = await tryFetch("docs/products.json?v=20260314-01");
+      }
+      if (!normalized) normalized = [];
       writeProductsCache(normalized);
       state.products = normalized.filter((p) => !isBlockedBrand(p));
     }
