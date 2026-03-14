@@ -96,23 +96,27 @@
     if (f === "ALL") return true;
     if (cat === f) return true;
 
-    if (f === "IPHONE") return /iphone|apple/.test(name);
-    if (f === "SAMSUNG") return /samsung/.test(name);
-    if (f === "XIAOMI") return /xiaomi|redmi|poco/.test(name);
+    if (f === "FUNDAS") return /(funda|case|magsafe|cover|silicona|carcasa|bumper)/.test(name) || cat === "FUNDA";
+    if (f === "SIM") return /(sim|e ?sim|vodafone|orange|lebara|llamaya|movistar)/.test(name + " " + cat);
+    if (f === "PROTECTORES_PHONE") {
+      return /(protector|cristal|templado|screen protector)/.test(name + " " + cat) && !/(camera|camara|lente|lens)/.test(name);
+    }
+    if (f === "PROTECTORES_CAMERA") {
+      return /(camera|camara|lente|lens)/.test(name) && /(protector|glass|cristal|templado)/.test(name);
+    }
+    if (f === "POWER_BANK") return /(power ?bank|bateria externa|wireless power|magnetic wireless)/.test(name + " " + cat);
+    if (f === "AUDIO") return /(audio|earphone|auricular|airpods|earbuds|headphone)/.test(name + " " + cat) || cat === "AUDIO";
+    if (f === "OFERTA") return /(oferta|offer|sale|promo|descuento)/.test(name + " " + cat);
+    if (f === "SMART_WATCH") return /(smart ?watch|watch band|band|pulsera|mi band|xm ?band|correa)/.test(name + " " + cat);
+    if (f === "MOBILE_ACCESSORIES") return /(cordon|lanyard|magnetic card|soporte|stand|holder|car mount|air pods|airpods)/.test(
+      name + " " + cat
+    ) || ["SOPORTE", "GADGETS"].includes(cat);
     if (f === "ACCESSORIES") {
       return (
-        /(funda|case|magsafe|protector|cargador|cable|auricular|audio|power|soporte|cristal|templado|colgante|pulsera)/.test(name) ||
-        [
-          "FUNDA",
-          "PROTECTORES PANTALLA",
-          "CARGADORES",
-          "CABLE",
-          "AUDIO",
-          "SOPORTE",
-          "INFORMATICA",
-          "GADGETS",
-          "TARJETA MEMORIAS",
-        ].includes(cat)
+        /(fast charger|charger|cargador|cable|wireless speaker|speaker|travel adapter|adaptador|sd card|usb|flash drive|memoria)/.test(
+          name + " " + cat
+        ) ||
+        ["CARGADORES", "CABLE", "TARJETA MEMORIAS", "INFORMATICA"].includes(cat)
       );
     }
 
@@ -195,9 +199,15 @@
   function titleByKey(filterKey) {
     const map = {
       ALL: "All Products",
-      IPHONE: "iPhone",
-      SAMSUNG: "Samsung",
-      XIAOMI: "Xiaomi",
+      FUNDAS: "Fundas",
+      SIM: "SIM Card",
+      PROTECTORES_PHONE: "Protectores Phone",
+      PROTECTORES_CAMERA: "Protectores Camera",
+      POWER_BANK: "Power Bank",
+      AUDIO: "Audio",
+      OFERTA: "Oferta",
+      SMART_WATCH: "Smart Watch",
+      MOBILE_ACCESSORIES: "Mobile Accessories",
       ACCESSORIES: "Accessories",
     };
     return map[filterKey] || filterKey;

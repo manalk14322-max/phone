@@ -152,15 +152,30 @@
 
   function isMatchByFilter(product, filterKey) {
     const name = String(product.name || "").toLowerCase();
+    const category = String(product.category || "").toLowerCase();
     switch (filterKey) {
-      case "IPHONE":
-        return /iphone/.test(name);
-      case "SAMSUNG":
-        return /samsung/.test(name);
-      case "XIAOMI":
-        return /xiaomi/.test(name);
+      case "FUNDAS":
+        return /(funda|case|magsafe|cover|silicona|carcasa|bumper)/.test(name);
+      case "SIM":
+        return /(sim|e ?sim|vodafone|orange|lebara|llamaya|movistar)/.test(name + " " + category);
+      case "PROTECTORES_PHONE":
+        return /(protector|cristal|templado|screen protector)/.test(name + " " + category) && !/(camera|camara|lente|lens)/.test(name);
+      case "PROTECTORES_CAMERA":
+        return /(camera|camara|lente|lens)/.test(name) && /(protector|glass|cristal|templado)/.test(name);
+      case "POWER_BANK":
+        return /(power ?bank|bateria externa|wireless power|magnetic wireless)/.test(name + " " + category);
+      case "AUDIO":
+        return /(audio|earphone|auricular|airpods|earbuds|headphone)/.test(name + " " + category);
+      case "OFERTA":
+        return /(oferta|offer|sale|promo|descuento)/.test(name + " " + category);
+      case "SMART_WATCH":
+        return /(smart ?watch|watch band|band|pulsera|mi band|xm ?band|correa)/.test(name + " " + category);
+      case "MOBILE_ACCESSORIES":
+        return /(cordon|lanyard|magnetic card|soporte|stand|holder|car mount|air pods|airpods)/.test(name + " " + category);
       case "ACCESSORIES":
-        return /(funda|case|magsafe|protector|cargador|cable|auricular|audio|power|soporte)/.test(name);
+        return /(fast charger|charger|cargador|cable|wireless speaker|speaker|travel adapter|adaptador|sd card|usb|flash drive|memoria)/.test(
+          name + " " + category
+        );
       default:
         return true;
     }
@@ -255,10 +270,16 @@
 
   function renderCategoryCards() {
     const cards = [
-      { key: "IPHONE", label: "iPhone", href: "iphone.html" },
-      { key: "SAMSUNG", label: "Samsung", href: "samsung.html" },
-      { key: "XIAOMI", label: "Xiaomi", href: "xiaomi.html" },
-      { key: "ACCESSORIES", label: "Accessories", href: "accessories.html" },
+      { key: "FUNDAS", label: "Fundas", href: "iphone.html?cat=FUNDAS" },
+      { key: "SIM", label: "SIM Card", href: "iphone.html?cat=SIM" },
+      { key: "PROTECTORES_PHONE", label: "Protectores Phone", href: "iphone.html?cat=PROTECTORES_PHONE" },
+      { key: "PROTECTORES_CAMERA", label: "Protectores Camera", href: "iphone.html?cat=PROTECTORES_CAMERA" },
+      { key: "POWER_BANK", label: "Power Bank", href: "iphone.html?cat=POWER_BANK" },
+      { key: "AUDIO", label: "Audio", href: "iphone.html?cat=AUDIO" },
+      { key: "OFERTA", label: "Oferta", href: "iphone.html?cat=OFERTA" },
+      { key: "SMART_WATCH", label: "Smart Watch", href: "iphone.html?cat=SMART_WATCH" },
+      { key: "MOBILE_ACCESSORIES", label: "Mobile Accessories", href: "iphone.html?cat=MOBILE_ACCESSORIES" },
+      { key: "ACCESSORIES", label: "Accessories", href: "iphone.html?cat=ACCESSORIES" },
     ];
 
     els.categoryGrid.innerHTML = cards
