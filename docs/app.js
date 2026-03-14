@@ -269,6 +269,7 @@
   }
 
   function renderCategoryCards() {
+    if (!els.categoryGrid || els.categoryGrid.dataset.static === "1") return;
     const cards = [
       { key: "FUNDAS", label: "Fundas", href: "iphone.html?cat=FUNDAS" },
       { key: "SIM", label: "SIM Card", href: "iphone.html?cat=SIM" },
