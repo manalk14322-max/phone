@@ -551,6 +551,38 @@ a {
   font-weight: 700;
 }
 
+.category-card-detailed {
+  padding-bottom: 14px;
+}
+
+.category-card-detailed .category-title-row {
+  padding-bottom: 0;
+}
+
+.category-desc {
+  margin: 8px 4px 0;
+  color: #4c658f;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.category-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 4px 0;
+}
+
+.category-chip {
+  border: 1px solid #c8daf7;
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: #f1f7ff;
+  color: #1f4d8c;
+  font-weight: 700;
+  font-size: 0.74rem;
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
