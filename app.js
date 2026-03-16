@@ -193,9 +193,8 @@
     return `${full}${empty}`;
   }
 
-  function isBlockedBrand(product) {
-    const name = String(product?.name || "");
-    return /(ellie|ellietech)/i.test(name);
+  function isBlockedBrand() {
+    return false;
   }
 
   function productDetailUrl(product) {
