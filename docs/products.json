@@ -22114,5 +22114,345 @@
         "compatibleModel":  "Universal",
         "brand":  "TWM",
         "sourceTag":  "unsplash-2026"
+    },
+    {
+        "id":  960115,
+        "name":  "iPhone 15 Pro MagSafe Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "iPhone",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-001.jpeg",
+        "brand":  "Apple",
+        "compatibleModel":  "iPhone 15 Pro",
+        "shortDescription":  "Protective case for iPhone 15 Pro with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960116,
+        "name":  "iPhone 14 Silicone Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "iPhone",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-002.jpeg",
+        "brand":  "Apple",
+        "compatibleModel":  "iPhone 14",
+        "shortDescription":  "Protective case for iPhone 14 with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960117,
+        "name":  "iPhone 13 Slim Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "iPhone",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-003.jpeg",
+        "brand":  "Apple",
+        "compatibleModel":  "iPhone 13",
+        "shortDescription":  "Protective case for iPhone 13 with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960118,
+        "name":  "iPhone SE Protective Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "iPhone",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-004.jpeg",
+        "brand":  "Apple",
+        "compatibleModel":  "iPhone SE",
+        "shortDescription":  "Protective case for iPhone SE with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960119,
+        "name":  "Redmi Note 13 Shockproof Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Redmi",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-005.jpeg",
+        "brand":  "Redmi",
+        "compatibleModel":  "Redmi Note 13",
+        "shortDescription":  "Protective case for Redmi Note 13 with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960120,
+        "name":  "Redmi Note 12 Clear Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Redmi",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-006.jpeg",
+        "brand":  "Redmi",
+        "compatibleModel":  "Redmi Note 12",
+        "shortDescription":  "Protective case for Redmi Note 12 with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960121,
+        "name":  "Redmi 13C Soft Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Redmi",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-007.jpeg",
+        "brand":  "Redmi",
+        "compatibleModel":  "Redmi 13C",
+        "shortDescription":  "Protective case for Redmi 13C with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960122,
+        "name":  "Redmi 12 Slim Cover",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Redmi",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-008.jpeg",
+        "brand":  "Redmi",
+        "compatibleModel":  "Redmi 12",
+        "shortDescription":  "Protective case for Redmi 12 with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960123,
+        "name":  "Xiaomi 14 Premium Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Xiaomi",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-009.jpeg",
+        "brand":  "Xiaomi",
+        "compatibleModel":  "Xiaomi 14",
+        "shortDescription":  "Protective case for Xiaomi 14 with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960124,
+        "name":  "Xiaomi 13 Silicone Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Xiaomi",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-010.jpeg",
+        "brand":  "Xiaomi",
+        "compatibleModel":  "Xiaomi 13",
+        "shortDescription":  "Protective case for Xiaomi 13 with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960125,
+        "name":  "Xiaomi 12 Shockproof Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Xiaomi",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-011.jpeg",
+        "brand":  "Xiaomi",
+        "compatibleModel":  "Xiaomi 12",
+        "shortDescription":  "Protective case for Xiaomi 12 with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960126,
+        "name":  "Xiaomi 11T Matte Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Xiaomi",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-012.jpeg",
+        "brand":  "Xiaomi",
+        "compatibleModel":  "Xiaomi 11T",
+        "shortDescription":  "Protective case for Xiaomi 11T with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960127,
+        "name":  "Oppo Find X7 Slim Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Oppo",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-013.jpeg",
+        "brand":  "Oppo",
+        "compatibleModel":  "Oppo Find X7",
+        "shortDescription":  "Protective case for Oppo Find X7 with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960128,
+        "name":  "Oppo Reno 11 Protective Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Oppo",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-014.jpeg",
+        "brand":  "Oppo",
+        "compatibleModel":  "Oppo Reno 11",
+        "shortDescription":  "Protective case for Oppo Reno 11 with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960129,
+        "name":  "Oppo A79 Clear Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Oppo",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-015.jpeg",
+        "brand":  "Oppo",
+        "compatibleModel":  "Oppo A79",
+        "shortDescription":  "Protective case for Oppo A79 with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960130,
+        "name":  "Oppo A58 Soft Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Oppo",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-016.jpeg",
+        "brand":  "Oppo",
+        "compatibleModel":  "Oppo A58",
+        "shortDescription":  "Protective case for Oppo A58 with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960131,
+        "name":  "Google Pixel 9 Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Google",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-017.jpeg",
+        "brand":  "Google",
+        "compatibleModel":  "Pixel 9",
+        "shortDescription":  "Protective case for Pixel 9 with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960132,
+        "name":  "Google Pixel 8 Shockproof Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Google",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-018.jpeg",
+        "brand":  "Google",
+        "compatibleModel":  "Pixel 8",
+        "shortDescription":  "Protective case for Pixel 8 with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960133,
+        "name":  "Google Pixel 7a Silicone Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Google",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-019.jpeg",
+        "brand":  "Google",
+        "compatibleModel":  "Pixel 7a",
+        "shortDescription":  "Protective case for Pixel 7a with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
+    },
+    {
+        "id":  960134,
+        "name":  "Google Pixel 7 Slim Case",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Google",
+                     "Case",
+                     "Cover",
+                     "Funda"
+                 ],
+        "price":  "EUR 11.90",
+        "image":  "C:\\Users\\🚀ROCKET🚀\\Desktop\\phone\\images\\catalog\\fundas\\fundas-020.jpeg",
+        "brand":  "Google",
+        "compatibleModel":  "Pixel 7",
+        "shortDescription":  "Protective case for Pixel 7 with everyday grip.",
+        "sourceTag":  "local-catalog-2026"
     }
 ]

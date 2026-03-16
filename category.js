@@ -88,59 +88,70 @@
     return String(v || "").trim().toUpperCase();
   }
 
+  function productText(product) {
+    const parts = [
+      product?.name,
+      product?.brand,
+      product?.compatibleModel,
+      product?.category,
+      ...(Array.isArray(product?.tags) ? product.tags : []),
+    ];
+    return parts.filter(Boolean).join(" ").toLowerCase();
+  }
+
   const SUBCATS = {
     FUNDAS: [
       { key: "ALL", label: "All Fundas", match: () => true },
-      { key: "IPHONE", label: "iPhone", match: (n) => /iphone|apple/.test(n) },
-      { key: "SAMSUNG", label: "Samsung", match: (n) => /samsung/.test(n) },
-      { key: "REDMI", label: "Redmi", match: (n) => /redmi/.test(n) },
-      { key: "XIAOMI", label: "Xiaomi", match: (n) => /xiaomi/.test(n) },
-      { key: "OPPO", label: "Oppo", match: (n) => /oppo/.test(n) },
-      { key: "GOOGLE", label: "Google", match: (n) => /google|pixel/.test(n) },
+      { key: "IPHONE", label: "iPhone", match: (p) => /iphone|apple/.test(productText(p)) },
+      { key: "SAMSUNG", label: "Samsung", match: (p) => /samsung/.test(productText(p)) },
+      { key: "REDMI", label: "Redmi", match: (p) => /redmi/.test(productText(p)) },
+      { key: "XIAOMI", label: "Xiaomi", match: (p) => /xiaomi/.test(productText(p)) },
+      { key: "OPPO", label: "Oppo", match: (p) => /oppo/.test(productText(p)) },
+      { key: "GOOGLE", label: "Google", match: (p) => /google|pixel/.test(productText(p)) },
     ],
     SIM: [
       { key: "ALL", label: "All SIM", match: () => true },
-      { key: "VODAFONE", label: "Vodafone", match: (n) => /vodafone/.test(n) },
-      { key: "E_VODAFONE", label: "E-Sim Vodafone", match: (n) => /e ?sim.*vodafone|vodafone.*e ?sim/.test(n) },
-      { key: "ORANGE", label: "Orange", match: (n) => /orange/.test(n) },
-      { key: "E_ORANGE", label: "E-Sim Orange", match: (n) => /e ?sim.*orange|orange.*e ?sim/.test(n) },
-      { key: "LEBARA", label: "Lebara", match: (n) => /lebara/.test(n) },
-      { key: "E_LEBARA", label: "E-Lebara", match: (n) => /e ?sim.*lebara|lebara.*e ?sim|e ?lebara/.test(n) },
-      { key: "LLAMAYA", label: "LLamaya", match: (n) => /llamaya/.test(n) },
-      { key: "E_LLAMAYA", label: "E-Sim LLamaya", match: (n) => /e ?sim.*llamaya|llamaya.*e ?sim/.test(n) },
-      { key: "MOVISTAR", label: "Movistar", match: (n) => /movistar/.test(n) },
+      { key: "VODAFONE", label: "Vodafone", match: (p) => /vodafone/.test(productText(p)) },
+      { key: "E_VODAFONE", label: "E-Sim Vodafone", match: (p) => /e ?sim.*vodafone|vodafone.*e ?sim/.test(productText(p)) },
+      { key: "ORANGE", label: "Orange", match: (p) => /orange/.test(productText(p)) },
+      { key: "E_ORANGE", label: "E-Sim Orange", match: (p) => /e ?sim.*orange|orange.*e ?sim/.test(productText(p)) },
+      { key: "LEBARA", label: "Lebara", match: (p) => /lebara/.test(productText(p)) },
+      { key: "E_LEBARA", label: "E-Lebara", match: (p) => /e ?sim.*lebara|lebara.*e ?sim|e ?lebara/.test(productText(p)) },
+      { key: "LLAMAYA", label: "LLamaya", match: (p) => /llamaya/.test(productText(p)) },
+      { key: "E_LLAMAYA", label: "E-Sim LLamaya", match: (p) => /e ?sim.*llamaya|llamaya.*e ?sim/.test(productText(p)) },
+      { key: "MOVISTAR", label: "Movistar", match: (p) => /movistar/.test(productText(p)) },
     ],
     POWER_BANK: [
       { key: "ALL", label: "All Power Bank", match: () => true },
-      { key: "MAGNETIC", label: "Magnetic Wireless", match: (n) => /magnetic|wireless/.test(n) },
+      { key: "MAGNETIC", label: "Magnetic Wireless", match: (p) => /magnetic|wireless/.test(productText(p)) },
     ],
     AUDIO: [
       { key: "ALL", label: "All Audio", match: () => true },
-      { key: "WIRELESS", label: "Wireless Earphone", match: (n) => /wireless/.test(n) },
-      { key: "EARPHONE", label: "Earphone", match: (n) => /earphone|earbud|auricular/.test(n) },
+      { key: "WIRELESS", label: "Wireless Earphone", match: (p) => /wireless/.test(productText(p)) },
+      { key: "EARPHONE", label: "Earphone", match: (p) => /earphone|earbud|auricular/.test(productText(p)) },
     ],
     SMART_WATCH: [
       { key: "ALL", label: "All Smart Watch", match: () => true },
-      { key: "WATCH", label: "Smart Watch", match: (n) => /smart ?watch/.test(n) },
-      { key: "BAND", label: "Watch Band", match: (n) => /watch band|band|pulsera|correa/.test(n) },
-      { key: "XM_BAND", label: "XM Band", match: (n) => /xm ?band|mi band/.test(n) },
-      { key: "PROTECTIVE", label: "Protective Case", match: (n) => /protective|case|casa/.test(n) },
+      { key: "WATCH", label: "Smart Watch", match: (p) => /smart ?watch/.test(productText(p)) },
+      { key: "BAND", label: "Watch Band", match: (p) => /watch band|band|pulsera|correa/.test(productText(p)) },
+      { key: "XM_BAND", label: "XM Band", match: (p) => /xm ?band|mi band/.test(productText(p)) },
+      { key: "PROTECTIVE", label: "Protective Case", match: (p) => /protective|case|casa/.test(productText(p)) },
     ],
     MOBILE_ACCESSORIES: [
       { key: "ALL", label: "All Mobile Accessories", match: () => true },
-      { key: "CORDON", label: "Cordon", match: (n) => /cordon|lanyard/.test(n) },
-      { key: "MAGNETIC_CARD", label: "Magnetic Card", match: (n) => /magnetic card/.test(n) },
-      { key: "SOPORTE", label: "Soporte para movil", match: (n) => /soporte|stand|holder/.test(n) },
-      { key: "AIRPODS_CASE", label: "Air Pods Case", match: (n) => /air ?pods|airpods/.test(n) },
+      { key: "CORDON", label: "Cordon", match: (p) => /cordon|lanyard/.test(productText(p)) },
+      { key: "MAGNETIC_CARD", label: "Magnetic Card", match: (p) => /magnetic card/.test(productText(p)) },
+      { key: "SOPORTE", label: "Soporte para movil", match: (p) => /soporte|stand|holder/.test(productText(p)) },
+      { key: "AIRPODS_CASE", label: "Air Pods Case", match: (p) => /air ?pods|airpods/.test(productText(p)) },
     ],
     ACCESSORIES: [
       { key: "ALL", label: "All Accessories", match: () => true },
-      { key: "FAST_CHARGER", label: "Fast Charger", match: (n) => /fast charger|charger|cargador/.test(n) },
-      { key: "CABLE", label: "Cable", match: (n) => /cable/.test(n) },
-      { key: "SPEAKER", label: "Wireless Speakers", match: (n) => /speaker/.test(n) },
-      { key: "ADAPTER", label: "Travel Adapter", match: (n) => /adapter|adaptador|travel/.test(n) },
-      { key: "SD_CARD", label: "SD Card", match: (n) => /sd card|tarjeta/.test(n) },
-      { key: "USB", label: "USB Flash Drive", match: (n) => /usb|flash drive|pendrive/.test(n) },
+      { key: "FAST_CHARGER", label: "Fast Charger", match: (p) => /fast charger|charger|cargador/.test(productText(p)) },
+      { key: "CABLE", label: "Cable", match: (p) => /cable/.test(productText(p)) },
+      { key: "SPEAKER", label: "Wireless Speakers", match: (p) => /speaker/.test(productText(p)) },
+      { key: "ADAPTER", label: "Travel Adapter", match: (p) => /adapter|adaptador|travel/.test(productText(p)) },
+      { key: "SD_CARD", label: "SD Card", match: (p) => /sd card|tarjeta/.test(productText(p)) },
+      { key: "USB", label: "USB Flash Drive", match: (p) => /usb|flash drive|pendrive/.test(productText(p)) },
     ],
   };
 
@@ -313,10 +324,7 @@
           els.subcatChips.querySelectorAll(".subcat-chip").forEach((el) => {
             el.classList.toggle("active", el.getAttribute("data-sub") === initial.key);
           });
-          state.filtered = state.base.filter((p) => {
-            const name = String(p.name || "").toLowerCase();
-            return initial.match ? initial.match(name) : true;
-          });
+          state.filtered = state.base.filter((p) => (initial.match ? initial.match(p) : true));
           render(state.filtered);
         }
       }
@@ -333,9 +341,9 @@
         const q = String(els.search.value || "").trim().toLowerCase();
         state.visible = getPageSize();
         state.filtered = state.base.filter((p) => {
-          const name = String(p.name || "").toLowerCase();
-          const okSub = sub?.match ? sub.match(name) : true;
-          const okQ = !q || name.includes(q);
+          const text = productText(p);
+          const okSub = sub?.match ? sub.match(p) : true;
+          const okQ = !q || text.includes(q);
           return okSub && okQ;
         });
         render(state.filtered);
@@ -348,9 +356,9 @@
       const subcats = SUBCATS[key] || null;
       const sub = subcats ? subcats.find((s) => s.key === state.activeSub) || subcats[0] : null;
       state.filtered = state.base.filter((p) => {
-        const name = String(p.name || "").toLowerCase();
-        const okSub = sub?.match ? sub.match(name) : true;
-        const okQ = !q || name.includes(q);
+        const text = productText(p);
+        const okSub = sub?.match ? sub.match(p) : true;
+        const okQ = !q || text.includes(q);
         return okSub && okQ;
       });
       render(state.filtered);

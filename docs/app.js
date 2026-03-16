@@ -150,31 +150,42 @@
     return `EUR ${Number(value || 0).toFixed(2)}`;
   }
 
+  function productText(product) {
+    const parts = [
+      product?.name,
+      product?.brand,
+      product?.compatibleModel,
+      product?.category,
+      ...(Array.isArray(product?.tags) ? product.tags : []),
+    ];
+    return parts.filter(Boolean).join(" ").toLowerCase();
+  }
+
   function isMatchByFilter(product, filterKey) {
-    const name = String(product.name || "").toLowerCase();
+    const text = productText(product);
     const category = String(product.category || "").toLowerCase();
     switch (filterKey) {
       case "FUNDAS":
-        return /(funda|case|magsafe|cover|silicona|carcasa|bumper)/.test(name);
+        return /(funda|case|magsafe|cover|silicona|carcasa|bumper)/.test(text);
       case "SIM":
-        return /(sim|e ?sim|vodafone|orange|lebara|llamaya|movistar)/.test(name + " " + category);
+        return /(sim|e ?sim|vodafone|orange|lebara|llamaya|movistar)/.test(text + " " + category);
       case "PROTECTORES_PHONE":
-        return /(protector|cristal|templado|screen protector)/.test(name + " " + category) && !/(camera|camara|lente|lens)/.test(name);
+        return /(protector|cristal|templado|screen protector)/.test(text + " " + category) && !/(camera|camara|lente|lens)/.test(text);
       case "PROTECTORES_CAMERA":
-        return /(camera|camara|lente|lens)/.test(name) && /(protector|glass|cristal|templado)/.test(name);
+        return /(camera|camara|lente|lens)/.test(text) && /(protector|glass|cristal|templado)/.test(text);
       case "POWER_BANK":
-        return /(power ?bank|bateria externa|wireless power|magnetic wireless)/.test(name + " " + category);
+        return /(power ?bank|bateria externa|wireless power|magnetic wireless)/.test(text + " " + category);
       case "AUDIO":
-        return /(audio|earphone|auricular|airpods|earbuds|headphone)/.test(name + " " + category);
+        return /(audio|earphone|auricular|airpods|earbuds|headphone)/.test(text + " " + category);
       case "OFERTA":
-        return /(oferta|offer|sale|promo|descuento)/.test(name + " " + category);
+        return /(oferta|offer|sale|promo|descuento)/.test(text + " " + category);
       case "SMART_WATCH":
-        return /(smart ?watch|watch band|band|pulsera|mi band|xm ?band|correa)/.test(name + " " + category);
+        return /(smart ?watch|watch band|band|pulsera|mi band|xm ?band|correa)/.test(text + " " + category);
       case "MOBILE_ACCESSORIES":
-        return /(cordon|lanyard|magnetic card|soporte|stand|holder|car mount|air pods|airpods)/.test(name + " " + category);
+        return /(cordon|lanyard|magnetic card|soporte|stand|holder|car mount|air pods|airpods)/.test(text + " " + category);
       case "ACCESSORIES":
         return /(fast charger|charger|cargador|cable|wireless speaker|speaker|travel adapter|adaptador|sd card|usb|flash drive|memoria)/.test(
-          name + " " + category
+          text + " " + category
         );
       default:
         return true;
