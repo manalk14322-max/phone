@@ -5,7 +5,7 @@
   const bodyKey = document.body?.dataset?.cat;
   const key = String(urlKey || bodyKey || "ALL").trim().toUpperCase();
   const CART_KEY = "twm_cart_modern_v1";
-  const PRODUCTS_CACHE_KEY = "twm_products_cache_v10";
+  const PRODUCTS_CACHE_KEY = "twm_products_cache_v11";
 
   const els = {
     title: document.getElementById("cat-title"),
@@ -160,6 +160,7 @@
   }
 
   function isMatchByFilter(product, filterKey) {
+    const text = productText(product);
     const name = String(product?.name || "").toLowerCase();
     const cat = normalizeCategory(product?.category);
     const f = String(filterKey || "ALL").toUpperCase();
@@ -169,10 +170,9 @@
 
     if (f === "FUNDAS") {
       return (
-        /(funda|case|magsafe|cover|silicona|carcasa|bumper)/.test(name) ||
+        /(funda|case|magsafe|cover|silicona|carcasa|bumper)/.test(text) ||
         cat === "FUNDA" ||
-        (/iphone|apple/.test(name) && /(phone|smartphone)/.test(name)) ||
-        (cat === "PHONE" && /iphone|apple/.test(name))
+        isPhoneItem(product)
       );
     }
     if (f === "SIM") return /(sim|e ?sim|vodafone|orange|lebara|llamaya|movistar)/.test(name + " " + cat);
@@ -236,7 +236,8 @@
     const text = productText(product);
     const isIphone = /iphone|apple/.test(text);
     const isCover = /(funda|case|magsafe|cover|carcasa|bumper)/.test(text);
-    const isPhone = /(phone|smartphone)/.test(text) || normalizeCategory(product?.category) === "PHONE";
+    const isPhoneWord = /\bphone\b|\bsmartphone\b/.test(text);
+    const isPhone = isPhoneWord || normalizeCategory(product?.category) === "PHONE";
     return isIphone && isPhone && !isCover;
   }
 
