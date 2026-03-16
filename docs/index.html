@@ -54,9 +54,7 @@
         <span>New arrivals every week</span>
       </div>
     </div>
-  </div>
-
-  <main>
+  </div>\n\n  <main>
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="hero-copy">
@@ -166,12 +164,12 @@
               <span>Explore</span>
             </div>
           </a>
-          <a class="category-card" href="iphone.html?cat=OFERTA">
+          <a class="category-card" href="iphone.html?cat=Offers">
             <div class="category-media">
-              <img src="https://images.unsplash.com/photo-b0yQi11cHuc?auto=format&fit=crop&fm=jpg&q=70&w=1600" alt="Oferta" loading="lazy" onerror="this.onerror=null;this.src='hero1.jpg';" />
+              <img src="https://images.unsplash.com/photo-b0yQi11cHuc?auto=format&fit=crop&fm=jpg&q=70&w=1600" alt="Offers" loading="lazy" onerror="this.onerror=null;this.src='hero1.jpg';" />
             </div>
             <div class="category-title-row">
-              <h3>Oferta</h3>
+              <h3>Offers</h3>
               <span>Explore</span>
             </div>
           </a>
@@ -300,11 +298,49 @@
   </footer>
 
   <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
-    <header class="drawer-head">
-      <h3>Your Cart</h3>
-      <button id="cart-close" type="button" aria-label="Close">×</button>
-    </header>
-    <div class="drawer-items" id="cart-items"></div>
+    <header class="nav-wrap">
+    <div class="container nav-shell">
+      <a class="brand" href="#home">
+        <img src="logo.png" alt="The World Mobile" />
+        <span>The World Mobile</span>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false">Menu</button>
+
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="#home" class="active">Home</a>
+        <a href="store.html">Store</a>
+        <a href="contacto.html">Our Contact</a>
+        <a href="oferta.html">Offers</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="search-box">
+          <input id="global-search" type="search" placeholder="Search phones, accessories..." aria-label="Search products" />
+        </div>
+
+        <button class="cart-icon-btn" id="cart-btn" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="20" r="1"></circle>
+            <circle cx="18" cy="20" r="1"></circle>
+            <path d="M2 3h2l2.2 11.2a2 2 0 0 0 2 1.6h9.9a2 2 0 0 0 2-1.5L22 7H7"></path>
+          </svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="promo-strip" aria-label="Offers">
+    <div class="container promo-strip-inner">
+      <div class="promo-track">
+        <span>Free shipping over EUR 100</span>
+        <span>24h express dispatch before 17:30</span>
+        <span>Wholesale support for Spain stores</span>
+        <span>Secure checkout and easy returns</span>
+        <span>New arrivals every week</span>
+      </div>
+    </div><div class="drawer-items" id="cart-items"></div>
     <footer class="drawer-foot">
       <p>Subtotal: <strong id="cart-subtotal">EUR 0.00</strong></p>
       <div class="drawer-actions">
@@ -341,6 +377,11 @@
   <script src="image-branding.js?v=20260314-10"></script>
 </body>
 </html>
+
+
+
+
+
 
 
 

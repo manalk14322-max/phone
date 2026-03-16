@@ -4,53 +4,75 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google" content="notranslate" />
-  <title>Nuestro Contacto | The World Mobile</title>
+  <title>Our Contact | The World Mobile</title>
   <link rel="stylesheet" href="styles.css?v=20260308-26" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container bar">
-      <a class="brand" href="index.html">
+  <header class="nav-wrap">
+    <div class="container nav-shell">
+      <a class="brand" href="#home">
         <img src="logo.png" alt="The World Mobile" />
         <span>The World Mobile</span>
       </a>
-      <nav class="top-nav" aria-label="Main navigation">
-        <a href="store.html" data-en="Store" data-es="Tienda">Store</a>
-        <a href="contacto.html" data-en="Our Contact" data-es="Nuestro Contacto">Nuestro Contacto</a>
-        <a href="novedades.html" data-en="News" data-es="Novedades">NOVEDADES</a>
-        <a href="oferta.html" data-en="Offers" data-es="Oferta">OFERTA</a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false">Menu</button>
+
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="#home" class="active">Home</a>
+        <a href="store.html">Store</a>
+        <a href="contacto.html">Our Contact</a>
+        <a href="oferta.html">Offers</a>
       </nav>
-      <div class="lang-switch" aria-label="Language switch">
-        <button type="button" data-lang="es">ES</button>
-        <button type="button" data-lang="en">EN</button>
+
+      <div class="nav-actions">
+        <div class="search-box">
+          <input id="global-search" type="search" placeholder="Search phones, accessories..." aria-label="Search products" />
+        </div>
+
+        <button class="cart-icon-btn" id="cart-btn" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="20" r="1"></circle>
+            <circle cx="18" cy="20" r="1"></circle>
+            <path d="M2 3h2l2.2 11.2a2 2 0 0 0 2 1.6h9.9a2 2 0 0 0 2-1.5L22 7H7"></path>
+          </svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
       </div>
-      <a class="profile-btn" href="admin-customers.html" aria-label="Admin">ðŸ‘¤</a>
     </div>
   </header>
 
-  <main class="container page-main">
+  <div class="promo-strip" aria-label="Offers">
+    <div class="container promo-strip-inner">
+      <div class="promo-track">
+        <span>Free shipping over EUR 100</span>
+        <span>24h express dispatch before 17:30</span>
+        <span>Wholesale support for Spain stores</span>
+        <span>Secure checkout and easy returns</span>
+        <span>New arrivals every week</span>
+      </div>
+    </div>\n\n  <main class="container page-main">
     <section class="page-hero">
-      <p class="page-kicker">Atencion Cliente</p>
-      <h1>Nuestro Contacto</h1>
-      <p>Estamos listos para ayudarte con compras retail y mayoristas.</p>
+      <p class="page-kicker">Customer Support</p>
+      <h1>Our Contact</h1>
+      <p>We are ready to help with retail and wholesale purchases.</p>
     </section>
 
     <section class="contact-layout">
       <article class="contact-card">
-        <h3>Oficina Central</h3>
-        <p><strong>Direccion:</strong> Calle Comercio 128, Madrid</p>
-        <p><strong>Telefono:</strong> 0000000000</p>
+        <h3>Head Office</h3>
+        <p><strong>Address:</strong> Calle Comercio 128, Madrid</p>
+        <p><strong>Phone:</strong> 0000000000</p>
         <p><strong>Email:</strong> abc</p>
-        <p><strong>Horario:</strong> Lun-Sab 10:00 - 20:30</p>
+        <p><strong>Hours:</strong> Mon-Sat 10:00 - 20:30</p>
       </article>
       <article class="contact-card">
-        <h3>Canales Rapidos</h3>
+        <h3>Quick Channels</h3>
         <p>WhatsApp Business: +34 600 000 000</p>
-        <p>Atencion Mayorista: ventas@theworldmobile.es</p>
-        <p>Soporte Tecnico: soporte@theworldmobile.es</p>
+        <p>Wholesale Support: ventas@theworldmobile.es</p>
+        <p>Technical Support: soporte@theworldmobile.es</p>
       </article>
       <article class="contact-card">
-        <h3>Mapa de Ubicacion</h3>
+        <h3>Location Map</h3>
         <iframe
           class="contact-map"
           title="Store Location Map"
@@ -64,7 +86,7 @@
 
   <footer class="site-footer">
     <div class="container footer-bottom-row">
-      <p>Â© 2026 The World Mobile. Todos los derechos reservados.</p>
+      <p>Â© 2026 The World Mobile. All rights reserved.</p>
       <p class="group-credit">Website by <a href="#">KK group of companies</a></p>
     </div>
   </footer>
@@ -72,6 +94,11 @@
   <script src="image-branding.js?v=20260309-01"></script>
 </body>
 </html>
+
+
+
+
+
 
 
 

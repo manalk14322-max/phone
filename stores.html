@@ -9,21 +9,49 @@
   <link rel="stylesheet" href="styles.css?v=20260308-26" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container bar">
-      <a class="brand" href="index.html">
+  <header class="nav-wrap">
+    <div class="container nav-shell">
+      <a class="brand" href="#home">
         <img src="logo.png" alt="The World Mobile" />
         <span>The World Mobile</span>
       </a>
-      <div class="lang-switch" aria-label="Language switch">
-        <button type="button" data-lang="es">ES</button>
-        <button type="button" data-lang="en">EN</button>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false">Menu</button>
+
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <a href="#home" class="active">Home</a>
+        <a href="store.html">Store</a>
+        <a href="contacto.html">Our Contact</a>
+        <a href="oferta.html">Offers</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="search-box">
+          <input id="global-search" type="search" placeholder="Search phones, accessories..." aria-label="Search products" />
+        </div>
+
+        <button class="cart-icon-btn" id="cart-btn" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="20" r="1"></circle>
+            <circle cx="18" cy="20" r="1"></circle>
+            <path d="M2 3h2l2.2 11.2a2 2 0 0 0 2 1.6h9.9a2 2 0 0 0 2-1.5L22 7H7"></path>
+          </svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
       </div>
-      <a class="special-back" href="index.html" data-en="Back to Home" data-es="Volver al Inicio">Back to Home</a>
     </div>
   </header>
 
-  <main class="container stores-page">
+  <div class="promo-strip" aria-label="Offers">
+    <div class="container promo-strip-inner">
+      <div class="promo-track">
+        <span>Free shipping over EUR 100</span>
+        <span>24h express dispatch before 17:30</span>
+        <span>Wholesale support for Spain stores</span>
+        <span>Secure checkout and easy returns</span>
+        <span>New arrivals every week</span>
+      </div>
+    </div>\n\n  <main class="container stores-page">
     <section class="stores-hero">
       <p class="stores-kicker">Store Locator</p>
       <h1>Find Our Stores</h1>
@@ -36,35 +64,35 @@
         <p><strong>Address:</strong> Calle Gran Via 45, Madrid</p>
         <p><strong>Phone:</strong> 0000000001</p>
         <p><strong>Email:</strong> madrid@theworldmobile.es</p>
-        <p><strong>Horario:</strong> Lun-Sab 10:00 - 21:00</p>
+        <p><strong>Hours:</strong> Mon-Sat 10:00 - 21:00</p>
       </article>
       <article class="store-card">
         <h3>Barcelona Eixample</h3>
         <p><strong>Address:</strong> Carrer de Valencia 214, Barcelona</p>
         <p><strong>Phone:</strong> 0000000002</p>
         <p><strong>Email:</strong> barcelona@theworldmobile.es</p>
-        <p><strong>Horario:</strong> Lun-Sab 10:00 - 21:00</p>
+        <p><strong>Hours:</strong> Mon-Sat 10:00 - 21:00</p>
       </article>
       <article class="store-card">
         <h3>Valencia Norte</h3>
         <p><strong>Address:</strong> Avenida del Puerto 89, Valencia</p>
         <p><strong>Phone:</strong> 0000000003</p>
         <p><strong>Email:</strong> valencia@theworldmobile.es</p>
-        <p><strong>Horario:</strong> Lun-Sab 10:00 - 20:30</p>
+        <p><strong>Hours:</strong> Mon-Sat 10:00 - 20:30</p>
       </article>
       <article class="store-card">
         <h3>Sevilla Plaza</h3>
         <p><strong>Address:</strong> Calle Sierpes 19, Sevilla</p>
         <p><strong>Phone:</strong> 0000000004</p>
         <p><strong>Email:</strong> sevilla@theworldmobile.es</p>
-        <p><strong>Horario:</strong> Lun-Sab 10:00 - 20:30</p>
+        <p><strong>Hours:</strong> Mon-Sat 10:00 - 20:30</p>
       </article>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-bottom-row">
-      <p>Â© 2026 The World Mobile. Todos los derechos reservados.</p>
+      <p>Â© 2026 The World Mobile. All rights reserved.</p>
       <p class="group-credit">Website by <a href="#">KK group of companies</a></p>
     </div>
   </footer>
@@ -72,6 +100,11 @@
   <script src="image-branding.js?v=20260309-01"></script>
 </body>
 </html>
+
+
+
+
+
 
 
 
