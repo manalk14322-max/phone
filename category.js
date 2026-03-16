@@ -5,7 +5,7 @@
   const bodyKey = document.body?.dataset?.cat;
   const key = String(urlKey || bodyKey || "ALL").trim().toUpperCase();
   const CART_KEY = "twm_cart_modern_v1";
-  const PRODUCTS_CACHE_KEY = "twm_products_cache_v9";
+  const PRODUCTS_CACHE_KEY = "twm_products_cache_v10";
 
   const els = {
     title: document.getElementById("cat-title"),
@@ -167,7 +167,14 @@
     if (f === "ALL") return true;
     if (cat === f) return true;
 
-    if (f === "FUNDAS") return /(funda|case|magsafe|cover|silicona|carcasa|bumper)/.test(name) || cat === "FUNDA";
+    if (f === "FUNDAS") {
+      return (
+        /(funda|case|magsafe|cover|silicona|carcasa|bumper)/.test(name) ||
+        cat === "FUNDA" ||
+        (/iphone|apple/.test(name) && /(phone|smartphone)/.test(name)) ||
+        (cat === "PHONE" && /iphone|apple/.test(name))
+      );
+    }
     if (f === "SIM") return /(sim|e ?sim|vodafone|orange|lebara|llamaya|movistar)/.test(name + " " + cat);
     if (f === "PROTECTORES_PHONE") {
       return /(protector|cristal|templado|screen protector)/.test(name + " " + cat) && !/(camera|camara|lente|lens)/.test(name);
@@ -223,6 +230,23 @@
       cart.push({ ...item, qty: 1 });
     }
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  }
+
+  function isPhoneItem(product) {
+    const text = productText(product);
+    const isIphone = /iphone|apple/.test(text);
+    const isCover = /(funda|case|magsafe|cover|carcasa|bumper)/.test(text);
+    const isPhone = /(phone|smartphone)/.test(text) || normalizeCategory(product?.category) === "PHONE";
+    return isIphone && isPhone && !isCover;
+  }
+
+  function sortFundas(items) {
+    return items.slice().sort((a, b) => {
+      const aPhone = isPhoneItem(a) ? 0 : 1;
+      const bPhone = isPhoneItem(b) ? 0 : 1;
+      if (aPhone !== bPhone) return aPhone - bPhone;
+      return 0;
+    });
   }
 
   function render(items) {
@@ -299,6 +323,9 @@
     const all = allSource.filter((p) => !isBlockedBrand(p));
     state.base = all.filter((p) => isMatchByFilter(p, key));
     state.filtered = state.base.slice();
+    if (key === "FUNDAS") {
+      state.filtered = sortFundas(state.filtered);
+    }
     const title = titleByKey(key);
 
     els.title.textContent = title;
@@ -325,6 +352,9 @@
             el.classList.toggle("active", el.getAttribute("data-sub") === initial.key);
           });
           state.filtered = state.base.filter((p) => (initial.match ? initial.match(p) : true));
+          if (key === "FUNDAS") {
+            state.filtered = sortFundas(state.filtered);
+          }
           render(state.filtered);
         }
       }
@@ -346,6 +376,9 @@
           const okQ = !q || text.includes(q);
           return okSub && okQ;
         });
+        if (key === "FUNDAS") {
+          state.filtered = sortFundas(state.filtered);
+        }
         render(state.filtered);
       });
     }
@@ -361,6 +394,9 @@
         const okQ = !q || text.includes(q);
         return okSub && okQ;
       });
+      if (key === "FUNDAS") {
+        state.filtered = sortFundas(state.filtered);
+      }
       render(state.filtered);
     }, 220);
     els.search.addEventListener("input", onSearch);

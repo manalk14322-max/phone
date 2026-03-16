@@ -22658,5 +22658,197 @@
         "compatibleModel":  "iPhone 12",
         "shortDescription":  "MagSafe-ready case for iPhone 12 with secure grip.",
         "sourceTag":  "iphone-covers-2026"
+    },
+    {
+        "id":  960147,
+        "name":  "iPhone 16 Pro Max Smartphone",
+        "category":  "PHONE",
+        "tags":  [
+                     "iPhone",
+                     "Phone",
+                     "Apple"
+                 ],
+        "price":  "EUR 899.00",
+        "image":  "https://images.unsplash.com/photo-GuD21pA9xIE?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "brand":  "Apple",
+        "compatibleModel":  "iPhone 16 Pro Max",
+        "shortDescription":  "Latest iPhone 16 Pro Max with premium display and camera.",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "id":  960148,
+        "name":  "iPhone 16 Pro Smartphone",
+        "category":  "PHONE",
+        "tags":  [
+                     "iPhone",
+                     "Phone",
+                     "Apple"
+                 ],
+        "price":  "EUR 899.00",
+        "image":  "https://images.unsplash.com/photo-4YigwbwYjDA?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "brand":  "Apple",
+        "compatibleModel":  "iPhone 16 Pro",
+        "shortDescription":  "Latest iPhone 16 Pro with premium display and camera.",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "id":  960149,
+        "name":  "iPhone 16 Smartphone",
+        "category":  "PHONE",
+        "tags":  [
+                     "iPhone",
+                     "Phone",
+                     "Apple"
+                 ],
+        "price":  "EUR 899.00",
+        "image":  "https://images.unsplash.com/photo-ELncSIRwP_I?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "brand":  "Apple",
+        "compatibleModel":  "iPhone 16",
+        "shortDescription":  "Latest iPhone 16 with premium display and camera.",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "id":  960150,
+        "name":  "iPhone 15 Pro Max Smartphone",
+        "category":  "PHONE",
+        "tags":  [
+                     "iPhone",
+                     "Phone",
+                     "Apple"
+                 ],
+        "price":  "EUR 899.00",
+        "image":  "https://images.unsplash.com/photo-aFDdAddufcY?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "brand":  "Apple",
+        "compatibleModel":  "iPhone 15 Pro Max",
+        "shortDescription":  "Latest iPhone 15 Pro Max with premium display and camera.",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "id":  960151,
+        "name":  "iPhone 15 Pro Smartphone",
+        "category":  "PHONE",
+        "tags":  [
+                     "iPhone",
+                     "Phone",
+                     "Apple"
+                 ],
+        "price":  "EUR 899.00",
+        "image":  "https://images.unsplash.com/photo-8NZWPenRXDk?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "brand":  "Apple",
+        "compatibleModel":  "iPhone 15 Pro",
+        "shortDescription":  "Latest iPhone 15 Pro with premium display and camera.",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "id":  960152,
+        "name":  "iPhone 15 Smartphone",
+        "category":  "PHONE",
+        "tags":  [
+                     "iPhone",
+                     "Phone",
+                     "Apple"
+                 ],
+        "price":  "EUR 899.00",
+        "image":  "https://images.unsplash.com/photo-5FPlliLjV5k?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "brand":  "Apple",
+        "compatibleModel":  "iPhone 15",
+        "shortDescription":  "Latest iPhone 15 with premium display and camera.",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "id":  960153,
+        "name":  "iPhone 14 Pro Smartphone",
+        "category":  "PHONE",
+        "tags":  [
+                     "iPhone",
+                     "Phone",
+                     "Apple"
+                 ],
+        "price":  "EUR 899.00",
+        "image":  "https://images.unsplash.com/photo-X8YiRNu3I9s?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "brand":  "Apple",
+        "compatibleModel":  "iPhone 14 Pro",
+        "shortDescription":  "Latest iPhone 14 Pro with premium display and camera.",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "id":  960154,
+        "name":  "iPhone 14 Smartphone",
+        "category":  "PHONE",
+        "tags":  [
+                     "iPhone",
+                     "Phone",
+                     "Apple"
+                 ],
+        "price":  "EUR 899.00",
+        "image":  "https://images.unsplash.com/photo-6On8ot0vYK4?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "brand":  "Apple",
+        "compatibleModel":  "iPhone 14",
+        "shortDescription":  "Latest iPhone 14 with premium display and camera.",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "id":  960155,
+        "name":  "iPhone 13 Pro Smartphone",
+        "category":  "PHONE",
+        "tags":  [
+                     "iPhone",
+                     "Phone",
+                     "Apple"
+                 ],
+        "price":  "EUR 899.00",
+        "image":  "https://images.unsplash.com/photo-gWdXRig3D5w?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "brand":  "Apple",
+        "compatibleModel":  "iPhone 13 Pro",
+        "shortDescription":  "Latest iPhone 13 Pro with premium display and camera.",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "id":  960156,
+        "name":  "iPhone 13 Smartphone",
+        "category":  "PHONE",
+        "tags":  [
+                     "iPhone",
+                     "Phone",
+                     "Apple"
+                 ],
+        "price":  "EUR 899.00",
+        "image":  "https://images.unsplash.com/photo--LDgSuWFiEA?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "brand":  "Apple",
+        "compatibleModel":  "iPhone 13",
+        "shortDescription":  "Latest iPhone 13 with premium display and camera.",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "id":  960157,
+        "name":  "iPhone 12 Pro Smartphone",
+        "category":  "PHONE",
+        "tags":  [
+                     "iPhone",
+                     "Phone",
+                     "Apple"
+                 ],
+        "price":  "EUR 899.00",
+        "image":  "https://images.unsplash.com/photo-os2A1NouhVE?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "brand":  "Apple",
+        "compatibleModel":  "iPhone 12 Pro",
+        "shortDescription":  "Latest iPhone 12 Pro with premium display and camera.",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "id":  960158,
+        "name":  "iPhone 12 Smartphone",
+        "category":  "PHONE",
+        "tags":  [
+                     "iPhone",
+                     "Phone",
+                     "Apple"
+                 ],
+        "price":  "EUR 899.00",
+        "image":  "https://images.unsplash.com/photo-kuiRPhd9yEs?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "brand":  "Apple",
+        "compatibleModel":  "iPhone 12",
+        "shortDescription":  "Latest iPhone 12 with premium display and camera.",
+        "sourceTag":  "unsplash-2026"
     }
 ]
