@@ -21358,5 +21358,761 @@
         "compatibleModel":  "iPhone 14 Pro",
         "shortDescription":  "Special offer on iPhone cases for limited time.",
         "sourceTag":  "pexels-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-7qlXFeFNv14?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwyfHxzaW0lMjBjYXJkfGVufDB8fHx8MTc1Nzc4Nzk1N3ww\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Vodafone prepaid SIM for Spain coverage.",
+        "id":  960067,
+        "price":  "EUR 10.00",
+        "category":  "SIM",
+        "tags":  [
+                     "SIM",
+                     "Vodafone",
+                     "Prepago",
+                     "Spain"
+                 ],
+        "name":  "Vodafone SIM Prepago ES",
+        "compatibleModel":  "All Phones",
+        "brand":  "Vodafone",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-fcYNLhYAd5k?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwyfHxzaW0lMjBjYXJkfGVufDB8fHx8MTc1Nzc4Nzk1N3ww\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Orange prepaid SIM for Spain networks.",
+        "id":  960068,
+        "price":  "EUR 10.00",
+        "category":  "SIM",
+        "tags":  [
+                     "SIM",
+                     "Orange",
+                     "Prepago",
+                     "Spain"
+                 ],
+        "name":  "Orange SIM Prepago ES",
+        "compatibleModel":  "All Phones",
+        "brand":  "Orange",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-TCyYbnFBIIw?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHw1fHxzaW0lMjBjYXJkfGVufDB8fHx8MTc1Nzc4Nzk1N3ww\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Movistar prepaid SIM for Spain coverage.",
+        "id":  960069,
+        "price":  "EUR 10.00",
+        "category":  "SIM",
+        "tags":  [
+                     "SIM",
+                     "Movistar",
+                     "Prepago",
+                     "Spain"
+                 ],
+        "name":  "Movistar SIM Prepago ES",
+        "compatibleModel":  "All Phones",
+        "brand":  "Movistar",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-7qlXFeFNv14?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwyfHxzaW0lMjBjYXJkfGVufDB8fHx8MTc1Nzc4Nzk1N3ww\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Lebara prepaid SIM for Spain and EU.",
+        "id":  960070,
+        "price":  "EUR 9.00",
+        "category":  "SIM",
+        "tags":  [
+                     "SIM",
+                     "Lebara",
+                     "Prepago",
+                     "Spain"
+                 ],
+        "name":  "Lebara SIM Prepago ES",
+        "compatibleModel":  "All Phones",
+        "brand":  "Lebara",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-fcYNLhYAd5k?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwyfHxzaW0lMjBjYXJkfGVufDB8fHx8MTc1Nzc4Nzk1N3ww\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Llamaya prepaid SIM for Spain users.",
+        "id":  960071,
+        "price":  "EUR 9.00",
+        "category":  "SIM",
+        "tags":  [
+                     "SIM",
+                     "Llamaya",
+                     "Prepago",
+                     "Spain"
+                 ],
+        "name":  "Llamaya SIM Prepago ES",
+        "compatibleModel":  "All Phones",
+        "brand":  "Llamaya",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-6On8ot0vYK4?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwxOXx8aXBob25lJTIwY2FzZXxlbnwwfHx8fDE3NTc3ODc2ODF8MA\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Clear MagSafe case with slim protection.",
+        "id":  960072,
+        "price":  "EUR 14.90",
+        "category":  "FUNDA",
+        "tags":  [
+                     "iPhone",
+                     "Case",
+                     "MagSafe"
+                 ],
+        "name":  "iPhone MagSafe Clear Case",
+        "compatibleModel":  "iPhone 15 Series",
+        "brand":  "Apple",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-4Sxms8uSEas?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwyfHxwaG9uZXxlbnwwfHx8MTc1Nzc4Nzk1N3ww\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Protective case for Galaxy S24.",
+        "id":  960073,
+        "price":  "EUR 13.90",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Samsung",
+                     "Case",
+                     "S24"
+                 ],
+        "name":  "Samsung Galaxy S24 Case",
+        "compatibleModel":  "Galaxy S24",
+        "brand":  "Samsung",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-p1acECGO3z0?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwyfHxwaG9uZXxlbnwwfHx8MTc1Nzc4Nzk1N3ww\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Slim protective case for Xiaomi phones.",
+        "id":  960074,
+        "price":  "EUR 12.90",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Xiaomi",
+                     "Case",
+                     "Protective"
+                 ],
+        "name":  "Xiaomi Protective Case",
+        "compatibleModel":  "Xiaomi 14",
+        "brand":  "Xiaomi",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-jyBEWszIag4?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwxNXx8aXBob25lJTIwY2FzZXxlbnwwfHx8fDE3NTc3ODc2ODF8MA\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Lightweight slim case for Oppo devices.",
+        "id":  960075,
+        "price":  "EUR 11.90",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Oppo",
+                     "Case",
+                     "Slim"
+                 ],
+        "name":  "Oppo Slim Case",
+        "compatibleModel":  "Oppo Find",
+        "brand":  "Oppo",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-rDsM-48KqaA?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHw0fHxpcGhvbmUlMjBjYXNlfGVufDB8fHx8MTc1Nzc4Nzk1N3ww\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Protective case with minimal design.",
+        "id":  960076,
+        "price":  "EUR 12.90",
+        "category":  "FUNDA",
+        "tags":  [
+                     "Google",
+                     "Pixel",
+                     "Case"
+                 ],
+        "name":  "Google Pixel Case",
+        "compatibleModel":  "Pixel 9",
+        "brand":  "Google",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-uN6qKnAJZ1Y?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwyfHxpcGhvbmV8ZW58MHx8fHwxNzU3Nzg3OTU3fDA\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "High clarity 9H screen protector.",
+        "id":  960077,
+        "price":  "EUR 8.50",
+        "category":  "PROTECTORES PANTALLA",
+        "tags":  [
+                     "Protector",
+                     "Screen",
+                     "9H"
+                 ],
+        "name":  "Screen Protector 9H",
+        "compatibleModel":  "Universal",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-jcLCRM02U3I?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwxfHxwaG9uZXxlbnwwfHx8MTc1Nzc4Nzk1N3ww\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Camera lens protector set for phones.",
+        "id":  960078,
+        "price":  "EUR 7.50",
+        "category":  "PROTECTORES CAMERA",
+        "tags":  [
+                     "Protector",
+                     "Camera",
+                     "Lens"
+                 ],
+        "name":  "Camera Lens Protector",
+        "compatibleModel":  "Universal",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-mI0yALu4BJA?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwxfHxwb3dlciUyMGJhbmt8ZW58MHx8fHwxNzU3Nzg4MjI5fDA\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Portable power bank for daily charging.",
+        "id":  960079,
+        "price":  "EUR 22.90",
+        "category":  "POWER BANK",
+        "tags":  [
+                     "Power Bank",
+                     "Portable"
+                 ],
+        "name":  "Power Bank 10000mAh",
+        "compatibleModel":  "Universal",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-qaiGOaOW5sw?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwyfHxwb3dlciUyMGJhbmt8ZW58MHx8fHwxNzU3Nzg4MjI5fDA\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Magnetic snap-on power bank.",
+        "id":  960080,
+        "price":  "EUR 24.90",
+        "category":  "POWER BANK",
+        "tags":  [
+                     "Power Bank",
+                     "Magnetic"
+                 ],
+        "name":  "Magnetic Power Bank",
+        "compatibleModel":  "MagSafe Phones",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-oJgQcjlLYZg?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHw3fHxwb3dlciUyMGJhbmt8ZW58MHx8fHwxNzU3Nzg4MjI5fDA\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Compact travel power bank.",
+        "id":  960081,
+        "price":  "EUR 19.90",
+        "category":  "POWER BANK",
+        "tags":  [
+                     "Power Bank",
+                     "Compact"
+                 ],
+        "name":  "Compact Power Bank",
+        "compatibleModel":  "Universal",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-eFJwnb96exg?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwyfHx3aXJlbGVzcyUyMGVhcmJ1ZHN8ZW58MHx8fHwxNzU3Nzg5MDU1fDA\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Compact wireless earbuds with clear sound.",
+        "id":  960082,
+        "price":  "EUR 24.90",
+        "category":  "AUDIO",
+        "tags":  [
+                     "Audio",
+                     "Wireless",
+                     "Earbuds"
+                 ],
+        "name":  "Wireless Earbuds",
+        "compatibleModel":  "Bluetooth",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-X_QLsWIO-Q0?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwxMXx8ZWFyYnVkc3xlbnwwfHx8fDE3NTc3ODkwNTV8MA\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Earbuds with charging case and cable.",
+        "id":  960083,
+        "price":  "EUR 21.90",
+        "category":  "AUDIO",
+        "tags":  [
+                     "Audio",
+                     "Earbuds",
+                     "Cable"
+                 ],
+        "name":  "Earbuds + Cable Set",
+        "compatibleModel":  "Bluetooth",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-ZrL-XNzAmag?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwzMHx8ZWFyYnVkc3xlbnwwfHx8fDE3NTc3ODkwNTV8MA\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Black earbuds charging case and buds.",
+        "id":  960084,
+        "price":  "EUR 19.90",
+        "category":  "AUDIO",
+        "tags":  [
+                     "Audio",
+                     "Earbuds",
+                     "Case"
+                 ],
+        "name":  "Black Earbuds Case",
+        "compatibleModel":  "Bluetooth",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-zIkV81RVwYY?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwzfHxzbWFydHdhdGNofGVufDB8fHx8MTc1Nzc4OTM2OXww\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Sport-style smartwatch with fitness tracking.",
+        "id":  960085,
+        "price":  "EUR 39.90",
+        "category":  "SMART WATCH",
+        "tags":  [
+                     "Smart Watch",
+                     "Sport"
+                 ],
+        "name":  "Smart Watch Sport",
+        "compatibleModel":  "Universal",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-N1zRvlXf-IM?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHw1fHxzbWFydHdhdGNofGVufDB8fHx8MTc1Nzc4OTM2OXww\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Classic smartwatch with premium strap.",
+        "id":  960086,
+        "price":  "EUR 44.90",
+        "category":  "SMART WATCH",
+        "tags":  [
+                     "Smart Watch",
+                     "Classic"
+                 ],
+        "name":  "Smart Watch Classic",
+        "compatibleModel":  "Universal",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-5krZjudTvtc?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwxMHx8cGhvbmUgaG9sZGVyJTIwY2FyfGVufDB8fHx8MTc1Nzc4OTg0NXww\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Car phone holder for safe driving.",
+        "id":  960087,
+        "price":  "EUR 12.90",
+        "category":  "MOBILE ACCESSORIES",
+        "tags":  [
+                     "Car Mount",
+                     "Holder",
+                     "Accessory"
+                 ],
+        "name":  "Car Phone Holder",
+        "compatibleModel":  "Universal",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-jgP54aK44J4?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHw0fHxwaG9uZSUyMGhvbGRlciUyMGNhcnxlbnwwfHx8fDE3NTc3ODk4NDV8MA\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Dashboard mount for smartphones.",
+        "id":  960088,
+        "price":  "EUR 12.90",
+        "category":  "MOBILE ACCESSORIES",
+        "tags":  [
+                     "Car Mount",
+                     "Dashboard"
+                 ],
+        "name":  "Car Mount Dashboard",
+        "compatibleModel":  "Universal",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-C6lzeXzv1ak?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwyfHxjYXIlMjBwaG9uZSUyMG1vdW50fGVufDB8fHx8MTc1Nzc4OTg0NXww\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "GPS car mount with secure grip.",
+        "id":  960089,
+        "price":  "EUR 12.90",
+        "category":  "MOBILE ACCESSORIES",
+        "tags":  [
+                     "Car Mount",
+                     "GPS"
+                 ],
+        "name":  "Car Mount GPS",
+        "compatibleModel":  "Universal",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-R8P8iZ9nRko?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwxNnx8cGhvbmUgaG9sZGVyJTIwY2FyfGVufDB8fHx8MTc1Nzc4OTg0NXww\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Universal smartphone mount for cars.",
+        "id":  960090,
+        "price":  "EUR 12.90",
+        "category":  "MOBILE ACCESSORIES",
+        "tags":  [
+                     "Car Mount",
+                     "Holder"
+                 ],
+        "name":  "Smartphone Mount",
+        "compatibleModel":  "Universal",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-ZieeEAogV9Y?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHw1fHxwaG9uZSUyMHN0YW5kfGVufDB8fHx8MTc1Nzc4OTg0NXww\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Desktop phone stand for viewing.",
+        "id":  960091,
+        "price":  "EUR 9.90",
+        "category":  "MOBILE ACCESSORIES",
+        "tags":  [
+                     "Phone Stand",
+                     "Desk"
+                 ],
+        "name":  "Phone Stand Desk",
+        "compatibleModel":  "Universal",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-VbRZQAZGERY?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHw5fHxwaG9uZSUyMHN0YW5kfGVufDB8fHx8MTc1Nzc4OTg0NXww\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Compact black phone stand.",
+        "id":  960092,
+        "price":  "EUR 9.90",
+        "category":  "MOBILE ACCESSORIES",
+        "tags":  [
+                     "Phone Stand",
+                     "Holder"
+                 ],
+        "name":  "Phone Stand Black",
+        "compatibleModel":  "Universal",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-W9Z87k4hV08?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHw0fHxwaG9uZSUyMGNoYXJnZXJ8ZW58MHx8fHwxNzU3Nzg5NTk5fDA\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Fast wall charger for USB-C devices.",
+        "id":  960093,
+        "price":  "EUR 14.90",
+        "category":  "ACCESSORIES",
+        "tags":  [
+                     "Charger",
+                     "Fast Charger"
+                 ],
+        "name":  "Fast Charger 25W",
+        "compatibleModel":  "USB-C Devices",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-6GdTwbLqCfM?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwxfHx1c2IlMjBjYWJsZXxlbnwwfHx8fDE3NTc3ODk2MjV8MA\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Durable USB-C charging cable.",
+        "id":  960094,
+        "price":  "EUR 4.90",
+        "category":  "ACCESSORIES",
+        "tags":  [
+                     "Cable",
+                     "USB-C"
+                 ],
+        "name":  "USB-C Cable",
+        "compatibleModel":  "USB-C Devices",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-odU7Xququgs?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwyfHx1c2IlMjBjYWJsZXxlbnwwfHx8fDE3NTc3ODk2MjV8MA\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Clean white USB cable for charging.",
+        "id":  960095,
+        "price":  "EUR 4.90",
+        "category":  "ACCESSORIES",
+        "tags":  [
+                     "Cable",
+                     "USB"
+                 ],
+        "name":  "USB Cable White",
+        "compatibleModel":  "USB Devices",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-B_KcElhSprY?auto=format\u0026fit=crop\u0026fm=jpg\u0026ixid=M3w0Mzk3MDV8MHwxfHNlYXJjaHwxfHxibHVldG9vdGglMjBzcGVha2VyfGVufDB8fHx8MTc1Nzc4OTk1NXww\u0026ixlib=rb-4.1.0\u0026q=70\u0026w=2400",
+        "shortDescription":  "Portable Bluetooth speaker with clear sound.",
+        "id":  960096,
+        "price":  "EUR 18.90",
+        "category":  "ACCESSORIES",
+        "tags":  [
+                     "Speaker",
+                     "Wireless"
+                 ],
+        "name":  "Wireless Speaker",
+        "compatibleModel":  "Bluetooth",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-7qlXFeFNv14?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "Prepaid SIM card for Vodafone Spain.",
+        "id":  960097,
+        "price":  "EUR 9.90",
+        "category":  "SIM",
+        "tags":  [
+                     "SIM",
+                     "Vodafone",
+                     "Prepaid"
+                 ],
+        "name":  "Vodafone SIM Card",
+        "compatibleModel":  "SIM",
+        "brand":  "Vodafone",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-fcYNLhYAd5k?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "eSIM activation for Vodafone Spain.",
+        "id":  960098,
+        "price":  "EUR 9.90",
+        "category":  "SIM",
+        "tags":  [
+                     "SIM",
+                     "Vodafone",
+                     "eSIM"
+                 ],
+        "name":  "Vodafone eSIM Activation",
+        "compatibleModel":  "eSIM",
+        "brand":  "Vodafone",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-TCyYbnFBIIw?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "Prepaid SIM card for Orange Spain.",
+        "id":  960099,
+        "price":  "EUR 9.90",
+        "category":  "SIM",
+        "tags":  [
+                     "SIM",
+                     "Orange",
+                     "Prepaid"
+                 ],
+        "name":  "Orange SIM Card",
+        "compatibleModel":  "SIM",
+        "brand":  "Orange",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-6zZ49gyD6uI?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "eSIM activation for Orange Spain.",
+        "id":  960100,
+        "price":  "EUR 9.90",
+        "category":  "SIM",
+        "tags":  [
+                     "SIM",
+                     "Orange",
+                     "eSIM"
+                 ],
+        "name":  "Orange eSIM Activation",
+        "compatibleModel":  "eSIM",
+        "brand":  "Orange",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-7qlXFeFNv14?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "Prepaid SIM card for Movistar Spain.",
+        "id":  960101,
+        "price":  "EUR 9.90",
+        "category":  "SIM",
+        "tags":  [
+                     "SIM",
+                     "Movistar",
+                     "Prepaid"
+                 ],
+        "name":  "Movistar SIM Card",
+        "compatibleModel":  "SIM",
+        "brand":  "Movistar",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-fcYNLhYAd5k?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "Prepaid SIM card for Lebara Spain.",
+        "id":  960102,
+        "price":  "EUR 7.90",
+        "category":  "SIM",
+        "tags":  [
+                     "SIM",
+                     "Lebara",
+                     "Prepaid"
+                 ],
+        "name":  "Lebara SIM Card",
+        "compatibleModel":  "SIM",
+        "brand":  "Lebara",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-TCyYbnFBIIw?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "eSIM activation for Lebara Spain.",
+        "id":  960103,
+        "price":  "EUR 7.90",
+        "category":  "SIM",
+        "tags":  [
+                     "SIM",
+                     "Lebara",
+                     "eSIM"
+                 ],
+        "name":  "Lebara eSIM Activation",
+        "compatibleModel":  "eSIM",
+        "brand":  "Lebara",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-6zZ49gyD6uI?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "Prepaid SIM card for Llamaya Spain.",
+        "id":  960104,
+        "price":  "EUR 7.90",
+        "category":  "SIM",
+        "tags":  [
+                     "SIM",
+                     "Llamaya",
+                     "Prepaid"
+                 ],
+        "name":  "Llamaya SIM Card",
+        "compatibleModel":  "SIM",
+        "brand":  "Llamaya",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-7qlXFeFNv14?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "eSIM activation for Llamaya Spain.",
+        "id":  960105,
+        "price":  "EUR 7.90",
+        "category":  "SIM",
+        "tags":  [
+                     "SIM",
+                     "Llamaya",
+                     "eSIM"
+                 ],
+        "name":  "Llamaya eSIM Activation",
+        "compatibleModel":  "eSIM",
+        "brand":  "Llamaya",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-ZieeEAogV9Y?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "MagSafe-friendly stand for iPhone displays.",
+        "id":  960106,
+        "price":  "EUR 19.90",
+        "category":  "MOBILE ACCESSORIES",
+        "tags":  [
+                     "iPhone",
+                     "Stand",
+                     "MagSafe"
+                 ],
+        "name":  "iPhone MagSafe Stand",
+        "compatibleModel":  "iPhone",
+        "brand":  "Apple",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-W9Z87k4hV08?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "25W fast wall charger for Samsung phones.",
+        "id":  960107,
+        "price":  "EUR 14.90",
+        "category":  "ACCESSORIES",
+        "tags":  [
+                     "Samsung",
+                     "Charger",
+                     "Fast Charger"
+                 ],
+        "name":  "Samsung Fast Charger 25W",
+        "compatibleModel":  "USB-C Devices",
+        "brand":  "Samsung",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-6GdTwbLqCfM?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "Durable USB-C cable for Xiaomi devices.",
+        "id":  960108,
+        "price":  "EUR 5.90",
+        "category":  "ACCESSORIES",
+        "tags":  [
+                     "Xiaomi",
+                     "Cable",
+                     "USB-C"
+                 ],
+        "name":  "Xiaomi USB-C Cable",
+        "compatibleModel":  "USB-C Devices",
+        "brand":  "Xiaomi",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-eFJwnb96exg?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "Wireless earbuds with compact charging case.",
+        "id":  960109,
+        "price":  "EUR 24.90",
+        "category":  "AUDIO",
+        "tags":  [
+                     "Oppo",
+                     "Audio",
+                     "Wireless"
+                 ],
+        "name":  "Oppo Wireless Earbuds",
+        "compatibleModel":  "Bluetooth",
+        "brand":  "Oppo",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-mI0yALu4BJA?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "Compact power bank for Google Pixel users.",
+        "id":  960110,
+        "price":  "EUR 22.90",
+        "category":  "POWER BANK",
+        "tags":  [
+                     "Google",
+                     "Power Bank",
+                     "Portable"
+                 ],
+        "name":  "Google Pixel Power Bank",
+        "compatibleModel":  "Pixel",
+        "brand":  "Google",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-B_KcElhSprY?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "Portable speaker for music and calls.",
+        "id":  960111,
+        "price":  "EUR 18.90",
+        "category":  "ACCESSORIES",
+        "tags":  [
+                     "Speaker",
+                     "Wireless",
+                     "Bluetooth"
+                 ],
+        "name":  "Universal Bluetooth Speaker",
+        "compatibleModel":  "Bluetooth",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-zIkV81RVwYY?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "Fitness smartwatch for daily tracking.",
+        "id":  960112,
+        "price":  "EUR 39.90",
+        "category":  "SMART WATCH",
+        "tags":  [
+                     "Smart Watch",
+                     "Fitness"
+                 ],
+        "name":  "Smart Watch Fitness",
+        "compatibleModel":  "Universal",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-VbRZQAZGERY?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "Minimal desk stand for phones.",
+        "id":  960113,
+        "price":  "EUR 9.90",
+        "category":  "MOBILE ACCESSORIES",
+        "tags":  [
+                     "Phone Stand",
+                     "Desk"
+                 ],
+        "name":  "Phone Stand Minimal",
+        "compatibleModel":  "Universal",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
+    },
+    {
+        "image":  "https://images.unsplash.com/photo-p1acECGO3z0?auto=format\u0026fit=crop\u0026fm=jpg\u0026q=70\u0026w=2400",
+        "shortDescription":  "Phone strap for secure daily carry.",
+        "id":  960114,
+        "price":  "EUR 6.90",
+        "category":  "MOBILE ACCESSORIES",
+        "tags":  [
+                     "Cordon",
+                     "Strap"
+                 ],
+        "name":  "Universal Phone Strap",
+        "compatibleModel":  "Universal",
+        "brand":  "TWM",
+        "sourceTag":  "unsplash-2026"
     }
 ]
