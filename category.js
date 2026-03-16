@@ -5,7 +5,7 @@
   const bodyKey = document.body?.dataset?.cat;
   const key = String(urlKey || bodyKey || "ALL").trim().toUpperCase();
   const CART_KEY = "twm_cart_modern_v1";
-  const PRODUCTS_CACHE_KEY = "twm_products_cache_v13";
+  const PRODUCTS_CACHE_KEY = "twm_products_cache_v14";
 
   const els = {
     title: document.getElementById("cat-title"),

@@ -11,7 +11,7 @@
   const KEYS = {
     cart: "twm_cart_modern_v1",
     orders: "twm_orders_modern_v1",
-    productsCache: "twm_products_cache_v9",
+    productsCache: "twm_products_cache_v10",
   };
 
   const els = {
