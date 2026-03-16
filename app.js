@@ -556,8 +556,10 @@
   }
 
   function initHeroSlider() {
+    const slider = document.getElementById("hero-slider");
     const slides = Array.from(document.querySelectorAll("#hero-slider .hero-slide"));
     if (slides.length < 2) return;
+    slider?.classList.add("js-slider");
 
     let idx = 0;
     setInterval(() => {
