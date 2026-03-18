@@ -82,7 +82,7 @@ function renderCard(p, withOffer = false) {
       </a>
       <div class="card-body">
         <h3><a class="card-title-link" href="product.html?pid=${encodeURIComponent(p.id)}">${esc(p.name)}</a></h3>
-        <p class="meta">${esc(p.category || "PRODUCTO")} | SKU ${esc(p.id)}</p>
+        <p class="meta">${esc(p.category || "PRODUCTO")} | SKU ${esc(p.sku || p.id)}</p>
         <div class="rating-row">
           <span class="stars">${starRow(rating)}</span>
           <span class="rating-value">${rating.toFixed(1)}</span>

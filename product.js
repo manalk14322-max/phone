@@ -171,7 +171,7 @@
           <p class="pd-status" id="pd-status"></p>
 
           <div class="pd-meta-grid">
-            <div class="pd-meta-item"><strong>SKU</strong><span>TWM-${esc(product.id)}</span></div>
+            <div class="pd-meta-item"><strong>SKU</strong><span>${esc(product.sku || ("TWM-" + product.id))}</span></div>
             <div class="pd-meta-item"><strong>Brand</strong><span>${esc(brand)}</span></div>
             <div class="pd-meta-item"><strong>Model</strong><span>${esc(model)}</span></div>
             <div class="pd-meta-item"><strong>Availability</strong><span>${esc(stockText)}</span></div>
