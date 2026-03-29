@@ -1,9 +1,13 @@
 param(
-  [string]$Root = 'c:\Users\khan\Desktop\phone',
-  [int]$Port = 5500
+  [string]$Root = $PSScriptRoot,
+  [int]$Port = 5508
 )
 
 $ErrorActionPreference = 'Stop'
+
+if ([string]::IsNullOrWhiteSpace($Root)) {
+  $Root = $PSScriptRoot
+}
 
 $mime = @{
   '.html'='text/html; charset=utf-8'; '.htm'='text/html; charset=utf-8';

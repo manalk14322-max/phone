@@ -8,6 +8,92 @@
     visibleCount: 24,
   };
 
+  const PLACEHOLDER_IMAGE = "1.png";
+  const CATALOG = window.TWM_CATALOG || {};
+  const augmentProducts = CATALOG.augmentProducts || ((items) => items);
+  const resolveProductImage = CATALOG.resolveProductImage || (() => PLACEHOLDER_IMAGE);
+
+  function normalizeText(v) {
+    return String(v || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim()
+      .toLowerCase();
+  }
+
+  function stableHash(value) {
+    let hash = 0;
+    const text = String(value || "");
+    for (let i = 0; i < text.length; i++) {
+      hash = (hash << 5) - hash + text.charCodeAt(i);
+      hash |= 0;
+    }
+    return Math.abs(hash);
+  }
+
+  function canonicalCategory(product) {
+    const text = normalizeText(
+      [
+        product?.name,
+        product?.brand,
+        product?.compatibleModel,
+        product?.category,
+        ...(Array.isArray(product?.tags) ? product.tags : []),
+      ]
+        .filter(Boolean)
+        .join(" ")
+    );
+
+    if (/oferta|offer|sale|promo|descuento/.test(text)) return "OFERTA";
+    if (/sim|e ?sim|vodafone|orange|lebara|llamaya|movistar/.test(text)) return "SIM";
+    if (/(camera|camara|lente|lens)/.test(text) && /(protector|glass|cristal|templad|shield|film)/.test(text)) {
+      return "PROTECTORES_CAMERA";
+    }
+    if (/(screen protector|protector.*pantall|pantalla|cristal templado|tempered glass)/.test(text)) {
+      return "PROTECTORES_PHONE";
+    }
+    if (/(power ?bank|bateria externa|powerbank)/.test(text)) return "POWER_BANK";
+    if (/(smart ?watch|watch band|correa|pulsera|mi band|xm band)/.test(text)) return "SMART_WATCH";
+    if (/(airpods case|air pods case|airpods protection case|air pods protection case|airpods cover|air pods cover)/.test(text)) {
+      return "MOBILE_ACCESSORIES";
+    }
+    if (/(airpods|earbuds|earphone|headphone|audio|speaker|auriculares)/.test(text)) return "AUDIO";
+    if (/(cordon|lanyard|soporte|stand|holder|car mount|magnetic card)/.test(text)) return "MOBILE_ACCESSORIES";
+    if (/(funda|fundas|case|cover|carcasa|bumper|magsafe|silicona|silicone)/.test(text)) return "FUNDAS";
+    if (/(charger|cargador|cable|usb|adapter|adaptador|sd card|tarjeta memoria|flash drive|memoria)/.test(text)) {
+      return "ACCESSORIES";
+    }
+
+    const category = normalizeText(product?.category);
+    if (["accessories", "accesorios", "gadgets", "phone"].includes(category)) return "ACCESSORIES";
+    if (category.includes("protector") && category.includes("pantall")) return "PROTECTORES_PHONE";
+    if (
+      category.includes("protector") &&
+      (category.includes("camera") || category.includes("camara") || category.includes("lente") || category.includes("lens"))
+    ) {
+      return "PROTECTORES_CAMERA";
+    }
+
+    return "ACCESSORIES";
+  }
+
+  function categoryLabel(key) {
+    const map = {
+      FUNDAS: "Cases",
+      SIM: "SIM Cards",
+      PROTECTORES_PHONE: "Screen Protectors",
+      PROTECTORES_CAMERA: "Camera Protectors",
+      POWER_BANK: "Power Banks",
+      AUDIO: "Audio",
+      OFERTA: "Offers",
+      OFFERS: "Offers",
+      SMART_WATCH: "Smart Watches",
+      MOBILE_ACCESSORIES: "Mobile Accessories",
+      ACCESSORIES: "Accessories",
+    };
+    return map[String(key || "").toUpperCase()] || String(key || "Category");
+  }
+
   const KEYS = {
     cart: "twm_cart_modern_v1",
     orders: "twm_orders_modern_v1",
@@ -109,7 +195,7 @@
 
   function refreshRevealTargets() {
     const targets = document.querySelectorAll(
-      ".hero-grid, .section, .category-card, .product-card, .trust-item, .newsletter-box"
+      ".hero-grid, .section, .category-card, .featured-category-card, .spotlight-card, .product-card, .trust-item, .newsletter-box"
     );
     targets.forEach((el) => {
       if (!el.classList.contains("reveal-item")) {
@@ -164,6 +250,8 @@
   function isMatchByFilter(product, filterKey) {
     const text = productText(product);
     const category = String(product.category || "").toLowerCase();
+    const canonical = canonicalCategory(product);
+    if (canonical === String(filterKey || "").toUpperCase()) return true;
     switch (filterKey) {
       case "FUNDAS":
         return /(funda|case|magsafe|cover|silicona|carcasa|bumper)/.test(text);
@@ -178,6 +266,8 @@
       case "AUDIO":
         return /(audio|earphone|auricular|airpods|earbuds|headphone)/.test(text + " " + category);
       case "OFERTA":
+        return /(oferta|offer|sale|promo|descuento)/.test(text + " " + category);
+      case "OFFERS":
         return /(oferta|offer|sale|promo|descuento)/.test(text + " " + category);
       case "SMART_WATCH":
         return /(smart ?watch|watch band|band|pulsera|mi band|xm ?band|correa)/.test(text + " " + category);
@@ -218,11 +308,11 @@
     return `
       <article class="product-card" data-product-url="${esc(detailUrl)}" tabindex="0" role="link" aria-label="Open ${esc(product.name)}">
         <a class="product-media product-media-link" href="${esc(detailUrl)}" aria-label="View details for ${esc(product.name)}">
-          <img src="${esc(product.image)}" alt="${esc(product.name)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
+          <img src="${esc(resolveProductImage(product))}" alt="${esc(product.name)}" loading="lazy" />
         </a>
         <div class="product-body">
           <h3 class="product-title"><a class="product-title-link" href="${esc(detailUrl)}">${esc(product.name)}</a></h3>
-          <p class="product-meta-line">${esc(product.category || "CATEGORY")} | SKU ${esc(product.sku || product.id)}</p>
+          <p class="product-meta-line">${esc(categoryLabel(canonicalCategory(product)))} | SKU ${esc(product.sku || product.id)}</p>
           <div class="rating-row">
             <span class="stars">${starRow(rating)}</span>
             <span class="rating-value">${rating.toFixed(1)}</span>
@@ -236,8 +326,8 @@
               data-id="${esc(product.id)}"
               data-name="${esc(product.name)}"
               data-price="${esc(product.price || "EUR 0")}" 
-              data-image="${esc(product.image)}"
-              data-category="${esc(product.category || "ACCESSORY")}">Add to Cart</button>
+              data-image="${esc(resolveProductImage(product))}"
+              data-category="${esc(categoryLabel(canonicalCategory(product)))}">Add to Cart</button>
           </div>
           <a class="view-details-link" href="${esc(detailUrl)}">View details</a>
         </div>
@@ -263,9 +353,9 @@
     const seen = new Set();
 
     for (const p of source) {
-      if (seen.has(String(p.image))) continue;
+      if (seen.has(String(p.id))) continue;
       unique.push(p);
-      seen.add(String(p.image));
+      seen.add(String(p.id));
       if (unique.length >= 8) break;
     }
 
@@ -274,15 +364,187 @@
   }
 
   function pickCategoryImage(filter) {
-    const picked = state.products.find((p) => isMatchByFilter(p, filter) && p.image);
-    return picked?.image || "1.png";
+    const key = String(filter || "").toUpperCase();
+    const candidates = state.products.filter((product) => canonicalCategory(product) === key);
+    if (candidates.length) {
+      const index = stableHash(`${key}|${candidates.length}`) % candidates.length;
+      return resolveProductImage(candidates[index]);
+    }
+
+    const simProducts = window.TWM_CATALOG?.simProducts || [];
+    const simCandidates = simProducts.filter((product) => canonicalCategory(product) === key);
+    if (simCandidates.length) {
+      const index = stableHash(`${key}|sim|${simCandidates.length}`) % simCandidates.length;
+      return resolveProductImage(simCandidates[index]);
+    }
+
+    return PLACEHOLDER_IMAGE;
+  }
+
+  const FEATURED_CATEGORY_ITEMS = [
+    { key: "ULTRA_CRYSTAL", label: "Ultra Strong Crystal", sublabel: "Protectors", href: "iphone.html?cat=PROTECTORES_PHONE", filter: "PROTECTORES_PHONE", query: "crystal" },
+    { key: "IPHONE_17_AIR", label: "iPhone 17 Air", sublabel: "Cases", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17", filter: "FUNDAS", query: "iphone 17 air" },
+    { key: "IPHONE_17_PRO", label: "iPhone 17 Pro", sublabel: "Cases", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17_PRO", filter: "FUNDAS", query: "iphone 17 pro" },
+    { key: "IPHONE_17_PRO_MAX", label: "iPhone 17 Pro Max", sublabel: "Cases", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17_PRO_MAX", filter: "FUNDAS", query: "iphone 17 pro max" },
+    { key: "IPHONE_17", label: "iPhone 17", sublabel: "Cases", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17", filter: "FUNDAS", query: "iphone 17" },
+    { key: "ROPE", label: "Rope", sublabel: "Accessories", href: "iphone.html?cat=MOBILE_ACCESSORIES", filter: "MOBILE_ACCESSORIES", query: "rope" },
+    { key: "TWS_EARBUDS", label: "TWS Earbuds", sublabel: "Audio", href: "iphone.html?cat=AUDIO", filter: "AUDIO", query: "tws earbuds" },
+  ];
+
+  function pickFeaturedCandidates(item) {
+    const filterKey = String(item?.filter || "").toUpperCase();
+    const query = normalizeText(item?.query || item?.label || "");
+    const pool = state.products.filter((product) => isMatchByFilter(product, filterKey));
+    if (!query) return pool;
+    const exact = pool.filter((product) => normalizeText(productText(product)).includes(query));
+    return exact.length ? exact : pool;
+  }
+
+  function pickFeaturedImage(item) {
+    const candidates = pickFeaturedCandidates(item);
+    if (!candidates.length) return pickCategoryImage(item?.filter || "");
+    const index = stableHash(`${item?.key || ""}|${candidates.length}`) % candidates.length;
+    return resolveProductImage(candidates[index]);
+  }
+
+  function pickFeaturedCount(item) {
+    return pickFeaturedCandidates(item).length;
+  }
+
+  const FEATURED_SPOTLIGHT_ITEMS = [
+    {
+      key: "REDMI_13C",
+      kicker: "XIAOMI",
+      title: "Redmi 13C",
+      button: "To Shop",
+      href: "iphone.html?cat=FUNDAS&sub=REDMI",
+      filter: "FUNDAS",
+      query: "redmi 13c",
+      copy: "Redmi covers and accessories",
+      reverse: false,
+    },
+    {
+      key: "SAMSUNG_S24_ULTRA",
+      kicker: "SAMSUNG",
+      title: "Galaxy S24 Ultra",
+      button: "To Shop",
+      href: "iphone.html?cat=FUNDAS&sub=SAMSUNG",
+      filter: "FUNDAS",
+      query: "s24 ultra",
+      copy: "Samsung covers and protectors",
+      reverse: true,
+    },
+  ];
+
+  function pickSpotlightCandidates(item) {
+    const filterKey = String(item?.filter || "").toUpperCase();
+    const query = normalizeText(item?.query || item?.title || "");
+    const pool = state.products.filter((product) => isMatchByFilter(product, filterKey));
+    if (!query) return pool;
+    const exact = pool.filter((product) => normalizeText(productText(product)).includes(query));
+    return exact.length ? exact : pool;
+  }
+
+  function pickSpotlightImage(item) {
+    const candidates = pickSpotlightCandidates(item);
+    if (!candidates.length) return pickCategoryImage(item?.filter || "");
+    const index = stableHash(`${item?.key || ""}|${candidates.length}`) % candidates.length;
+    return resolveProductImage(candidates[index]);
+  }
+
+  function renderFeaturedSpotlight() {
+    if (document.getElementById("featured-spotlight")) return;
+
+    const section = document.createElement("section");
+    section.className = "section featured-spotlight-section";
+    section.id = "featured-spotlight";
+    section.innerHTML = `
+      <div class="container">
+        <div class="section-head section-head-row">
+          <h2>Featured Products</h2>
+        </div>
+        <div class="featured-spotlight-grid">
+          ${FEATURED_SPOTLIGHT_ITEMS.map((item) => `
+            <a class="spotlight-card${item.reverse ? " spotlight-card--reverse" : ""}${item.key === "SAMSUNG_S24_ULTRA" ? " spotlight-card--samsung" : " spotlight-card--redmi"}" href="${esc(item.href)}" aria-label="Open ${esc(item.title)}">
+              <div class="spotlight-media">
+                <img src="${esc(pickSpotlightImage(item))}" alt="${esc(item.title)}" loading="lazy" />
+              </div>
+              <div class="spotlight-copy">
+                <em class="spotlight-kicker">${esc(item.kicker)}</em>
+                <strong class="spotlight-title">${esc(item.title)}</strong>
+                <p class="spotlight-desc">${esc(item.copy)}</p>
+                <span class="spotlight-cta">${esc(item.button)}</span>
+              </div>
+            </a>
+          `).join("")}
+        </div>
+      </div>
+    `;
+
+    const anchor =
+      document.getElementById("featured-categories") ||
+      document.getElementById("best-selling") ||
+      document.getElementById("shop-category") ||
+      document.getElementById("products") ||
+      document.querySelector("section.hero");
+    if (anchor?.parentElement) {
+      anchor.insertAdjacentElement("afterend", section);
+    } else {
+      document.querySelector("main")?.insertAdjacentElement("afterbegin", section) || document.body.appendChild(section);
+    }
+
+    refreshRevealTargets();
+  }
+
+  function renderFeaturedCategories() {
+    if (document.getElementById("featured-categories")) return;
+
+    const section = document.createElement("section");
+    section.className = "section featured-categories-section";
+    section.id = "featured-categories";
+    section.innerHTML = `
+      <div class="container">
+        <div class="section-head">
+          <h2>Featured categories</h2>
+        </div>
+        <div class="featured-categories-track" aria-label="Featured categories">
+          ${FEATURED_CATEGORY_ITEMS.map((item) => {
+            const count = pickFeaturedCount(item);
+            return `
+              <a class="featured-category-card" href="${esc(item.href)}" aria-label="Open ${esc(item.label)}">
+                <div class="featured-category-media">
+                  <img src="${esc(pickFeaturedImage(item))}" alt="${esc(item.label)}" loading="lazy" />
+                </div>
+                <div class="featured-category-copy">
+                  <em>${esc(item.sublabel || "Featured")}</em>
+                  <strong>${esc(item.label)}</strong>
+                  <span>${count} products</span>
+                </div>
+              </a>`;
+          }).join("")}
+        </div>
+      </div>
+    `;
+
+    const anchor =
+      document.getElementById("best-selling") ||
+      document.getElementById("shop-category") ||
+      document.getElementById("products") ||
+      document.querySelector("section.hero");
+    if (anchor?.parentElement) {
+      anchor.insertAdjacentElement("afterend", section);
+    } else {
+      document.querySelector("main")?.insertAdjacentElement("afterbegin", section) || document.body.appendChild(section);
+    }
+
+    refreshRevealTargets();
   }
 
   function renderCategoryCards() {
     if (!els.categoryGrid || els.categoryGrid.dataset.static === "1") return;
     const cards = [
       { key: "FUNDAS", label: "Fundas", href: "iphone.html?cat=FUNDAS" },
-      { key: "SIM", label: "SIM Card", href: "iphone.html?cat=SIM" },
+      { key: "SIM", label: "SIM Cards", href: "iphone.html?cat=SIM" },
       { key: "PROTECTORES_PHONE", label: "Protectores Phone", href: "iphone.html?cat=PROTECTORES_PHONE" },
       { key: "PROTECTORES_CAMERA", label: "Protectores Camera", href: "iphone.html?cat=PROTECTORES_CAMERA" },
       { key: "POWER_BANK", label: "Power Bank", href: "iphone.html?cat=POWER_BANK" },
@@ -298,7 +560,7 @@
         (c) => `
         <a class="category-card category-page-link" href="${esc(c.href)}" aria-label="Open ${esc(c.label)} category page">
           <div class="category-media">
-            <img src="${esc(pickCategoryImage(c.key))}" alt="${esc(c.label)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
+            <img src="${esc(pickCategoryImage(c.key))}" alt="${esc(c.label)}" loading="lazy" />
           </div>
           <div class="category-title-row">
             <h3>${esc(c.label)}</h3>
@@ -370,10 +632,11 @@
       .map(
         (item) => `
         <article class="cart-item">
-          <img src="${esc(item.image)}" alt="${esc(item.name)}" />
+          <img src="${esc(resolveProductImage(item))}" alt="${esc(item.name)}" />
           <div>
             <h4>${esc(item.name)}</h4>
-            <p class="meta">${esc(item.category)}</p>
+            <p class="meta">${esc(categoryLabel(item.category))}</p>
+            ${item.variantLabel ? `<p class="meta">${esc(item.variantLabel)}</p>` : ""}
             <div class="qty-row">
               <strong>${esc(item.price)}</strong>
               <div class="qty-controls">
@@ -395,7 +658,7 @@
     if (existing) {
       existing.qty = Number(existing.qty || 0) + 1;
     } else {
-      cart.push({ ...item, qty: 1 });
+      cart.push({ ...item, image: resolveProductImage(item), category: categoryLabel(canonicalCategory(item)), qty: 1 });
     }
     saveCart(cart);
     openCart();
@@ -625,7 +888,9 @@
 
     const cached = readProductsCache();
     if (cached && cached.length) {
-      state.products = cached.filter((p) => !isBlockedBrand(p));
+      const augmented = augmentProducts(cached);
+      if (augmented.length !== cached.length) writeProductsCache(augmented);
+      state.products = augmented.filter((p) => !isBlockedBrand(p));
     } else {
       const tryFetch = async (url) => {
         const res = await fetch(url, { cache: "no-store" });
@@ -639,11 +904,14 @@
         normalized = await tryFetch("docs/products.json?v=20260314-01");
       }
       if (!normalized) normalized = [];
+      normalized = augmentProducts(normalized);
       writeProductsCache(normalized);
       state.products = normalized.filter((p) => !isBlockedBrand(p));
     }
 
     renderCategoryCards();
+    renderFeaturedCategories();
+    renderFeaturedSpotlight();
     applyFilters();
     renderBestSelling();
   }

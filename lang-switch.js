@@ -2,8 +2,17 @@
   const KEY = "twm_lang";
   const supported = ["en", "es"];
   const CHAT_KEY = "twm_chat_messages_v1";
-  const CART_KEY = "twm_cart_v1";
-  const ORDERS_KEY = "twm_orders_v1";
+  const CART_KEY = "twm_cart_modern_v1";
+  const ORDERS_KEY = "twm_orders_modern_v1";
+  const PLACEHOLDER_IMAGE = "1.png";
+  const CATALOG = window.TWM_CATALOG || {};
+  const resolveProductImage = CATALOG.resolveProductImage || ((product) => String(product?.image || PLACEHOLDER_IMAGE));
+
+  function resolveCartImage(item) {
+    const stored = String(item?.image || "").trim();
+    if (stored && stored !== PLACEHOLDER_IMAGE) return stored;
+    return resolveProductImage(item);
+  }
 
   function safeLang(lang) {
     return supported.includes(lang) ? lang : "es";
@@ -16,6 +25,77 @@
       return;
     }
     el.textContent = value;
+  }
+
+  function esc(v) {
+    return String(v)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function readJson(key, fallback) {
+    try {
+      const value = JSON.parse(localStorage.getItem(key) || "null");
+      return value ?? fallback;
+    } catch {
+      return fallback;
+    }
+  }
+
+  function writeJson(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  function parsePrice(raw) {
+    const m = String(raw || "").replace(/,/g, ".").match(/(\d+(\.\d+)?)/);
+    return m ? Number(m[1]) : 0;
+  }
+
+  function money(v) {
+    return `EUR ${Number(v || 0).toFixed(2)}`;
+  }
+
+  function countItems(cart) {
+    return cart.reduce((sum, item) => sum + Number(item.qty || 0), 0);
+  }
+
+  function categoryLabel(value) {
+    const key = String(value || "").trim().toUpperCase();
+    const map = {
+      FUNDA: "Cases",
+      FUNDAS: "Cases",
+      SIM: "SIM Cards",
+      "PROTECTORES PANTALLA": "Screen Protectors",
+      PROTECTORES_PHONE: "Screen Protectors",
+      "PROTECTORES CAMERA": "Camera Protectors",
+      PROTECTORES_CAMERA: "Camera Protectors",
+      "POWER BANK": "Power Banks",
+      POWER_BANK: "Power Banks",
+      AUDIO: "Audio",
+      OFERTA: "Offers",
+      OFFERS: "Offers",
+      SMART_WATCH: "Smart Watches",
+      "MOBILE ACCESSORIES": "Mobile Accessories",
+      MOBILE_ACCESSORIES: "Mobile Accessories",
+      ACCESSORIES: "Accessories",
+      CARGADORES: "Accessories",
+      CABLE: "Accessories",
+      GADGETS: "Accessories",
+      PHONE: "Accessories",
+      SAMSUNG: "Samsung",
+      XIAOMI: "Xiaomi",
+    };
+    return map[key] || value || "Category";
+  }
+
+  function syncHeaderCartCount() {
+    const badge = document.getElementById("cart-count");
+    if (!badge) return;
+    const cart = readJson(CART_KEY, []);
+    badge.textContent = String(Array.isArray(cart) ? countItems(cart) : 0);
   }
 
   function applyLanguage(rawLang) {
@@ -68,7 +148,7 @@
     widget.id = "twm-chat-widget";
     widget.innerHTML = `
       <div class="twm-fab-stack">
-        <a class="twm-wa-fab" href="https://wa.me/923185756022?text=Hello%20The%20World%20Mobile,%20I%20want%20product%20details." target="_blank" rel="noopener" aria-label="Open WhatsApp chat">✆</a>
+        <a class="twm-wa-fab" href="https://wa.me/34600000000?text=Hello%20The%20World%20Mobile,%20I%20want%20product%20details." target="_blank" rel="noopener" aria-label="Open WhatsApp chat">WA</a>
         <button class="twm-chat-fab" id="twm-chat-fab" type="button" aria-label="Open chat">Messages</button>
       </div>
       <aside class="twm-chat-panel" id="twm-chat-panel" aria-hidden="true">
@@ -110,14 +190,9 @@
 
     const save = (messages) => localStorage.setItem(CHAT_KEY, JSON.stringify(messages.slice(-40)));
 
-    const bubble = (m) => `
-      <div class="twm-msg ${m.role === "user" ? "user" : "agent"}">
-        <p>${String(m.text || "")
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/\"/g, "&quot;")
-          .replace(/'/g, "&#39;")}</p>
+    const bubble = (message) => `
+      <div class="twm-msg ${message.role === "user" ? "user" : "agent"}">
+        <p>${esc(message.text || "")}</p>
       </div>`;
 
     let messages = read();
@@ -130,24 +205,22 @@
     const toggle = (open) => {
       panel.classList.toggle("open", open);
       panel.setAttribute("aria-hidden", open ? "false" : "true");
-      if (open) {
-        input.focus();
-      }
+      if (open) input.focus();
     };
 
-    const autoReply = (txt) => {
-      const t = txt.toLowerCase();
-      if (t.includes("price") || t.includes("precio")) return "Please share product name. I will send latest wholesale price.";
-      if (t.includes("stock")) return "Stock is updated daily. Send model + color and we confirm instantly.";
-      if (t.includes("delivery") || t.includes("envio")) return "Dispatch in 24h for ready stock. Express options available.";
-      return "Thanks. Our team will contact you shortly. You can also tap WhatsApp for faster support.";
+    const autoReply = (text) => {
+      const t = text.toLowerCase();
+      if (t.includes("price") || t.includes("precio")) return "Please share the product name. We will confirm the latest price.";
+      if (t.includes("stock")) return "Stock is updated daily. Send the model and color and we will confirm availability.";
+      if (t.includes("delivery") || t.includes("envio")) return "Ready stock usually dispatches within 24 hours. Express options are available.";
+      return "Thanks. Our team will contact you shortly. You can also use WhatsApp for faster support.";
     };
 
     fab.addEventListener("click", () => toggle(true));
     close.addEventListener("click", () => toggle(false));
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
       const value = (input.value || "").trim();
       if (!value) return;
       messages.push({ role: "user", text: value, ts: Date.now() });
@@ -158,37 +231,6 @@
     });
 
     render();
-  }
-
-  function esc(v) {
-    return String(v)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#39;");
-  }
-
-  function readJson(key, fallback) {
-    try {
-      const value = JSON.parse(localStorage.getItem(key) || "null");
-      return value ?? fallback;
-    } catch {
-      return fallback;
-    }
-  }
-
-  function writeJson(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
-  }
-
-  function parsePrice(raw) {
-    const m = String(raw || "").replace(/,/g, ".").match(/(\d+(\.\d+)?)/);
-    return m ? Number(m[1]) : 0;
-  }
-
-  function money(v) {
-    return `EUR ${Number(v || 0).toFixed(2)}`;
   }
 
   function initCommerce() {
@@ -239,7 +281,6 @@
             <button type="submit" class="twm-place-order">Place Order</button>
           </form>
           <p class="twm-checkout-msg" id="twm-checkout-msg"></p>
-          <p class="twm-order-link-wrap"><a class="twm-order-link" href="admin-orders.html">View all orders</a></p>
           <div class="twm-order-history" id="twm-order-history"></div>
         </div>
       </div>
@@ -263,25 +304,22 @@
     };
 
     function readCart() {
-      const c = readJson(CART_KEY, []);
-      return Array.isArray(c) ? c : [];
+      const cart = readJson(CART_KEY, []);
+      return Array.isArray(cart) ? cart : [];
     }
 
     function saveCart(cart) {
       writeJson(CART_KEY, cart);
+      document.dispatchEvent(new Event("twm:cart-sync"));
     }
 
     function readOrders() {
-      const o = readJson(ORDERS_KEY, []);
-      return Array.isArray(o) ? o : [];
+      const orders = readJson(ORDERS_KEY, []);
+      return Array.isArray(orders) ? orders : [];
     }
 
     function saveOrders(orders) {
       writeJson(ORDERS_KEY, orders.slice(0, 40));
-    }
-
-    function countItems(cart) {
-      return cart.reduce((sum, item) => sum + Number(item.qty || 0), 0);
     }
 
     function subtotal(cart) {
@@ -294,14 +332,15 @@
         els.history.innerHTML = "";
         return;
       }
+
       els.history.innerHTML = `
         <h4>Recent Orders</h4>
         ${orders
           .map(
-            (o) => `<div class="twm-oh-row">
-              <span>#${esc(o.orderId)}</span>
-              <span>${esc(o.customer.name || "-")}</span>
-              <strong>${money(o.total)}</strong>
+            (order) => `<div class="twm-oh-row">
+              <span>#${esc(order.orderId)}</span>
+              <span>${esc(order.customer?.name || "-")}</span>
+              <strong>${money(order.total)}</strong>
             </div>`
           )
           .join("")}
@@ -313,6 +352,7 @@
       const qty = countItems(cart);
       els.badge.textContent = String(qty);
       els.subtotal.textContent = money(subtotal(cart));
+      syncHeaderCartCount();
 
       if (!cart.length) {
         els.items.innerHTML = `<p class="twm-empty">Your cart is empty.</p>`;
@@ -323,10 +363,11 @@
         .map(
           (item) => `
             <article class="twm-cart-item">
-              <img src="${esc(item.image || "1.png")}" alt="${esc(item.name || "Product")}" />
+              <img src="${esc(resolveCartImage(item))}" alt="${esc(item.name || "Product")}" />
               <div class="twm-ci-body">
                 <h5>${esc(item.name || "Product")}</h5>
-                <p>${esc(item.category || "Category")}</p>
+                <p>${esc(categoryLabel(item.category))}</p>
+                ${item.variantLabel ? `<p>${esc(item.variantLabel)}</p>` : ""}
                 <div class="twm-ci-row">
                   <span>${esc(item.price || "EUR 0")}</span>
                   <div class="twm-qty">
@@ -342,10 +383,21 @@
         .join("");
     }
 
+    function openCart() {
+      els.panel.classList.add("open");
+      els.panel.setAttribute("aria-hidden", "false");
+    }
+
+    function closeCart() {
+      els.panel.classList.remove("open");
+      els.panel.setAttribute("aria-hidden", "true");
+    }
+
     function addToCart(item, qty = 1) {
       if (!item || !item.id) return;
       const cart = readCart();
-      const existing = cart.find((x) => String(x.id) === String(item.id));
+      const existing = cart.find((entry) => String(entry.id) === String(item.id));
+
       if (existing) {
         existing.qty = Number(existing.qty || 0) + Number(qty || 1);
       } else {
@@ -353,15 +405,16 @@
           id: String(item.id),
           name: String(item.name || "Product"),
           price: String(item.price || "EUR 0"),
-          image: String(item.image || "1.png"),
-          category: String(item.category || "Category"),
+          image: resolveCartImage(item),
+          category: categoryLabel(item.category),
+          variantLabel: String(item.variantLabel || ""),
           qty: Number(qty || 1),
         });
       }
+
       saveCart(cart);
       renderCart();
-      els.panel.classList.add("open");
-      els.panel.setAttribute("aria-hidden", "false");
+      openCart();
     }
 
     function openCheckout() {
@@ -369,15 +422,7 @@
         els.checkoutMsg.textContent = "Add products to cart first.";
         return;
       }
-      const session = readJson("twm_session_v1", null);
-      if (session) {
-        const name = document.getElementById("co-name");
-        const phone = document.getElementById("co-phone");
-        const email = document.getElementById("co-email");
-        if (name && !name.value) name.value = session.name || "";
-        if (phone && !phone.value) phone.value = session.phone || "";
-        if (email && !email.value) email.value = session.email || "";
-      }
+
       els.checkoutMsg.textContent = "";
       els.checkoutModal.classList.add("open");
       els.checkoutModal.setAttribute("aria-hidden", "false");
@@ -395,10 +440,7 @@
       els.panel.setAttribute("aria-hidden", open ? "false" : "true");
     });
 
-    els.close.addEventListener("click", () => {
-      els.panel.classList.remove("open");
-      els.panel.setAttribute("aria-hidden", "true");
-    });
+    els.close.addEventListener("click", closeCart);
 
     els.clear.addEventListener("click", () => {
       saveCart([]);
@@ -407,39 +449,43 @@
 
     els.checkoutBtn.addEventListener("click", openCheckout);
     els.checkoutClose.addEventListener("click", closeCheckout);
-    els.checkoutModal.addEventListener("click", (e) => {
-      if (e.target === els.checkoutModal) closeCheckout();
+    els.checkoutModal.addEventListener("click", (event) => {
+      if (event.target === els.checkoutModal) closeCheckout();
     });
 
-    els.items.addEventListener("click", (e) => {
-      const q = e.target.closest("[data-qty]");
-      const rem = e.target.closest("[data-remove]");
-      if (!q && !rem) return;
+    els.items.addEventListener("click", (event) => {
+      const qtyButton = event.target.closest("[data-qty]");
+      const removeButton = event.target.closest("[data-remove]");
+      if (!qtyButton && !removeButton) return;
 
       const cart = readCart();
-      if (q) {
-        const id = q.getAttribute("data-id");
-        const type = q.getAttribute("data-qty");
-        const item = cart.find((x) => String(x.id) === String(id));
+
+      if (qtyButton) {
+        const id = qtyButton.getAttribute("data-id");
+        const type = qtyButton.getAttribute("data-qty");
+        const item = cart.find((entry) => String(entry.id) === String(id));
         if (item) {
           if (type === "inc") item.qty = Number(item.qty || 1) + 1;
           if (type === "dec") item.qty = Math.max(1, Number(item.qty || 1) - 1);
         }
       }
-      if (rem) {
-        const id = rem.getAttribute("data-remove");
-        const next = cart.filter((x) => String(x.id) !== String(id));
+
+      if (removeButton) {
+        const id = removeButton.getAttribute("data-remove");
+        const next = cart.filter((entry) => String(entry.id) !== String(id));
         saveCart(next);
         renderCart();
         return;
       }
+
       saveCart(cart);
       renderCart();
     });
 
-    els.checkoutForm.addEventListener("submit", (e) => {
-      e.preventDefault();
+    els.checkoutForm.addEventListener("submit", (event) => {
+      event.preventDefault();
       const cart = readCart();
+
       if (!cart.length) {
         els.checkoutMsg.textContent = "Cart is empty.";
         return;
@@ -460,9 +506,8 @@
         return;
       }
 
-      const orderId = `TWM-${Date.now().toString().slice(-8)}`;
       const order = {
-        orderId,
+        orderId: `TWM-${Date.now().toString().slice(-8)}`,
         createdAt: new Date().toISOString(),
         customer,
         items: cart,
@@ -475,41 +520,70 @@
       saveCart([]);
       renderCart();
       renderHistory();
-      els.checkoutMsg.textContent = `Order placed successfully. Order ID: ${orderId}`;
+      els.checkoutMsg.textContent = `Order placed successfully. Order ID: ${order.orderId}`;
       els.checkoutForm.reset();
     });
 
-    document.addEventListener("click", (e) => {
-      const add = e.target.closest("[data-add-cart]");
-      const buy = e.target.closest("[data-buy-now]");
-      if (!add && !buy) return;
-      e.preventDefault();
-      const el = add || buy;
-      addToCart({
-        id: el.getAttribute("data-id") || "",
-        name: el.getAttribute("data-name") || "Product",
-        price: el.getAttribute("data-price") || "EUR 0",
-        image: el.getAttribute("data-image") || "1.png",
-        category: el.getAttribute("data-category") || "Category",
-      }, 1);
-      if (buy) openCheckout();
+    window.addEventListener("storage", (event) => {
+      if (event.key === CART_KEY || event.key === ORDERS_KEY) {
+        renderCart();
+        renderHistory();
+      }
     });
 
     renderCart();
+
     window.TWM_CART = {
       addToCart,
-      openCart: () => {
-        els.panel.classList.add("open");
-        els.panel.setAttribute("aria-hidden", "false");
-      },
+      openCart,
       openCheckout,
+      refresh: renderCart,
     };
+  }
+
+  function initHeaderControls() {
+    const navToggle = document.getElementById("nav-toggle");
+    const navLinks = document.getElementById("nav-links");
+    const search = document.getElementById("global-search");
+    const cartBtn = document.getElementById("cart-btn");
+
+    syncHeaderCartCount();
+
+    navToggle?.addEventListener("click", () => {
+      if (!navLinks) return;
+      const open = navLinks.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+
+    navLinks?.addEventListener("click", (event) => {
+      if (!event.target.closest("a")) return;
+      navLinks.classList.remove("open");
+      navToggle?.setAttribute("aria-expanded", "false");
+    });
+
+    search?.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter") return;
+      event.preventDefault();
+      const query = (search.value || "").trim();
+      const target = query ? `store.html?q=${encodeURIComponent(query)}` : "store.html";
+      window.location.href = target;
+    });
+
+    cartBtn?.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.TWM_CART?.openCart();
+    });
+
+    document.addEventListener("twm:cart-sync", syncHeaderCartCount);
+    window.addEventListener("storage", (event) => {
+      if (event.key === CART_KEY) syncHeaderCartCount();
+    });
   }
 
   function initVisualBoost() {
     document.body.classList.add("twm-premium");
 
-    const header = document.querySelector(".site-header");
+    const header = document.querySelector(".nav-wrap");
     if (header && !document.querySelector(".twm-topline")) {
       const strip = document.createElement("div");
       strip.className = "twm-topline";
@@ -557,16 +631,22 @@
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => {
-      initLanguageSwitch();
-      initSupportChat();
-      initCommerce();
-      initVisualBoost();
-    }, { once: true });
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+        initLanguageSwitch();
+        initSupportChat();
+        initCommerce();
+        initHeaderControls();
+        initVisualBoost();
+      },
+      { once: true }
+    );
   } else {
     initLanguageSwitch();
     initSupportChat();
     initCommerce();
+    initHeaderControls();
     initVisualBoost();
   }
 })();

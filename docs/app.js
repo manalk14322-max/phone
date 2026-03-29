@@ -109,7 +109,7 @@
 
   function refreshRevealTargets() {
     const targets = document.querySelectorAll(
-      ".hero-grid, .section, .category-card, .product-card, .trust-item, .newsletter-box"
+      ".hero-grid, .section, .category-card, .featured-category-card, .spotlight-card, .product-card, .trust-item, .newsletter-box"
     );
     targets.forEach((el) => {
       if (!el.classList.contains("reveal-item")) {
@@ -148,6 +148,24 @@
 
   function formatMoney(value) {
     return `EUR ${Number(value || 0).toFixed(2)}`;
+  }
+
+  function normalizeText(v) {
+    return String(v || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim()
+      .toLowerCase();
+  }
+
+  function stableHash(value) {
+    let hash = 0;
+    const text = String(value || "");
+    for (let i = 0; i < text.length; i++) {
+      hash = (hash << 5) - hash + text.charCodeAt(i);
+      hash |= 0;
+    }
+    return Math.abs(hash);
   }
 
   function productText(product) {
@@ -276,6 +294,165 @@
   function pickCategoryImage(filter) {
     const picked = state.products.find((p) => isMatchByFilter(p, filter) && p.image);
     return picked?.image || "1.png";
+  }
+
+  const FEATURED_CATEGORY_ITEMS = [
+    { key: "ULTRA_CRYSTAL", label: "Ultra Strong Crystal", sublabel: "Protectors", href: "iphone.html?cat=PROTECTORES_PHONE", filter: "PROTECTORES_PHONE", query: "crystal" },
+    { key: "IPHONE_17_AIR", label: "iPhone 17 Air", sublabel: "Cases", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17", filter: "FUNDAS", query: "iphone 17 air" },
+    { key: "IPHONE_17_PRO", label: "iPhone 17 Pro", sublabel: "Cases", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17_PRO", filter: "FUNDAS", query: "iphone 17 pro" },
+    { key: "IPHONE_17_PRO_MAX", label: "iPhone 17 Pro Max", sublabel: "Cases", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17_PRO_MAX", filter: "FUNDAS", query: "iphone 17 pro max" },
+    { key: "IPHONE_17", label: "iPhone 17", sublabel: "Cases", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17", filter: "FUNDAS", query: "iphone 17" },
+    { key: "ROPE", label: "Rope", sublabel: "Accessories", href: "iphone.html?cat=MOBILE_ACCESSORIES", filter: "MOBILE_ACCESSORIES", query: "rope" },
+    { key: "TWS_EARBUDS", label: "TWS Earbuds", sublabel: "Audio", href: "iphone.html?cat=AUDIO", filter: "AUDIO", query: "tws earbuds" },
+  ];
+
+  function pickFeaturedCandidates(item) {
+    const filterKey = String(item?.filter || "").toUpperCase();
+    const query = normalizeText(item?.query || item?.label || "");
+    const pool = state.products.filter((product) => isMatchByFilter(product, filterKey));
+    if (!query) return pool;
+    const exact = pool.filter((product) => normalizeText(productText(product)).includes(query));
+    return exact.length ? exact : pool;
+  }
+
+  function pickFeaturedImage(item) {
+    const candidates = pickFeaturedCandidates(item);
+    if (!candidates.length) return pickCategoryImage(item?.filter || "");
+    const index = stableHash(`${item?.key || ""}|${candidates.length}`) % candidates.length;
+    return candidates[index]?.image || pickCategoryImage(item?.filter || "");
+  }
+
+  function pickFeaturedCount(item) {
+    return pickFeaturedCandidates(item).length;
+  }
+
+  const FEATURED_SPOTLIGHT_ITEMS = [
+    {
+      key: "REDMI_13C",
+      kicker: "XIAOMI",
+      title: "Redmi 13C",
+      button: "To Shop",
+      href: "iphone.html?cat=FUNDAS&sub=REDMI",
+      filter: "FUNDAS",
+      query: "redmi 13c",
+      copy: "Redmi covers and accessories",
+      reverse: false,
+    },
+    {
+      key: "SAMSUNG_S24_ULTRA",
+      kicker: "SAMSUNG",
+      title: "Galaxy S24 Ultra",
+      button: "To Shop",
+      href: "iphone.html?cat=FUNDAS&sub=SAMSUNG",
+      filter: "FUNDAS",
+      query: "s24 ultra",
+      copy: "Samsung covers and protectors",
+      reverse: true,
+    },
+  ];
+
+  function pickSpotlightCandidates(item) {
+    const filterKey = String(item?.filter || "").toUpperCase();
+    const query = normalizeText(item?.query || item?.title || "");
+    const pool = state.products.filter((product) => isMatchByFilter(product, filterKey));
+    if (!query) return pool;
+    const exact = pool.filter((product) => normalizeText(productText(product)).includes(query));
+    return exact.length ? exact : pool;
+  }
+
+  function pickSpotlightImage(item) {
+    const candidates = pickSpotlightCandidates(item);
+    if (!candidates.length) return pickCategoryImage(item?.filter || "");
+    const index = stableHash(`${item?.key || ""}|${candidates.length}`) % candidates.length;
+    return candidates[index]?.image || pickCategoryImage(item?.filter || "");
+  }
+
+  function renderFeaturedSpotlight() {
+    if (document.getElementById("featured-spotlight")) return;
+
+    const section = document.createElement("section");
+    section.className = "section featured-spotlight-section";
+    section.id = "featured-spotlight";
+    section.innerHTML = `
+      <div class="container">
+        <div class="section-head section-head-row">
+          <h2>Featured Products</h2>
+        </div>
+        <div class="featured-spotlight-grid">
+          ${FEATURED_SPOTLIGHT_ITEMS.map((item) => `
+            <a class="spotlight-card${item.reverse ? " spotlight-card--reverse" : ""}${item.key === "SAMSUNG_S24_ULTRA" ? " spotlight-card--samsung" : " spotlight-card--redmi"}" href="${esc(item.href)}" aria-label="Open ${esc(item.title)}">
+              <div class="spotlight-media">
+                <img src="${esc(pickSpotlightImage(item))}" alt="${esc(item.title)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
+              </div>
+              <div class="spotlight-copy">
+                <em class="spotlight-kicker">${esc(item.kicker)}</em>
+                <strong class="spotlight-title">${esc(item.title)}</strong>
+                <p class="spotlight-desc">${esc(item.copy)}</p>
+                <span class="spotlight-cta">${esc(item.button)}</span>
+              </div>
+            </a>
+          `).join("")}
+        </div>
+      </div>
+    `;
+
+    const anchor =
+      document.getElementById("featured-categories") ||
+      document.getElementById("best-selling") ||
+      document.getElementById("shop-category") ||
+      document.getElementById("products") ||
+      document.querySelector("section.hero");
+    if (anchor?.parentElement) {
+      anchor.insertAdjacentElement("afterend", section);
+    } else {
+      document.querySelector("main")?.insertAdjacentElement("afterbegin", section) || document.body.appendChild(section);
+    }
+
+    refreshRevealTargets();
+  }
+
+  function renderFeaturedCategories() {
+    if (document.getElementById("featured-categories")) return;
+
+    const section = document.createElement("section");
+    section.className = "section featured-categories-section";
+    section.id = "featured-categories";
+    section.innerHTML = `
+      <div class="container">
+        <div class="section-head">
+          <h2>Featured categories</h2>
+        </div>
+        <div class="featured-categories-track" aria-label="Featured categories">
+          ${FEATURED_CATEGORY_ITEMS.map((item) => {
+            const count = pickFeaturedCount(item);
+            return `
+              <a class="featured-category-card" href="${esc(item.href)}" aria-label="Open ${esc(item.label)}">
+                <div class="featured-category-media">
+                  <img src="${esc(pickFeaturedImage(item))}" alt="${esc(item.label)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
+                </div>
+                <div class="featured-category-copy">
+                  <em>${esc(item.sublabel || "Featured")}</em>
+                  <strong>${esc(item.label)}</strong>
+                  <span>${count} products</span>
+                </div>
+              </a>`;
+          }).join("")}
+        </div>
+      </div>
+    `;
+
+    const anchor =
+      document.getElementById("best-selling") ||
+      document.getElementById("shop-category") ||
+      document.getElementById("products") ||
+      document.querySelector("section.hero");
+    if (anchor?.parentElement) {
+      anchor.insertAdjacentElement("afterend", section);
+    } else {
+      document.querySelector("main")?.insertAdjacentElement("afterbegin", section) || document.body.appendChild(section);
+    }
+
+    refreshRevealTargets();
   }
 
   function renderCategoryCards() {
@@ -644,6 +821,8 @@
     }
 
     renderCategoryCards();
+    renderFeaturedCategories();
+    renderFeaturedSpotlight();
     applyFilters();
     renderBestSelling();
   }
