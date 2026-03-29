@@ -578,7 +578,7 @@
       if (!items.some((item) => item.key === active)) {
         active = items[0]?.key || "";
       }
-      detail = /^IPHONE(?:_|$)/i.test(sub) ? "IPHONE" : "";
+      detail = /^IPHONE(?:_|$)/i.test(sub) ? "IPHONE" : active;
       return { root, active, detail };
     }
 
@@ -759,9 +759,13 @@
       const activeItem = items.find((entry) => entry.key === state.active) || items[0];
       const subKey = currentSubKey();
       const detailKey = rootKey === "BRAND"
-        ? (state.detail || activeItem?.key)
+        ? (state.detail || (activeItem?.key === "APPLE" ? "APPLE" : activeItem?.key))
         : activeItem?.key;
       const detailItems = drawerDetails[detailKey] || activeItem?.children || [];
+
+      if (rootKey === "BRAND" && activeItem?.key === "APPLE" && detailKey !== "IPHONE" && !state.detail) {
+        state.detail = "APPLE";
+      }
 
       middleTitle.textContent = rootKey === "BRAND" ? "Phone Brands" : rootKey === "CASES" ? "Case Styles" : categories.find((entry) => entry.key === rootKey)?.label || "Sections";
       middleHint.textContent = rootKey === "BRAND"
@@ -814,7 +818,7 @@
       if (!rootKey) return;
       state.root = rootKey;
       state.active = (drawerColumns[rootKey] || drawerColumns.BRAND)[0]?.key || "";
-      state.detail = "";
+      state.detail = state.active;
       renderColumns();
       if (shouldOpen) setOpen(true, false);
     }
