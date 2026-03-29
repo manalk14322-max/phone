@@ -759,7 +759,7 @@
       const activeItem = items.find((entry) => entry.key === state.active) || items[0];
       const subKey = currentSubKey();
       const detailKey = rootKey === "BRAND"
-        ? (state.detail || (/^IPHONE(?:_|$)/i.test(subKey) ? "IPHONE" : activeItem?.key))
+        ? (state.detail || (/^IPHONE(?:_|$)/i.test(subKey) || activeItem?.key === "APPLE" ? "IPHONE" : activeItem?.key))
         : activeItem?.key;
       const detailItems = drawerDetails[detailKey] || activeItem?.children || [];
 
