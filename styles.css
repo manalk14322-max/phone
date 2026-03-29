@@ -277,7 +277,7 @@ a {
 
 .category-drawer-shell {
   position: fixed;
-  top: 156px;
+  top: 172px;
   left: 12px;
   z-index: 9992;
   display: flex;
@@ -357,7 +357,7 @@ a {
 
 .category-drawer-mobile-btn {
   position: fixed;
-  top: 156px;
+  top: 172px;
   left: 14px;
   z-index: 9993;
   display: none;
@@ -3166,7 +3166,7 @@ body.category-drawer-open {
   }
 
   .category-drawer-shell {
-    top: 156px;
+    top: 172px;
     left: 12px;
   }
 
@@ -3322,7 +3322,7 @@ body.category-drawer-open {
   }
 
   .category-drawer-shell {
-    top: 148px;
+    top: 166px;
   }
 
   .footer-grid {
