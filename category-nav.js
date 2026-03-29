@@ -759,7 +759,7 @@
       const activeItem = items.find((entry) => entry.key === state.active) || items[0];
       const subKey = currentSubKey();
       const detailKey = rootKey === "BRAND"
-        ? (state.detail || (/^IPHONE(?:_|$)/i.test(subKey) || activeItem?.key === "APPLE" ? "IPHONE" : activeItem?.key))
+        ? (state.detail || activeItem?.key)
         : activeItem?.key;
       const detailItems = drawerDetails[detailKey] || activeItem?.children || [];
 
@@ -772,10 +772,12 @@
 
       middleList.innerHTML = renderDrawerRows(items, activeItem?.key || "", rootKey, "middle", false);
 
-      detailTitle.textContent = detailKey === "IPHONE" ? "iPhone Models" : activeItem?.label || "Sections";
+      detailTitle.textContent = detailKey === "IPHONE" ? "iPhone Models" : detailKey === "APPLE" ? "Section" : activeItem?.label || "Sections";
       detailHint.textContent = detailKey === "IPHONE"
         ? "Pick a model to explore"
-        : activeItem?.hint || categories.find((entry) => entry.key === rootKey)?.hint || "Pick an item to explore";
+        : detailKey === "APPLE"
+          ? "Choose a section to explore"
+          : activeItem?.hint || categories.find((entry) => entry.key === rootKey)?.hint || "Pick an item to explore";
       detailList.classList.toggle("category-drawer-mega-list--columns", detailKey === "IPHONE");
       detailList.innerHTML = detailItems.length
         ? renderDrawerRows(detailItems, "", rootKey, "detail", false)
