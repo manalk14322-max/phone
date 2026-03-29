@@ -652,6 +652,12 @@ body.category-drawer-open {
   transition: opacity 0.75s ease, transform 1s ease;
 }
 
+.hero-slider .hero-slide.hero-slide--portrait {
+  object-fit: cover;
+  object-position: center top;
+  padding: 0;
+}
+
 .hero-slider .hero-slide.active {
   opacity: 1;
   transform: scale(1);
