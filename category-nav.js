@@ -571,13 +571,15 @@
     const rawCat = String(new URLSearchParams(window.location.search).get("cat") || "").toUpperCase();
     const path = window.location.pathname.toLowerCase();
     let active = items[0]?.key || "";
+    let detail = "";
 
     if (root === "BRAND") {
       active = brandKeyFromSub(sub) || active;
       if (!items.some((item) => item.key === active)) {
         active = items[0]?.key || "";
       }
-      return { root, active };
+      detail = /^IPHONE(?:_|$)/i.test(sub) ? "IPHONE" : "";
+      return { root, active, detail };
     }
 
     if (root === "SIM") {
@@ -585,7 +587,7 @@
       if (!items.some((item) => item.key === active)) {
         active = items[0]?.key || "";
       }
-      return { root, active };
+      return { root, active, detail };
     }
 
     if (root === "GADGETS") {
@@ -600,7 +602,7 @@
 
     const exact = items.find((item) => item.key === sub);
     if (exact) active = exact.key;
-    return { root, active };
+    return { root, active, detail };
   }
 
   function renderDrawerRows(items, activeKey, rootKey, kind, showHint = false) {
@@ -756,7 +758,9 @@
       const items = drawerColumns[rootKey] || drawerColumns.BRAND;
       const activeItem = items.find((entry) => entry.key === state.active) || items[0];
       const subKey = currentSubKey();
-      const detailKey = rootKey === "BRAND" && /^IPHONE(?:_|$)/i.test(subKey) ? "IPHONE" : activeItem?.key;
+      const detailKey = rootKey === "BRAND"
+        ? (state.detail || (/^IPHONE(?:_|$)/i.test(subKey) ? "IPHONE" : activeItem?.key))
+        : activeItem?.key;
       const detailItems = drawerDetails[detailKey] || activeItem?.children || [];
 
       middleTitle.textContent = rootKey === "BRAND" ? "Phone Brands" : rootKey === "CASES" ? "Case Styles" : categories.find((entry) => entry.key === rootKey)?.label || "Sections";
@@ -792,6 +796,7 @@
           const current = resolveDrawerState(currentKey(), currentSubKey());
           state.root = current.root;
           state.active = current.active;
+          state.detail = current.detail || "";
         }
         renderColumns();
       }
@@ -807,6 +812,7 @@
       if (!rootKey) return;
       state.root = rootKey;
       state.active = (drawerColumns[rootKey] || drawerColumns.BRAND)[0]?.key || "";
+      state.detail = "";
       renderColumns();
       if (shouldOpen) setOpen(true, false);
     }
@@ -901,9 +907,22 @@
         const childKey = middleLink.getAttribute("data-drawer-child") || "";
         if (childKey && childKey !== state.active) {
           state.active = childKey;
+          state.detail = "";
           renderColumns();
         }
         navigateTo(middleLink);
+        return;
+      }
+
+      const detailLink = event.target.closest(".category-drawer-mega-item");
+      if (detailLink && widget.contains(detailLink) && detailLink.closest(".category-drawer-group")) {
+        event.preventDefault();
+        const childKey = detailLink.getAttribute("data-drawer-child") || "";
+        if (childKey && childKey !== state.detail) {
+          state.detail = childKey;
+          renderColumns();
+        }
+        navigateTo(detailLink);
       }
     });
 
@@ -922,6 +941,17 @@
         const childKey = childLink.getAttribute("data-drawer-child") || "";
         if (childKey && childKey !== state.active) {
           state.active = childKey;
+          state.detail = "";
+          renderColumns();
+        }
+        return;
+      }
+
+      const detailChildLink = event.target.closest("[data-drawer-child]");
+      if (detailChildLink && widget.contains(detailChildLink) && detailChildLink.closest(".category-drawer-group")) {
+        const childKey = detailChildLink.getAttribute("data-drawer-child") || "";
+        if (childKey && childKey !== state.detail) {
+          state.detail = childKey;
           renderColumns();
         }
       }
