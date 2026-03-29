@@ -211,203 +211,9 @@
 
   const IPHONE_MODEL_SUBCATS = [
     {
-      key: "IPHONE_11",
-      label: "iPhone 11",
-      match: (p) => {
-        const t = productText(p);
-        return /iphone\s*11\b/.test(t) && !/\bpro\b/.test(t) && !/\bmax\b/.test(t);
-      },
-    },
-    {
-      key: "IPHONE_11_PRO",
-      label: "iPhone 11 Pro",
-      match: (p) => {
-        const t = productText(p);
-        return /iphone\s*11\s*pro\b/.test(t) && !/\bmax\b/.test(t);
-      },
-    },
-    {
-      key: "IPHONE_11_PRO_MAX",
-      label: "iPhone 11 Pro Max",
-      match: (p) => /iphone\s*11\s*pro\s*max\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_12",
-      label: "iPhone 12",
-      match: (p) => {
-        const t = productText(p);
-        return /iphone\s*12\b/.test(t) && !/\bmini\b/.test(t) && !/\bpro\b/.test(t) && !/\bmax\b/.test(t);
-      },
-    },
-    {
-      key: "IPHONE_12_MINI",
-      label: "iPhone 12 mini",
-      match: (p) => /iphone\s*12\s*mini\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_12_PRO",
-      label: "iPhone 12 Pro",
-      match: (p) => {
-        const t = productText(p);
-        return /iphone\s*12\b/.test(t) && /\bpro\b/.test(t) && !/\bmax\b/.test(t);
-      },
-    },
-    {
-      key: "IPHONE_12_PRO_MAX",
-      label: "iPhone 12 Pro Max",
-      match: (p) => /iphone\s*12\b/.test(productText(p)) && /\bpro\b/.test(productText(p)) && /\bmax\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_13",
-      label: "iPhone 13",
-      match: (p) => {
-        const t = productText(p);
-        return /iphone\s*13\b/.test(t) && !/\bmini\b/.test(t) && !/\bpro\b/.test(t) && !/\bmax\b/.test(t);
-      },
-    },
-    {
-      key: "IPHONE_13_MINI",
-      label: "iPhone 13 mini",
-      match: (p) => /iphone\s*13\s*mini\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_13_PRO",
-      label: "iPhone 13 Pro",
-      match: (p) => {
-        const t = productText(p);
-        return /iphone\s*13\b/.test(t) && /\bpro\b/.test(t) && !/\bmax\b/.test(t);
-      },
-    },
-    {
-      key: "IPHONE_13_PRO_MAX",
-      label: "iPhone 13 Pro Max",
-      match: (p) => /iphone\s*13\b/.test(productText(p)) && /\bpro\b/.test(productText(p)) && /\bmax\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_14",
-      label: "iPhone 14",
-      match: (p) => {
-        const t = productText(p);
-        return /iphone\s*14\b/.test(t) && !/\bplus\b/.test(t) && !/\bpro\b/.test(t) && !/\bmax\b/.test(t);
-      },
-    },
-    {
-      key: "IPHONE_14_PLUS",
-      label: "iPhone 14 Plus",
-      match: (p) => /iphone\s*14\b/.test(productText(p)) && /\bplus\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_14_PRO",
-      label: "iPhone 14 Pro",
-      match: (p) => {
-        const t = productText(p);
-        return /iphone\s*14\b/.test(t) && /\bpro\b/.test(t) && !/\bmax\b/.test(t);
-      },
-    },
-    {
-      key: "IPHONE_14_PRO_MAX",
-      label: "iPhone 14 Pro Max",
-      match: (p) => /iphone\s*14\b/.test(productText(p)) && /\bpro\b/.test(productText(p)) && /\bmax\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_15",
-      label: "iPhone 15",
-      match: (p) => {
-        const t = productText(p);
-        return /iphone\s*15\b/.test(t) && !/\bplus\b/.test(t) && !/\bpro\b/.test(t) && !/\bmax\b/.test(t);
-      },
-    },
-    {
-      key: "IPHONE_15_PLUS",
-      label: "iPhone 15 Plus",
-      match: (p) => /iphone\s*15\b/.test(productText(p)) && /\bplus\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_15_PRO",
-      label: "iPhone 15 Pro",
-      match: (p) => {
-        const t = productText(p);
-        return /iphone\s*15\b/.test(t) && /\bpro\b/.test(t) && !/\bmax\b/.test(t);
-      },
-    },
-    {
-      key: "IPHONE_15_PRO_MAX",
-      label: "iPhone 15 Pro Max",
-      match: (p) => /iphone\s*15\b/.test(productText(p)) && /\bpro\b/.test(productText(p)) && /\bmax\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_17_AIR",
-      label: "iPhone 17 Air",
-      match: (p) => /iphone\s*17\s*air\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_16",
-      label: "iPhone 16",
-      match: (p) => {
-        const t = productText(p);
-        return /iphone\s*16\b/.test(t) && !/\bplus\b/.test(t) && !/\bpro\b/.test(t) && !/\bmax\b/.test(t);
-      },
-    },
-    {
-      key: "IPHONE_16_PRO_MAX",
-      label: "iPhone 16 Pro Max",
-      match: (p) => /iphone\s*16\b/.test(productText(p)) && /\bpro\b/.test(productText(p)) && /\bmax\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_16_PLUS",
-      label: "iPhone 16 Plus",
-      match: (p) => /iphone\s*16\b/.test(productText(p)) && /\bplus\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_16_PRO",
-      label: "iPhone 16 Pro",
-      match: (p) => {
-        const t = productText(p);
-        return /iphone\s*16\b/.test(t) && /\bpro\b/.test(t) && !/\bmax\b/.test(t);
-      },
-    },
-    {
-      key: "IPHONE_7_8",
-      label: "iPhone 7/8",
-      match: (p) => /iphone\s*7\s*\/\s*8\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_7_8_PLUS",
-      label: "iPhone 7/8 Plus",
-      match: (p) => /iphone\s*7\s*\/\s*8\s*plus\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_X_XS",
-      label: "iPhone X / XS",
-      match: (p) => /iphone\s*x\s*\/\s*xs\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_XR",
-      label: "iPhone XR",
-      match: (p) => /iphone\s*xr\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_XS_MAX",
-      label: "iPhone XS Max",
-      match: (p) => /iphone\s*xs\s*max\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_8",
-      label: "iPhone 8",
-      match: (p) => /iphone\s*8\b/.test(productText(p)) && !/\bplus\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_SE_16E_17SE",
-      label: "iPhone SE / 16E / 17SE",
-      match: (p) => /iphone\s*(se|16e|17se)\b/.test(productText(p)),
-    },
-    {
-      key: "IPHONE_17",
-      label: "iPhone 17",
-      match: (p) => {
-        const t = productText(p);
-        return /iphone\s*17\b/.test(t) && !/\bplus\b/.test(t) && !/\bpro\b/.test(t) && !/\bmax\b/.test(t);
-      },
+      key: "IPHONE_17_PRO_MAX",
+      label: "iPhone 17 Pro Max",
+      match: (p) => /iphone\s*17\b/.test(productText(p)) && /\bpro\b/.test(productText(p)) && /\bmax\b/.test(productText(p)),
     },
     {
       key: "IPHONE_17_PRO",
@@ -418,9 +224,213 @@
       },
     },
     {
-      key: "IPHONE_17_PRO_MAX",
-      label: "iPhone 17 Pro Max",
-      match: (p) => /iphone\s*17\b/.test(productText(p)) && /\bpro\b/.test(productText(p)) && /\bmax\b/.test(productText(p)),
+      key: "IPHONE_17_AIR",
+      label: "iPhone 17 Air",
+      match: (p) => /iphone\s*17\s*air\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_17",
+      label: "iPhone 17",
+      match: (p) => {
+        const t = productText(p);
+        return /iphone\s*17\b/.test(t) && !/\bplus\b/.test(t) && !/\bpro\b/.test(t) && !/\bmax\b/.test(t);
+      },
+    },
+    {
+      key: "IPHONE_16E",
+      label: "iPhone 16E",
+      match: (p) => /iphone\s*16e\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_16_PRO_MAX",
+      label: "iPhone 16 Pro Max",
+      match: (p) => /iphone\s*16\b/.test(productText(p)) && /\bpro\b/.test(productText(p)) && /\bmax\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_16_PRO",
+      label: "iPhone 16 Pro",
+      match: (p) => {
+        const t = productText(p);
+        return /iphone\s*16\b/.test(t) && /\bpro\b/.test(t) && !/\bmax\b/.test(t);
+      },
+    },
+    {
+      key: "IPHONE_16_PLUS",
+      label: "iPhone 16 Plus",
+      match: (p) => /iphone\s*16\b/.test(productText(p)) && /\bplus\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_16",
+      label: "iPhone 16",
+      match: (p) => {
+        const t = productText(p);
+        return /iphone\s*16\b/.test(t) && !/\bplus\b/.test(t) && !/\bpro\b/.test(t) && !/\bmax\b/.test(t);
+      },
+    },
+    {
+      key: "IPHONE_15_PRO_MAX",
+      label: "iPhone 15 Pro Max",
+      match: (p) => /iphone\s*15\b/.test(productText(p)) && /\bpro\b/.test(productText(p)) && /\bmax\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_15_PRO",
+      label: "iPhone 15 Pro",
+      match: (p) => {
+        const t = productText(p);
+        return /iphone\s*15\b/.test(t) && /\bpro\b/.test(t) && !/\bmax\b/.test(t);
+      },
+    },
+    {
+      key: "IPHONE_15_PLUS",
+      label: "iPhone 15 Plus",
+      match: (p) => /iphone\s*15\b/.test(productText(p)) && /\bplus\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_15",
+      label: "iPhone 15",
+      match: (p) => {
+        const t = productText(p);
+        return /iphone\s*15\b/.test(t) && !/\bplus\b/.test(t) && !/\bpro\b/.test(t) && !/\bmax\b/.test(t);
+      },
+    },
+    {
+      key: "IPHONE_13_PRO_MAX",
+      label: "iPhone 13 Pro Max",
+      match: (p) => /iphone\s*13\b/.test(productText(p)) && /\bpro\b/.test(productText(p)) && /\bmax\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_13_PRO",
+      label: "iPhone 13 Pro",
+      match: (p) => {
+        const t = productText(p);
+        return /iphone\s*13\b/.test(t) && /\bpro\b/.test(t) && !/\bmax\b/.test(t);
+      },
+    },
+    {
+      key: "IPHONE_13_MINI",
+      label: "iPhone 13 Mini",
+      match: (p) => /iphone\s*13\s*mini\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_13",
+      label: "iPhone 13",
+      match: (p) => {
+        const t = productText(p);
+        return /iphone\s*13\b/.test(t) && !/\bmini\b/.test(t) && !/\bpro\b/.test(t) && !/\bmax\b/.test(t);
+      },
+    },
+    {
+      key: "IPHONE_12_PRO_MAX",
+      label: "iPhone 12 Pro Max",
+      match: (p) => /iphone\s*12\b/.test(productText(p)) && /\bpro\b/.test(productText(p)) && /\bmax\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_12_PRO",
+      label: "iPhone 12 Pro",
+      match: (p) => {
+        const t = productText(p);
+        return /iphone\s*12\b/.test(t) && /\bpro\b/.test(t) && !/\bmax\b/.test(t);
+      },
+    },
+    {
+      key: "IPHONE_12_MINI",
+      label: "iPhone 12 Mini",
+      match: (p) => /iphone\s*12\s*mini\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_12",
+      label: "iPhone 12",
+      match: (p) => {
+        const t = productText(p);
+        return /iphone\s*12\b/.test(t) && !/\bmini\b/.test(t) && !/\bpro\b/.test(t) && !/\bmax\b/.test(t);
+      },
+    },
+    {
+      key: "IPHONE_11_PRO_MAX",
+      label: "iPhone 11 Pro Max",
+      match: (p) => /iphone\s*11\s*pro\s*max\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_11_PRO",
+      label: "iPhone 11 Pro",
+      match: (p) => {
+        const t = productText(p);
+        return /iphone\s*11\s*pro\b/.test(t) && !/\bmax\b/.test(t);
+      },
+    },
+    {
+      key: "IPHONE_11",
+      label: "iPhone 11",
+      match: (p) => {
+        const t = productText(p);
+        return /iphone\s*11\b/.test(t) && !/\bpro\b/.test(t) && !/\bmax\b/.test(t);
+      },
+    },
+    {
+      key: "IPHONE_XS_MAX",
+      label: "iPhone XS Max",
+      match: (p) => /iphone\s*xs\s*max\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_XS",
+      label: "iPhone XS",
+      match: (p) => /iphone\s*xs\b/.test(productText(p)) && !/\bmax\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_XR",
+      label: "iPhone XR",
+      match: (p) => /iphone\s*xr\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_X",
+      label: "iPhone X",
+      match: (p) => /iphone\s*x\b/.test(productText(p)) && !/\bxs\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_8",
+      label: "iPhone 8",
+      match: (p) => /iphone\s*8\b/.test(productText(p)) && !/\bplus\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_7_8_PLUS",
+      label: "iPhone 7/8 Plus",
+      match: (p) => /iphone\s*7\s*\/\s*8\s*plus\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_7_8",
+      label: "iPhone 7/8",
+      match: (p) => /iphone\s*7\s*\/\s*8\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_SE_16E_17SE",
+      label: "iPhone SE / 16E / 17SE",
+      match: (p) => /iphone\s*(se|16e|17se)\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_14_PRO_MAX",
+      label: "iPhone 14 Pro Max",
+      match: (p) => /iphone\s*14\b/.test(productText(p)) && /\bpro\b/.test(productText(p)) && /\bmax\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_14_PRO",
+      label: "iPhone 14 Pro",
+      match: (p) => {
+        const t = productText(p);
+        return /iphone\s*14\b/.test(t) && /\bpro\b/.test(t) && !/\bmax\b/.test(t);
+      },
+    },
+    {
+      key: "IPHONE_14_PLUS",
+      label: "iPhone 14 Plus",
+      match: (p) => /iphone\s*14\b/.test(productText(p)) && /\bplus\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_14",
+      label: "iPhone 14",
+      match: (p) => {
+        const t = productText(p);
+        return /iphone\s*14\b/.test(t) && !/\bplus\b/.test(t) && !/\bpro\b/.test(t) && !/\bmax\b/.test(t);
+      },
     },
   ];
 
