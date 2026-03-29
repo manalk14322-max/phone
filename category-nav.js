@@ -417,6 +417,42 @@
       { key: "APPLE_WATCH", label: "Apple Watch", href: "iphone.html?cat=SMART_WATCH", hint: "Watch bands and covers" },
       { key: "AIRPODS", label: "AirPods", href: "iphone.html?cat=AUDIO", hint: "Audio and protection" },
     ],
+    IPHONE: [
+      { key: "IPHONE_17_PRO_MAX", label: "iPhone 17 Pro Max", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17_PRO_MAX", hint: "Largest 17 series case fit" },
+      { key: "IPHONE_17_PRO", label: "iPhone 17 Pro", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17_PRO", hint: "Pro case collection" },
+      { key: "IPHONE_17_AIR", label: "iPhone 17 Air", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17_AIR", hint: "Slim lightweight cases" },
+      { key: "IPHONE_17", label: "iPhone 17", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17", hint: "Standard 17 series cases" },
+      { key: "IPHONE_16E", label: "iPhone 16E", href: "iphone.html?cat=FUNDAS&sub=IPHONE_16E", hint: "Entry iPhone 16E cases" },
+      { key: "IPHONE_16_PRO_MAX", label: "iPhone 16 Pro Max", href: "iphone.html?cat=FUNDAS&sub=IPHONE_16_PRO_MAX", hint: "Large 16 Pro Max cases" },
+      { key: "IPHONE_16_PRO", label: "iPhone 16 Pro", href: "iphone.html?cat=FUNDAS&sub=IPHONE_16_PRO", hint: "Pro case collection" },
+      { key: "IPHONE_16_PLUS", label: "iPhone 16 Plus", href: "iphone.html?cat=FUNDAS&sub=IPHONE_16_PLUS", hint: "Plus size cases" },
+      { key: "IPHONE_16", label: "iPhone 16", href: "iphone.html?cat=FUNDAS&sub=IPHONE_16", hint: "Standard 16 series cases" },
+      { key: "IPHONE_15_PRO_MAX", label: "iPhone 15 Pro Max", href: "iphone.html?cat=FUNDAS&sub=IPHONE_15_PRO_MAX", hint: "Large 15 Pro Max cases" },
+      { key: "IPHONE_15_PRO", label: "iPhone 15 Pro", href: "iphone.html?cat=FUNDAS&sub=IPHONE_15_PRO", hint: "Pro case collection" },
+      { key: "IPHONE_15_PLUS", label: "iPhone 15 Plus", href: "iphone.html?cat=FUNDAS&sub=IPHONE_15_PLUS", hint: "Plus size cases" },
+      { key: "IPHONE_15", label: "iPhone 15", href: "iphone.html?cat=FUNDAS&sub=IPHONE_15", hint: "Standard 15 series cases" },
+      { key: "IPHONE_14_PLUS", label: "iPhone 14 Plus", href: "iphone.html?cat=FUNDAS&sub=IPHONE_14_PLUS", hint: "Plus size cases" },
+      { key: "IPHONE_14_PRO", label: "iPhone 14 Pro", href: "iphone.html?cat=FUNDAS&sub=IPHONE_14_PRO", hint: "Pro case collection" },
+      { key: "IPHONE_14", label: "iPhone 14", href: "iphone.html?cat=FUNDAS&sub=IPHONE_14", hint: "Standard 14 series cases" },
+      { key: "IPHONE_13_PRO_MAX", label: "iPhone 13 Pro Max", href: "iphone.html?cat=FUNDAS&sub=IPHONE_13_PRO_MAX", hint: "Large 13 Pro Max cases" },
+      { key: "IPHONE_13_PRO", label: "iPhone 13 Pro", href: "iphone.html?cat=FUNDAS&sub=IPHONE_13_PRO", hint: "Pro case collection" },
+      { key: "IPHONE_13_MINI", label: "iPhone 13 mini", href: "iphone.html?cat=FUNDAS&sub=IPHONE_13_MINI", hint: "Compact 13 mini cases" },
+      { key: "IPHONE_13", label: "iPhone 13", href: "iphone.html?cat=FUNDAS&sub=IPHONE_13", hint: "Standard 13 series cases" },
+      { key: "IPHONE_12_PRO_MAX", label: "iPhone 12 Pro Max", href: "iphone.html?cat=FUNDAS&sub=IPHONE_12_PRO_MAX", hint: "Large 12 Pro Max cases" },
+      { key: "IPHONE_12_PRO", label: "iPhone 12 Pro", href: "iphone.html?cat=FUNDAS&sub=IPHONE_12_PRO", hint: "Pro case collection" },
+      { key: "IPHONE_12_MINI", label: "iPhone 12 mini", href: "iphone.html?cat=FUNDAS&sub=IPHONE_12_MINI", hint: "Compact 12 mini cases" },
+      { key: "IPHONE_12", label: "iPhone 12", href: "iphone.html?cat=FUNDAS&sub=IPHONE_12", hint: "Standard 12 series cases" },
+      { key: "IPHONE_11_PRO_MAX", label: "iPhone 11 Pro Max", href: "iphone.html?cat=FUNDAS&sub=IPHONE_11_PRO_MAX", hint: "Large 11 Pro Max cases" },
+      { key: "IPHONE_11_PRO", label: "iPhone 11 Pro", href: "iphone.html?cat=FUNDAS&sub=IPHONE_11_PRO", hint: "Pro case collection" },
+      { key: "IPHONE_11", label: "iPhone 11", href: "iphone.html?cat=FUNDAS&sub=IPHONE_11", hint: "Standard 11 series cases" },
+      { key: "IPHONE_XS_MAX", label: "iPhone XS Max", href: "iphone.html?cat=FUNDAS&sub=IPHONE_XS_MAX", hint: "XS Max case fit" },
+      { key: "IPHONE_X_XS", label: "iPhone X / XS", href: "iphone.html?cat=FUNDAS&sub=IPHONE_X_XS", hint: "iPhone X and XS cases" },
+      { key: "IPHONE_XR", label: "iPhone XR", href: "iphone.html?cat=FUNDAS&sub=IPHONE_XR", hint: "XR case fit" },
+      { key: "IPHONE_8", label: "iPhone 8", href: "iphone.html?cat=FUNDAS&sub=IPHONE_8", hint: "iPhone 8 case fit" },
+      { key: "IPHONE_7_8_PLUS", label: "iPhone 7/8 Plus", href: "iphone.html?cat=FUNDAS&sub=IPHONE_7_8_PLUS", hint: "7/8 Plus case fit" },
+      { key: "IPHONE_7_8", label: "iPhone 7/8", href: "iphone.html?cat=FUNDAS&sub=IPHONE_7_8", hint: "7/8 case fit" },
+      { key: "IPHONE_SE_16E_17SE", label: "iPhone SE / 16E / 17SE", href: "iphone.html?cat=FUNDAS&sub=IPHONE_SE_16E_17SE", hint: "SE and special edition cases" },
+    ],
     SAMSUNG: [
       { key: "SERIES_S", label: "Series S", href: "iphone.html?cat=FUNDAS&sub=SAMSUNG", hint: "Galaxy S covers" },
       { key: "SERIES_A", label: "Series A", href: "iphone.html?cat=FUNDAS&sub=SAMSUNG", hint: "Galaxy A covers" },
@@ -717,7 +753,9 @@
       const rootKey = state.root;
       const items = drawerColumns[rootKey] || drawerColumns.BRAND;
       const activeItem = items.find((entry) => entry.key === state.active) || items[0];
-      const detailItems = drawerDetails[activeItem?.key] || activeItem?.children || [];
+      const subKey = currentSubKey();
+      const detailKey = rootKey === "BRAND" && /^IPHONE(?:_|$)/i.test(subKey) ? "IPHONE" : activeItem?.key;
+      const detailItems = drawerDetails[detailKey] || activeItem?.children || [];
 
       middleTitle.textContent = rootKey === "BRAND" ? "Phone Brands" : rootKey === "CASES" ? "Case Styles" : categories.find((entry) => entry.key === rootKey)?.label || "Sections";
       middleHint.textContent = rootKey === "BRAND"
@@ -728,8 +766,10 @@
 
       middleList.innerHTML = renderDrawerRows(items, activeItem?.key || "", rootKey, "middle", false);
 
-      detailTitle.textContent = activeItem?.label || "Sections";
-      detailHint.textContent = activeItem?.hint || categories.find((entry) => entry.key === rootKey)?.hint || "Pick an item to explore";
+      detailTitle.textContent = detailKey === "IPHONE" ? "iPhone Models" : activeItem?.label || "Sections";
+      detailHint.textContent = detailKey === "IPHONE"
+        ? "Pick a model to explore"
+        : activeItem?.hint || categories.find((entry) => entry.key === rootKey)?.hint || "Pick an item to explore";
       detailList.innerHTML = detailItems.length
         ? renderDrawerRows(detailItems, "", rootKey, "detail", false)
         : `<div class="category-drawer-empty"><strong>${esc(activeItem?.label || "Sections")}</strong><small>${esc(

@@ -336,12 +336,22 @@
       match: (p) => /iphone\s*15\b/.test(productText(p)) && /\bpro\b/.test(productText(p)) && /\bmax\b/.test(productText(p)),
     },
     {
+      key: "IPHONE_17_AIR",
+      label: "iPhone 17 Air",
+      match: (p) => /iphone\s*17\s*air\b/.test(productText(p)),
+    },
+    {
       key: "IPHONE_16",
       label: "iPhone 16",
       match: (p) => {
         const t = productText(p);
         return /iphone\s*16\b/.test(t) && !/\bplus\b/.test(t) && !/\bpro\b/.test(t) && !/\bmax\b/.test(t);
       },
+    },
+    {
+      key: "IPHONE_16_PRO_MAX",
+      label: "iPhone 16 Pro Max",
+      match: (p) => /iphone\s*16\b/.test(productText(p)) && /\bpro\b/.test(productText(p)) && /\bmax\b/.test(productText(p)),
     },
     {
       key: "IPHONE_16_PLUS",
@@ -375,6 +385,16 @@
       key: "IPHONE_XR",
       label: "iPhone XR",
       match: (p) => /iphone\s*xr\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_XS_MAX",
+      label: "iPhone XS Max",
+      match: (p) => /iphone\s*xs\s*max\b/.test(productText(p)),
+    },
+    {
+      key: "IPHONE_8",
+      label: "iPhone 8",
+      match: (p) => /iphone\s*8\b/.test(productText(p)) && !/\bplus\b/.test(productText(p)),
     },
     {
       key: "IPHONE_SE_16E_17SE",
