@@ -584,6 +584,13 @@ body.category-drawer-open {
   box-shadow: var(--shadow-soft);
 }
 
+@media (min-width: 1101px) {
+  .hero-grid {
+    width: calc(100% - 84px);
+    margin-left: 84px;
+  }
+}
+
 .hero-copy {
   transform: translate3d(calc(var(--parallax-x) * -0.25), calc(var(--parallax-y) * -0.2), 0);
   transition: transform 0.28s ease;
