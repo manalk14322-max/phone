@@ -364,7 +364,7 @@ a {
 }
 
 .category-drawer-panel {
-  width: min(920px, calc(100vw - 110px));
+  width: min(1060px, calc(100vw - 110px));
   margin-left: 12px;
   border-radius: 28px;
   border: 1px solid #dbe7fb;
@@ -375,7 +375,7 @@ a {
   overscroll-behavior: contain;
   scrollbar-width: thin;
   display: grid;
-  grid-template-columns: 220px minmax(220px, 260px) minmax(0, 1fr);
+  grid-template-columns: 220px minmax(220px, 260px) minmax(190px, 230px) minmax(0, 1fr);
   grid-template-rows: auto minmax(0, 1fr);
   align-items: stretch;
   opacity: 0;
@@ -509,6 +509,11 @@ a {
   grid-column: 3;
   grid-row: 2;
   align-self: start;
+}
+
+.category-drawer-group--models {
+  grid-column: 4;
+  border-right: 0;
 }
 
 .category-drawer-group-body {

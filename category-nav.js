@@ -10,7 +10,7 @@
     },
     {
       key: "CASES",
-      label: "CASES",
+      label: "SHEATH",
       hint: "Silicone, matte, transparent, and MagSafe",
       href: "iphone.html?cat=FUNDAS",
       icon:
@@ -34,7 +34,7 @@
     },
     {
       key: "CABLES",
-      label: "CABLE",
+      label: "WIRE",
       hint: "Charging and data cables",
       href: "iphone.html?cat=ACCESSORIES&sub=CABLE",
       icon:
@@ -50,7 +50,7 @@
     },
     {
       key: "WEARABLES",
-      label: "SUPPORT",
+      label: "MEDIUM",
       hint: "Smart watches, bands, and holders",
       href: "iphone.html?cat=SMART_WATCH",
       icon:
@@ -724,25 +724,21 @@
             </div>
             <div class="category-drawer-mega-list" id="category-drawer-middle-list"></div>
           </section>
-          <section class="category-drawer-group" aria-labelledby="category-drawer-detail-title">
+          <section class="category-drawer-group category-drawer-group--section" aria-labelledby="category-drawer-detail-title">
             <div class="category-drawer-group-head">
               <strong id="category-drawer-detail-title">Section</strong>
               <small id="category-drawer-detail-hint">Pick an item to explore</small>
             </div>
-            <div class="category-drawer-group-body">
-              <div class="category-drawer-group-main">
-                <div class="category-drawer-mega-list" id="category-drawer-detail-list"></div>
-              </div>
-              <div class="category-drawer-group-sub">
-                <div class="category-drawer-group-head category-drawer-group-head--sub">
-                  <div>
-                    <strong id="category-drawer-subdetail-title">Models</strong>
-                    <small id="category-drawer-subdetail-hint">Choose a section first</small>
-                  </div>
-                </div>
-                <div class="category-drawer-mega-list category-drawer-mega-list--columns" id="category-drawer-subdetail-list"></div>
+            <div class="category-drawer-mega-list" id="category-drawer-detail-list"></div>
+          </section>
+          <section class="category-drawer-group category-drawer-group--models" aria-labelledby="category-drawer-subdetail-title">
+            <div class="category-drawer-group-head category-drawer-group-head--sub">
+              <div>
+                <strong id="category-drawer-subdetail-title">Models</strong>
+                <small id="category-drawer-subdetail-hint">Choose a section first</small>
               </div>
             </div>
+            <div class="category-drawer-mega-list category-drawer-mega-list--columns" id="category-drawer-subdetail-list"></div>
           </section>
         </div>
       </aside>
@@ -773,7 +769,7 @@
       const rootKey = state.root;
       const items = drawerColumns[rootKey] || drawerColumns.BRAND;
       const activeItem = items.find((entry) => entry.key === state.active) || items[0];
-      const detailKey = rootKey === "BRAND" ? activeItem?.key : activeItem?.key;
+      const detailKey = activeItem?.key || "";
       const detailItems = drawerDetails[detailKey] || activeItem?.children || [];
       const selectedSection = rootKey === "BRAND" ? (state.detail || "") : (state.detail || detailItems[0]?.key || "");
       const selectedSectionEntry = detailItems.find((entry) => entry.key === selectedSection) || null;
@@ -801,7 +797,7 @@
             activeItem?.hint || "No additional sections available."
           )}</small></div>`;
 
-      subDetailTitle.textContent = selectedSectionEntry?.label || (detailKey === "APPLE" ? "iPhone Models" : "Models");
+      subDetailTitle.textContent = detailKey === "APPLE" ? "iPhone Models" : (selectedSectionEntry?.label || "Models");
       subDetailHint.textContent = subDetailItems.length
         ? (detailKey === "APPLE" ? "Pick a model to explore" : "Pick a model or variant")
         : (detailKey === "APPLE"
@@ -945,7 +941,7 @@
       }
 
       const detailLink = event.target.closest(".category-drawer-mega-item");
-      if (detailLink && widget.contains(detailLink) && detailLink.closest(".category-drawer-group-main")) {
+      if (detailLink && widget.contains(detailLink) && detailLink.closest(".category-drawer-group--section")) {
         event.preventDefault();
         const childKey = detailLink.getAttribute("data-drawer-child") || "";
         if (childKey) {
@@ -960,7 +956,7 @@
       }
 
       const subDetailLink = event.target.closest(".category-drawer-mega-item");
-      if (subDetailLink && widget.contains(subDetailLink) && subDetailLink.closest(".category-drawer-group-sub")) {
+      if (subDetailLink && widget.contains(subDetailLink) && subDetailLink.closest(".category-drawer-group--models")) {
         event.preventDefault();
         navigateTo(subDetailLink);
       }
@@ -988,7 +984,7 @@
       }
 
       const detailChildLink = event.target.closest("[data-drawer-child]");
-      if (detailChildLink && widget.contains(detailChildLink) && detailChildLink.closest(".category-drawer-group-main")) {
+      if (detailChildLink && widget.contains(detailChildLink) && detailChildLink.closest(".category-drawer-group--section")) {
         const childKey = detailChildLink.getAttribute("data-drawer-child") || "";
         if (childKey) {
           if (state.active === "APPLE" && childKey === "IPHONE") {
@@ -1000,7 +996,7 @@
       }
 
       const subDetailChildLink = event.target.closest("[data-drawer-child]");
-      if (subDetailChildLink && widget.contains(subDetailChildLink) && subDetailChildLink.closest(".category-drawer-group-sub")) {
+      if (subDetailChildLink && widget.contains(subDetailChildLink) && subDetailChildLink.closest(".category-drawer-group--models")) {
         return;
       }
     });
