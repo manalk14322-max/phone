@@ -265,7 +265,7 @@ a {
 
 .category-drawer-shell {
   position: fixed;
-  top: 236px;
+  top: 116px;
   left: 12px;
   z-index: 60;
   display: flex;
@@ -334,7 +334,7 @@ a {
 
 .category-drawer-mobile-btn {
   position: fixed;
-  top: 236px;
+  top: 116px;
   left: 14px;
   z-index: 61;
   display: none;
@@ -2717,7 +2717,7 @@ body.category-drawer-open {
   }
 
   .category-drawer-shell {
-    top: 236px;
+    top: 116px;
     left: 12px;
   }
 
@@ -2813,7 +2813,7 @@ body.category-drawer-open {
 
   .category-drawer-mobile-btn,
   .category-drawer-shell {
-    top: 224px;
+    top: 110px;
   }
 
   .category-drawer-mega-list--columns {
