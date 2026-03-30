@@ -578,7 +578,7 @@
       if (!items.some((item) => item.key === active)) {
         active = items[0]?.key || "";
       }
-      detail = /^IPHONE(?:_|$)/i.test(sub) ? "IPHONE" : active;
+      detail = /^IPHONE(?:_|$)/i.test(sub) ? "IPHONE" : "";
       return { root, active, detail };
     }
 
@@ -726,10 +726,23 @@
           </section>
           <section class="category-drawer-group" aria-labelledby="category-drawer-detail-title">
             <div class="category-drawer-group-head">
-              <strong id="category-drawer-detail-title">Sections</strong>
+              <strong id="category-drawer-detail-title">Section</strong>
               <small id="category-drawer-detail-hint">Pick an item to explore</small>
             </div>
-            <div class="category-drawer-mega-list" id="category-drawer-detail-list"></div>
+            <div class="category-drawer-group-body">
+              <div class="category-drawer-group-main">
+                <div class="category-drawer-mega-list" id="category-drawer-detail-list"></div>
+              </div>
+              <div class="category-drawer-group-sub">
+                <div class="category-drawer-group-head category-drawer-group-head--sub">
+                  <div>
+                    <strong id="category-drawer-subdetail-title">Models</strong>
+                    <small id="category-drawer-subdetail-hint">Choose a section first</small>
+                  </div>
+                </div>
+                <div class="category-drawer-mega-list category-drawer-mega-list--columns" id="category-drawer-subdetail-list"></div>
+              </div>
+            </div>
           </section>
         </div>
       </aside>
@@ -750,6 +763,9 @@
     const detailTitle = document.getElementById("category-drawer-detail-title");
     const detailHint = document.getElementById("category-drawer-detail-hint");
     const detailList = document.getElementById("category-drawer-detail-list");
+    const subDetailTitle = document.getElementById("category-drawer-subdetail-title");
+    const subDetailHint = document.getElementById("category-drawer-subdetail-hint");
+    const subDetailList = document.getElementById("category-drawer-subdetail-list");
 
     const state = resolveDrawerState(currentKey(), currentSubKey());
 
@@ -757,15 +773,13 @@
       const rootKey = state.root;
       const items = drawerColumns[rootKey] || drawerColumns.BRAND;
       const activeItem = items.find((entry) => entry.key === state.active) || items[0];
-      const subKey = currentSubKey();
-      const detailKey = rootKey === "BRAND"
-        ? (state.detail || (activeItem?.key === "APPLE" ? "APPLE" : activeItem?.key))
-        : activeItem?.key;
+      const detailKey = rootKey === "BRAND" ? activeItem?.key : activeItem?.key;
       const detailItems = drawerDetails[detailKey] || activeItem?.children || [];
-
-      if (rootKey === "BRAND" && activeItem?.key === "APPLE" && detailKey !== "IPHONE" && !state.detail) {
-        state.detail = "APPLE";
-      }
+      const selectedSection = rootKey === "BRAND" ? (state.detail || "") : (state.detail || detailItems[0]?.key || "");
+      const selectedSectionEntry = detailItems.find((entry) => entry.key === selectedSection) || null;
+      const subDetailItems = rootKey === "BRAND" && detailKey === "APPLE"
+        ? (selectedSection === "IPHONE" ? drawerDetails.IPHONE || [] : [])
+        : drawerDetails[selectedSection] || selectedSectionEntry?.children || [];
 
       middleTitle.textContent = rootKey === "BRAND" ? "Phone Brands" : rootKey === "CASES" ? "Case Styles" : categories.find((entry) => entry.key === rootKey)?.label || "Sections";
       middleHint.textContent = rootKey === "BRAND"
@@ -776,17 +790,30 @@
 
       middleList.innerHTML = renderDrawerRows(items, activeItem?.key || "", rootKey, "middle", false);
 
-      detailTitle.textContent = detailKey === "IPHONE" ? "iPhone Models" : detailKey === "APPLE" ? "Section" : activeItem?.label || "Sections";
-      detailHint.textContent = detailKey === "IPHONE"
-        ? "Pick a model to explore"
-        : detailKey === "APPLE"
-          ? "Choose a section to explore"
-          : activeItem?.hint || categories.find((entry) => entry.key === rootKey)?.hint || "Pick an item to explore";
-      detailList.classList.toggle("category-drawer-mega-list--columns", detailKey === "IPHONE");
+      detailTitle.textContent = rootKey === "BRAND" ? "Section" : activeItem?.label || "Sections";
+      detailHint.textContent = rootKey === "BRAND"
+        ? "Choose a section to explore"
+        : activeItem?.hint || categories.find((entry) => entry.key === rootKey)?.hint || "Pick an item to explore";
+      detailList.classList.remove("category-drawer-mega-list--columns");
       detailList.innerHTML = detailItems.length
-        ? renderDrawerRows(detailItems, "", rootKey, "detail", false)
+        ? renderDrawerRows(detailItems, selectedSection, rootKey, "detail", false)
         : `<div class="category-drawer-empty"><strong>${esc(activeItem?.label || "Sections")}</strong><small>${esc(
             activeItem?.hint || "No additional sections available."
+          )}</small></div>`;
+
+      subDetailTitle.textContent = selectedSectionEntry?.label || (detailKey === "APPLE" ? "iPhone Models" : "Models");
+      subDetailHint.textContent = subDetailItems.length
+        ? (detailKey === "APPLE" ? "Pick a model to explore" : "Pick a model or variant")
+        : (detailKey === "APPLE"
+          ? (selectedSection ? "No additional sections available." : "Choose iPhone to view models.")
+          : (selectedSectionEntry?.hint || "No additional sections available."));
+      subDetailList.classList.toggle("category-drawer-mega-list--columns", subDetailItems.length > 8);
+      subDetailList.innerHTML = subDetailItems.length
+        ? renderDrawerRows(subDetailItems, "", rootKey, "subdetail", false)
+        : `<div class="category-drawer-empty"><strong>${esc(selectedSectionEntry?.label || "Models")}</strong><small>${esc(
+            detailKey === "APPLE"
+              ? (selectedSection ? "Choose iPhone to view models." : "Pick iPhone to see models.")
+              : (selectedSectionEntry?.hint || "No additional sections available.")
           )}</small></div>`;
 
       widget.querySelectorAll("[data-category-key]").forEach((node) => {
@@ -818,7 +845,7 @@
       if (!rootKey) return;
       state.root = rootKey;
       state.active = (drawerColumns[rootKey] || drawerColumns.BRAND)[0]?.key || "";
-      state.detail = state.active;
+      state.detail = "";
       renderColumns();
       if (shouldOpen) setOpen(true, false);
     }
@@ -895,7 +922,6 @@
       if (railLink && widget.contains(railLink)) {
         event.preventDefault();
         selectRoot(railLink.getAttribute("data-root-key") || "", true);
-        navigateTo(railLink);
         return;
       }
 
@@ -903,7 +929,6 @@
       if (rootLink && widget.contains(rootLink) && rootLink.closest(".category-drawer-list")) {
         event.preventDefault();
         selectRoot(rootLink.getAttribute("data-root-key") || "", true);
-        navigateTo(rootLink);
         return;
       }
 
@@ -916,19 +941,28 @@
           state.detail = "";
           renderColumns();
         }
-        navigateTo(middleLink);
         return;
       }
 
       const detailLink = event.target.closest(".category-drawer-mega-item");
-      if (detailLink && widget.contains(detailLink) && detailLink.closest(".category-drawer-group")) {
+      if (detailLink && widget.contains(detailLink) && detailLink.closest(".category-drawer-group-main")) {
         event.preventDefault();
         const childKey = detailLink.getAttribute("data-drawer-child") || "";
-        if (childKey && childKey !== state.detail) {
-          state.detail = childKey;
-          renderColumns();
+        if (childKey) {
+          if (state.active === "APPLE" && childKey === "IPHONE") {
+            state.detail = "IPHONE";
+            renderColumns();
+          } else {
+            navigateTo(detailLink);
+          }
         }
-        navigateTo(detailLink);
+        return;
+      }
+
+      const subDetailLink = event.target.closest(".category-drawer-mega-item");
+      if (subDetailLink && widget.contains(subDetailLink) && subDetailLink.closest(".category-drawer-group-sub")) {
+        event.preventDefault();
+        navigateTo(subDetailLink);
       }
     });
 
@@ -954,12 +988,20 @@
       }
 
       const detailChildLink = event.target.closest("[data-drawer-child]");
-      if (detailChildLink && widget.contains(detailChildLink) && detailChildLink.closest(".category-drawer-group")) {
+      if (detailChildLink && widget.contains(detailChildLink) && detailChildLink.closest(".category-drawer-group-main")) {
         const childKey = detailChildLink.getAttribute("data-drawer-child") || "";
-        if (childKey && childKey !== state.detail) {
-          state.detail = childKey;
-          renderColumns();
+        if (childKey) {
+          if (state.active === "APPLE" && childKey === "IPHONE") {
+            state.detail = "IPHONE";
+            renderColumns();
+          }
         }
+        return;
+      }
+
+      const subDetailChildLink = event.target.closest("[data-drawer-child]");
+      if (subDetailChildLink && widget.contains(subDetailChildLink) && subDetailChildLink.closest(".category-drawer-group-sub")) {
+        return;
       }
     });
 
