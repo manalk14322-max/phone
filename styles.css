@@ -2084,6 +2084,13 @@ body.category-drawer-open {
   font-size: 0.72rem;
 }
 
+.page-breadcrumb {
+  margin: 0 0 8px;
+  color: #6c7fa7;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
 .page-hero h1 {
   margin: 0 0 8px;
   font-family: "Poppins", sans-serif;

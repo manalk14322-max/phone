@@ -309,6 +309,35 @@
     return map[filterKey] || filterKey;
   }
 
+  function subcatLabel(filterKey, subKey) {
+    const subcats = SUBCATS[String(filterKey || "").toUpperCase()] || [];
+    const target = subcats.find((entry) => entry.key === String(subKey || "").toUpperCase());
+    return target?.label || "";
+  }
+
+  function breadcrumbFor(filterKey, subKey) {
+    const root = String(filterKey || "").toUpperCase();
+    const sub = String(subKey || "").toUpperCase();
+    const label = subcatLabel(root, sub);
+
+    if (!label) {
+      return `Start / ${titleByKey(root)}`;
+    }
+
+    if (root === "FUNDAS") {
+      if (sub === "IPHONE") return "Start / Brand / Apple / iPhone";
+      if (/^IPHONE_/.test(sub)) return `Start / Brand / Apple / iPhone / ${label}`;
+      if (/^(APPLE|SAMSUNG|XIAOMI|REDMI|OPPO|HUAWEI|ONEPLUS|MOTOROLA|GOOGLE|ALCATEL|LENOVO|ZTE|TCL|ALIVE|WIKO)$/.test(sub)) {
+        return `Start / Brand / ${label}`;
+      }
+      return `Start / Cases / ${label}`;
+    }
+
+    if (root === "SIM") return `Start / SIM / ${label}`;
+    if (root === "OFERTA" || root === "OFFERS") return "Start / Offers";
+    return `Start / ${titleByKey(root)} / ${label}`;
+  }
+
   async function init() {
     state.visible = getPageSize();
     const cached = readProductsCache();
@@ -327,10 +356,16 @@
     if (key === "FUNDAS") {
       state.filtered = sortFundas(state.filtered);
     }
-    const title = titleByKey(key);
+    const selectedLabel = subcatLabel(key, urlSub);
+    const title = selectedLabel || titleByKey(key);
+    const breadcrumb = document.getElementById("cat-breadcrumb");
 
     els.title.textContent = title;
-    els.sub.textContent = `Browse products in ${title}.`;
+    els.sub.textContent = selectedLabel ? `Browse products for ${selectedLabel}.` : `Browse products in ${title}.`;
+    document.title = `${title} | The World Mobile`;
+    if (breadcrumb) {
+      breadcrumb.textContent = breadcrumbFor(key, urlSub);
+    }
     render(state.filtered);
 
     const subcats = SUBCATS[key] || null;
@@ -349,6 +384,13 @@
         const initial = subcats.find((s) => s.key === String(urlSub || "").toUpperCase());
         if (initial) {
           state.activeSub = initial.key;
+          const activeTitle = initial.label || title;
+          els.title.textContent = activeTitle;
+          els.sub.textContent = `Browse products for ${activeTitle}.`;
+          document.title = `${activeTitle} | The World Mobile`;
+          if (breadcrumb) {
+            breadcrumb.textContent = breadcrumbFor(key, initial.key);
+          }
           els.subcatChips.querySelectorAll(".subcat-chip").forEach((el) => {
             el.classList.toggle("active", el.getAttribute("data-sub") === initial.key);
           });
