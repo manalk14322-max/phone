@@ -1362,7 +1362,8 @@ body.category-drawer-open {
 .product-media img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center center;
   transition: transform 0.32s ease;
 }
 
