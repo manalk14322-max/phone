@@ -780,6 +780,11 @@ body.category-drawer-open {
     margin-left: 84px;
   }
 
+  body.home-page main > .section > .container {
+    width: calc(100% - 84px);
+    margin-left: 84px;
+  }
+
   body[data-cat] .page-main {
     width: calc(100% - 84px);
     margin-left: 84px;
