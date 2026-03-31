@@ -589,6 +589,11 @@ body.category-drawer-open {
     width: calc(100% - 84px);
     margin-left: 84px;
   }
+
+  body[data-cat] .page-main {
+    width: calc(100% - 84px);
+    margin-left: 84px;
+  }
 }
 
 .hero-copy {
@@ -1875,6 +1880,10 @@ body.category-drawer-open {
 
 .page-main {
   padding: 32px 0 50px;
+}
+
+body[data-cat] .page-main {
+  position: relative;
 }
 
 .page-hero {
