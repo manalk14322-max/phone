@@ -643,6 +643,7 @@
       </article>`;
       })
       .join("");
+    syncCardFrameRatios(els.grid);
     els.count.textContent = `${visibleItems.length} / ${items.length} items`;
 
     const loadBtn = ensureLoadButton();
@@ -669,6 +670,23 @@
       OFFERS: "Offers",
     };
     return map[filterKey] || filterKey;
+  }
+
+  function syncCardFrameRatios(root = document) {
+    root.querySelectorAll(".product-media, .card-link").forEach((frame) => {
+      const img = frame.querySelector("img");
+      if (!img) return;
+      const apply = () => {
+        const width = img.naturalWidth || 1;
+        const height = img.naturalHeight || 1;
+        frame.style.setProperty("--card-frame-ratio", `${width} / ${height}`);
+      };
+      apply();
+      if (!img.complete || !img.naturalWidth) {
+        img.addEventListener("load", apply, { once: true });
+        img.addEventListener("error", apply, { once: true });
+      }
+    });
   }
 
   function subcatLabel(filterKey, subKey) {

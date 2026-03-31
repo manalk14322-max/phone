@@ -334,9 +334,27 @@
       </article>`;
   }
 
+  function syncCardFrameRatios(root = document) {
+    root.querySelectorAll(".product-media, .card-link").forEach((frame) => {
+      const img = frame.querySelector("img");
+      if (!img) return;
+      const apply = () => {
+        const width = img.naturalWidth || 1;
+        const height = img.naturalHeight || 1;
+        frame.style.setProperty("--card-frame-ratio", `${width} / ${height}`);
+      };
+      apply();
+      if (!img.complete || !img.naturalWidth) {
+        img.addEventListener("load", apply, { once: true });
+        img.addEventListener("error", apply, { once: true });
+      }
+    });
+  }
+
   function renderProducts() {
     const visibleItems = state.filtered.slice(0, state.visibleCount);
     els.productGrid.innerHTML = visibleItems.map(productCard).join("");
+    syncCardFrameRatios(els.productGrid);
     els.resultChip.textContent = `${visibleItems.length} / ${state.filtered.length} products`;
 
     const loadBtn = ensureProductsLoadButton();
@@ -360,6 +378,7 @@
     }
 
     els.bestGrid.innerHTML = unique.map(productCard).join("");
+    syncCardFrameRatios(els.bestGrid);
     refreshRevealTargets();
   }
 

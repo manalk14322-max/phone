@@ -103,6 +103,23 @@ function renderCard(p, withOffer = false) {
       </div>
     </article>`;
 }
+
+function syncCardFrameRatios(root = document) {
+  root.querySelectorAll(".card-link").forEach((frame) => {
+    const img = frame.querySelector("img");
+    if (!img) return;
+    const apply = () => {
+      const width = img.naturalWidth || 1;
+      const height = img.naturalHeight || 1;
+      frame.style.setProperty("--card-frame-ratio", `${width} / ${height}`);
+    };
+    apply();
+    if (!img.complete || !img.naturalWidth) {
+      img.addEventListener("load", apply, { once: true });
+      img.addEventListener("error", apply, { once: true });
+    }
+  });
+}
 async function loadProducts() {
   const cached = readProductsCache();
   if (cached) return cached.filter((p) => !isBlockedBrand(p));
@@ -130,6 +147,7 @@ async function initStorePage() {
       ? all.filter((p) => (p.name || "").toLowerCase().includes(q))
       : all;
     grid.innerHTML = filtered.slice(0, visible).map((p) => renderCard(p)).join("");
+    syncCardFrameRatios(grid);
     if (count) count.textContent = `${filtered.length} items`;
     if (loadBtn) loadBtn.style.display = visible < filtered.length ? "inline-block" : "none";
   }
