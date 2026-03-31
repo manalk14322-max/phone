@@ -1554,16 +1554,17 @@ body.category-drawer-open {
 .product-media {
   display: block;
   width: 100%;
+  aspect-ratio: 4 / 3;
   background: #f3f8ff;
   overflow: hidden;
 }
 
 .product-media img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
-  object-fit: initial;
-  object-position: center center;
+  object-fit: cover;
+  object-position: center 20%;
   transition: transform 0.32s ease;
 }
 
@@ -2539,15 +2540,17 @@ body[data-cat] .page-main {
 .card-link {
   display: block;
   width: 100%;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: #f3f8ff;
 }
 
 .card-link img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
-  object-fit: initial;
+  object-fit: cover;
+  object-position: center 20%;
 }
 
 .card-body {
