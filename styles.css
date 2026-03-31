@@ -789,6 +789,11 @@ body.category-drawer-open {
     width: calc(100% - 84px);
     margin-left: 84px;
   }
+
+  body:not(.home-page):not([data-cat]) main.container {
+    width: calc(100% - 84px);
+    margin-left: 84px;
+  }
 }
 
 .hero-copy {
