@@ -1374,7 +1374,7 @@ body.category-drawer-open {
   height: 100%;
   display: block;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center 36%;
   transition: transform 0.32s ease;
 }
 
@@ -2032,7 +2032,7 @@ body[data-cat] .page-main {
   height: 100%;
   display: block;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center 36%;
 }
 
 .card-body {
