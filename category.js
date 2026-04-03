@@ -25,6 +25,7 @@
 
   const PLACEHOLDER_IMAGE = "1.png";
   const CATALOG = window.TWM_CATALOG || {};
+  const CURATED_17_PRO_MAX = Array.isArray(CATALOG.curatedIphone17ProMaxProducts) ? CATALOG.curatedIphone17ProMaxProducts.slice() : [];
   const augmentProducts = CATALOG.augmentProducts || ((items) => items);
   const resolveProductImage = CATALOG.resolveProductImage || ((product) => String(product?.image || PLACEHOLDER_IMAGE));
 
@@ -751,7 +752,8 @@
           return normalized;
         })();
     const all = allSource.filter((p) => !isBlockedBrand(p));
-    state.base = all.filter((p) => isMatchByFilter(p, key));
+    const curatedRoute = key === "FUNDAS" && String(urlSub || "").toUpperCase() === "IPHONE_17_PRO_MAX";
+    state.base = curatedRoute ? CURATED_17_PRO_MAX.slice() : all.filter((p) => isMatchByFilter(p, key));
     state.filtered = state.base.slice();
     if (key === "FUNDAS") {
       state.filtered = sortFundas(state.filtered);
@@ -835,6 +837,11 @@
     els.grid.innerHTML = "<p>Failed to load category products.</p>";
   });
 })();
+
+
+
+
+
 
 
 

@@ -5,6 +5,7 @@
   const PRODUCTS_CACHE_KEY = "twm_products_cache_v4";
   const PLACEHOLDER_IMAGE = "1.png";
   const CATALOG = window.TWM_CATALOG || {};
+  const CURATED_17_PRO_MAX = Array.isArray(CATALOG.curatedIphone17ProMaxProducts) ? CATALOG.curatedIphone17ProMaxProducts : [];
   const augmentProducts = CATALOG.augmentProducts || ((items) => items);
   const resolveProductImage = CATALOG.resolveProductImage || ((product) => String(product?.image || PLACEHOLDER_IMAGE));
   const getCoverVariants = CATALOG.getCoverVariants || (() => []);
@@ -188,6 +189,9 @@
   }
 
   function relatedProducts(all, product, limit) {
+    if (String(product?.sourceTag || "") === "iphone-17-pro-max-curated") {
+      return CURATED_17_PRO_MAX.filter((x) => String(x.id) !== String(product.id)).slice(0, limit);
+    }
     const targetCategory = canonicalCategory(product);
     const sameCategory = all.filter((x) => canonicalCategory(x) === targetCategory && String(x.id) !== String(product.id));
     if (sameCategory.length >= limit) return sameCategory.slice(0, limit);
@@ -449,7 +453,7 @@
           return normalized;
         })();
     const items = allSource.filter((p) => !isBlockedBrand(p));
-    const product = items.find((x) => String(x.id) === String(pid));
+    const product = CURATED_17_PRO_MAX.find((x) => String(x.id) === String(pid)) || items.find((x) => String(x.id) === String(pid));
     if (!product) {
       renderNotFound();
       return;
@@ -459,6 +463,8 @@
 
   init().catch(renderNotFound);
 })();
+
+
 
 
 
