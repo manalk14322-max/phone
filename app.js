@@ -401,13 +401,18 @@
   }
 
   const FEATURED_CATEGORY_ITEMS = [
-    { key: "ULTRA_CRYSTAL", label: "Ultra Strong Crystal", sublabel: "Protectors", href: "iphone.html?cat=PROTECTORES_PHONE", filter: "PROTECTORES_PHONE", query: "crystal" },
-    { key: "IPHONE_17_AIR", label: "iPhone 17 Air", sublabel: "Cases", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17", filter: "FUNDAS", query: "iphone 17 air" },
-    { key: "IPHONE_17_PRO", label: "iPhone 17 Pro", sublabel: "Cases", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17_PRO", filter: "FUNDAS", query: "iphone 17 pro" },
-    { key: "IPHONE_17_PRO_MAX", label: "iPhone 17 Pro Max", sublabel: "Cases", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17_PRO_MAX", filter: "FUNDAS", query: "iphone 17 pro max" },
-    { key: "IPHONE_17", label: "iPhone 17", sublabel: "Cases", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17", filter: "FUNDAS", query: "iphone 17" },
-    { key: "ROPE", label: "Rope", sublabel: "Accessories", href: "iphone.html?cat=MOBILE_ACCESSORIES", filter: "MOBILE_ACCESSORIES", query: "rope" },
-    { key: "TWS_EARBUDS", label: "TWS Earbuds", sublabel: "Audio", href: "iphone.html?cat=AUDIO", filter: "AUDIO", query: "tws earbuds" },
+    { key: "FUNDAS", label: "Fundas", sublabel: "Cases and covers", href: "iphone.html?cat=FUNDAS", filter: "FUNDAS" },
+    { key: "SIM", label: "SIM Cards", sublabel: "SIM and eSIM", href: "iphone.html?cat=SIM", filter: "SIM" },
+    { key: "PROTECTORES_PHONE", label: "Screen Protectors", sublabel: "Tempered glass", href: "iphone.html?cat=PROTECTORES_PHONE", filter: "PROTECTORES_PHONE" },
+    { key: "PROTECTORES_CAMERA", label: "Camera Protectors", sublabel: "Lens protection", href: "iphone.html?cat=PROTECTORES_CAMERA", filter: "PROTECTORES_CAMERA" },
+    { key: "POWER_BANK", label: "Power Banks", sublabel: "Portable charging", href: "iphone.html?cat=POWER_BANK", filter: "POWER_BANK" },
+    { key: "AUDIO", label: "Audio", sublabel: "Earbuds and speakers", href: "iphone.html?cat=AUDIO", filter: "AUDIO" },
+    { key: "OFERTA", label: "Offers", sublabel: "Deals and promos", href: "iphone.html?cat=OFERTA", filter: "OFERTA" },
+    { key: "SMART_WATCH", label: "Smart Watches", sublabel: "Watches and bands", href: "iphone.html?cat=SMART_WATCH", filter: "SMART_WATCH" },
+    { key: "MOBILE_ACCESSORIES", label: "Mobile Accessories", sublabel: "Holders and stands", href: "iphone.html?cat=MOBILE_ACCESSORIES", filter: "MOBILE_ACCESSORIES" },
+    { key: "ACCESSORIES", label: "Accessories", sublabel: "Chargers and cables", href: "iphone.html?cat=ACCESSORIES", filter: "ACCESSORIES" },
+    { key: "IPHONE_17", label: "iPhone 17", sublabel: "Latest cases", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17", filter: "FUNDAS", query: "iphone 17" },
+    { key: "TWS_EARBUDS", label: "TWS Earbuds", sublabel: "Audio picks", href: "iphone.html?cat=AUDIO", filter: "AUDIO", query: "tws earbuds" },
   ];
 
   function pickFeaturedCandidates(item) {
