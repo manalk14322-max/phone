@@ -5144,3 +5144,101 @@ body {
     min-height: 190px;
   }
 }
+
+/* Homepage section separation: clear visual bands after the hero. */
+.twm-home-v2 .category-showcase,
+.twm-home-v2 .brand-section,
+.twm-home-v2 .shopping-help,
+.twm-home-v2 .promo-card-grid,
+.twm-home-v2 .products-home,
+.twm-home-v2 .newsletter-strip {
+  position: relative;
+  isolation: isolate;
+}
+
+.twm-home-v2 .category-showcase::before,
+.twm-home-v2 .brand-section::before,
+.twm-home-v2 .shopping-help::before,
+.twm-home-v2 .promo-card-grid::before,
+.twm-home-v2 .products-home::before,
+.twm-home-v2 .newsletter-strip::before {
+  content: "";
+  position: absolute;
+  inset: 0 -100vw;
+  z-index: -1;
+}
+
+.twm-home-v2 .category-showcase {
+  margin-top: 0;
+  padding: 30px 0 34px;
+}
+
+.twm-home-v2 .category-showcase::before {
+  background: #ffffff;
+  border-bottom: 1px solid #e4ebf6;
+}
+
+.twm-home-v2 .category-tile {
+  background: #f8fbff;
+}
+
+.twm-home-v2 .brand-section {
+  margin-top: 0;
+  padding: 32px 0 28px;
+}
+
+.twm-home-v2 .brand-section::before,
+.twm-home-v2 .shopping-help::before {
+  background: linear-gradient(180deg, #edf5ff 0%, #f8fbff 100%);
+}
+
+.twm-home-v2 .shopping-help {
+  margin-top: 0;
+  padding: 0 0 34px;
+}
+
+.twm-home-v2 .promo-card-grid {
+  margin-top: 0;
+  padding: 34px 0;
+}
+
+.twm-home-v2 .promo-card-grid::before {
+  background: #ffffff;
+  border-top: 1px solid #e7eef9;
+  border-bottom: 1px solid #e7eef9;
+}
+
+.twm-home-v2 .products-home {
+  margin-top: 0;
+  padding: 36px 0 28px;
+}
+
+.twm-home-v2 .products-home::before {
+  background: linear-gradient(180deg, #f4f8ff 0%, #ffffff 100%);
+}
+
+.twm-home-v2 .products-home.best-selling::before {
+  background: #ffffff;
+  border-top: 1px solid #e7eef9;
+}
+
+.twm-home-v2 .newsletter-strip {
+  margin-top: 0;
+}
+
+.twm-home-v2 .newsletter-strip::before {
+  background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+@media (max-width: 520px) {
+  .twm-home-v2 .category-showcase {
+    padding: 22px 0 26px;
+  }
+
+  .twm-home-v2 .brand-section,
+  .twm-home-v2 .promo-card-grid,
+  .twm-home-v2 .products-home {
+    padding-top: 26px;
+    padding-bottom: 26px;
+  }
+}
