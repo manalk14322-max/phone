@@ -4336,7 +4336,7 @@ body {
 }
 
 .shop-mainbar {
-  min-height: 70px;
+  min-height: 76px;
   display: grid;
   grid-template-columns: 128px minmax(280px, 1fr) auto;
   align-items: center;
