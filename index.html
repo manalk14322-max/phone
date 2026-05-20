@@ -8,145 +8,174 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=20260520-01" />
+  <link rel="stylesheet" href="styles.css?v=20260520-02" />
 </head>
-<body class="home-page">
-  <header class="nav-wrap">
-    <div class="container nav-shell">
-      <a class="brand" href="index.html">
+<body class="home-page twm-home-v2">
+  <header class="shop-header">
+    <div class="shop-top">
+      <div class="shop-container shop-top-inner">
+        <span>Free shipping over EUR 100</span>
+        <span>24h express dispatch before 17:30</span>
+        <a href="contacto.html">Wholesale support for Spain stores</a>
+      </div>
+    </div>
+
+    <div class="shop-container shop-mainbar">
+      <a class="shop-logo" href="index.html" aria-label="The World Mobile home">
         <img src="logo.png" alt="The World Mobile" />
-        <span>The World Mobile</span>
       </a>
 
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false">Menu</button>
+      <form class="shop-search" role="search">
+        <input id="global-search" type="search" placeholder="Search products..." aria-label="Search products" />
+        <button type="submit">Search</button>
+      </form>
 
-      <nav class="nav-links" id="nav-links" aria-label="Primary">
-        <a href="index.html" class="active">Home</a>
-        <a href="store.html">Store</a>
-        <a href="contacto.html">Our Contact</a>
+      <button class="nav-toggle shop-menu-btn" id="nav-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false">Menu</button>
+
+      <div class="shop-actions">
+        <a href="contacto.html">Account</a>
         <a href="oferta.html">Offers</a>
-      </nav>
-
-      <div class="nav-actions">
-        <div class="search-box">
-          <input id="global-search" type="search" placeholder="Search phones, accessories..." aria-label="Search products" />
-        </div>
-
-        <button class="cart-icon-btn" id="cart-btn" aria-label="Open cart">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="9" cy="20" r="1"></circle>
-            <circle cx="18" cy="20" r="1"></circle>
-            <path d="M2 3h2l2.2 11.2a2 2 0 0 0 2 1.6h9.9a2 2 0 0 0 2-1.5L22 7H7"></path>
-          </svg>
-          <span class="cart-count" id="cart-count">0</span>
+        <button class="cart-icon-btn shop-cart" id="cart-btn" aria-label="Open cart">
+          Cart <span class="cart-count" id="cart-count">0</span>
         </button>
       </div>
     </div>
+
+    <nav class="shop-nav" id="nav-links" aria-label="Primary">
+      <div class="shop-container shop-nav-inner">
+        <a href="index.html" class="active">Home</a>
+        <a href="store.html">All Categories</a>
+        <a href="iphone.html?cat=FUNDAS">Phone Cases</a>
+        <a href="iphone.html?cat=PROTECTORES_PHONE">Screen Protectors</a>
+        <a href="iphone.html?cat=AUDIO">Audio</a>
+        <a href="iphone.html?cat=ACCESSORIES">Accessories</a>
+        <a href="contacto.html">Contact</a>
+      </div>
+    </nav>
   </header>
 
-  <div class="promo-strip" aria-label="Offers">
-    <div class="container promo-strip-inner">
-      <div class="promo-track">
-        <span>Free shipping over EUR 100</span>
-        <span>24h express dispatch before 17:30</span>
-        <span>Wholesale support for Spain stores</span>
-        <span>Secure checkout and easy returns</span>
-        <span>New arrivals every week</span>
-      </div>
-    </div>
-  </div>
-
   <main>
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="hero-kicker">Premium Mobile Store in Spain</p>
-          <h1>Latest Smartphones 2026</h1>
-          <p class="hero-sub">Up to 40% Discount</p>
-          <div class="hero-badges">
-            <span>Fast Delivery</span>
-            <span>Trusted Quality</span>
-            <span>Wholesale Ready</span>
+    <section class="shop-hero" id="home">
+      <div class="shop-container shop-hero-grid">
+        <div class="shop-hero-copy">
+          <p class="shop-kicker">Protect | Rock | Shop | Live</p>
+          <h1>Style your phone. Live your world.</h1>
+          <p class="shop-hero-text">Discover flagship phones, premium cases, screen protectors, SIM cards, chargers, audio, and wholesale-ready accessories for Spain customers.</p>
+          <div class="shop-hero-actions">
+            <a class="shop-btn primary" href="#products">Shop Now</a>
+            <a class="shop-btn secondary" href="oferta.html">Explore Offers</a>
           </div>
-          <p class="hero-text">Discover flagship phones and trending accessories with fast delivery, secure checkout, and trusted after-sales support.</p>
-          <a href="#products" class="hero-btn">Shop Now</a>
-          <div class="hero-stats">
-            <article><strong>2.1k+</strong><span>Products</span></article>
-            <article><strong>24h</strong><span>Dispatch</span></article>
-            <article><strong>4.9/5</strong><span>Store Rating</span></article>
+          <div class="shop-service-row">
+            <span>Secure Payment</span>
+            <span>24/7 Support</span>
+            <span>Easy Returns</span>
           </div>
         </div>
-        <div class="hero-media hero-slider" id="hero-slider" aria-label="Featured covers">
-          <div class="hero-slides">
-            <img class="hero-slide active" src="images/catalog/fundas/boos.png?v=20260329-04" alt="Featured iPhone cover 1" loading="eager" fetchpriority="high" decoding="async" />
-            <img class="hero-slide hero-slide--portrait" src="images/catalog/fundas/boos2.png?v=20260329-04" alt="Featured iPhone cover 2" loading="eager" decoding="async" />
-          </div>
+        <div class="shop-hero-art">
+          <img src="logo.png" alt="The World Mobile" />
         </div>
       </div>
     </section>
 
-    <section class="section" id="products">
-      <div class="container">
-        <div class="section-head section-head-row">
-          <h2>All Products</h2>
-          <span class="result-chip" id="result-chip">0 products</span>
-        </div>
-        <div class="product-grid" id="product-grid"></div>
+    <section class="shop-container category-showcase" id="featured-categories">
+      <article class="category-tile">
+        <img src="images/catalog/fundas/boos.png?v=20260329-04" alt="Phone cases" />
+        <div><strong>Phone Cases</strong><span>Fundas</span></div>
+      </article>
+      <article class="category-tile">
+        <img src="images/catalog/fundas/whatsapp/fundas-whatsapp-040.jpeg?v=20260328-21" alt="Screen protectors" />
+        <div><strong>Screen Protectors</strong><span>9H glass</span></div>
+      </article>
+      <article class="category-tile">
+        <img src="images/catalog/sim/sim-vodafone-001.jpeg?v=20260328-21" alt="SIM cards" />
+        <div><strong>SIM Cards</strong><span>SIM and eSIM</span></div>
+      </article>
+      <article class="category-tile">
+        <img src="images/catalog/fundas/whatsapp/fundas-whatsapp-023.jpeg?v=20260328-21" alt="Audio" />
+        <div><strong>Audio</strong><span>Earbuds</span></div>
+      </article>
+    </section>
+
+    <section class="shop-container brand-section">
+      <div class="shop-section-head">
+        <h2>Shop by brand</h2>
+        <a href="store.html">View all</a>
+      </div>
+      <div class="brand-row">
+        <a href="iphone.html?cat=FUNDAS&sub=IPHONE">Apple</a>
+        <a href="iphone.html?cat=FUNDAS&sub=SAMSUNG">Samsung</a>
+        <a href="iphone.html?cat=FUNDAS&sub=XIAOMI">Xiaomi</a>
+        <a href="iphone.html?cat=FUNDAS&sub=OPPO">Oppo</a>
+        <a href="iphone.html?cat=FUNDAS&sub=GOOGLE">Google</a>
+        <a href="iphone.html?cat=SIM">Vodafone</a>
+        <a href="iphone.html?cat=SIM">Lebara</a>
+        <a href="store.html">More</a>
       </div>
     </section>
 
-    <section class="section best-selling" id="best-selling">
-      <div class="container">
-        <div class="section-head">
-          <h2>Best Selling Phones</h2>
-        </div>
-        <div class="product-grid" id="best-grid"></div>
-      </div>
-    </section>
-
-    <section class="section trust-strip">
-      <div class="container trust-grid">
-        <article class="trust-item">
-          <span class="trust-icon">??</span>
-          <h3>Fast Delivery</h3>
-          <p>24h dispatch for ready stock products.</p>
-        </article>
-        <article class="trust-item">
-          <span class="trust-icon">??</span>
-          <h3>Secure Payment</h3>
-          <p>Protected checkout and safe transactions.</p>
-        </article>
-        <article class="trust-item">
-          <span class="trust-icon">??</span>
-          <h3>Easy Returns</h3>
-          <p>Simple return process with support team.</p>
-        </article>
-        <article class="trust-item">
-          <span class="trust-icon">??</span>
-          <h3>24/7 Support</h3>
-          <p>Always available by chat and WhatsApp.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section newsletter">
-      <div class="container newsletter-box">
+    <section class="shop-container promo-card-grid" id="featured-spotlight">
+      <article class="shop-promo-card blue">
         <div>
-          <h2>Subscribe for latest deals</h2>
-          <p>Get weekly offers, hot products and stock updates.</p>
+          <p>Best Seller</p>
+          <h2>Check out our latest products</h2>
+          <a href="#products">Shop now</a>
         </div>
-        <form id="newsletter-form" class="newsletter-form">
-          <input type="email" placeholder="Enter your email" aria-label="Email address" required />
-          <button type="submit">Subscribe</button>
-        </form>
+        <img src="images/catalog/fundas/boos2.png?v=20260329-04" alt="Latest phone products" />
+      </article>
+      <article class="shop-promo-card orange">
+        <div>
+          <p>Hot Deals</p>
+          <h2>Top products, top prices</h2>
+          <a href="oferta.html">View sale</a>
+        </div>
+        <img src="images/catalog/fundas/iphone.png?v=20260329-04" alt="Hot phone deals" />
+      </article>
+    </section>
+
+    <section class="shop-container products-home" id="products">
+      <div class="shop-section-head">
+        <div>
+          <p class="shop-kicker">Trending products</p>
+          <h2>All Products</h2>
+        </div>
+        <span class="result-chip" id="result-chip">0 products</span>
       </div>
+      <div class="product-grid" id="product-grid"></div>
+    </section>
+
+    <section class="shop-container products-home best-selling" id="best-selling">
+      <div class="shop-section-head">
+        <h2>Best Selling Phones</h2>
+        <a href="store.html">View all</a>
+      </div>
+      <div class="product-grid" id="best-grid"></div>
+    </section>
+
+    <section class="shop-benefits">
+      <div class="shop-container shop-benefit-grid">
+        <article><strong>Fast Delivery</strong><span>24h dispatch for ready stock products.</span></article>
+        <article><strong>Secure Payment</strong><span>Protected checkout and safe transactions.</span></article>
+        <article><strong>Easy Returns</strong><span>Simple return process with support team.</span></article>
+        <article><strong>24/7 Support</strong><span>Always available by chat and WhatsApp.</span></article>
+      </div>
+    </section>
+
+    <section class="shop-container newsletter-strip">
+      <div>
+        <h2>Subscribe for latest deals</h2>
+        <p>Get weekly offers, hot products and stock updates.</p>
+      </div>
+      <form id="newsletter-form" class="newsletter-form">
+        <input type="email" placeholder="Enter your email" aria-label="Email address" required />
+        <button type="submit">Subscribe</button>
+      </form>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-grid">
+  <footer class="shop-footer">
+    <div class="shop-container shop-footer-grid">
       <div>
-        <h3>About</h3>
+        <img src="logo.png" alt="The World Mobile" />
         <p>The World Mobile is your trusted smartphone and accessories store in Madrid, offering Samsung, iPhone, Xiaomi, and wholesale-ready accessories with fast delivery and reliable customer support.</p>
       </div>
       <div>
@@ -163,25 +192,19 @@
       </div>
       <div>
         <h3>Reach Us</h3>
-        <div class="socials">
-          <a href="contacto.html" aria-label="Open contact page">Contact</a>
-          <a href="mailto:ventas@theworldmobile.es" aria-label="Email wholesale support">Email</a>
-          <a href="mailto:soporte@theworldmobile.es" aria-label="Email technical support">Support</a>
-          <a href="https://wa.me/34600000000?text=Hello%20The%20World%20Mobile,%20I%20want%20product%20details." aria-label="Open WhatsApp">WhatsApp</a>
-        </div>
+        <a href="contacto.html">Contact</a>
+        <a href="mailto:ventas@theworldmobile.es">Email</a>
+        <a href="mailto:soporte@theworldmobile.es">Support</a>
+        <a href="https://wa.me/34600000000?text=Hello%20The%20World%20Mobile,%20I%20want%20product%20details.">WhatsApp</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>(c) 2026 The World Mobile. All rights reserved.</p>
-      </div>
-    </div>
+    <div class="shop-footer-bottom">(c) 2026 The World Mobile. All rights reserved.</div>
   </footer>
 
   <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
     <header class="drawer-head">
       <h3>Your Cart</h3>
-      <button id="cart-close" type="button" aria-label="Close">Ã—</button>
+      <button id="cart-close" type="button" aria-label="Close">x</button>
     </header>
     <div class="drawer-items" id="cart-items"></div>
     <footer class="drawer-foot">
@@ -197,7 +220,7 @@
 
   <div class="checkout-modal" id="checkout-modal" aria-hidden="true">
     <div class="checkout-box">
-      <button id="checkout-close" class="checkout-close" type="button" aria-label="Close">Ã—</button>
+      <button id="checkout-close" class="checkout-close" type="button" aria-label="Close">x</button>
       <h3>Online Order Checkout</h3>
       <form id="checkout-form" class="checkout-form">
         <input id="co-name" type="text" placeholder="Full Name" required />
@@ -216,33 +239,8 @@
     </div>
   </div>
 
-<script src="category-nav.js?v=20260330-01"></script>
+  <script src="category-nav.js?v=20260330-01"></script>
   <script src="catalog-sim.js?v=20260403-02"></script>
-  <script src="app.js?v=20260520-01"></script>
+  <script src="app.js?v=20260520-02"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
