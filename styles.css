@@ -4291,7 +4291,11 @@ body {
   background: #f4f7fc;
 }
 
-.twm-home-v2 .category-drawer-widget {
+.twm-home-v2 #category-drawer-widget,
+.twm-home-v2 .category-drawer-widget,
+.twm-home-v2 .category-drawer-mobile-btn,
+.twm-home-v2 .category-drawer-shell,
+.twm-home-v2 .category-drawer-overlay {
   display: none;
 }
 
@@ -4319,7 +4323,7 @@ body {
   min-height: 28px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 12px;
   white-space: nowrap;
   overflow-x: auto;
@@ -4331,7 +4335,7 @@ body {
 }
 
 .shop-mainbar {
-  min-height: 76px;
+  min-height: 72px;
   display: grid;
   grid-template-columns: auto minmax(220px, 1fr) auto;
   align-items: center;
@@ -4401,8 +4405,8 @@ body {
 
 .shop-cart .cart-count {
   position: absolute;
-  top: -8px;
-  right: -7px;
+  top: 3px;
+  right: 3px;
 }
 
 .shop-nav {
@@ -4447,7 +4451,7 @@ body {
 }
 
 .shop-hero-grid {
-  min-height: 470px;
+  min-height: 410px;
   display: grid;
   grid-template-columns: 1fr 0.95fr;
   align-items: center;
@@ -4468,8 +4472,8 @@ body {
   margin: 0 0 14px;
   color: #071d42;
   font-family: Poppins, Inter, sans-serif;
-  font-size: clamp(2.8rem, 7vw, 5.6rem);
-  line-height: 0.94;
+  font-size: clamp(2.4rem, 5.6vw, 4.5rem);
+  line-height: 0.98;
   letter-spacing: 0;
   text-transform: uppercase;
 }
@@ -4523,7 +4527,7 @@ body {
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 360px;
+  min-height: 320px;
 }
 
 .shop-hero-art::before {
@@ -4540,7 +4544,7 @@ body {
 
 .shop-hero-art img {
   position: relative;
-  width: min(84%, 380px);
+  width: min(78%, 330px);
   aspect-ratio: 1;
   object-fit: contain;
   background: #fff;
@@ -4862,7 +4866,7 @@ body {
   }
 
   .shop-hero-copy h1 {
-    font-size: clamp(2.5rem, 15vw, 4rem);
+    font-size: clamp(2.3rem, 13vw, 3.5rem);
   }
 
   .shop-hero-art {
