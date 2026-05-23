@@ -5613,7 +5613,7 @@ body {
   min-height: 48px;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
   padding: 0 20px;
   background: rgba(255, 255, 255, 0.86);
   border-bottom: 1px solid #dbe7f7;
@@ -5624,18 +5624,38 @@ body {
   height: 34px;
   object-fit: contain;
   object-position: left center;
-  margin-right: auto;
+  flex: 0 0 auto;
 }
 
-.wix-browser-bar span,
-.wix-browser-bar a {
+.wix-browser-links {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.wix-browser-links::-webkit-scrollbar {
+  display: none;
+}
+
+.wix-browser-links a {
+  flex: 0 0 auto;
   color: #102033;
   font-size: 0.72rem;
   font-weight: 900;
   text-decoration: none;
+  white-space: nowrap;
 }
 
-.wix-browser-bar a {
+.wix-browser-links a.active {
+  color: #0057c8;
+}
+
+.wix-browser-links .contact-link {
   min-height: 28px;
   display: inline-flex;
   align-items: center;
@@ -5766,12 +5786,6 @@ body {
 @media (max-width: 900px) {
   .wix-browser-bar {
     gap: 12px;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .wix-browser-bar::-webkit-scrollbar {
-    display: none;
   }
 
   .wix-hero-content {
@@ -5819,8 +5833,8 @@ body {
     width: 70px;
   }
 
-  .wix-browser-bar span {
-    display: none;
+  .wix-browser-links {
+    gap: 13px;
   }
 
   .wix-hero-content {
