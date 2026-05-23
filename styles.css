@@ -5593,20 +5593,22 @@ body {
 
 /* Pastel boxed hero inspired by the latest reference. */
 .twm-home-v2 .wix-hero {
-  padding: 34px 0 38px;
+  padding: 0;
   background:
     linear-gradient(180deg, #f5efff 0%, #f1f8ff 100%);
 }
 
 .wix-hero-shell {
+  width: 100%;
   overflow: hidden;
-  border: 1px solid #d7e3f5;
-  border-radius: 10px;
+  border-top: 1px solid #d7e3f5;
+  border-bottom: 1px solid #d7e3f5;
+  border-radius: 0;
   background:
     radial-gradient(circle at 12% 24%, rgba(255, 122, 26, 0.16), transparent 18%),
     radial-gradient(circle at 92% 20%, rgba(0, 87, 200, 0.14), transparent 22%),
     linear-gradient(135deg, #eef9ff 0%, #fff7ee 100%);
-  box-shadow: 0 24px 70px rgba(29, 63, 118, 0.16);
+  box-shadow: none;
 }
 
 .wix-browser-bar {
@@ -5614,7 +5616,7 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 0 20px;
+  padding: 0 clamp(16px, 6vw, 92px);
   background: rgba(255, 255, 255, 0.86);
   border-bottom: 1px solid #dbe7f7;
 }
@@ -5631,7 +5633,7 @@ body {
   min-width: 0;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 18px;
   width: 100%;
   overflow-x: auto;
@@ -5670,7 +5672,7 @@ body {
   min-height: 430px;
   display: grid;
   place-items: center;
-  padding: 52px 180px 72px;
+  padding: 52px clamp(170px, 14vw, 230px);
 }
 
 .wix-hero-copy {
@@ -5732,21 +5734,21 @@ body {
 }
 
 .floating-card-left {
-  left: 28px;
+  left: clamp(28px, 7vw, 112px);
   top: 54px;
   width: 145px;
   height: 175px;
 }
 
 .floating-card-right {
-  right: 32px;
+  right: clamp(28px, 7vw, 112px);
   bottom: 48px;
   width: 150px;
   height: 188px;
 }
 
 .floating-card-small {
-  right: 58px;
+  right: clamp(58px, 9vw, 150px);
   top: 46px;
   width: 116px;
   height: 114px;
@@ -5893,6 +5895,7 @@ body {
 @media (max-width: 900px) {
   .wix-browser-bar {
     gap: 12px;
+    padding: 0 18px;
   }
 
   .wix-hero-content {
@@ -5928,7 +5931,7 @@ body {
 
 @media (max-width: 560px) {
   .twm-home-v2 .wix-hero {
-    padding: 18px 0 24px;
+    padding: 0;
   }
 
   .wix-browser-bar {
