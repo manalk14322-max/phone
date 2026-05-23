@@ -5783,6 +5783,113 @@ body {
   font-weight: 900;
 }
 
+.performance-strip {
+  position: relative;
+  background: #f8fafc;
+}
+
+.performance-strip::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8px;
+  background: #101622;
+}
+
+.performance-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  color: #ffffff;
+  background: #f8fafc;
+}
+
+.performance-grid article {
+  min-height: 150px;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 8px;
+  padding: 22px 28px;
+  color: #111827;
+  text-align: center;
+  border-right: 1px solid #e3eaf4;
+}
+
+.performance-grid article:last-child {
+  border-right: 0;
+}
+
+.performance-grid h2 {
+  margin: 0;
+  color: #071d42;
+  font-family: Poppins, Inter, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.1;
+}
+
+.performance-grid p {
+  max-width: 230px;
+  margin: 0;
+  color: #5b6b82;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.metric-ring {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: conic-gradient(#50c878 0 78%, #edf2f7 78% 100%);
+}
+
+.metric-ring span {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  color: #4aa85e;
+  background: #ffffff;
+  border-radius: 50%;
+  font-size: 0.68rem;
+  font-weight: 900;
+}
+
+.metric-ring-mix {
+  background: conic-gradient(#0057c8 0 42%, #ff7a1a 42% 72%, #50c878 72% 100%);
+}
+
+.metric-ring-mix span {
+  color: #0057c8;
+}
+
+.metric-bar {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  min-width: 88px;
+  margin-top: 5px;
+}
+
+.metric-bar strong {
+  color: #8a98aa;
+  font-size: 1rem;
+}
+
+.metric-bar span {
+  width: 78px;
+  height: 7px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff7a1a 0 35%, #50c878 35% 72%, #0057c8 72% 100%);
+}
+
 @media (max-width: 900px) {
   .wix-browser-bar {
     gap: 12px;
@@ -5835,6 +5942,20 @@ body {
 
   .wix-browser-links {
     gap: 13px;
+  }
+
+  .performance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .performance-grid article {
+    min-height: 136px;
+    border-right: 0;
+    border-bottom: 1px solid #e3eaf4;
+  }
+
+  .performance-grid article:last-child {
+    border-bottom: 0;
   }
 
   .wix-hero-content {
