@@ -4338,9 +4338,9 @@ body {
 .shop-mainbar {
   min-height: 76px;
   display: grid;
-  grid-template-columns: 128px minmax(280px, 1fr) auto;
+  grid-template-columns: 96px minmax(300px, 1fr) minmax(260px, 0.72fr) auto;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .shop-logo img {
@@ -4813,6 +4813,13 @@ body {
   .shop-mainbar {
     grid-template-columns: auto auto;
     justify-content: space-between;
+  }
+
+  .shop-mainbar .top-category-nav {
+    grid-column: 1 / -1;
+    order: 4;
+    width: 100%;
+    min-height: 42px;
   }
 
   .shop-search {
@@ -5624,9 +5631,15 @@ body {
 .top-category-nav {
   position: relative;
   z-index: 95;
-  background: #ffffff;
-  border-top: 1px solid #dbe7f7;
-  box-shadow: 0 8px 18px rgba(12, 31, 58, 0.04);
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.shop-mainbar .top-category-nav {
+  min-height: 54px;
+  padding: 0;
 }
 
 .wix-browser-bar img {
@@ -5641,8 +5654,8 @@ body {
   min-width: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 18px;
+  justify-content: flex-start;
+  gap: 14px;
   width: 100%;
   overflow: visible;
   scrollbar-width: none;
@@ -5659,6 +5672,10 @@ body {
   font-weight: 900;
   text-decoration: none;
   white-space: nowrap;
+}
+
+.shop-mainbar .top-category-nav .wix-browser-links {
+  justify-content: flex-start;
 }
 
 .nav-dropdown {
@@ -5985,7 +6002,6 @@ body {
 @media (max-width: 900px) {
   .wix-browser-bar {
     gap: 12px;
-    padding: 0 18px;
   }
 
   .wix-hero-content {
