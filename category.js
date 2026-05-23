@@ -116,6 +116,14 @@
     return s || "Wholesale Price";
   }
 
+  function displayImage(product) {
+    const src = String(resolveProductImage(product) || "").replace(/\\/g, "/");
+    if (!src || src.startsWith("images/")) {
+      return Number(product?.id || 0) % 2 ? "1.png" : "2.png";
+    }
+    return src;
+  }
+
   function getPageSize() {
     return window.innerWidth <= 680 ? 12 : 24;
   }
@@ -618,7 +626,7 @@
         return `
       <article class="card">
         <a class="card-link" href="product.html?pid=${encodeURIComponent(p.id)}">
-          <img src="${esc(resolveProductImage(p))}" alt="${esc(p.name)}" loading="lazy" />
+          <img src="${esc(displayImage(p))}" alt="${esc(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='1.png';" />
         </a>
         <div class="card-body">
           <h3><a class="card-title-link" href="product.html?pid=${encodeURIComponent(p.id)}">${esc(p.name)}</a></h3>
@@ -637,7 +645,7 @@
               data-id="${esc(p.id)}"
               data-name="${esc(p.name)}"
               data-price="${esc(priceText(p.price))}"
-              data-image="${esc(resolveProductImage(p))}"
+              data-image="${esc(displayImage(p))}"
               data-category="${esc(categoryLabel(canonicalCategory(p)))}">Add to Cart</button>
           </div>
         </div>
