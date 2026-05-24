@@ -765,10 +765,20 @@
 
   function bindEvents() {
     els.navToggle?.addEventListener("click", () => {
-      els.navLinks.classList.toggle("open");
+      const open = els.navLinks.classList.toggle("open");
+      els.navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      document.body.classList.toggle("mobile-menu-open", open);
     });
 
     document.addEventListener("click", (e) => {
+      const closeMenu = e.target.closest(".mobile-menu-close");
+      const navLink = e.target.closest("#nav-links a");
+      if ((closeMenu || navLink) && els.navLinks?.classList.contains("open")) {
+        els.navLinks.classList.remove("open");
+        els.navToggle?.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("mobile-menu-open");
+      }
+
       const nav = e.target.closest(".nav-links a[data-filter]");
       if (nav) {
         const key = nav.dataset.filter || "ALL";
