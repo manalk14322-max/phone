@@ -7880,3 +7880,62 @@ body.category-page-v2 .twm-topline {
 .twm-home-v2 .wix-browser-links.open .mobile-menu-support::before {
   color: #fff !important;
 }
+
+/* Right-side drawer aligned with hamburger button. */
+.twm-home-v2 .wix-browser-links.open {
+  inset: 0 0 0 auto !important;
+  width: min(88vw, 330px) !important;
+  padding: 0 18px 22px !important;
+  background: #f8fbff !important;
+  border-right: 0 !important;
+  border-left: 1px solid #d8e5f6 !important;
+  box-shadow: -28px 0 70px rgba(7, 29, 66, 0.2) !important;
+}
+
+.twm-home-v2 .wix-browser-links.open::before {
+  right: 0 !important;
+  left: auto !important;
+  transform: translateX(-100%) !important;
+}
+
+.twm-home-v2 .wix-browser-links.open > a {
+  min-height: 44px !important;
+  padding: 0 12px !important;
+  color: #102033 !important;
+  border-bottom: 1px solid #e3ebf6 !important;
+  font-size: 0.94rem !important;
+  font-weight: 800 !important;
+}
+
+.twm-home-v2 .wix-browser-links.open > a::before {
+  content: "" !important;
+  width: 4px !important;
+  height: 22px !important;
+  margin-right: 11px !important;
+  border-radius: 999px !important;
+  background: #d6e3f4 !important;
+}
+
+.twm-home-v2 .wix-browser-links.open > a.active,
+.twm-home-v2 .wix-browser-links.open > a:hover {
+  color: #0057c8 !important;
+  background: #edf5ff !important;
+  border-radius: 9px !important;
+  border-bottom-color: transparent !important;
+}
+
+.twm-home-v2 .wix-browser-links.open > a.active::before,
+.twm-home-v2 .wix-browser-links.open > a:hover::before {
+  background: #ff7a1a !important;
+}
+
+@media (max-width: 900px) {
+  .twm-home-v2 .wix-browser-links {
+    inset: 0 0 0 auto !important;
+    transform: translateX(106%) !important;
+  }
+
+  .twm-home-v2 .wix-browser-links.open {
+    transform: translateX(0) !important;
+  }
+}
