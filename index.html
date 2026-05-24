@@ -8,7 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260524-01" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+  <link rel="stylesheet" href="styles.css?v=20260524-02" />
 </head>
 <body class="home-page twm-home-v2">
   <header class="shop-header">
@@ -36,20 +37,25 @@
         </div>
       </nav>
 
-      <form class="shop-search" role="search">
+      <form class="shop-search" id="header-search-form" role="search">
         <input id="global-search" type="search" placeholder="Search products..." aria-label="Search products" />
         <button type="submit">Search</button>
       </form>
 
-      <button class="nav-toggle shop-menu-btn" id="nav-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false"><span></span><span></span><span></span></button>
-
       <div class="shop-actions">
-        <a href="contacto.html">Account</a>
-        <a href="oferta.html">Offers</a>
-        <button class="cart-icon-btn shop-cart" id="cart-btn" aria-label="Open cart">
-          Cart <span class="cart-count" id="cart-count">0</span>
+        <button class="shop-action-icon shop-action-search" form="header-search-form" type="submit" aria-label="Search">
+          <i class="ti ti-search"></i>
+        </button>
+        <a class="shop-action-icon" href="oferta.html" aria-label="Wishlist">
+          <i class="ti ti-heart"></i>
+        </a>
+        <button class="cart-icon-btn shop-cart shop-action-icon" id="cart-btn" aria-label="Open cart">
+          <i class="ti ti-shopping-bag"></i>
+          <span class="cart-count" id="cart-count">0</span>
         </button>
       </div>
+
+      <button class="nav-toggle shop-menu-btn" id="nav-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
 
   </header>
