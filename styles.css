@@ -7782,3 +7782,101 @@ body.category-page-v2 .twm-topline {
   color: #d6b657 !important;
   font-size: 1.25rem !important;
 }
+
+/* Professional theme drawer: left side, blue/white/orange brand colors. */
+.twm-home-v2 .wix-browser-links.open {
+  width: min(88vw, 318px) !important;
+  padding: 0 18px 22px !important;
+  background: #f8fbff !important;
+  border-right: 1px solid #d8e5f6 !important;
+  box-shadow: 28px 0 70px rgba(7, 29, 66, 0.2) !important;
+}
+
+.twm-home-v2 .wix-browser-links.open::before {
+  background: rgba(7, 29, 66, 0.36) !important;
+}
+
+.twm-home-v2 .wix-browser-links.open .mobile-menu-head {
+  min-height: 88px !important;
+  margin: 0 -18px 14px !important;
+  padding: 18px 20px !important;
+  background:
+    radial-gradient(circle at 92% 10%, rgba(255, 122, 26, 0.28), transparent 28%),
+    linear-gradient(135deg, #0057c8 0%, #071d42 100%) !important;
+  border-bottom: 4px solid #ff7a1a !important;
+}
+
+.twm-home-v2 .wix-browser-links.open .mobile-menu-head strong {
+  color: #fff !important;
+  font-family: Poppins, Inter, sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 900 !important;
+}
+
+.twm-home-v2 .wix-browser-links.open .mobile-menu-head strong span {
+  color: #ffd08a !important;
+}
+
+.twm-home-v2 .wix-browser-links.open .mobile-menu-close {
+  width: 38px !important;
+  height: 38px !important;
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  border: 1px solid rgba(255, 255, 255, 0.24) !important;
+  border-radius: 10px !important;
+  font-size: 1.8rem !important;
+}
+
+.twm-home-v2 .wix-browser-links.open > a {
+  min-height: 46px !important;
+  margin: 0 !important;
+  padding: 0 12px !important;
+  color: #102033 !important;
+  background: transparent !important;
+  border-bottom: 1px solid #e3ebf6 !important;
+  font-size: 0.94rem !important;
+  font-weight: 800 !important;
+  position: relative !important;
+}
+
+.twm-home-v2 .wix-browser-links.open > a::before {
+  content: "" !important;
+  width: 7px !important;
+  height: 7px !important;
+  margin-right: 10px !important;
+  border-radius: 50% !important;
+  background: #c7d7ea !important;
+  flex: 0 0 auto !important;
+}
+
+.twm-home-v2 .wix-browser-links.open > a.active {
+  color: #0057c8 !important;
+  background: #edf5ff !important;
+  border-radius: 9px !important;
+  border-bottom-color: transparent !important;
+}
+
+.twm-home-v2 .wix-browser-links.open > a.active::before,
+.twm-home-v2 .wix-browser-links.open > a:hover::before {
+  background: #ff7a1a !important;
+}
+
+.twm-home-v2 .wix-browser-links.open > a:hover {
+  color: #0057c8 !important;
+  background: #f0f7ff !important;
+}
+
+.twm-home-v2 .wix-browser-links.open .mobile-menu-support {
+  min-height: 48px !important;
+  margin-top: 18px !important;
+  padding: 0 14px !important;
+  color: #fff !important;
+  background: #0057c8 !important;
+  border-radius: 10px !important;
+  border-bottom: 0 !important;
+  box-shadow: 0 12px 24px rgba(0, 87, 200, 0.18) !important;
+}
+
+.twm-home-v2 .wix-browser-links.open .mobile-menu-support::before {
+  color: #fff !important;
+}
