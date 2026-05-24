@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
-  <link rel="stylesheet" href="styles.css?v=20260524-03" />
+  <link rel="stylesheet" href="styles.css?v=20260525-01" />
 </head>
 <body class="home-page twm-home-v2">
   <header class="shop-header">
@@ -25,9 +25,10 @@
             <button type="button" class="mobile-menu-close" aria-label="Close menu">&times;</button>
           </div>
           <a href="index.html" class="active">Home</a>
+          <a href="iphone.html?cat=FUNDAS" class="desktop-nav-link">Phone Cases</a>
+          <a href="iphone.html?cat=PROTECTORES_PHONE" class="desktop-nav-link">Screen Protectors</a>
+          <a href="iphone.html?cat=ACCESSORIES" class="desktop-nav-link">Accessories</a>
           <a href="store.html" class="mobile-menu-only">All Categories</a>
-          <a href="iphone.html?cat=FUNDAS" class="desktop-nav-link">Phones</a>
-          <a href="iphone.html?cat=OFERTA" class="desktop-nav-link">Deals</a>
           <a href="iphone.html?cat=FUNDAS" class="mobile-menu-only">Phone Cases</a>
           <a href="iphone.html?cat=PROTECTORES_PHONE" class="mobile-menu-only">Screen Protectors</a>
           <a href="iphone.html?cat=PROTECTORES_CAMERA" class="mobile-menu-only">Camera Protectors</a>
@@ -49,15 +50,10 @@
       </form>
 
       <div class="shop-actions">
-        <button class="shop-action-icon shop-action-search" form="header-search-form" type="submit" aria-label="Search">
-          <i class="ti ti-search"></i>
-        </button>
-        <a class="shop-action-icon" href="oferta.html" aria-label="Wishlist">
-          <i class="ti ti-heart"></i>
-        </a>
-        <button class="cart-icon-btn shop-cart shop-action-icon" id="cart-btn" aria-label="Open cart">
-          <i class="ti ti-shopping-bag"></i>
-          <span class="cart-count" id="cart-count">0</span>
+        <a href="contacto.html">Account</a>
+        <a href="oferta.html">Offers</a>
+        <button class="cart-icon-btn shop-cart" id="cart-btn" aria-label="Open cart">
+          Cart <span class="cart-count" id="cart-count">0</span>
         </button>
       </div>
 
@@ -68,36 +64,31 @@
 
   <main>
     <section class="shop-hero wix-hero" id="home">
-      <div class="nexus-hero-shell">
-        <div class="nexus-hero-copy">
-          <p class="nexus-badge"><i class="ti ti-sparkles"></i> Smart mobile shopping has arrived</p>
-          <h1>Titanium Era.<br><span>Infinite Style.</span></h1>
-          <p class="shop-hero-text">Explore premium phone cases, screen protectors, SIM cards, audio, power banks and daily accessories for a polished mobile setup.</p>
-          <div class="shop-hero-actions">
-            <a class="shop-btn primary" href="#featured-categories">Shop All Categories <i class="ti ti-arrow-right"></i></a>
-            <a class="shop-btn secondary" href="iphone.html?cat=OFERTA">Explore Deals</a>
-          </div>
-          <div class="nexus-hero-stats" aria-label="Store highlights">
-            <article><strong>2.1k+</strong><span>Products ready</span></article>
-            <article><strong>24h</strong><span>Spain dispatch</span></article>
-            <article><strong>12</strong><span>Shop categories</span></article>
+      <div class="wix-hero-shell">
+        <div class="wix-hero-content">
+          <article class="floating-card floating-card-left">
+            <img src="2.png" alt="Premium phone case" />
+            <strong>Premium cases</strong>
+          </article>
+          <article class="floating-card floating-card-right">
+            <img src="1.png" alt="Best mobile accessories" />
+            <strong>New arrivals</strong>
+          </article>
+          <article class="floating-card floating-card-small">
+            <img src="logo.png" alt="The World Mobile logo" />
+            <strong>Spain store</strong>
+          </article>
+
+          <div class="wix-hero-copy">
+            <p class="shop-kicker">Premium mobile store in Spain</p>
+            <h1>Create your mobile style without limits.</h1>
+            <p class="shop-hero-text">Shop phones, cases, screen protectors, SIM cards, chargers, audio and everyday accessories with a clean shopping experience.</p>
+            <div class="shop-hero-actions">
+              <a class="shop-btn primary" href="#featured-categories">Shop Categories</a>
+              <a class="shop-btn secondary" href="store.html">Browse Catalog</a>
+            </div>
           </div>
         </div>
-        <article class="nexus-product-card" aria-label="Featured deal">
-          <span class="deal-ribbon">Featured Deal</span>
-          <div class="nexus-card-head">
-            <p>Premium Case</p>
-            <h2>iPhone Protection Kit</h2>
-            <div><strong>EUR 19.99</strong><s>EUR 29.99</s></div>
-          </div>
-          <div class="nexus-product-image">
-            <img src="2.png" alt="Premium phone case" />
-          </div>
-          <div class="nexus-card-foot">
-            <span></span><span></span><span></span>
-            <a href="iphone.html?cat=FUNDAS">Quick View <i class="ti ti-arrow-right"></i></a>
-          </div>
-        </article>
       </div>
     </section>
 
