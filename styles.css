@@ -7524,6 +7524,42 @@ body.category-page-v2 .twm-topline {
   }
 }
 
+@media (max-width: 900px) {
+  .twm-home-v2 .shop-mainbar {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    min-height: 54px !important;
+  }
+
+  .twm-home-v2 .shop-logo {
+    flex: 0 0 auto !important;
+  }
+
+  .twm-home-v2 .shop-logo img {
+    width: 74px !important;
+    height: 42px !important;
+  }
+
+  .twm-home-v2 .shop-mainbar .top-category-nav {
+    display: contents !important;
+  }
+
+  .twm-home-v2 .shop-actions {
+    margin-left: auto !important;
+    flex: 0 0 auto !important;
+    gap: 6px !important;
+  }
+
+  .twm-home-v2 .shop-actions .shop-action-icon,
+  .twm-home-v2 .shop-actions .shop-cart.shop-action-icon,
+  .twm-home-v2 .shop-menu-btn {
+    width: 38px !important;
+    min-width: 38px !important;
+    height: 38px !important;
+  }
+}
+
 /* Side drawer menu matching requested reference. */
 @media (max-width: 900px) {
   .twm-home-v2 .wix-browser-links {
@@ -7641,4 +7677,108 @@ body.category-page-v2 .twm-topline {
     color: #d6b657 !important;
     font-size: 1.25rem !important;
   }
+}
+
+/* Make hamburger drawer work on desktop and mobile. */
+.twm-home-v2 .wix-browser-links.open {
+  position: fixed !important;
+  inset: 0 auto 0 0 !important;
+  z-index: 3000 !important;
+  width: min(82vw, 286px) !important;
+  height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  gap: 0 !important;
+  padding: 30px 23px !important;
+  overflow-y: auto !important;
+  background: #070707 !important;
+  box-shadow: 28px 0 70px rgba(0, 0, 0, 0.42) !important;
+  transform: translateX(0) !important;
+}
+
+.twm-home-v2 .wix-browser-links.open::before {
+  content: "" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  width: 100vw !important;
+  background: rgba(0, 0, 0, 0.56) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.twm-home-v2 .wix-browser-links.open .mobile-menu-head,
+.twm-home-v2 .wix-browser-links.open .mobile-menu-only,
+.twm-home-v2 .wix-browser-links.open .mobile-menu-support {
+  display: flex !important;
+}
+
+.twm-home-v2 .wix-browser-links.open .desktop-nav-link {
+  display: none !important;
+}
+
+.twm-home-v2 .wix-browser-links.open > a {
+  min-height: 52px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+  color: #f6fbff !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 0 !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+}
+
+.twm-home-v2 .wix-browser-links.open > a.active {
+  color: #d6b657 !important;
+}
+
+.twm-home-v2 .wix-browser-links.open .mobile-menu-head {
+  min-height: 34px !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+  margin: 0 0 28px !important;
+}
+
+.twm-home-v2 .wix-browser-links.open .mobile-menu-head strong {
+  color: #fff !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 1rem !important;
+}
+
+.twm-home-v2 .wix-browser-links.open .mobile-menu-head strong span {
+  color: #d6b657 !important;
+}
+
+.twm-home-v2 .wix-browser-links.open .mobile-menu-close {
+  width: 34px !important;
+  height: 34px !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: #dbe7ff !important;
+  font-size: 2rem !important;
+  line-height: 1 !important;
+}
+
+.twm-home-v2 .wix-browser-links.open .mobile-menu-support {
+  margin-top: 24px !important;
+  gap: 11px !important;
+  color: #d6b657 !important;
+  border-bottom: 0 !important;
+}
+
+.twm-home-v2 .wix-browser-links.open .mobile-menu-support::before {
+  content: "\260e" !important;
+  width: 20px !important;
+  color: #d6b657 !important;
+  font-size: 1.25rem !important;
 }
