@@ -6682,3 +6682,373 @@ body.category-page-v2 .twm-topline {
     overflow: hidden;
   }
 }
+
+/* Nexus-style hero refresh. */
+.twm-home-v2 .shop-header {
+  background: #ffffff;
+  border-bottom: 1px solid #dde5f0;
+  box-shadow: none;
+}
+
+.twm-home-v2 .shop-mainbar {
+  min-height: 76px;
+  grid-template-columns: 130px minmax(220px, 1fr) minmax(260px, 0.9fr) auto auto;
+  gap: 18px;
+}
+
+.twm-home-v2 .shop-logo img {
+  width: 112px;
+  height: 48px;
+}
+
+.twm-home-v2 .wix-browser-links {
+  justify-content: center;
+  gap: 28px;
+}
+
+.twm-home-v2 .wix-browser-links a {
+  color: #23314a;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.twm-home-v2 .wix-browser-links a.active {
+  color: #115bff;
+}
+
+.twm-home-v2 .shop-search {
+  height: 36px;
+  border: 0;
+  border-radius: 999px;
+  background: #eef3f9;
+}
+
+.twm-home-v2 .shop-search input {
+  padding-left: 18px;
+  color: #23314a;
+  font-size: 0.82rem;
+}
+
+.twm-home-v2 .shop-search button {
+  display: none;
+}
+
+.twm-home-v2 .shop-action-icon {
+  width: 38px;
+  height: 38px;
+  color: #48617f;
+  border: 1px solid #dae4f0;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 1.16rem;
+}
+
+.twm-home-v2 .shop-cart .cart-count {
+  top: -8px;
+  right: -8px;
+}
+
+.twm-home-v2 .wix-hero {
+  min-height: 520px;
+  padding: 0;
+  background: #f6f8fb;
+  border-bottom: 1px solid #d8e1ec;
+}
+
+.nexus-hero-shell {
+  width: min(100%, 1320px);
+  min-height: 520px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(330px, 360px);
+  align-items: center;
+  gap: clamp(34px, 7vw, 112px);
+  padding: clamp(38px, 6vw, 68px) clamp(24px, 5vw, 52px);
+}
+
+.nexus-hero-copy {
+  max-width: 650px;
+}
+
+.nexus-badge {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 26px;
+  padding: 5px 12px;
+  color: #115bff;
+  background: #eff6ff;
+  border: 1px solid #b8d5ff;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+.nexus-hero-copy h1 {
+  margin: 0;
+  color: #11182c;
+  font-family: Poppins, Inter, sans-serif;
+  font-size: clamp(3.2rem, 6vw, 5.3rem);
+  line-height: 0.98;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.nexus-hero-copy h1 span {
+  color: transparent;
+  background: linear-gradient(90deg, #2364ff 0%, #7c6ce0 42%, #ef4548 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.nexus-hero-copy .shop-hero-text {
+  max-width: 600px;
+  margin: 22px 0 0;
+  color: #354666;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.nexus-hero-copy .shop-hero-actions {
+  justify-content: flex-start;
+  margin-top: 24px;
+}
+
+.nexus-hero-copy .shop-btn {
+  min-height: 42px;
+  border-radius: 11px;
+  font-size: 0.86rem;
+}
+
+.nexus-hero-stats {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid #dce5f0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.nexus-hero-stats article {
+  display: grid;
+  gap: 8px;
+}
+
+.nexus-hero-stats strong {
+  color: #071426;
+  font-size: 1.22rem;
+  font-weight: 900;
+}
+
+.nexus-hero-stats span {
+  color: #60728d;
+  font-size: 0.78rem;
+}
+
+.nexus-product-card {
+  position: relative;
+  min-height: 420px;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid #dce5f0;
+  border-radius: 16px;
+  box-shadow: 0 18px 46px rgba(13, 30, 52, 0.12);
+}
+
+.deal-ribbon {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  padding: 8px 13px;
+  color: #fff;
+  background: #ff3e4e;
+  border-radius: 8px;
+  font-size: 0.58rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.nexus-card-head {
+  border: 1.5px solid #15203a;
+  border-bottom: 0;
+  border-radius: 12px 12px 0 0;
+  padding: 28px 24px 18px;
+}
+
+.nexus-card-head p {
+  margin: 0 0 8px;
+  color: #ff3e4e;
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nexus-card-head h2 {
+  margin: 0;
+  color: #1b2538;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.nexus-card-head div {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nexus-card-head strong {
+  color: #008f62;
+  font-weight: 900;
+}
+
+.nexus-card-head s {
+  color: #94a1b6;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.nexus-product-image {
+  min-height: 178px;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #232323, #111);
+  border-left: 1.5px solid #15203a;
+  border-right: 1.5px solid #15203a;
+}
+
+.nexus-product-image img {
+  width: min(100%, 220px);
+  max-height: 160px;
+  object-fit: contain;
+  border-radius: 10px;
+  filter: drop-shadow(0 18px 18px rgba(0, 0, 0, 0.35));
+}
+
+.nexus-card-foot {
+  min-height: 94px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 24px;
+  border: 1.5px solid #15203a;
+  border-top: 0;
+  border-radius: 0 0 12px 12px;
+}
+
+.nexus-card-foot span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #dfe4e9;
+}
+
+.nexus-card-foot span:first-child {
+  background: #6f7d86;
+}
+
+.nexus-card-foot a {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #115bff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .twm-home-v2 .shop-header {
+    background: #080808;
+  }
+
+  .twm-home-v2 .shop-mainbar {
+    min-height: 52px;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 14px;
+  }
+
+  .desktop-nav-link {
+    display: none !important;
+  }
+
+  .twm-home-v2 .shop-logo img {
+    width: 96px;
+    height: 42px;
+  }
+
+  .twm-home-v2 .wix-browser-links {
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  .twm-home-v2 .wix-browser-links a {
+    color: #f6fbff;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .twm-home-v2 .shop-action-icon {
+    width: 22px;
+    height: 38px;
+    color: rgba(255, 255, 255, 0.88);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    font-size: 1.32rem;
+  }
+
+  .nexus-hero-shell {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 34px 18px 42px;
+  }
+
+  .nexus-badge {
+    margin-bottom: 18px;
+    font-size: 0.66rem;
+  }
+
+  .nexus-hero-copy h1 {
+    font-size: clamp(2.45rem, 13vw, 3.55rem);
+  }
+
+  .nexus-hero-copy .shop-hero-text {
+    font-size: 0.94rem;
+  }
+
+  .nexus-hero-stats {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+
+  .nexus-hero-stats strong {
+    font-size: 1rem;
+  }
+
+  .nexus-product-card {
+    min-height: 0;
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .nexus-card-head {
+    padding: 20px 18px 14px;
+  }
+
+  .nexus-product-image {
+    min-height: 150px;
+  }
+
+  .nexus-card-foot {
+    min-height: 72px;
+    padding: 0 18px;
+  }
+}
