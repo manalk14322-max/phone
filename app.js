@@ -90,6 +90,21 @@
       SMART_WATCH: "Smart Watches",
       MOBILE_ACCESSORIES: "Mobile Accessories",
       ACCESSORIES: "Accessories",
+      PHONE: "Phones",
+      PHOTO_COVER: "Photo Covers",
+      IPHONE_COVER: "iPhone Covers",
+      SAMSUNG_COVER: "Samsung Covers",
+      REDMI_COVER: "Redmi Covers",
+      OPPO_COVER: "Oppo Covers",
+      GOOGLE_PIXEL: "Google Pixel",
+      AIRPOD_COVER: "AirPod Covers",
+      WATCH_BANDS: "Watch Bands",
+      CORDON: "Cordon",
+      TRAVEL_ADAPTER: "Travel Adapter",
+      MEMORY_CARD: "Memory Cards",
+      HEADPHONES: "Headphones",
+      SPEAKER: "Speaker",
+      MOBILE_REPAIR: "Mobile Repair",
     };
     return map[String(key || "").toUpperCase()] || String(key || "Category");
   }
@@ -401,18 +416,27 @@
   }
 
   const FEATURED_CATEGORY_ITEMS = [
-    { key: "FUNDAS", label: "Fundas", sublabel: "Cases and covers", href: "iphone.html?cat=FUNDAS", filter: "FUNDAS" },
-    { key: "SIM", label: "SIM Cards", sublabel: "SIM and eSIM", href: "iphone.html?cat=SIM", filter: "SIM" },
+    { key: "PHOTO_COVER", label: "Photo Covers", sublabel: "Custom photo cases", href: "iphone.html?cat=FUNDAS&sub=PHOTO", filter: "FUNDAS", query: "photo" },
+    { key: "IPHONE_COVER", label: "iPhone Covers", sublabel: "Apple cases", href: "iphone.html?cat=FUNDAS&sub=IPHONE", filter: "FUNDAS", query: "iphone" },
+    { key: "SAMSUNG_COVER", label: "Samsung Covers", sublabel: "Galaxy cases", href: "iphone.html?cat=FUNDAS&sub=SAMSUNG", filter: "FUNDAS", query: "samsung" },
+    { key: "REDMI_COVER", label: "Redmi Covers", sublabel: "Xiaomi cases", href: "iphone.html?cat=FUNDAS&sub=REDMI", filter: "FUNDAS", query: "redmi" },
+    { key: "OPPO_COVER", label: "Oppo Covers", sublabel: "Oppo cases", href: "iphone.html?cat=FUNDAS&sub=OPPO", filter: "FUNDAS", query: "oppo" },
+    { key: "GOOGLE_PIXEL", label: "Google Pixel", sublabel: "Pixel cases", href: "iphone.html?cat=FUNDAS&sub=GOOGLE", filter: "FUNDAS", query: "google pixel" },
+    { key: "AIRPOD_COVER", label: "AirPod Covers", sublabel: "Pods cases", href: "iphone.html?cat=FUNDAS&sub=AIRPODS", filter: "FUNDAS", query: "airpod" },
     { key: "PROTECTORES_PHONE", label: "Screen Protectors", sublabel: "Tempered glass", href: "iphone.html?cat=PROTECTORES_PHONE", filter: "PROTECTORES_PHONE" },
     { key: "PROTECTORES_CAMERA", label: "Camera Protectors", sublabel: "Lens protection", href: "iphone.html?cat=PROTECTORES_CAMERA", filter: "PROTECTORES_CAMERA" },
-    { key: "POWER_BANK", label: "Power Banks", sublabel: "Portable charging", href: "iphone.html?cat=POWER_BANK", filter: "POWER_BANK" },
-    { key: "AUDIO", label: "Audio", sublabel: "Earbuds and speakers", href: "iphone.html?cat=AUDIO", filter: "AUDIO" },
-    { key: "OFERTA", label: "Offers", sublabel: "Deals and promos", href: "iphone.html?cat=OFERTA", filter: "OFERTA" },
-    { key: "SMART_WATCH", label: "Smart Watches", sublabel: "Watches and bands", href: "iphone.html?cat=SMART_WATCH", filter: "SMART_WATCH" },
-    { key: "MOBILE_ACCESSORIES", label: "Mobile Accessories", sublabel: "Holders and stands", href: "iphone.html?cat=MOBILE_ACCESSORIES", filter: "MOBILE_ACCESSORIES" },
-    { key: "ACCESSORIES", label: "Accessories", sublabel: "Chargers and cables", href: "iphone.html?cat=ACCESSORIES", filter: "ACCESSORIES" },
-    { key: "IPHONE_17", label: "iPhone 17", sublabel: "Latest cases", href: "iphone.html?cat=FUNDAS&sub=IPHONE_17", filter: "FUNDAS", query: "iphone 17" },
-    { key: "TWS_EARBUDS", label: "TWS Earbuds", sublabel: "Audio picks", href: "iphone.html?cat=AUDIO", filter: "AUDIO", query: "tws earbuds" },
+    { key: "SMART_WATCH", label: "Smart Watches", sublabel: "Wearables", href: "iphone.html?cat=SMART_WATCH", filter: "SMART_WATCH" },
+    { key: "WATCH_BANDS", label: "Watch Bands", sublabel: "Straps and bands", href: "iphone.html?cat=SMART_WATCH&sub=WATCH_BANDS", filter: "SMART_WATCH", query: "band" },
+    { key: "SIM", label: "SIM Cards", sublabel: "SIM and eSIM", href: "iphone.html?cat=SIM", filter: "SIM" },
+    { key: "MOBILE_ACCESSORIES", label: "Mobile Accessories", sublabel: "Daily essentials", href: "iphone.html?cat=MOBILE_ACCESSORIES", filter: "MOBILE_ACCESSORIES" },
+    { key: "CORDON", label: "Cordon", sublabel: "Ropes and lanyards", href: "iphone.html?cat=MOBILE_ACCESSORIES&sub=CORDON", filter: "MOBILE_ACCESSORIES", query: "cordon" },
+    { key: "TRAVEL_ADAPTER", label: "Travel Adapter", sublabel: "Charging adapters", href: "iphone.html?cat=ACCESSORIES&sub=TRAVEL_ADAPTER", filter: "ACCESSORIES", query: "travel adapter" },
+    { key: "MEMORY_CARD", label: "Memory Cards", sublabel: "Storage cards", href: "iphone.html?cat=ACCESSORIES&sub=MEMORY_CARD", filter: "ACCESSORIES", query: "memory card" },
+    { key: "HEADPHONES", label: "Headphones", sublabel: "Audio gear", href: "iphone.html?cat=AUDIO&sub=HEADPHONES", filter: "AUDIO", query: "headphone" },
+    { key: "SPEAKER", label: "Speaker", sublabel: "Portable sound", href: "iphone.html?cat=AUDIO&sub=SPEAKER", filter: "AUDIO", query: "speaker" },
+    { key: "OFERTA", label: "Offers", sublabel: "Deals and promos", href: "oferta.html", filter: "OFERTA" },
+    { key: "PHONE", label: "Phones", sublabel: "Smartphones", href: "iphone.html?cat=PHONE", filter: "PHONE" },
+    { key: "MOBILE_REPAIR", label: "Mobile Repair", sublabel: "Repair support", href: "contacto.html", filter: "ACCESSORIES", query: "repair" },
   ];
 
   function pickFeaturedCandidates(item) {
@@ -566,18 +590,11 @@
 
   function renderCategoryCards() {
     if (!els.categoryGrid || els.categoryGrid.dataset.static === "1") return;
-    const cards = [
-      { key: "FUNDAS", label: "Fundas", href: "iphone.html?cat=FUNDAS" },
-      { key: "SIM", label: "SIM Cards", href: "iphone.html?cat=SIM" },
-      { key: "PROTECTORES_PHONE", label: "Protectores Phone", href: "iphone.html?cat=PROTECTORES_PHONE" },
-      { key: "PROTECTORES_CAMERA", label: "Protectores Camera", href: "iphone.html?cat=PROTECTORES_CAMERA" },
-      { key: "POWER_BANK", label: "Power Bank", href: "iphone.html?cat=POWER_BANK" },
-      { key: "AUDIO", label: "Audio", href: "iphone.html?cat=AUDIO" },
-      { key: "OFERTA", label: "Oferta", href: "iphone.html?cat=OFERTA" },
-      { key: "SMART_WATCH", label: "Smart Watch", href: "iphone.html?cat=SMART_WATCH" },
-      { key: "MOBILE_ACCESSORIES", label: "Mobile Accessories", href: "iphone.html?cat=MOBILE_ACCESSORIES" },
-      { key: "ACCESSORIES", label: "Accessories", href: "iphone.html?cat=ACCESSORIES" },
-    ];
+    const cards = FEATURED_CATEGORY_ITEMS.map((item) => ({
+      key: item.filter || item.key,
+      label: item.label,
+      href: item.href,
+    }));
 
     els.categoryGrid.innerHTML = cards
       .map(
