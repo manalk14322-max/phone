@@ -210,7 +210,7 @@
 
   function refreshRevealTargets() {
     const targets = document.querySelectorAll(
-      ".hero-grid, .section, .category-card, .featured-category-card, .spotlight-card, .product-card, .trust-item, .newsletter-box, .repair-offer, .review-card, .faq-section details"
+      ".hero-grid, .section, .category-card, .featured-category-card, .spotlight-card, .product-card, .trust-item, .newsletter-box, .repair-offer"
     );
     targets.forEach((el) => {
       if (!el.classList.contains("reveal-item")) {
@@ -951,7 +951,7 @@
     });
 
     if (window.ScrollTrigger) {
-      gsapLib.from(".repair-offer, .category-tile, .review-card, .faq-section details", {
+      gsapLib.from(".repair-offer, .category-tile", {
         scrollTrigger: { trigger: ".repair-offer", start: "top 82%" },
         opacity: 0,
         y: 42,
