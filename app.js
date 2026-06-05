@@ -210,7 +210,7 @@
 
   function refreshRevealTargets() {
     const targets = document.querySelectorAll(
-      ".hero-grid, .section, .category-card, .featured-category-card, .spotlight-card, .product-card, .trust-item, .newsletter-box"
+      ".hero-grid, .section, .category-card, .featured-category-card, .spotlight-card, .product-card, .trust-item, .newsletter-box, .repair-offer, .service-card, .why-card, .process-card, .review-card, .faq-section details"
     );
     targets.forEach((el) => {
       if (!el.classList.contains("reveal-item")) {
@@ -928,11 +928,62 @@
     });
   }
 
+  function initPremiumAnimations() {
+    const gsapLib = window.gsap;
+    if (!gsapLib || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    if (window.ScrollTrigger) gsapLib.registerPlugin(window.ScrollTrigger);
+
+    gsapLib.from(".wix-hero-copy h1", {
+      y: 54,
+      opacity: 0,
+      duration: 0.85,
+      ease: "power3.out",
+    });
+
+    gsapLib.from(".hero-btn", {
+      y: 26,
+      opacity: 0,
+      duration: 0.7,
+      delay: 0.18,
+      stagger: 0.12,
+      ease: "power3.out",
+    });
+
+    if (window.ScrollTrigger) {
+      gsapLib.from(".service-card, .why-card, .process-card, .review-card, .faq-section details", {
+        scrollTrigger: { trigger: ".repair-services", start: "top 82%" },
+        opacity: 0,
+        y: 42,
+        stagger: 0.08,
+        duration: 0.7,
+        ease: "power3.out",
+      });
+    }
+
+    document.querySelectorAll(".counter[data-target]").forEach((counter) => {
+      const target = Number(counter.dataset.target || 0);
+      if (!target) return;
+      const hasDecimal = String(counter.dataset.target).includes(".");
+      gsapLib.to(counter, {
+        innerText: target,
+        duration: 2,
+        snap: hasDecimal ? false : { innerText: 1 },
+        ease: "power1.out",
+        onUpdate() {
+          const value = Number(counter.innerText || 0);
+          counter.textContent = hasDecimal ? value.toFixed(1) : Math.round(value).toLocaleString();
+        },
+      });
+    });
+  }
+
   async function init() {
     bindEvents();
     initHeroSlider();
     initHeroParallax();
     initRevealAnimations();
+    initPremiumAnimations();
     state.visibleCount = getPageSize();
     state.cart = readCart();
     renderCart();

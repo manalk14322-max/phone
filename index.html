@@ -3,13 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The World Mobile | Premium Ecommerce Store</title>
-  <meta name="description" content="Modern ecommerce mobile store for Spain customers." />
+  <title>Phone Repair Spain | Fast Mobile Repair Services</title>
+  <meta name="description" content="Professional phone repair services in Spain. Screen replacement, battery replacement, water damage repair, mobile accessories and same-day support." />
+  <meta property="og:title" content="Phone Repair Spain | The World Mobile" />
+  <meta property="og:description" content="Fast mobile phone repairs in Spain with genuine parts, certified technicians, and WhatsApp support." />
+  <meta property="og:image" content="logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
-  <link rel="stylesheet" href="styles.css?v=20260605-03" />
+  <link rel="stylesheet" href="styles.css?v=20260605-04" />
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 </head>
 <body class="home-page twm-home-v2">
   <header class="shop-header">
@@ -97,12 +102,17 @@
           </article>
 
           <div class="wix-hero-copy">
-            <p class="shop-kicker">Premium mobile store in Spain</p>
-            <h1>Create your mobile style without limits.</h1>
-            <p class="shop-hero-text">Shop phones, cases, screen protectors, SIM cards, chargers, audio and everyday accessories with a clean shopping experience.</p>
+            <p class="shop-kicker">Fast mobile repair and accessories in Spain</p>
+            <h1>Fast & reliable mobile phone repairs in Spain.</h1>
+            <p class="shop-hero-text">Screen repairs, battery replacements, water damage recovery, phone covers, protectors and accessories by trusted mobile specialists.</p>
             <div class="shop-hero-actions">
-              <a class="shop-btn primary" href="#featured-categories">Shop Categories</a>
-              <a class="shop-btn secondary" href="store.html">Browse Catalog</a>
+              <a class="shop-btn primary hero-btn" href="#repair-quote">Get Free Quote</a>
+              <a class="shop-btn secondary hero-btn" href="https://wa.me/34600000000?text=Hello%20The%20World%20Mobile,%20I%20need%20a%20repair%20quote.">WhatsApp Now</a>
+            </div>
+            <div class="hero-trust-pills" aria-label="Repair trust indicators">
+              <span>5-Star 4.9 Rating</span>
+              <span>5000+ Repairs</span>
+              <span>Same-Day Service</span>
             </div>
           </div>
         </div>
@@ -126,6 +136,68 @@
           <p>Clear cart, quick customer details and secure payment flow.</p>
           <div class="metric-bar"><strong>2.1k+</strong><span></span></div>
         </article>
+      </div>
+    </section>
+
+    <section class="shop-container repair-offer glass-section" id="repair-quote">
+      <div>
+        <p class="shop-kicker">Limited time offer</p>
+        <h2>Free diagnosis + 20% off screen repairs this week</h2>
+        <p>Send your phone model and issue on WhatsApp. Our team will confirm the repair price, time, and available parts.</p>
+      </div>
+      <div class="repair-offer-actions">
+        <a class="shop-btn primary" href="https://wa.me/34600000000?text=Hello%20The%20World%20Mobile,%20I%20want%20a%20free%20repair%20diagnosis.">WhatsApp Now</a>
+        <a class="shop-btn secondary" href="tel:+34600000000">Call Now</a>
+      </div>
+    </section>
+
+    <section class="shop-container repair-services services" aria-label="Mobile repair services">
+      <div class="category-showcase-head">
+        <p class="shop-kicker">Repair services</p>
+        <h2>Professional repair support for every common issue</h2>
+      </div>
+      <article class="service-card">
+        <i class="ti ti-device-mobile"></i>
+        <strong>Screen Replacement</strong>
+        <span>Cracked glass, display issues, touch problems and protector fitting.</span>
+      </article>
+      <article class="service-card">
+        <i class="ti ti-battery-charging"></i>
+        <strong>Battery Replacement</strong>
+        <span>Fast battery checks, replacement options and charging diagnostics.</span>
+      </article>
+      <article class="service-card">
+        <i class="ti ti-droplet"></i>
+        <strong>Water Damage Recovery</strong>
+        <span>Diagnosis, cleaning, internal inspection and repair guidance.</span>
+      </article>
+      <article class="service-card">
+        <i class="ti ti-tools"></i>
+        <strong>Mobile Repair</strong>
+        <span>Camera, speaker, charging port, software and accessory support.</span>
+      </article>
+    </section>
+
+    <section class="shop-container why-process-grid">
+      <div class="why-card">
+        <p class="shop-kicker">Why choose us</p>
+        <h2>Built for trust before checkout</h2>
+        <ul>
+          <li>Certified technicians</li>
+          <li>Genuine parts options</li>
+          <li>Warranty included</li>
+          <li>Fast same-day support</li>
+        </ul>
+      </div>
+      <div class="process-card">
+        <p class="shop-kicker">Repair process</p>
+        <h2>Simple 4-step service</h2>
+        <ol>
+          <li><span>1</span>Book repair</li>
+          <li><span>2</span>Device diagnosis</li>
+          <li><span>3</span>Repair confirmation</li>
+          <li><span>4</span>Pickup or delivery</li>
+        </ol>
       </div>
     </section>
 
@@ -256,6 +328,41 @@
       </article>
     </section>
 
+    <section class="shop-container repair-stats" aria-label="Repair statistics">
+      <article><strong class="counter" data-target="5000">0</strong><span>Repairs completed</span></article>
+      <article><strong class="counter" data-target="4.9">0</strong><span>Average rating</span></article>
+      <article><strong class="counter" data-target="24">0</strong><span>Hour dispatch</span></article>
+    </section>
+
+    <section class="shop-container testimonials-section">
+      <div class="category-showcase-head">
+        <p class="shop-kicker">Customer reviews</p>
+        <h2>Trusted by mobile customers in Spain</h2>
+      </div>
+      <article class="review-card"><strong>5-Star Review</strong><p>My iPhone screen was repaired quickly and the team explained everything clearly.</p><span>- David M.</span></article>
+      <article class="review-card"><strong>5-Star Review</strong><p>Great WhatsApp support. I found a case, protector and repair quote in minutes.</p><span>- Sara P.</span></article>
+      <article class="review-card"><strong>5-Star Review</strong><p>Professional service, clean store experience and fast delivery for accessories.</p><span>- Miguel R.</span></article>
+    </section>
+
+    <section class="shop-container faq-section">
+      <div class="category-showcase-head">
+        <p class="shop-kicker">FAQ</p>
+        <h2>Repair questions customers ask first</h2>
+      </div>
+      <details>
+        <summary>How long does a repair take?</summary>
+        <p>Most common repairs can be handled the same day, depending on parts availability and device condition.</p>
+      </details>
+      <details>
+        <summary>Do you provide genuine parts?</summary>
+        <p>We explain available part options before repair, including genuine or premium compatible parts where available.</p>
+      </details>
+      <details>
+        <summary>Can I get a quote on WhatsApp?</summary>
+        <p>Yes. Send your phone model, issue and photo if possible. We will reply with the next steps.</p>
+      </details>
+    </section>
+
     <section class="shop-container promo-card-grid" id="featured-spotlight">
       <article class="shop-promo-card blue">
         <div>
@@ -344,6 +451,16 @@
     <div class="shop-footer-bottom">(c) 2026 The World Mobile. All rights reserved.</div>
   </footer>
 
+  <a class="floating-whatsapp" href="https://wa.me/34600000000?text=Hello%20The%20World%20Mobile,%20I%20need%20help." aria-label="WhatsApp support">
+    <i class="ti ti-brand-whatsapp"></i>
+  </a>
+
+  <div class="sticky-cta-bar" aria-label="Quick contact actions">
+    <a href="tel:+34600000000">Call Now</a>
+    <a href="https://wa.me/34600000000?text=Hello%20The%20World%20Mobile,%20I%20need%20a%20quote.">WhatsApp</a>
+    <a href="#repair-quote">Get Quote</a>
+  </div>
+
   <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
     <header class="drawer-head">
       <h3>Your Cart</h3>
@@ -382,7 +499,7 @@
     </div>
   </div>
 
-  <script src="catalog-sim.js?v=20260403-02"></script>
-  <script src="app.js?v=20260524-01"></script>
+  <script defer src="catalog-sim.js?v=20260403-02"></script>
+  <script defer src="app.js?v=20260605-01"></script>
 </body>
 </html>

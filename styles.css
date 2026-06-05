@@ -8100,3 +8100,375 @@ body.category-page-v2 .twm-topline {
     transform: translateX(0) !important;
   }
 }
+
+/* Repair-focused conversion sections. */
+.twm-home-v2 .hero-trust-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.twm-home-v2 .hero-trust-pills span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 14px;
+  color: #071d42;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid #d8e6f7;
+  border-radius: 999px;
+  box-shadow: 0 12px 28px rgba(7, 29, 66, 0.08);
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
+.twm-home-v2 .glass-section,
+.twm-home-v2 .repair-offer {
+  margin-top: 34px;
+  padding: clamp(22px, 4vw, 34px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 22px;
+  align-items: center;
+  background:
+    linear-gradient(135deg, rgba(0, 87, 200, 0.08), rgba(255, 122, 26, 0.09)),
+    rgba(255, 255, 255, 0.88);
+  border: 1px solid #dbe8f8;
+  border-radius: 18px;
+  box-shadow: 0 22px 60px rgba(7, 29, 66, 0.09);
+  backdrop-filter: blur(18px);
+}
+
+.twm-home-v2 .repair-offer h2,
+.twm-home-v2 .why-card h2,
+.twm-home-v2 .process-card h2,
+.twm-home-v2 .repair-services h2,
+.twm-home-v2 .testimonials-section h2,
+.twm-home-v2 .faq-section h2 {
+  color: #061b3f;
+}
+
+.twm-home-v2 .repair-offer h2 {
+  max-width: 720px;
+  margin: 4px 0 10px;
+  font-size: clamp(1.65rem, 3.5vw, 2.45rem);
+  line-height: 1.08;
+}
+
+.twm-home-v2 .repair-offer p {
+  max-width: 660px;
+  margin: 0;
+  color: #516985;
+}
+
+.twm-home-v2 .repair-offer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.twm-home-v2 .repair-services {
+  margin-top: 42px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.twm-home-v2 .repair-services .category-showcase-head,
+.twm-home-v2 .testimonials-section .category-showcase-head,
+.twm-home-v2 .faq-section .category-showcase-head {
+  grid-column: 1 / -1;
+}
+
+.twm-home-v2 .service-card,
+.twm-home-v2 .why-card,
+.twm-home-v2 .process-card,
+.twm-home-v2 .review-card,
+.twm-home-v2 .faq-section details {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #dce8f7;
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(7, 29, 66, 0.07);
+}
+
+.twm-home-v2 .service-card {
+  min-height: 218px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+}
+
+.twm-home-v2 .service-card:hover,
+.twm-home-v2 .review-card:hover {
+  transform: translateY(-6px);
+  border-color: #b8d2f4;
+  box-shadow: 0 24px 58px rgba(0, 87, 200, 0.13);
+}
+
+.twm-home-v2 .service-card i {
+  width: 46px;
+  height: 46px;
+  display: inline-grid;
+  place-items: center;
+  color: #0057c8;
+  background: #eef6ff;
+  border-radius: 14px;
+  font-size: 1.55rem;
+}
+
+.twm-home-v2 .service-card strong,
+.twm-home-v2 .review-card strong {
+  color: #061b3f;
+  font-size: 1.02rem;
+  font-weight: 900;
+}
+
+.twm-home-v2 .service-card span,
+.twm-home-v2 .review-card p,
+.twm-home-v2 .review-card span,
+.twm-home-v2 .faq-section p {
+  color: #536b86;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.twm-home-v2 .why-process-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 18px;
+}
+
+.twm-home-v2 .why-card,
+.twm-home-v2 .process-card {
+  padding: clamp(22px, 4vw, 34px);
+}
+
+.twm-home-v2 .why-card ul,
+.twm-home-v2 .process-card ol {
+  margin: 18px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  list-style: none;
+}
+
+.twm-home-v2 .why-card li,
+.twm-home-v2 .process-card li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #0b2348;
+  font-weight: 850;
+}
+
+.twm-home-v2 .why-card li::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #ff7a1a;
+  box-shadow: 0 0 0 5px #fff1e7;
+}
+
+.twm-home-v2 .process-card li span {
+  width: 30px;
+  height: 30px;
+  display: inline-grid;
+  place-items: center;
+  color: #fff;
+  background: #0057c8;
+  border-radius: 10px;
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
+.twm-home-v2 .repair-stats {
+  margin-top: 34px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  background: #061b3f;
+  border-radius: 18px;
+  box-shadow: 0 22px 58px rgba(6, 27, 63, 0.18);
+}
+
+.twm-home-v2 .repair-stats article {
+  min-height: 104px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 6px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  text-align: center;
+}
+
+.twm-home-v2 .repair-stats strong {
+  color: #ffb44f;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  line-height: 1;
+}
+
+.twm-home-v2 .repair-stats span {
+  color: #dce8f7;
+  font-weight: 800;
+}
+
+.twm-home-v2 .testimonials-section {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.twm-home-v2 .review-card {
+  min-height: 188px;
+  padding: 24px;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+}
+
+.twm-home-v2 .review-card strong {
+  color: #ff7a1a;
+}
+
+.twm-home-v2 .review-card p {
+  margin: 0;
+}
+
+.twm-home-v2 .review-card span {
+  color: #061b3f;
+  font-weight: 900;
+}
+
+.twm-home-v2 .faq-section {
+  margin-top: 40px;
+  display: grid;
+  gap: 12px;
+}
+
+.twm-home-v2 .faq-section details {
+  padding: 0;
+}
+
+.twm-home-v2 .faq-section summary {
+  min-height: 58px;
+  padding: 18px 22px;
+  cursor: pointer;
+  color: #061b3f;
+  font-weight: 900;
+}
+
+.twm-home-v2 .faq-section p {
+  margin: 0;
+  padding: 0 22px 20px;
+}
+
+.twm-home-v2 .floating-whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 86px;
+  z-index: 900;
+  width: 58px;
+  height: 58px;
+  display: inline-grid;
+  place-items: center;
+  color: #fff;
+  background: #12b76a;
+  border: 3px solid #fff;
+  border-radius: 999px;
+  box-shadow: 0 18px 40px rgba(18, 183, 106, 0.32);
+  font-size: 1.75rem;
+  text-decoration: none;
+}
+
+.twm-home-v2 .sticky-cta-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  z-index: 890;
+  width: min(520px, calc(100vw - 24px));
+  min-height: 56px;
+  padding: 7px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+  background: rgba(6, 27, 63, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  box-shadow: 0 20px 54px rgba(6, 27, 63, 0.28);
+  transform: translateX(-50%);
+  backdrop-filter: blur(16px);
+}
+
+.twm-home-v2 .sticky-cta-bar a {
+  display: inline-grid;
+  place-items: center;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  font-size: 0.86rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.twm-home-v2 .sticky-cta-bar a:nth-child(2) {
+  color: #061b3f;
+  background: #ffb44f;
+}
+
+@media (max-width: 980px) {
+  .twm-home-v2 .repair-services,
+  .twm-home-v2 .testimonials-section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .twm-home-v2 .repair-offer,
+  .twm-home-v2 .why-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .twm-home-v2 .repair-offer-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .twm-home-v2 .hero-trust-pills {
+    justify-content: flex-start;
+  }
+
+  .twm-home-v2 .repair-services,
+  .twm-home-v2 .testimonials-section,
+  .twm-home-v2 .repair-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .twm-home-v2 .service-card {
+    min-height: auto;
+  }
+
+  .twm-home-v2 .floating-whatsapp {
+    right: 14px;
+    bottom: 82px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .twm-home-v2 .shop-footer {
+    padding-bottom: 92px;
+  }
+}
