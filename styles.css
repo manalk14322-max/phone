@@ -7881,6 +7881,61 @@ body.category-page-v2 .twm-topline {
   color: #fff !important;
 }
 
+/* One-line moving category carousel. */
+.twm-home-v2 .category-showcase {
+  display: block !important;
+  overflow: hidden;
+}
+
+.twm-home-v2 .category-showcase-head {
+  margin-bottom: 14px;
+}
+
+.twm-home-v2 .category-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 2px 0 12px;
+  mask-image: linear-gradient(90deg, transparent 0, #000 42px, #000 calc(100% - 42px), transparent 100%);
+}
+
+.twm-home-v2 .category-marquee-track {
+  width: max-content;
+  display: flex;
+  align-items: stretch;
+  gap: 14px;
+  animation: categorySlide 55s linear infinite;
+  will-change: transform;
+}
+
+.twm-home-v2 .category-marquee:hover .category-marquee-track {
+  animation-play-state: paused;
+}
+
+.twm-home-v2 .category-marquee .category-tile {
+  width: 285px;
+  min-width: 285px;
+  min-height: 96px;
+  grid-template-columns: 62px 1fr;
+}
+
+@keyframes categorySlide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% + 100vw));
+  }
+}
+
+@media (max-width: 760px) {
+  .twm-home-v2 .category-marquee .category-tile {
+    width: 250px;
+    min-width: 250px;
+  }
+}
+
 /* Right-side drawer aligned with hamburger button. */
 .twm-home-v2 .wix-browser-links.open {
   inset: 0 0 0 auto !important;

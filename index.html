@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
-  <link rel="stylesheet" href="styles.css?v=20260605-01" />
+  <link rel="stylesheet" href="styles.css?v=20260605-02" />
 </head>
 <body class="home-page twm-home-v2">
   <header class="shop-header">
@@ -134,90 +134,94 @@
         <p class="shop-kicker">Complete categories</p>
         <h2>Shop everything in one place</h2>
       </div>
-      <a class="category-tile" href="iphone.html?cat=FUNDAS&sub=PHOTO">
-        <img src="2.png" alt="Photo covers" />
-        <div><strong>Photo Covers</strong><span>Custom photo cases</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=FUNDAS&sub=IPHONE">
-        <img src="2.png" alt="iPhone covers" />
-        <div><strong>iPhone Covers</strong><span>Apple cases</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=FUNDAS&sub=SAMSUNG">
-        <img src="2.png" alt="Samsung covers" />
-        <div><strong>Samsung Covers</strong><span>Galaxy cases</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=FUNDAS&sub=REDMI">
-        <img src="2.png" alt="Redmi covers" />
-        <div><strong>Redmi Covers</strong><span>Xiaomi cases</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=FUNDAS&sub=OPPO">
-        <img src="2.png" alt="Oppo covers" />
-        <div><strong>Oppo Covers</strong><span>Oppo cases</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=FUNDAS&sub=GOOGLE">
-        <img src="2.png" alt="Google Pixel covers" />
-        <div><strong>Google Pixel</strong><span>Pixel cases</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=FUNDAS&sub=AIRPODS">
-        <img src="1.png" alt="AirPod covers" />
-        <div><strong>AirPod Covers</strong><span>Pods cases</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=PROTECTORES_PHONE">
-        <img src="1.png" alt="Screen protectors" />
-        <div><strong>Screen Protectors</strong><span>9H glass</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=PROTECTORES_CAMERA">
-        <img src="2.png" alt="Camera protectors" />
-        <div><strong>Camera Protectors</strong><span>Lens protection</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=SMART_WATCH">
-        <img src="logo.png" alt="Smart watches" />
-        <div><strong>Smart Watches</strong><span>Wearables</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=SMART_WATCH&sub=WATCH_BANDS">
-        <img src="logo.png" alt="Watch bands" />
-        <div><strong>Watch Bands</strong><span>Straps and bands</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=SIM">
-        <img src="logo.png" alt="SIM cards" />
-        <div><strong>SIM Cards</strong><span>SIM and eSIM</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=MOBILE_ACCESSORIES">
-        <img src="1.png" alt="Mobile accessories" />
-        <div><strong>Mobile Accessories</strong><span>Daily essentials</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=MOBILE_ACCESSORIES&sub=CORDON">
-        <img src="1.png" alt="Cordon" />
-        <div><strong>Cordon</strong><span>Ropes and lanyards</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=ACCESSORIES&sub=TRAVEL_ADAPTER">
-        <img src="logo.png" alt="Travel adapter" />
-        <div><strong>Travel Adapter</strong><span>Charging adapters</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=ACCESSORIES&sub=MEMORY_CARD">
-        <img src="logo.png" alt="Memory cards" />
-        <div><strong>Memory Cards</strong><span>Storage cards</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=AUDIO&sub=HEADPHONES">
-        <img src="logo.png" alt="Headphones" />
-        <div><strong>Headphones</strong><span>Audio gear</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=AUDIO&sub=SPEAKER">
-        <img src="logo.png" alt="Speaker" />
-        <div><strong>Speaker</strong><span>Portable sound</span></div>
-      </a>
-      <a class="category-tile" href="oferta.html">
-        <img src="2.png" alt="Offers" />
-        <div><strong>Offers</strong><span>Deals and promos</span></div>
-      </a>
-      <a class="category-tile" href="iphone.html?cat=PHONE">
-        <img src="logo.png" alt="Phones" />
-        <div><strong>Phones</strong><span>Smartphones</span></div>
-      </a>
-      <a class="category-tile" href="contacto.html">
-        <img src="logo.png" alt="Mobile repair" />
-        <div><strong>Mobile Repair</strong><span>Repair support</span></div>
-      </a>
+      <div class="category-marquee" aria-label="Moving category list">
+        <div class="category-marquee-track">
+          <a class="category-tile" href="iphone.html?cat=FUNDAS&sub=PHOTO">
+            <img src="2.png" alt="Photo covers" />
+            <div><strong>Photo Covers</strong><span>Custom photo cases</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=FUNDAS&sub=IPHONE">
+            <img src="2.png" alt="iPhone covers" />
+            <div><strong>iPhone Covers</strong><span>Apple cases</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=FUNDAS&sub=SAMSUNG">
+            <img src="2.png" alt="Samsung covers" />
+            <div><strong>Samsung Covers</strong><span>Galaxy cases</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=FUNDAS&sub=REDMI">
+            <img src="2.png" alt="Redmi covers" />
+            <div><strong>Redmi Covers</strong><span>Xiaomi cases</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=FUNDAS&sub=OPPO">
+            <img src="2.png" alt="Oppo covers" />
+            <div><strong>Oppo Covers</strong><span>Oppo cases</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=FUNDAS&sub=GOOGLE">
+            <img src="2.png" alt="Google Pixel covers" />
+            <div><strong>Google Pixel</strong><span>Pixel cases</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=FUNDAS&sub=AIRPODS">
+            <img src="1.png" alt="AirPod covers" />
+            <div><strong>AirPod Covers</strong><span>Pods cases</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=PROTECTORES_PHONE">
+            <img src="1.png" alt="Screen protectors" />
+            <div><strong>Screen Protectors</strong><span>9H glass</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=PROTECTORES_CAMERA">
+            <img src="2.png" alt="Camera protectors" />
+            <div><strong>Camera Protectors</strong><span>Lens protection</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=SMART_WATCH">
+            <img src="logo.png" alt="Smart watches" />
+            <div><strong>Smart Watches</strong><span>Wearables</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=SMART_WATCH&sub=WATCH_BANDS">
+            <img src="logo.png" alt="Watch bands" />
+            <div><strong>Watch Bands</strong><span>Straps and bands</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=SIM">
+            <img src="logo.png" alt="SIM cards" />
+            <div><strong>SIM Cards</strong><span>SIM and eSIM</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=MOBILE_ACCESSORIES">
+            <img src="1.png" alt="Mobile accessories" />
+            <div><strong>Mobile Accessories</strong><span>Daily essentials</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=MOBILE_ACCESSORIES&sub=CORDON">
+            <img src="1.png" alt="Cordon" />
+            <div><strong>Cordon</strong><span>Ropes and lanyards</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=ACCESSORIES&sub=TRAVEL_ADAPTER">
+            <img src="logo.png" alt="Travel adapter" />
+            <div><strong>Travel Adapter</strong><span>Charging adapters</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=ACCESSORIES&sub=MEMORY_CARD">
+            <img src="logo.png" alt="Memory cards" />
+            <div><strong>Memory Cards</strong><span>Storage cards</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=AUDIO&sub=HEADPHONES">
+            <img src="logo.png" alt="Headphones" />
+            <div><strong>Headphones</strong><span>Audio gear</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=AUDIO&sub=SPEAKER">
+            <img src="logo.png" alt="Speaker" />
+            <div><strong>Speaker</strong><span>Portable sound</span></div>
+          </a>
+          <a class="category-tile" href="oferta.html">
+            <img src="2.png" alt="Offers" />
+            <div><strong>Offers</strong><span>Deals and promos</span></div>
+          </a>
+          <a class="category-tile" href="iphone.html?cat=PHONE">
+            <img src="logo.png" alt="Phones" />
+            <div><strong>Phones</strong><span>Smartphones</span></div>
+          </a>
+          <a class="category-tile" href="contacto.html">
+            <img src="logo.png" alt="Mobile repair" />
+            <div><strong>Mobile Repair</strong><span>Repair support</span></div>
+          </a>
+        </div>
+      </div>
     </section>
 
     <section class="shop-container brand-section">
